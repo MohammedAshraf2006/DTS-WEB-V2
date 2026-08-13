@@ -1,9 +1,15 @@
 {
   "hero": {
     "badge": "E-Invoicing & E-Signature Automation",
-    "title": "Your all-in-one platform for e-invoicing and e-signature",
+    "titlePrefix": "Everything about your",
+    "titleSuffix": "in one platform",
+    "rotatingWords": {
+      "invoice": "Invoice",
+      "receipt": "Receipt",
+      "signature": "E-Signature"
+    },
     "subtitle": "We connect your business directly to the Egyptian Tax Authority with reliable, fast-to-deploy invoicing, receipts, and e-signature solutions.",
-    "ctaPrimary": "Contact Us",
+    "ctaPrimary": "Get Your Signature",
     "ctaSecondary": "Discover Our Products",
     "trustBadge": "Certified by the Egyptian Tax Authority"
   },
