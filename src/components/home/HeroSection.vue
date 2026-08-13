@@ -95,13 +95,6 @@ onBeforeUnmount(() => {
     <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 lg:grid-cols-2 lg:gap-10 lg:px-10">
       <!-- النص -->
       <div class="text-center lg:text-start">
-        <span
-          class="reveal inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-4 py-1.5 text-xs font-bold text-primary shadow-sm"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow"></span>
-          {{ t('home.hero.badge') }}
-        </span>
-
         <h1
           class="reveal mt-6 font-heading text-4xl font-extrabold leading-tight text-text-base sm:text-5xl lg:text-[3.25rem]"
           style="transition-delay: .08s"
