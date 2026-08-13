@@ -5,6 +5,88 @@ import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t } = useI18n()
 
+const heroBackground = ref(null)
+let vantaEffect = null
+let themeObserver = null
+
+const loadScript = (src, key) => {
+  return new Promise((resolve, reject) => {
+    const existingScript = document.querySelector(`script[data-vanta-key="${key}"]`)
+
+    if (existingScript) {
+      if (existingScript.dataset.loaded === 'true') {
+        resolve()
+        return
+      }
+
+      existingScript.addEventListener('load', () => resolve(), { once: true })
+      existingScript.addEventListener('error', () => reject(new Error(`Failed to load ${key}`)), { once: true })
+      return
+    }
+
+    const script = document.createElement('script')
+    script.src = src
+    script.async = true
+    script.dataset.vantaKey = key
+    script.addEventListener('load', () => {
+      script.dataset.loaded = 'true'
+      resolve()
+    }, { once: true })
+    script.addEventListener('error', () => reject(new Error(`Failed to load ${key}`)), { once: true })
+    document.head.appendChild(script)
+  })
+}
+
+const initHeroBackground = async () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!heroBackground.value || prefersReducedMotion) return
+
+  try {
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js', 'three-r134')
+    await loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js', 'vanta-globe')
+
+    if (window.VANTA && window.VANTA.GLOBE && heroBackground.value) {
+      if (vantaEffect) {
+        vantaEffect.destroy()
+      }
+
+      const isDark = document.documentElement.classList.contains('dark')
+      const themeColors = isDark
+        ? {
+            backgroundColor: 0x0a1424,
+            color: 0x76b8ff,
+            color2: 0xcfe7ff,
+            alpha: 0.18
+          }
+        : {
+            backgroundColor: 0xf8fafc,
+            color: 0x1c6e8e,
+            color2: 0x9ec7f9,
+            alpha: 0.14
+          }
+
+      vantaEffect = window.VANTA.GLOBE({
+        el: heroBackground.value,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: themeColors.color,
+        color2: themeColors.color2,
+        backgroundColor: themeColors.backgroundColor,
+        size: 0.7,
+        alpha: themeColors.alpha,
+        backgroundAlpha: 0
+      })
+    }
+  } catch (error) {
+    console.warn('Hero background failed to initialize:', error)
+  }
+}
+
 // أيقونات دائرية فوق العنوان (بروح صف الأيقونات في هيرو notion.com)
 // لكن كل أيقونة ليها علاقة مباشرة بمنتجاتنا: فاتورة / إيصال / توقيع / أمان / سحابة / تكامل / نقاط بيع
 const heroIcons = [
@@ -39,20 +121,42 @@ let rotationTimer = null
 
 onMounted(() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (prefersReducedMotion) return
+  if (!prefersReducedMotion) {
+    rotationTimer = setInterval(() => {
+      activeIndex.value = (activeIndex.value + 1) % rotatingWords.length
+    }, 2400)
+  }
 
-  rotationTimer = setInterval(() => {
-    activeIndex.value = (activeIndex.value + 1) % rotatingWords.length
-  }, 2400)
+  initHeroBackground()
+
+  themeObserver = new MutationObserver(() => {
+    initHeroBackground()
+  })
+
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  })
 })
 
 onBeforeUnmount(() => {
   if (rotationTimer) clearInterval(rotationTimer)
+
+  if (themeObserver) {
+    themeObserver.disconnect()
+    themeObserver = null
+  }
+
+  if (vantaEffect) {
+    vantaEffect.destroy()
+    vantaEffect = null
+  }
 })
 </script>
 
 <template>
   <section class="relative overflow-hidden bg-surface pb-20 pt-40 lg:pb-28 lg:pt-48">
+    <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70"></div>
     <!-- خلفية متدرجة هادئة -->
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/60 via-transparent to-transparent"></div>
 
@@ -71,7 +175,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <!-- العنوان الرئيسي مع الكلمة المتغيّرة (نفس فكرة هيرو notion.com) -->
+      <!-- العنوان الرئيسي مع الكلمة المتغيّرة (نفس فكرة هيرو) -->
       <h1
         class="reveal mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-sans text-4xl font-extrabold leading-[1.1] tracking-tight text-text-base sm:text-5xl lg:text-6xl xl:text-7xl"
         style="transition-delay: .08s"
