@@ -4,8 +4,8 @@
     "titlePrefix": "Everything about your",
     "titleSuffix": "in one platform",
     "rotatingWords": {
-      "invoice": "Invoice",
-      "receipt": "Receipt",
+      "invoice": "E-Invoice",
+      "receipt": "E-Receipt",
       "signature": "E-Signature"
     },
     "subtitle": "We connect your business directly to the Egyptian Tax Authority with reliable, fast-to-deploy invoicing, receipts, and e-signature solutions.",
