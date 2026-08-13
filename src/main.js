@@ -4,6 +4,9 @@ import router from './router'
 import i18n from './i18n'
 import './composables/useTheme' // يطبّق الوضع الداكن/الفاتح فورًا قبل الـ render
 import './style.css'
+import ApexCharts from 'apexcharts'
+
+window.ApexCharts = ApexCharts
 
 const app = createApp(App)
 

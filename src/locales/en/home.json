@@ -48,7 +48,8 @@
         ]
       }
     },
-    "cta": "Learn more"
+    "cta": "Learn more",
+    "viewAll": "See all products"
   },
   "services": {
     "title": "Our Services",
@@ -67,9 +68,9 @@
   },
   "stats": {
     "items": [
-      { "value": "10,000+", "label": "Clients" },
-      { "value": "95%", "label": "Annual growth" },
-      { "value": "100+", "label": "Experts" }
+      { "value": "10,000+", "label": "Clients", "growth": "+12%" },
+      { "value": "95%", "label": "Annual growth", "growth": "+18%" },
+      { "value": "100+", "label": "Experts", "growth": "+8%" }
     ]
   },
   "cta": {
