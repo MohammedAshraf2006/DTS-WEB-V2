@@ -1,9 +1,10 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const isEnglishLocale = computed(() => locale.value === 'en')
 
 const heroBackground = ref(null)
 let vantaEffect = null
@@ -78,7 +79,7 @@ const initHeroBackground = async () => {
         color2: themeColors.color2,
         backgroundColor: themeColors.backgroundColor,
         size: 0.7,
-        alpha: themeColors.alpha,
+        alpha: 0.35,
         backgroundAlpha: 0
       })
     }
@@ -156,7 +157,7 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="relative overflow-hidden bg-surface pb-20 pt-40 lg:pb-28 lg:pt-48">
-    <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70"></div>
+    <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-35"></div>
     <!-- خلفية متدرجة هادئة -->
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/60 via-transparent to-transparent"></div>
 
@@ -194,7 +195,8 @@ onBeforeUnmount(() => {
           >
             <!-- طبقة الخلفية بس — هي اللي بتنزل شوية لتحت -->
             <span
-              class="absolute inset-0 translate-y-1.5 rounded-full shadow-sm ring-1 ring-black/5 sm:translate-y-2"
+              class="absolute inset-0 rounded-full shadow-sm ring-1 ring-black/5"
+              :class="isEnglishLocale ? 'translate-y-1 sm:translate-y-1.3' : 'translate-y-1.5 sm:translate-y-2'"
               :style="{ backgroundColor: `rgb(${word.rgb} / 0.18)` }"
             ></span>
             <!-- النقطة والنص — فاضلة في مكانها الطبيعي -->
