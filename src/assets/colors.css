@@ -1,0 +1,104 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   DTS — ملف الألوان الرئيسي (Single Source of Truth)
+   أي تعديل مستقبلي على هوية الشركة اللونية يتم هنا فقط.
+   Tailwind (tailwind.config.js) بيقرا من الـ CSS variables دي مباشرة،
+   فمفيش داعي تلمس أي ملف تاني عشان تغيّر لون.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Primary */
+  --color-primary: #1c6e8e; /* Deep Petrol Blue */
+  --color-primary-hover: #0f485e; /* Dark Ocean Hover */
+  --color-primary-light: #eff9fe; /* Soft Ice Blue Tint */
+
+  /* Surfaces */
+  --color-surface: #eff6ff;
+  --color-surface-alt: #ffffff;
+  --color-surface-raised: #ffffff;
+
+  /* Borders */
+  --color-border: #cbd5e1;
+  --color-border-strong: #94a3b8;
+
+  /* Text */
+  --color-text-base: #0f172a;
+  --color-text-muted: #334155;
+  --color-text-subtle: #64748b;
+  --color-text-on-primary: #ffffff;
+
+  /* Status */
+  --color-danger: #dc2626;
+  --color-danger-light: #fef2f2;
+  --color-success: #16a34a;
+  --color-success-light: #f0fdf4;
+  --color-warning: #d97706;
+  --color-warning-light: #fffbeb;
+  --color-info: #0284c7;
+  --color-info-light: #f0f9ff;
+
+  /* Helpers */
+  --color-blue: #1c6e8e;
+  --color-green: #16a34a;
+  --color-amber: #d97706;
+  --color-red: #dc2626;
+
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+
+  /* RGB helpers (لاستخدامها مع rgba()) */
+  --color-primary-rgb: 28 110 142;
+  --color-success-rgb: 22 163 74;
+  --color-danger-rgb: 220 38 38;
+  --color-amber-rgb: 217 119 6;
+  --color-gray-400-rgb: 148 163 184;
+  --color-gray-600-rgb: 71 85 105;
+  --overlay-rgb: 15 23 42;
+  --color-surface-rgb: 239 246 255;
+}
+
+/* ─── Dark Mode (Midnight Obsidian & Vibrant Cyan) ─────────────────────── */
+.dark {
+  --color-primary: #3898ec;
+  --color-primary-hover: #60adfc;
+  --color-primary-light: rgba(56, 152, 236, 0.12);
+
+  --color-surface-alt: #060c15;
+  --color-surface: #0a1424;
+  --color-surface-raised: #122038;
+
+  --color-border: #1a2e4a;
+  --color-border-strong: #2a456c;
+
+  --color-text-base: #f0f5fa;
+  --color-text-muted: #b0c4de;
+  --color-text-subtle: #7a93b2;
+  --color-text-on-primary: #060c15;
+
+  --color-danger: #e56b6b;
+  --color-danger-light: rgba(229, 107, 107, 0.12);
+  --color-success: #52b788;
+  --color-success-light: rgba(82, 183, 136, 0.12);
+  --color-warning: #e2a03f;
+  --color-warning-light: rgba(226, 160, 63, 0.12);
+  --color-info: #3898ec;
+  --color-info-light: rgba(56, 152, 236, 0.12);
+
+  --color-blue: #3898ec;
+  --color-green: #52b788;
+  --color-amber: #e2a03f;
+  --color-red: #e56b6b;
+
+  --color-gray-200: #122038;
+  --color-gray-300: #1a2e4a;
+  --color-gray-400: #3f5a7e;
+  --color-gray-500: #7a93b2;
+
+  --color-primary-rgb: 56 152 236;
+  --color-success-rgb: 82 183 136;
+  --color-danger-rgb: 229 107 107;
+  --color-amber-rgb: 226 160 63;
+  --overlay-rgb: 6 12 21;
+  --color-surface-rgb: 10 20 36;
+}

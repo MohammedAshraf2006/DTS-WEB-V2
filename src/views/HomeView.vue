@@ -1,11 +1,20 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
+import { useScrollReveal } from '@/composables/useScrollReveal'
+import HeroSection from '@/components/home/HeroSection.vue'
+import TrustBar from '@/components/home/TrustBar.vue'
+import ProductTabs from '@/components/home/ProductTabs.vue'
+import ServicesGrid from '@/components/home/ServicesGrid.vue'
+import StatsCta from '@/components/home/StatsCta.vue'
 
-const { t } = useI18n()
+useScrollReveal()
 </script>
 
 <template>
-  <section class="mx-auto max-w-7xl px-4 py-20 text-center">
-    <h1 class="text-3xl font-bold">{{ t('home.title') }}</h1>
-  </section>
+  <div>
+    <HeroSection />
+    <TrustBar />
+    <ProductTabs />
+    <ServicesGrid />
+    <StatsCta />
+  </div>
 </template>

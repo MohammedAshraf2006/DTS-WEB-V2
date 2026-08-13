@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "badge": "E-Invoicing & E-Signature Automation",
+    "title": "Your all-in-one platform for e-invoicing and e-signature",
+    "subtitle": "We connect your business directly to the Egyptian Tax Authority with reliable, fast-to-deploy invoicing, receipts, and e-signature solutions.",
+    "ctaPrimary": "Contact Us",
+    "ctaSecondary": "Discover Our Products",
+    "trustBadge": "Certified by the Egyptian Tax Authority"
+  },
+  "trustBar": {
+    "label": "Some of our key partners"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "3 specialized tools covering the full invoicing and e-signature cycle",
+    "tabs": {
+      "ess": {
+        "name": "ESS",
+        "title": "E-Invoicing & E-Receipts",
+        "description": "A flexible cloud platform to issue and manage e-invoices and e-receipts from anywhere, right from your browser — no software installation needed.",
+        "features": [
+          "Full flexibility issuing invoices and receipts on the web",
+          "Access the system from mobile, tablet, or desktop",
+          "Instant automatic updates in line with tax authority decisions",
+          "Regular automatic backups of your sales data"
+        ]
+      },
+      "ers": {
+        "name": "ERS",
+        "title": "POS E-Receipts",
+        "description": "The fastest digital solution for managing web-based point-of-sale and retail, built specifically for one-tap e-receipt issuance.",
+        "features": [
+          "Direct, real-time link to the tax authority for receipts",
+          "A very simple interface built specifically for POS",
+          "Full support for cashier devices and thermal printers",
+          "Real-time tracking of daily sales from anywhere"
+        ]
+      },
+      "esa": {
+        "name": "ESA",
+        "title": "E-Signature & E-Stamp",
+        "description": "The specialized tool for linking e-signatures and e-stamps to tax systems, ensuring the legality and reliability of every document.",
+        "features": [
+          "Full support for all e-signature and e-stamp certificates in Egypt",
+          "High-level encryption to protect digital data",
+          "Fast, easy integration with various invoicing systems",
+          "Alerts ahead of digital certificate renewal dates"
+        ]
+      }
+    },
+    "cta": "Learn more"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "An integrated set of technical services covering the full digital transformation journey",
+    "items": [
+      { "title": "E-Invoicing & E-Receipts", "description": "An integrated system for issuing e-invoices and e-receipts with a direct link to the Egyptian Tax Authority." },
+      { "title": "Integrated ERP Systems", "description": "A comprehensive system to manage inventory, accounting, customers, and sales on one platform for maximum efficiency." },
+      { "title": "E-Signature & E-Stamp", "description": "Certified solutions linking e-signatures and e-stamps to tax systems and securing your digital documents." },
+      { "title": "Consulting & Systems Analysis", "description": "A precise study and analysis of your work environment to identify the best technical solutions for your future needs." },
+      { "title": "Integration Services", "description": "Connecting our new systems with your existing software for smooth data flow across all company departments." },
+      { "title": "Digital Transformation Project Management", "description": "Professional management of your entire digital transformation project, from planning to final delivery and operation." },
+      { "title": "Training & Enablement", "description": "Customized training programs for your team to maximize the benefit of new systems and boost performance." },
+      { "title": "Specialized Technical Support", "description": "Flexible, fast-response support plans to keep your business running without interruption." }
+    ],
+    "cta": "All services"
+  },
+  "stats": {
+    "items": [
+      { "value": "10,000+", "label": "Clients" },
+      { "value": "95%", "label": "Annual growth" },
+      { "value": "100+", "label": "Experts" }
+    ]
+  },
+  "cta": {
+    "title": "Trusted by 1,000+ clients",
+    "subtitle": "Join them — use our services and grow your business.",
+    "button": "Contact Us"
+  }
+}

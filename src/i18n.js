@@ -1,6 +1,11 @@
 import { createI18n } from 'vue-i18n'
-import ar from './locales/ar.json'
-import en from './locales/en.json'
+
+// كل صفحة ليها ملف ترجمة مستقل (ar + en) — بيتجمّعوا هنا تحت namespace باسم الصفحة
+// عشان نستخدمهم في الكومبوننتس بالشكل: t('common.nav.home') / t('home.hero.title')
+import arCommon from './locales/ar/common.json'
+import arHome from './locales/ar/home.json'
+import enCommon from './locales/en/common.json'
+import enHome from './locales/en/home.json'
 
 const savedLocale = localStorage.getItem('dts-locale') || 'ar'
 
@@ -8,7 +13,16 @@ const i18n = createI18n({
   legacy: false,
   locale: savedLocale,
   fallbackLocale: 'en',
-  messages: { ar, en }
+  messages: {
+    ar: {
+      common: arCommon,
+      home: arHome
+    },
+    en: {
+      common: enCommon,
+      home: enHome
+    }
+  }
 })
 
 export default i18n

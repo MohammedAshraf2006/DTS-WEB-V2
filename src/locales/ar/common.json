@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "services": "خدماتنا",
+    "products": "المنتجات",
+    "about": "عن الشركة",
+    "partners": "شركاؤنا",
+    "contact": "تواصل معنا",
+    "cta": "تواصل معنا"
+  },
+  "products": {
+    "ess": { "name": "ESS", "tagline": "الفاتورة والإيصال الإلكتروني" },
+    "ers": { "name": "ERS", "tagline": "إيصالات نقاط البيع الإلكترونية" },
+    "esa": { "name": "ESA", "tagline": "التوقيع والختم الإلكتروني" }
+  },
+  "footer": {
+    "description": "منظومة متكاملة لإصدار الفواتير والإيصالات الإلكترونية والتوقيع الرقمي، مرتبطة مباشرة بمصلحة الضرائب المصرية.",
+    "quickLinksTitle": "روابط سريعة",
+    "quickLinks": { "about": "عن الشركة", "services": "خدماتنا", "partners": "شركاؤنا" },
+    "helpTitle": "محتاج مساعدة؟",
+    "support": "الدعم الفني",
+    "sales": "المبيعات",
+    "contactNumbersTitle": "أرقام التواصل",
+    "address": "رقم 99, مجاورة 44, طريق مصر النور, العاشر من رمضان, الشرقية, مصر",
+    "email": "Info@dts-eg.net",
+    "phone": "(+20) 55 4492037",
+    "supportPhone": "(+20) 10 50992816",
+    "supportEmail": "support@dts-eg.net",
+    "salesEmail": "sales@dts-eg.net",
+    "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
+    "rights": "جميع الحقوق محفوظة"
+  },
+  "buttons": {
+    "learnMore": "اعرف أكتر",
+    "contactUs": "تواصل معنا",
+    "discoverProducts": "اكتشف منتجاتنا"
+  }
+}

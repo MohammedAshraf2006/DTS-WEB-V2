@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "products": "Products",
+    "about": "About Us",
+    "partners": "Partners",
+    "contact": "Contact",
+    "cta": "Contact Us"
+  },
+  "products": {
+    "ess": { "name": "ESS", "tagline": "E-Invoicing & E-Receipts" },
+    "ers": { "name": "ERS", "tagline": "POS E-Receipts" },
+    "esa": { "name": "ESA", "tagline": "E-Signature & E-Stamp" }
+  },
+  "footer": {
+    "description": "An integrated platform for e-invoicing, e-receipts, and digital signatures — directly connected to the Egyptian Tax Authority.",
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": { "about": "About Us", "services": "Services", "partners": "Partners" },
+    "helpTitle": "Need help?",
+    "support": "Technical Support",
+    "sales": "Sales",
+    "contactNumbersTitle": "Phone Numbers",
+    "address": "99, District 44, Misr El Noor Road, 10th of Ramadan City, Sharqia, Egypt",
+    "email": "Info@dts-eg.net",
+    "phone": "(+20) 55 4492037",
+    "supportPhone": "(+20) 10 50992816",
+    "supportEmail": "support@dts-eg.net",
+    "salesEmail": "sales@dts-eg.net",
+    "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
+    "rights": "All rights reserved"
+  },
+  "buttons": {
+    "learnMore": "Learn more",
+    "contactUs": "Contact Us",
+    "discoverProducts": "Discover Our Products"
+  }
+}
