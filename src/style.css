@@ -37,3 +37,69 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.floating-icon {
+  animation: hero-float 4.2s ease-in-out infinite;
+  will-change: transform;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.floating-icon:hover {
+  transform: translateY(-6px) scale(1.04);
+  filter: brightness(1.03);
+}
+
+.floating-card {
+  animation: hero-card-float 4.8s ease-in-out infinite;
+  will-change: transform;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.floating-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: rgba(28, 110, 142, 0.35);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes hero-card-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-icon {
+    animation: none;
+    transition: none;
+  }
+
+  .floating-icon:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .floating-card {
+    animation: none;
+    transition: none;
+  }
+
+  .floating-card:hover {
+    transform: none;
+    border-color: inherit;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,34 @@
+---
+description: Vue folder layout and naming conventions for DTS-WEB V2
+globs: src/**/*.{vue,js}
+alwaysApply: false
+---
+
+# Vue Structure
+
+## Folders
+
+- Pages: `src/views/*View.vue`
+- Shell: `src/layouts/` (e.g. `MainLayout.vue`)
+- Home sections: `src/components/home/`
+- Shared chrome: `src/components/AppHeader.vue`, `AppFooter.vue`
+- Logic: `src/composables/use*.js`
+- HTTP helper: `src/services/`
+- Import alias: `@` → `src`
+
+## Naming
+
+- SFCs: PascalCase (`HeroSection.vue`)
+- Route names: kebab-case (`home`, `not-found`)
+- Composables: `useSomething.js`
+
+## State
+
+- No global store yet — theme/locale via composables + `localStorage`
+- Keep section components presentational; put reusable behavior in composables
+
+## New pages
+
+1. Add `views/FooView.vue`
+2. Register under `MainLayout` children in `src/router/index.js`
+3. Add matching locale files under `src/locales/{ar,en}/`

@@ -100,6 +100,12 @@ const heroIcons = [
   { name: 'pos', tone: 'primary' }
 ]
 
+const floatingProductCards = [
+  { src: '/images/Products/ers-logo.png', alt: 'ERS', className: 'sm:-translate-y-1' },
+  { src: '/images/Products/esa-logo.png', alt: 'ESA', className: 'translate-y-2 sm:translate-y-3' },
+  { src: '/images/Products/ess-logo.png', alt: 'ESS', className: '-translate-y-1 sm:-translate-y-2' }
+]
+
 const toneClasses = {
   primary: { border: 'border-primary', bg: 'bg-primary', text: 'text-primary' },
   success: { border: 'border-success', bg: 'bg-success', text: 'text-success' },
@@ -162,17 +168,15 @@ onBeforeUnmount(() => {
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/60 via-transparent to-transparent"></div>
 
     <div class="relative mx-auto max-w-4xl px-5 text-center lg:px-10">
-      <!-- صف الأيقونات (بدل البادج النصي القديم) -->
-      <div class="reveal flex items-center justify-center gap-2.5 sm:gap-3.5" style="transition-delay: .04s">
+      <div class="reveal mt-0 flex items-center justify-center gap-3 sm:gap-4" style="transition-delay: .04s">
         <div
-          v-for="(icon, i) in heroIcons"
-          :key="icon.name"
-          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
-          :class="i % 2 === 0
-            ? ['border-2', 'bg-surface-alt', toneClasses[icon.tone].border, toneClasses[icon.tone].text]
-            : [toneClasses[icon.tone].bg, 'text-text-onprimary']"
+          v-for="(card, index) in floatingProductCards"
+          :key="card.alt"
+          class="floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-white/50 bg-white/25 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/20 sm:h-12 sm:w-20"
+          :class="card.className"
+          :style="{ animationDelay: `${index * 220}ms` }"
         >
-          <AppIcon :name="icon.name" class="h-4 w-4 sm:h-5 sm:w-5" />
+          <img :src="card.src" :alt="card.alt" class="h-6 w-auto object-contain sm:h-7" />
         </div>
       </div>
 
@@ -196,7 +200,7 @@ onBeforeUnmount(() => {
             <!-- طبقة الخلفية بس — هي اللي بتنزل شوية لتحت -->
             <span
               class="absolute inset-0 rounded-full shadow-sm ring-1 ring-black/5"
-              :class="isEnglishLocale ? 'translate-y-1 sm:translate-y-1.3' : 'translate-y-1.5 sm:translate-y-2'"
+              :class="isEnglishLocale ? 'translate-y-1 sm:translate-y-1.3' : 'translate-y-1.5 sm:translate-y-2.1'"
               :style="{ backgroundColor: `rgb(${word.rgb} / 0.18)` }"
             ></span>
             <!-- النقطة والنص — فاضلة في مكانها الطبيعي -->

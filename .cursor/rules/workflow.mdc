@@ -1,0 +1,16 @@
+---
+description: Mandatory Plan → Execute → Test → Fix → Document cycle
+alwaysApply: true
+---
+
+# Workflow
+
+For product work, always follow this cycle:
+
+1. **Plan** — Read/update the relevant file under `plans/` before broad execution
+2. **Execute** — Change code only within the active wave scope
+3. **Test** — Verify with available checks (`npm run build`, AR/EN, dark/light, hashes)
+4. **Fix** — Resolve test failures before closing the task
+5. **Document** — Update `plans/status.md` + the wave file (English); if structure or business changed, update `docs/` (English)
+
+Do not skip Document when the wave’s code or IA changed.

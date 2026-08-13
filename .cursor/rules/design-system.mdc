@@ -1,0 +1,26 @@
+---
+description: Design tokens, Tailwind, and theme conventions
+globs: src/**/*.{vue,css},tailwind.config.js
+alwaysApply: false
+---
+
+# Design System
+
+## Tokens
+
+- Source of truth: `src/assets/colors.css` CSS variables
+- Map into Tailwind via `tailwind.config.js` (e.g. `bg-surface`, `text-text-muted`, `primary`)
+- Prefer utilities + tokens over new one-off hex values
+
+## Styling approach
+
+- Follow V2: Tailwind utilities + shared `src/style.css`
+- Do not port reference per-section CSS files from legacy `DTS-WEB`
+- Dark mode: `dark` class on `<html>` via `useTheme` / `dts-theme` in localStorage
+
+## Visual guidance (marketing surfaces)
+
+- One clear composition per viewport; brand-forward hero
+- Full-bleed hero when adding/changing landing heroes
+- Avoid card clutter, floating badges on hero media, and purple-gradient AI defaults
+- Preserve existing DTS visual identity and motion utilities (`.reveal`, fade-up, etc.)

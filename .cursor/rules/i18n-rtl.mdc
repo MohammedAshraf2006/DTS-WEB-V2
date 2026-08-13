@@ -1,0 +1,29 @@
+---
+description: vue-i18n namespaces and RTL/LTR rules
+globs: src/locales/**/*.json,src/**/*.vue
+alwaysApply: false
+---
+
+# i18n and RTL
+
+## Locale files
+
+- Namespaced JSON: `src/locales/{ar,en}/common.json`, `home.json`, plus one file per new page
+- Keep `ar` and `en` keys in parallel — same shape, always
+- Wire new namespaces in `src/i18n.js`
+
+## Usage in Vue
+
+```vue
+{{ t('home.hero.titlePrefix') }}
+{{ t('common.nav.home') }}
+```
+
+- No hardcoded user-facing strings in templates or script
+- Prefer existing key paths; extend namespaces instead of inventing parallel trees
+
+## Direction and language
+
+- Default locale: `ar` (fallback `en`)
+- `src/main.js` / i18n sync `<html lang>` and `dir` (`rtl` for Arabic)
+- Do not fight that system with one-off `dir` hacks unless fixing a real bug

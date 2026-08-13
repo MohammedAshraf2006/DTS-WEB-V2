@@ -1,0 +1,30 @@
+---
+description: When to use legacy DTS-WEB as reference vs ignore it
+alwaysApply: true
+---
+
+# Legacy Reference — `C:\Users\PC\Desktop\DTS-WEB`
+
+## Prefer internal summaries first
+
+- Code structure: `docs/architecture/`
+- Product / site map / content sources: `docs/business/`
+- Use the external repo for raw copy, assets, and link verification when those docs are insufficient
+
+## Use the reference for
+
+- Section copy, product/service lists, partner/client meaning
+- Contact/WhatsApp and similar external links (verify before shipping)
+- Public assets patterns (logos, social proof)
+- Product behavior of theme/language from a UX perspective
+
+## Ignore / do not copy
+
+- Folder layout, empty `views/`, blank `router/index.js`
+- Custom `useLanguage` — V2 uses vue-i18n
+- Per-section CSS under `src/assets/styles/`
+- Broken imports, root orphan files, `_archive`, stale duplicates (`Hero.vue` vs live tree)
+
+## Rule of thumb
+
+Content and product intent from reference; architecture and APIs from V2 only.

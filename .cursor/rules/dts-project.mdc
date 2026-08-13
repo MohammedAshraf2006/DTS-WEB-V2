@@ -1,0 +1,32 @@
+---
+description: DTS-WEB V2 project identity, stack, and agent boundaries
+alwaysApply: true
+---
+
+# DTS-WEB V2 — Project Core
+
+- Product: DTS (Digital Transformation Services) marketing site for dts-eg.com
+- Work only in this repo (`DTS-WEB V2`). Treat `C:\Users\PC\Desktop\DTS-WEB` as content/assets/product reference only
+
+## Official stack (do not replace)
+
+- Vue 3 with `<script setup>`, Vite, Tailwind CSS 3, vue-i18n 9, vue-router 4
+- Plain JavaScript — no TypeScript, no Pinia unless explicitly requested
+
+## Product defaults
+
+- Arabic-first; RTL for `ar`, LTR for `en`
+- Copy lives in `src/locales/{ar,en}/` — never hardcode UI strings in templates
+
+## Documentation and plans
+
+- Structural docs only under `docs/` (English filenames and content)
+- Wave plans and status only under `plans/` (English)
+- Do not treat `docs/archive/` as canonical
+- Chat vs docs language: see `language.mdc`
+- Delivery cycle: see `workflow.mdc`
+
+## Agent boundaries
+
+- Change only files needed for the current task
+- Do not copy legacy reference code patterns (`useLanguage`, per-section CSS files, dead router stubs)

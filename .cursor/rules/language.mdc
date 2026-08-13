@@ -1,0 +1,12 @@
+---
+description: Language policy — Arabic chat, English docs and filenames
+alwaysApply: true
+---
+
+# Language policy
+
+- **Chat replies to the user: always Arabic**, even if the user writes in English or any other language
+- **Documentation** under `docs/` and `plans/`: write in **English**
+- **File and folder names**: English only (`plans/`, `status.md`, `wave-01-foundation.md`, …)
+- **Code identifiers**: English (Vue/JS). User-facing copy stays in locale JSON (`ar` / `en`)
+- Do not create new project paths or documentation filenames in Arabic

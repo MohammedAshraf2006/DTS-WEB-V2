@@ -1,0 +1,13 @@
+---
+description: Where structural docs and wave plans live
+alwaysApply: true
+---
+
+# Docs and plans
+
+- `docs/architecture` + `docs/business` = structural truth
+- `docs/archive` = historical only — never treat as canonical
+- `plans/status.md` = overall execution status
+- Per-wave scope: `plans/wave-*.md`
+- External content/assets reference: `C:\Users\PC\Desktop\DTS-WEB`
+- Chat language vs docs language: see `language.mdc`
