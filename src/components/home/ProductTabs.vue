@@ -6,7 +6,6 @@ import AppIcon from '@/components/icons/AppIcon.vue'
 const { t } = useI18n()
 
 const tabKeys = ['ess', 'ers', 'esa']
-const tabIcons = { ess: 'cloud', ers: 'pos', esa: 'signature' }
 const activeTab = ref('ess')
 
 const activeContent = computed(() => ({
@@ -31,14 +30,13 @@ const activeContent = computed(() => ({
         <button
           v-for="key in tabKeys"
           :key="key"
-          class="flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold transition-all"
+          class="inline-flex items-center justify-center rounded-full border p-3 transition-all"
           :class="activeTab === key
-            ? 'border-primary bg-primary text-text-onprimary shadow-md'
-            : 'border-border bg-surface-alt text-text-muted hover:border-primary/40 hover:text-primary'"
+            ? 'border-primary bg-primary shadow-md'
+            : 'border-border bg-surface-alt hover:border-primary/40 hover:brightness-95'"
           @click="activeTab = key"
         >
-          <AppIcon :name="tabIcons[key]" class="h-4 w-4" />
-          {{ t(`common.products.${key}.name`) }}
+          <img :src="`/images/Products/${key}-logo.png`" :alt="key.toUpperCase()" class="h-6 w-auto object-contain transition-opacity duration-200" :class="activeTab === key ? 'opacity-100' : 'opacity-90 hover:opacity-100'" />
         </button>
       </div>
 
@@ -68,8 +66,8 @@ const activeContent = computed(() => ({
             </RouterLink>
           </div>
 
-          <div class="relative flex h-56 items-center justify-center rounded-2xl bg-primary-light sm:h-72">
-            <AppIcon :name="tabIcons[activeTab]" class="h-20 w-20 text-primary/70 sm:h-24 sm:w-24" />
+          <div class="relative flex h-56 items-center justify-center rounded-2xl bg-primary-light/40 sm:h-72">
+            <img :src="`/images/Products/${activeTab}-logo.png`" :alt="activeTab.toUpperCase()" class="h-24 w-auto object-contain sm:h-28" />
           </div>
         </div>
       </Transition>
