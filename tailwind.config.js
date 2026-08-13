@@ -31,7 +31,9 @@ export default {
         danger: { DEFAULT: 'var(--color-danger)', light: 'var(--color-danger-light)' },
         success: { DEFAULT: 'var(--color-success)', light: 'var(--color-success-light)' },
         warning: { DEFAULT: 'var(--color-warning)', light: 'var(--color-warning-light)' },
-        info: { DEFAULT: 'var(--color-info)', light: 'var(--color-info-light)' }
+        info: { DEFAULT: 'var(--color-info)', light: 'var(--color-info-light)' },
+        navy: { DEFAULT: 'var(--color-navy)', light: 'var(--color-navy-light)' },
+        gold: { DEFAULT: 'var(--color-gold)', light: 'var(--color-gold-light)' }
       },
       fontFamily: {
         sans: ['Inter', 'Tajawal', 'Cairo', 'sans-serif'],

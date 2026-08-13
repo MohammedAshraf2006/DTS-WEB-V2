@@ -154,10 +154,10 @@ function closeMobile() {
             :key="key"
             to="/#products"
             class="flex flex-col rounded-2xl p-5 transition-transform hover:-translate-y-0.5"
-            :class="[i === 0 ? 'bg-primary-light' : i === 1 ? 'bg-info-light' : 'bg-success-light']"
+            :class="i === 0 ? 'bg-navy-light' : i === 1 ? 'bg-primary-light' : 'bg-gold-light'"
           >
-            <span class="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-surface-alt text-primary shadow-sm">
-              <AppIcon :name="key === 'ess' ? 'cloud' : key === 'ers' ? 'pos' : 'signature'" class="h-7 w-7" />
+            <span class="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-surface-alt shadow-sm">
+              <img :src="`/images/Products/${key}-logo.png`" :alt="t(`common.products.${key}.name`)" class="h-9 w-9 object-contain" />
             </span>
             <span class="text-base font-bold text-text-base">{{ t(`common.products.${key}.name`) }}</span>
             <span class="mt-1 text-sm text-text-subtle">{{ t(`common.products.${key}.tagline`) }}</span>

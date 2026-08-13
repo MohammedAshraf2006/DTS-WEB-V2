@@ -36,6 +36,12 @@
   --color-info: #0284c7;
   --color-info-light: #f0f9ff;
 
+  /* Product accents (Products mega menu) */
+  --color-navy: #0b1f3a;
+  --color-navy-light: #eef1f7;
+  --color-gold: #b8860b;
+  --color-gold-light: #fbf3df;
+
   /* Helpers */
   --color-blue: #1c6e8e;
   --color-green: #16a34a;
@@ -52,6 +58,8 @@
   --color-success-rgb: 22 163 74;
   --color-danger-rgb: 220 38 38;
   --color-amber-rgb: 217 119 6;
+  --color-navy-rgb: 11 31 58;
+  --color-gold-rgb: 184 134 11;
   --color-gray-400-rgb: 148 163 184;
   --color-gray-600-rgb: 71 85 105;
   --overlay-rgb: 15 23 42;
@@ -84,6 +92,11 @@
   --color-warning-light: rgba(226, 160, 63, 0.12);
   --color-info: #3898ec;
   --color-info-light: rgba(56, 152, 236, 0.12);
+
+  --color-navy: #7fa2d4;
+  --color-navy-light: rgba(127, 162, 212, 0.12);
+  --color-gold: #e0b84d;
+  --color-gold-light: rgba(224, 184, 77, 0.12);
 
   --color-blue: #3898ec;
   --color-green: #52b788;
