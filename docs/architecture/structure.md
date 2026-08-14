@@ -12,6 +12,7 @@ src/
   views/
     HomeView.vue
     ProductsView.vue
+    ContactView.vue
     ProductDetailView.vue
     NotFoundView.vue
   components/
@@ -21,6 +22,7 @@ src/
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
     products/             # listing cards, header menu cards, media stage
+    contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
     products.js           # ESS / ERS / ESA catalog + gallery paths
@@ -30,10 +32,14 @@ src/
     useScrollReveal.js
     useCountUp.js
     useCardTilt.js
+    useContactForm.js
     runViewTransition.js  # thin theme/locale update helper
-  locales/{ar,en}/        # namespaced JSON (common, home, products)
-  services/api.js         # thin fetch wrapper (VITE_API_BASE_URL)
+  locales/{ar,en}/        # namespaced JSON (common, home, products, contact)
+  services/
+    api.js
+    contact.js            # FormSubmit → support@dts-eg.com
 public/images/            # logos, clients, partners, products
+public/animations/        # Lottie (mail-box.json)
 ```
 
 ## Conventions
@@ -60,6 +66,7 @@ Ambient orbs on Home are **dark mode only**.
 
 - `/` → `MainLayout` → `HomeView` (`name: home`)
 - `/products` → `ProductsView` (`name: products`)
+- `/contact` → `ContactView` (`name: contact`)
 - `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | ers | esa)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header

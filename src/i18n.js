@@ -5,9 +5,11 @@ import { createI18n } from 'vue-i18n'
 import arCommon from './locales/ar/common.json'
 import arHome from './locales/ar/home.json'
 import arProducts from './locales/ar/products.json'
+import arContact from './locales/ar/contact.json'
 import enCommon from './locales/en/common.json'
 import enHome from './locales/en/home.json'
 import enProducts from './locales/en/products.json'
+import enContact from './locales/en/contact.json'
 
 const savedLocale = localStorage.getItem('dts-locale') || 'ar'
 
@@ -19,12 +21,14 @@ const i18n = createI18n({
     ar: {
       common: arCommon,
       home: arHome,
-      products: arProducts
+      products: arProducts,
+      contact: arContact
     },
     en: {
       common: enCommon,
       home: enHome,
-      products: enProducts
+      products: enProducts,
+      contact: enContact
     }
   }
 })

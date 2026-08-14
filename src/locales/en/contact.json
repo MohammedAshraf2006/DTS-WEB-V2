@@ -1,0 +1,24 @@
+{
+  "title": "Contact us",
+  "subtitle": "Send a message and we will get back to you shortly.",
+  "fields": {
+    "name": "Name",
+    "phone": "Phone number",
+    "email": "Email",
+    "message": "Write your message here"
+  },
+  "submit": "Send",
+  "sending": "Sending...",
+  "successTitle": "Message sent",
+  "successMsg": "Thank you. We will reply to your email soon.",
+  "again": "Send another message",
+  "errors": {
+    "name": "Name is required",
+    "phone": "Phone number is required",
+    "phoneInvalid": "Enter a valid phone number",
+    "email": "Email is required",
+    "emailInvalid": "Enter a valid email address",
+    "message": "Message is required",
+    "send": "Could not send. Please try again."
+  }
+}

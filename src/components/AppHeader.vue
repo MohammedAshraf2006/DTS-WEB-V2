@@ -120,7 +120,7 @@ function closeMobile() {
             </Transition>
           </button>
           <RouterLink
-            to="/#contact"
+            to="/contact"
             class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-text-onprimary shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
           >
             {{ t('common.nav.cta') }}
@@ -209,7 +209,7 @@ function closeMobile() {
             </Transition>
           </button>
           <RouterLink
-            to="/#contact"
+            to="/contact"
             class="ms-auto rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-text-onprimary"
             @click="closeMobile"
           >

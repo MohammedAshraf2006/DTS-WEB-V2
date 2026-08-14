@@ -62,7 +62,7 @@ watch(key, async () => {
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
             <RouterLink
-              to="/#contact"
+              to="/contact"
               class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
             >
               {{ t('products.contactCta') }}

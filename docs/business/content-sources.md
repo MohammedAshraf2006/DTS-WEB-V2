@@ -9,7 +9,7 @@
 | `public/images/` | Logos, clients, partners, product art |
 | `src/assets/colors.css` | Brand tokens |
 
-Namespaces today: `common`, `home`, `products`. Add one JSON pair per new page/section namespace.
+Namespaces today: `common`, `home`, `products`, `contact`. Add one JSON pair per new page/section namespace.
 
 ### Notable asset paths
 
@@ -20,7 +20,7 @@ Namespaces today: `common`, `home`, `products`. Add one JSON pair per new page/s
 | `public/images/Products/media/{ess,ers,esa}/` | Product screenshots |
 | `public/videos/{ess,ers,esa}/` | Product explainers |
 | `public/images/clients/*.png` | TrustBar (partial fill today) |
-| `public/images/partners/` | Reserved for partners section (not wired) |
+| `public/animations/mail-box.json` | Contact form success Lottie |
 
 Product media is wired in `src/data/products.js` (`gallery` items: `type`, `src`, optional `poster`). Empty `src` keeps the placeholder. ESA Lite installer URL: `productsCatalog.esa.liteDownloadUrl`.
 

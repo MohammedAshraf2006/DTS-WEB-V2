@@ -24,10 +24,12 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 
 ## Domains / contact (from live `common` locale)
 
-- Email examples: `Info@dts-eg.net`, `support@dts-eg.net`, `sales@dts-eg.net`
+- Technical support: `support@dts-eg.com` (footer: revealed on click)
+- Sales: `Info@dts-eg.com` (footer: revealed on click)
+- Contact form `/contact` posts to `support@dts-eg.com`
 - Phones and address live under `common.footer.*`
-- Footer pre-CTA uses `mailto` to sales
-- Public reference site/domain intent: `dts-eg.com` (see legacy `CNAME` in reference repo)
+- Footer pre-CTA goes to `/contact`
+- Public reference site/domain intent: `dts-eg.com`
 
 ## Visual / brand notes (V2)
 

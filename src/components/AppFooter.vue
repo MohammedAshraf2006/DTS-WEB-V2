@@ -1,10 +1,12 @@
 <script setup>
+import { reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t, tm } = useI18n()
 
 const year = new Date().getFullYear()
+const revealed = reactive({ support: false, sales: false })
 
 const productLinks = [
   { key: 'ess', to: '/products/ess' },
@@ -21,7 +23,7 @@ const companyLinks = [
 </script>
 
 <template>
-  <footer id="contact" class="relative overflow-hidden border-t border-border bg-surface-alt dark:border-[#1a2d4a]">
+  <footer class="relative overflow-hidden border-t border-border bg-surface-alt dark:border-[#1a2d4a]">
     <!-- Soft Notion-like ambient -->
     <div
       class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent dark:via-primary/15"
@@ -43,14 +45,14 @@ const companyLinks = [
             {{ t('common.footer.ctaSubtitle') }}
           </p>
         </div>
-        <a
-          :href="`mailto:${t('common.footer.salesEmail')}`"
+        <RouterLink
+          to="/contact"
           class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
         >
           {{ t('common.footer.ctaButton') }}
           <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
           <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
-        </a>
+        </RouterLink>
       </div>
     </div>
 
@@ -68,14 +70,14 @@ const companyLinks = [
           <p class="mt-4 max-w-sm text-[15px] leading-relaxed text-text-subtle">
             {{ t('common.footer.description') }}
           </p>
-          <a
-            :href="`mailto:${t('common.footer.email')}`"
+          <RouterLink
+            to="/contact"
             class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-text-base transition-colors hover:text-primary"
           >
-            {{ t('common.footer.email') }}
+            {{ t('common.buttons.contactUs') }}
             <AppIcon name="arrowLeft" class="h-3.5 w-3.5 rtl:block ltr:hidden" />
             <AppIcon name="arrowRight" class="h-3.5 w-3.5 ltr:block rtl:hidden" />
-          </a>
+          </RouterLink>
         </div>
 
         <!-- Product -->
@@ -119,27 +121,37 @@ const companyLinks = [
           </h3>
           <ul class="mt-5 space-y-3 text-[15px]">
             <li>
-              <a
-                :href="`tel:${t('common.footer.supportPhone').replace(/[^\d+]/g, '')}`"
-                class="text-text-muted transition-colors hover:text-text-base"
+              <button
+                type="button"
+                class="text-start text-text-muted transition-colors hover:text-text-base"
+                :aria-expanded="revealed.support"
+                @click="revealed.support = !revealed.support"
               >
                 {{ t('common.footer.support') }}
-              </a>
-            </li>
-            <li>
+              </button>
               <a
+                v-if="revealed.support"
                 :href="`mailto:${t('common.footer.supportEmail')}`"
-                class="text-text-muted transition-colors hover:text-text-base"
+                class="mt-1 block text-sm font-semibold text-primary"
               >
                 {{ t('common.footer.supportEmail') }}
               </a>
             </li>
             <li>
-              <a
-                :href="`mailto:${t('common.footer.salesEmail')}`"
-                class="text-text-muted transition-colors hover:text-text-base"
+              <button
+                type="button"
+                class="text-start text-text-muted transition-colors hover:text-text-base"
+                :aria-expanded="revealed.sales"
+                @click="revealed.sales = !revealed.sales"
               >
                 {{ t('common.footer.sales') }}
+              </button>
+              <a
+                v-if="revealed.sales"
+                :href="`mailto:${t('common.footer.salesEmail')}`"
+                class="mt-1 block text-sm font-semibold text-primary"
+              >
+                {{ t('common.footer.salesEmail') }}
               </a>
             </li>
           </ul>
@@ -182,12 +194,9 @@ const companyLinks = [
           <RouterLink to="/#services" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.services') }}
           </RouterLink>
-          <a
-            :href="`mailto:${t('common.footer.email')}`"
-            class="transition-colors hover:text-text-base"
-          >
-            {{ t('common.footer.email') }}
-          </a>
+          <RouterLink to="/contact" class="transition-colors hover:text-text-base">
+            {{ t('common.nav.contact') }}
+          </RouterLink>
         </div>
       </div>
     </div>

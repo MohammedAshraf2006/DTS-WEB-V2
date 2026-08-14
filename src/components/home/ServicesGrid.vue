@@ -59,7 +59,7 @@ const {
               </p>
             </div>
             <RouterLink
-              to="/#contact"
+              to="/contact"
               class="sculpt-cta inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
             >
               {{ t('home.services.signatureHighlight.cta') }}
@@ -93,7 +93,7 @@ const {
           </p>
 
           <RouterLink
-            to="/#contact"
+            to="/contact"
             class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-200 hover:text-primary-hover"
           >
             {{ t('home.services.learnMore') }}

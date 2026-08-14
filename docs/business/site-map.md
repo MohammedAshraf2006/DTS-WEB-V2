@@ -8,7 +8,8 @@
 | Products `/products` | `ProductsView` — three sculpted cards (ESS / ERS / ESA) |
 | Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
 | 404 | `NotFoundView` |
-| Chrome | `AppLoader` (first paint) + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) |
+| Contact `/contact` | `ContactView` — form to support@dts-eg.com + Mail Box Lottie on success |
+| Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) |
 
 ### Home / footer anchors
 
@@ -17,7 +18,7 @@
 | `#products` | Product tabs teaser (links through to `/products/:key`) |
 | `#services` | Top 3 services + e-signature highlight |
 | `#about` | Stats + “trusted by” CTA band |
-| `#contact` | Footer (pre-footer CTA + columns) |
+| `#contact` | Replaced by `/contact` |
 
 Nav **Products** → `/products`. Partners still → `/#partners` (section not implemented yet).
 
@@ -32,8 +33,8 @@ Nav **Products** → `/products`. Partners still → `/#partners` (section not i
 | About / numbers | Live as `#about` (StatsCta) |
 | Clients / trust | Partial — `TrustBar` with 2 logos; more URLs/assets pending |
 | Partners | Missing section (`public/images/partners` available) |
-| Contact | Footer + `mailto` sales CTA; dedicated form pending wave 04 |
-| WhatsApp float | Missing (wave 04) |
+| Contact | Live `/contact` form; footer Support/Sales emails reveal on click |
+| WhatsApp float | Missing (wave 04 remainder) |
 
 ## Media drop paths
 
@@ -43,4 +44,4 @@ Nav **Products** → `/products`. Partners still → `/#partners` (section not i
 
 ## Future routes (wave 03 remainder)
 
-`/services` (Home already CTAs here). About/contact may stay hashes.
+`/services` (Home already CTAs here). About may stay a hash.

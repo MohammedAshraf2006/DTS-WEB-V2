@@ -1,31 +1,35 @@
 # Wave 04 — Forms and integrations
 
-**Status:** pending
+**Status:** in_progress
 
 ## Goal
 
-Ship contact submission path and verified external links (e.g. WhatsApp).
+Ship a real contact page (not footer-hash only) and verified support/sales emails.
 
 ## Expected scope
 
-- Contact form component(s)
-- `src/services/api.js` and env usage
-- Layout/chrome for WhatsApp or similar floats
+- `/contact` view + form
+- Send to `support@dts-eg.com`
+- Success Lottie (`public/animations/mail-box.json` from `social proof/Mail Box.json`)
+- Footer Support / Sales reveal emails on click
 - Locale strings for form validation/success
+- WhatsApp float still later
 
-## Tasks
+## Shipped (this slice)
 
-1. Contact form UI + wire `api.js` (or chosen channel)
-2. WhatsApp / external links from reference after verification
-3. Replace legacy simulated-only submit behavior
+- [x] `/contact` with name, phone, email, message (same fields as DTS-WEB footer form)
+- [x] Submit via FormSubmit → `support@dts-eg.com` (mailto fallback)
+- [x] Mail Box Lottie after successful send
+- [x] Header / product / home CTAs point to `/contact`
+- [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `Info@dts-eg.com`
+
+## Remaining
+
+- [ ] WhatsApp / extra external floats after link verification
 
 ## Test criteria
 
-- Form validation messages localized
-- Submit success/error paths behave predictably
-- External links open correct destinations
-
-## Post-close docs
-
-- Update `docs/business/content-sources.md` / `product.md` if contacts change
-- Mark wave `done` in `plans/status.md`
+- Validation messages localized (ar / en)
+- Submit success shows Lottie; error path is visible
+- Support/Sales emails hidden until click
+- `npm run build` succeeds
