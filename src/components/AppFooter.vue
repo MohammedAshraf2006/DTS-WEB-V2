@@ -1,12 +1,18 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 
 const year = new Date().getFullYear()
 const revealed = reactive({ support: false, sales: false })
+
+const footerNumbers = computed(() => {
+  void locale.value
+  const raw = tm('common.footer.numbers')
+  return Array.isArray(raw) ? raw : []
+})
 
 const productLinks = [
   { key: 'ess', to: '/products/ess' },
@@ -17,7 +23,7 @@ const productLinks = [
 const companyLinks = [
   { labelKey: 'common.footer.quickLinks.home', to: '/' },
   { labelKey: 'common.footer.quickLinks.about', to: '/#about' },
-  { labelKey: 'common.footer.quickLinks.services', to: '/#services' },
+  { labelKey: 'common.footer.quickLinks.services', to: '/services' },
   { labelKey: 'common.footer.quickLinks.partners', to: '/#partners' }
 ]
 </script>
@@ -159,7 +165,7 @@ const companyLinks = [
             {{ t('common.footer.contactTitle') }}
           </h3>
           <ul class="mt-5 space-y-2.5">
-            <li v-for="(num, i) in tm('common.footer.numbers')" :key="i">
+            <li v-for="(num, i) in footerNumbers" :key="`${locale}-${i}`">
               <a
                 :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
                 dir="ltr"
@@ -187,7 +193,7 @@ const companyLinks = [
           <RouterLink to="/products" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.products') }}
           </RouterLink>
-          <RouterLink to="/#services" class="transition-colors hover:text-text-base">
+          <RouterLink to="/services" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.services') }}
           </RouterLink>
           <RouterLink to="/contact" class="transition-colors hover:text-text-base">

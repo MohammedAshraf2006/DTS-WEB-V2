@@ -1,0 +1,170 @@
+{
+  "title": "Our services",
+  "subtitle": "Integrated solutions for tax compliance and digital transformation — from invoicing to e-signature and ongoing support.",
+  "featuredEyebrow": "Our priority",
+  "featuredTitle": "Issue your e-signature and e-seal",
+  "featuredSubtitle": "Get a certified signature or seal certificate and connect it to the tax system to secure your documents quickly.",
+  "featuredCta": "Explore signature service",
+  "learnMore": "Learn more",
+  "requestCta": "Request service",
+  "contactCta": "Contact us",
+  "items": {
+    "einvoicing": {
+      "title": "E-invoice & e-receipt",
+      "shortDescription": "An integrated system for issuing electronic invoices and receipts with direct integration to the Egyptian Tax Authority.",
+      "detail": "We prepare your company to issue e-invoices and e-receipts per ETA requirements: master data setup, portal connectivity, submission tracking, and legal signing via the signature agent. Built for teams that need both invoice and receipt flows with day-to-day compliance visibility.",
+      "bullets": [
+        "Issue and track invoices and receipts",
+        "Direct tax-authority connectivity",
+        "Legal signing before submission"
+      ]
+    },
+    "erp": {
+      "title": "Integrated ERP systems",
+      "shortDescription": "A comprehensive system to manage inventory, accounting, clients, and sales in one platform to ensure your organization's efficiency.",
+      "detail": "We design and deliver ERP solutions that connect inventory, accounting, customers, and sales in one platform, with reports that help leadership decide. The goal is less duplicate entry and a single data flow from the counter to financial reporting.",
+      "bullets": [
+        "Inventory, accounting, and sales together",
+        "Configurable management reports",
+        "Optional invoicing integration"
+      ]
+    },
+    "signature": {
+      "title": "E-signature & e-seal",
+      "shortDescription": "Certified solutions to link electronic signatures and seals with tax systems and secure your digital documents.",
+      "detail": "We guide you through issuing and activating a certified e-signature and e-seal, then linking them to tax systems and your digital documents. Signature (individuals/authorized signers) and seal (entities) stay one service — clearly separated on the service page.",
+      "bullets": [
+        "Certificate issuance and activation",
+        "Clear split between signature and seal",
+        "Link to tax systems and documents"
+      ]
+    },
+    "consulting": {
+      "title": "Consulting & systems analysis",
+      "shortDescription": "A thorough study and analysis of your work environment to identify the best technical solutions for your future needs.",
+      "detail": "We start from your current processes and regulatory constraints, then recommend practical digital and tax-compliance solutions. Analysis covers system gaps, delivery priorities, and a measurable roadmap before you buy or build.",
+      "bullets": [
+        "Environment and requirements analysis",
+        "Compliance-aware recommendations",
+        "Actionable delivery roadmap"
+      ]
+    },
+    "integration": {
+      "title": "Integration services",
+      "shortDescription": "Connecting our new systems with your existing software to ensure a seamless data flow across all company departments.",
+      "detail": "We connect DTS solutions (invoicing, POS, signature) to your existing stack through controlled interfaces and data flows. Departments share one source of truth without retyping, with monitoring and recovery when links fail.",
+      "bullets": [
+        "Connect to existing systems",
+        "Seamless data flow",
+        "Integration monitoring and stability"
+      ]
+    },
+    "projectManagement": {
+      "title": "Digital transformation project management",
+      "shortDescription": "Professional management of the entire digital transformation project, from planning to final delivery and operation.",
+      "detail": "We run the transformation from planning and scheduling through handover and go-live, with clear coordination between your teams and vendors. We track risks, milestones, and day-to-day impact so operations keep moving during the change.",
+      "bullets": [
+        "Clear plan, schedule, and milestones",
+        "Stakeholder coordination",
+        "Smooth handover and operation"
+      ]
+    },
+    "training": {
+      "title": "Training & qualification",
+      "shortDescription": "Customized training programs for your team to ensure maximum benefit from the new systems and improve performance.",
+      "detail": "Hands-on training on new systems (invoicing, POS, signature, ERP) for users and managers. Live sessions plus quick reference materials so the team is confident from day one.",
+      "bullets": [
+        "Role-based training paths",
+        "Practical sessions on the live system",
+        "Reference materials for follow-up"
+      ]
+    },
+    "support": {
+      "title": "Specialized technical support",
+      "shortDescription": "We offer flexible and responsive technical support plans to ensure your business continuity without interruption.",
+      "detail": "Flexible support plans covering daily incidents, updates, and compliance follow-up. Clear channels (phone, email, WhatsApp) and priority response suited to your operations — so invoicing and signature keep running.",
+      "bullets": [
+        "Multiple support channels",
+        "Priority-based response",
+        "Compliance update follow-up"
+      ]
+    }
+  },
+  "signaturePage": {
+    "heroEyebrow": "Signature & seal service",
+    "heroTitle": "Sign your electronic documents with ease",
+    "heroSubtitle": "We simplify issuing and activating certified e-signature and e-seal, then linking them to the tax system and your digital transactions — in the DTS way, with our certified partners.",
+    "heroCta": "Request your e-signature",
+    "heroSecondaryCta": "Chat on WhatsApp",
+    "whatsappHref": "https://wa.me/201050992816",
+    "form": {
+      "title": "Request signature or seal issuance",
+      "subtitle": "Fill in your details and the Tawqe3y team will reply. Extra fields are optional.",
+      "submit": "Send request",
+      "successTitle": "Request sent",
+      "successMsg": "Thank you. The Tawqe3y team will contact you soon.",
+      "fields": {
+        "companyOptional": "Company name (optional)",
+        "nationalIdOptional": "National ID / registry (optional)",
+        "serviceTypeOptional": "Service type (optional)",
+        "message": "Describe your request here"
+      },
+      "serviceTypes": {
+        "signature": "E-signature",
+        "seal": "E-seal",
+        "both": "Signature and seal"
+      }
+    },
+    "panelsTitle": "One service… two clear paths",
+    "panelsSubtitle": "Signature and seal are one offering with us — separated here so you pick what fits.",
+    "signature": {
+      "title": "Electronic signature",
+      "subtitle": "The certified digital form of your handwritten signature for legal digital transactions.",
+      "points": [
+        "For individuals and authorized company signers",
+        "Sign documents and contracts remotely",
+        "Connect to tax systems when required"
+      ]
+    },
+    "seal": {
+      "title": "Electronic seal",
+      "subtitle": "An entity-level digital seal that protects company transactions, data, and documents.",
+      "points": [
+        "For companies and legal entities",
+        "Secure documents, servers, and transactions",
+        "Clearer compliance for entity workflows"
+      ]
+    },
+    "benefitsTitle": "Why issue your signature with DTS?",
+    "benefitsSubtitle": "A clear path from request to activation and linking — fast and secure.",
+    "benefits": {
+      "legal": {
+        "title": "Legal & secure",
+        "desc": "Digitally signed documents are harder to forge and safer than traditional paper paths."
+      },
+      "ease": {
+        "title": "Simple",
+        "desc": "Straightforward steps to issue and activate a signature or seal for people and organizations."
+      },
+      "speed": {
+        "title": "Fast",
+        "desc": "Cut paper waiting time — send documents and sign digitally sooner."
+      },
+      "organize": {
+        "title": "Organized",
+        "desc": "Clearer tracking of signature status and documents waiting on you."
+      },
+      "save": {
+        "title": "Save time & effort",
+        "desc": "Less travel to stamp official papers — use remote digital flows where allowed."
+      },
+      "compliance": {
+        "title": "Tax-system ready",
+        "desc": "Link your signature or seal to the tax system and your documents on a clear compliance path."
+      }
+    },
+    "bottomTitle": "Ready to start?",
+    "bottomSubtitle": "Contact us to issue your signature or seal and link them to your stack.",
+    "bottomCta": "Contact us"
+  }
+}

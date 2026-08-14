@@ -19,6 +19,16 @@ const routes = [
         component: () => import('@/views/ProductsView.vue')
       },
       {
+        path: 'services',
+        name: 'services',
+        component: () => import('@/views/ServicesView.vue')
+      },
+      {
+        path: 'services/signature',
+        name: 'services-signature',
+        component: () => import('@/views/SignatureServiceView.vue')
+      },
+      {
         path: 'contact',
         name: 'contact',
         component: () => import('@/views/ContactView.vue')

@@ -18,6 +18,8 @@ Home `#products` uses short teaser copy (`home.products.tabs`). Listing cards us
 
 ESA Lite: installer URL is set on `esa.liteDownloadUrl` in `src/data/products.js`. Detail page CTA: request the product; ESA also has “try the free Lite version”.
 
+Services: full catalog on `/services` (`src/data/services.js` + `services.json`). Signature/seal detail on `/services/signature`.
+
 ## Audience
 
 Businesses needing compliance and digital document workflows in Egypt (sales, partners, existing clients browsing trust and product info).

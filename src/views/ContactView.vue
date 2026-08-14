@@ -1,10 +1,17 @@
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import ContactForm from '@/components/contact/ContactForm.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
+
+const contactNumbers = computed(() => {
+  void locale.value
+  const raw = tm('common.footer.numbers')
+  return Array.isArray(raw) ? raw : []
+})
 
 useScrollReveal()
 </script>
@@ -36,7 +43,7 @@ useScrollReveal()
             </li>
             <li>
               <ul class="space-y-2 ps-8">
-                <li v-for="(num, i) in tm('common.footer.numbers')" :key="i">
+                <li v-for="(num, i) in contactNumbers" :key="`${locale}-${i}`">
                   <a
                     :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
                     dir="ltr"

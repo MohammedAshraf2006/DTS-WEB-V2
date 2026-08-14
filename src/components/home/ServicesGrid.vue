@@ -1,12 +1,20 @@
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 import { useCardTilt } from '@/composables/useCardTilt'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 
 // Home shows only the top 3 services
 const icons = ['invoice', 'layers', 'signature']
+const learnMoreLinks = ['/services', '/services', '/services/signature']
+
+const serviceItems = computed(() => {
+  void locale.value
+  const raw = tm('home.services.items')
+  return Array.isArray(raw) ? raw : []
+})
 
 const {
   root: signatureRoot,
@@ -59,7 +67,7 @@ const {
               </p>
             </div>
             <RouterLink
-              to="/contact"
+              to="/services/signature"
               class="sculpt-cta inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
             >
               {{ t('home.services.signatureHighlight.cta') }}
@@ -73,8 +81,8 @@ const {
       <!-- Top 3 services -->
       <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
         <article
-          v-for="(service, i) in tm('home.services.items')"
-          :key="i"
+          v-for="(service, i) in serviceItems"
+          :key="`${locale}-${i}`"
           class="reveal group rounded-2xl border border-border bg-surface-alt p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg sm:p-10"
           :style="{ transitionDelay: `${i * 0.08}s` }"
         >
@@ -93,7 +101,7 @@ const {
           </p>
 
           <RouterLink
-            to="/contact"
+            :to="learnMoreLinks[i] || '/services'"
             class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-200 hover:text-primary-hover"
           >
             {{ t('home.services.learnMore') }}

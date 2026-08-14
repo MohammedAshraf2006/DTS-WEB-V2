@@ -12,6 +12,8 @@ src/
   views/
     HomeView.vue
     ProductsView.vue
+    ServicesView.vue
+    SignatureServiceView.vue
     ContactView.vue
     ProductDetailView.vue
     NotFoundView.vue
@@ -23,10 +25,12 @@ src/
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
     products/             # listing cards, header menu cards, media stage
+    services/             # services listing cards + signature panels
     contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
     products.js           # ESS / ERS / ESA catalog + gallery paths
+    services.js           # services catalog + icon paths
   composables/
     useTheme.js
     useScrolledHeader.js
@@ -35,11 +39,11 @@ src/
     useCardTilt.js
     useContactForm.js
     runViewTransition.js  # thin theme/locale update helper
-  locales/{ar,en}/        # namespaced JSON (common, home, products, contact)
+  locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services)
   services/
     api.js
     contact.js            # FormSubmit → support@dts-eg.com
-public/images/            # logos, clients, partners, products
+public/images/            # logos, clients, partners, products, services icons
 public/animations/        # Lottie (mail-box.json)
 ```
 
@@ -67,8 +71,10 @@ Ambient orbs on Home are **dark mode only**.
 
 - `/` → `MainLayout` → `HomeView` (`name: home`)
 - `/products` → `ProductsView` (`name: products`)
+- `/services` → `ServicesView` (`name: services`)
+- `/services/signature` → `SignatureServiceView` (`name: services-signature`)
 - `/contact` → `ContactView` (`name: contact`)
 - `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | ers | esa)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header
-- `/services` is linked from Home but **not routed yet**
+- Home `#services` remains a teaser; full catalog is `/services`

@@ -8,7 +8,7 @@ import ProductMediaStage from '@/components/products/ProductMediaStage.vue'
 import ProductFeatureCards from '@/components/products/ProductFeatureCards.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 const route = useRoute()
 
 useScrollReveal()
@@ -17,6 +17,7 @@ const key = computed(() => route.params.key)
 const product = computed(() => getProduct(key.value))
 
 const features = computed(() => {
+  void locale.value
   const raw = tm(`products.items.${key.value}.features`)
   if (!Array.isArray(raw)) return []
   return raw

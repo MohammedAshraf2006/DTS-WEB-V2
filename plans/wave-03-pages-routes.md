@@ -1,6 +1,6 @@
 # Wave 03 — Pages and routes
 
-**Status:** in_progress
+**Status:** done
 
 ## Goal
 
@@ -12,12 +12,13 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - `src/views/*View.vue`
 - `src/components/**` (page sections)
 - `src/locales/{ar,en}/*.json`, `src/i18n.js`
-- `src/data/products.js`
+- `src/data/products.js`, `src/data/services.js`
 
 ## Decision
 
 - **Products:** real routes (not hash-only). Home `#products` strip remains as a teaser.
-- **Services / partners / contact form:** still later (this slice is products only).
+- **Services:** `/services` listing + dedicated `/services/signature` (توقيع/ختم split). Home `#services` stays a teaser.
+- **Contact:** shipped in wave 04 as `/contact`.
 
 ## Shipped (products slice)
 
@@ -31,10 +32,16 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - [x] Buyer-facing copy from live ESS / ERS / ESA apps (home teaser vs detail)
 - [x] Detail features as expandable lines; sculpted panel drops with the explanation
 
-## Remaining (wave 03)
+## Shipped (services slice)
 
-- [ ] `/services` page (Home already CTAs here)
-- [ ] Optional dedicated about/contact routes
+- [x] `/services` — full catalog (8 services) with long `detail` copy + 3D SVG icons
+- [x] `/services/signature` — signature + seal panels, benefits, contact/WhatsApp CTAs
+- [x] Catalog `src/data/services.js` + locales `services.json` (ar/en)
+- [x] Header / footer / Home CTAs point to `/services` and `/services/signature`
+
+## Remaining (optional later)
+
+- Dedicated about route (hash `#about` may stay)
 
 ## Drop media here
 
@@ -42,16 +49,18 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - Videos: `public/videos/{ess,ers,esa}/`
 - Then set `src` / `poster` in `src/data/products.js`
 - ESA Lite: set `liteDownloadUrl` on the `esa` catalog entry
+- Service icons: `public/images/services/*.svg`
 
 ## Test criteria
 
-- Routes resolve; unknown `:key` → 404
+- Routes resolve; unknown product `:key` → 404
 - Locale keys exist for both `ar` and `en`
 - Header/footer links match IA
 - Empty gallery still shows placeholder
+- `/services` and `/services/signature` resolve
 - `npm run build` succeeds
 
 ## Post-close docs
 
-- Update `docs/architecture/structure.md` and `docs/business/site-map.md` as remaining routes land
-- Mark wave `done` in `plans/status.md` when `/services` (and any remaining IA) ships
+- [x] Update `docs/architecture/structure.md` and `docs/business/site-map.md`
+- [x] Mark wave `done` in `plans/status.md`

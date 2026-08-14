@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 import { PRODUCT_KEYS, getProduct, firstMedia } from '@/data/products'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 
 const tabKeys = PRODUCT_KEYS
 const activeTab = ref('ess')
@@ -13,6 +13,7 @@ const activeProduct = computed(() => getProduct(activeTab.value))
 const activeMedia = computed(() => firstMedia(activeProduct.value))
 
 const activeFeatures = computed(() => {
+  void locale.value
   const raw = tm(`home.products.tabs.${activeTab.value}.features`)
   return Array.isArray(raw) ? raw : []
 })

@@ -4,7 +4,7 @@
 
 - Library: vue-i18n 9, `legacy: false`
 - Default locale: `ar` (from `localStorage` key `dts-locale`, fallback `en`)
-- Namespaces merged per locale: `common`, `home`, `products`, `contact`
+- Namespaces merged per locale: `common`, `home`, `products`, `contact`, `services`
 - Usage: `t('common.nav.home')`, `t('home.hero.titlePrefix')`, `tm(...)` for arrays/objects
 - Add a new page namespace as `src/locales/{ar,en}/<page>.json` and register it in `i18n.js`
 - Keep `ar` and `en` key trees in parallel — no hardcoded UI copy in templates
@@ -19,15 +19,22 @@
 ## Routing (`src/router/index.js`)
 
 - History mode via `createWebHistory`
-- Shell: `MainLayout` with nested home, products, and contact routes
+- Shell: `MainLayout` with nested home, products, services, and contact routes
 - `scrollBehavior` supports saved position, hash targets (offset 90), else top
+
+### Page routes (extra)
+
+| Path | Status |
+|------|--------|
+| `/services` | Live — full services catalog |
+| `/services/signature` | Live — e-signature / e-seal detail |
 
 ### Hash targets (Home / footer)
 
 | Hash | Status |
 |------|--------|
 | `#products` | Live — `ProductTabs` |
-| `#services` | Live — `ServicesGrid` |
+| `#services` | Live — `ServicesGrid` teaser (full list on `/services`) |
 | `#about` | Live — `StatsCta` |
 | `#contact` | Redirected to page `/contact` (form) |
 | `#partners` | **Missing** — still linked from header; wave 02 remaining |

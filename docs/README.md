@@ -19,7 +19,7 @@ Canonical structural documentation for this repo.
 
 ## Project status (high level)
 
-See [`plans/status.md`](../plans/status.md). As of 2026-08-14: foundation **done**; Home **in progress** (partners/clients); products routes **shipped**; `/contact` and WhatsApp float **shipped**; `/services` still open.
+See [`plans/status.md`](../plans/status.md). As of 2026-08-14: foundation **done**; Home **in progress** (partners/clients); products + services routes **shipped**; `/contact` and WhatsApp float **shipped**.
 
 ## Related paths
 

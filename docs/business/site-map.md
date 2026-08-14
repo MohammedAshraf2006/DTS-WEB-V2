@@ -7,6 +7,8 @@
 | Home `/` | `HomeView`: Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta |
 | Products `/products` | `ProductsView` — three sculpted cards (ESS / ERS / ESA) |
 | Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
+| Services `/services` | `ServicesView` — 8 services with detail copy + 3D icons |
+| Signature `/services/signature` | `SignatureServiceView` — توقيع/ختم panels + benefits |
 | 404 | `NotFoundView` |
 | Contact `/contact` | `ContactView` — form to support@dts-eg.com + Mail Box Lottie on success |
 | Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) + `WhatsAppFloat` |
@@ -20,14 +22,14 @@
 | `#about` | Stats + “trusted by” CTA band |
 | `#contact` | Replaced by `/contact` |
 
-Nav **Products** → `/products`. Partners still → `/#partners` (section not implemented yet).
+Nav **Products** → `/products`. Nav **Services** → `/services`. Partners still → `/#partners` (section not implemented yet).
 
 ## Target map (from reference + nav labels)
 
 | Intent | V2 status |
 |--------|-----------|
 | Home / hero | Live |
-| Services (home strip) | Live (`#services`); full `/services` page pending wave 03 |
+| Services (home strip) | Live (`#services` teaser); full `/services` + `/services/signature` |
 | Products listing | Live `/products` |
 | Product detail | Live `/products/ess`, `/products/ers`, `/products/esa` (media placeholders until files are dropped) |
 | About / numbers | Live as `#about` (StatsCta) |
@@ -40,8 +42,10 @@ Nav **Products** → `/products`. Partners still → `/#partners` (section not i
 
 - `public/images/Products/media/{ess,ers,esa}/`
 - `public/videos/{ess,ers,esa}/`
+- `public/images/services/*.svg` (service icons)
 - Wire paths in `src/data/products.js` (`gallery` + ESA `liteDownloadUrl`)
+- Services catalog: `src/data/services.js`
 
-## Future routes (wave 03 remainder)
+## Future routes
 
-`/services` (Home already CTAs here). About may stay a hash.
+About may stay a hash (`#about`).

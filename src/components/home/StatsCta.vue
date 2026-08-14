@@ -1,9 +1,10 @@
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import StatCard from '@/components/home/StatCard.vue'
 import { useCardTilt } from '@/composables/useCardTilt'
 
-const { t, tm } = useI18n()
+const { t, tm, locale } = useI18n()
 
 // Visual sparkline shapes (not translated)
 const sparkSeries = [
@@ -11,6 +12,12 @@ const sparkSeries = [
   [50, 54, 52, 60, 58, 72, 80, 92],
   [88, 82, 78, 70, 64, 58, 52, 46]
 ]
+
+const stats = computed(() => {
+  void locale.value
+  const raw = tm('home.stats.items')
+  return Array.isArray(raw) ? raw : []
+})
 
 const {
   root: ctaRoot,
@@ -38,8 +45,8 @@ const {
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         <StatCard
-          v-for="(stat, i) in tm('home.stats.items')"
-          :key="i"
+          v-for="(stat, i) in stats"
+          :key="`${locale}-${i}`"
           :value="stat.value"
           :label="stat.label"
           :growth="stat.growth"

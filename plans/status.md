@@ -7,7 +7,7 @@ Last updated: 2026-08-14
 | 00 | [wave-00-bootstrap.md](wave-00-bootstrap.md) | done | Cursor rules, inventory, docs/plans bootstrap |
 | 01 | [wave-01-foundation.md](wave-01-foundation.md) | done | Shell, i18n, theme, tokens, loader, site background |
 | 02 | [wave-02-home-complete.md](wave-02-home-complete.md) | in_progress | Home largely shipped; partners hash, client assets remain |
-| 03 | [wave-03-pages-routes.md](wave-03-pages-routes.md) | in_progress | Products routes shipped; `/services` still pending |
+| 03 | [wave-03-pages-routes.md](wave-03-pages-routes.md) | done | Products + services routes shipped |
 | 04 | [wave-04-forms-integrations.md](wave-04-forms-integrations.md) | done | Contact page, footer emails, WhatsApp float |
 | 05 | [wave-05-quality-launch.md](wave-05-quality-launch.md) | pending | QA, SEO basics, deploy |
 
@@ -16,8 +16,8 @@ Last updated: 2026-08-14
 - **Stack:** Vue 3 + Vite + Tailwind 3 + vue-i18n 9 + vue-router 4 (JS only)
 - **Shell:** `MainLayout` + `AppHeader` / `AppFooter` + `SiteBackground` + `AppLoader` + `WhatsAppFloat`
 - **Home sections:** Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta
-- **Routes:** `/`, `/products`, `/products/ess|ers|esa`, `/contact`, 404
-- **Hashes live:** `#products`, `#services`, `#about` (footer)
+- **Routes:** `/`, `/products`, `/products/ess|ers|esa`, `/services`, `/services/signature`, `/contact`, 404
+- **Hashes live:** `#products`, `#services` (home teaser), `#about` (footer)
 - **Hash missing:** `#partners`
 - **Build:** `npm run build` passes (2026-08-14)
 

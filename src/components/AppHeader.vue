@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
 
         <li>
           <RouterLink
-            to="/#services"
+            to="/services"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
             @mouseenter="closeProducts"
           >
@@ -222,7 +222,7 @@ onBeforeUnmount(() => {
               {{ t(`common.products.${key}.name`) }}
             </RouterLink>
           </li>
-          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#services" @click="closeMobile">{{ t('common.nav.services') }}</RouterLink></li>
+          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/services" @click="closeMobile">{{ t('common.nav.services') }}</RouterLink></li>
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#about" @click="closeMobile">{{ t('common.nav.about') }}</RouterLink></li>
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
         </ul>
