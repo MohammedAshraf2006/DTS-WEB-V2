@@ -6,17 +6,17 @@
 
 ## What the site sells / presents
 
-Primary product family (from live locales):
+Primary product family (buyer copy taken from what the live apps do):
 
-| Code | Focus | Home treatment |
-|------|--------|----------------|
-| ESS | E-invoice / e-receipt | Product tab + hero rotating “invoice” |
-| ERS | POS electronic receipts | Product tab + hero rotating “receipt” |
-| ESA | E-signature / e-seal | Product tab + hero rotating “signature” + services highlight CTA |
+| Code | What it is | Who it is for |
+|------|------------|----------------|
+| ESS | Browser **Electronic Sales System**: e-invoices + e-receipts, master data, ETA portal view, multi-company / branches / POS / users. Legal signing via ESA on the PC. | Companies that need both invoices and receipts with tax submit/track |
+| ERS | Browser **POS e-receipts** only (no invoice cycle): cashier sales/returns, POS devices, thermal print, daily sales board | Retail / cashier lanes |
+| ESA | Windows **signature agent**: USB token (e-signature / e-seal), PIN in RAM only, local link to ESS, expiry alerts | Any issuer who must legally sign before ETA |
 
-Broader positioning: integrated issuance of e-invoices/receipts and digital signature, tied to the Egyptian Tax Authority narrative used in hero/footer copy.
+Home `#products` uses short teaser copy (`home.products.tabs`). Listing cards use `products.items.*.shortDescription`. Detail `/products/:key` uses the longer description + features.
 
-Home services strip (3 cards): e-invoicing & receipts, ERP/layers, e-signature — remaining catalog deferred to `/services`.
+ESA Lite: optional installer via `liteDownloadUrl` in `src/data/products.js`.
 
 ## Audience
 
@@ -37,5 +37,6 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 
 ## Reference vs V2
 
-- **Business meaning and copy intent:** `C:\Users\PC\Desktop\DTS-WEB`
+- **Site chrome / historic marketing:** `C:\Users\PC\Desktop\DTS-WEB`
+- **Product meaning for ESS / ERS / ESA copy:** the live apps (`ESS-Legacy\ess-front-web`, `ers-web`, `ESS-Legacy\esa-agent`) — intent only, do not copy their UI
 - **Implementation:** this V2 repo only

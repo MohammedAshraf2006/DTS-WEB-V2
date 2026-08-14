@@ -5,6 +5,8 @@
 | Surface | Implementation |
 |---------|----------------|
 | Home `/` | `HomeView`: Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta |
+| Products `/products` | `ProductsView` — three sculpted cards (ESS / ERS / ESA) |
+| Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
 | 404 | `NotFoundView` |
 | Chrome | `AppLoader` (first paint) + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) |
 
@@ -12,12 +14,12 @@
 
 | Id | Section |
 |----|---------|
-| `#products` | Product tabs (ESS / ERS / ESA) |
+| `#products` | Product tabs teaser (links through to `/products/:key`) |
 | `#services` | Top 3 services + e-signature highlight |
 | `#about` | Stats + “trusted by” CTA band |
 | `#contact` | Footer (pre-footer CTA + columns) |
 
-Nav still exposes **Partners** → `/#partners` (section not implemented yet).
+Nav **Products** → `/products`. Partners still → `/#partners` (section not implemented yet).
 
 ## Target map (from reference + nav labels)
 
@@ -25,13 +27,20 @@ Nav still exposes **Partners** → `/#partners` (section not implemented yet).
 |--------|-----------|
 | Home / hero | Live |
 | Services (home strip) | Live (`#services`); full `/services` page pending wave 03 |
-| Products | Live (`#products`); media placeholders until assets wired |
+| Products listing | Live `/products` |
+| Product detail | Live `/products/ess`, `/products/ers`, `/products/esa` (media placeholders until files are dropped) |
 | About / numbers | Live as `#about` (StatsCta) |
 | Clients / trust | Partial — `TrustBar` with 2 logos; more URLs/assets pending |
 | Partners | Missing section (`public/images/partners` available) |
 | Contact | Footer + `mailto` sales CTA; dedicated form pending wave 04 |
 | WhatsApp float | Missing (wave 04) |
 
-## Future routes (wave 03+)
+## Media drop paths
 
-Dedicated views may be added under `MainLayout` for products, services, about, contact — or remain hash sections on Home. Decision recorded in `plans/wave-03-pages-routes.md` when that wave starts. Home already links “all services” to `/services`.
+- `public/images/Products/media/{ess,ers,esa}/`
+- `public/videos/{ess,ers,esa}/`
+- Wire paths in `src/data/products.js` (`gallery` + ESA `liteDownloadUrl`)
+
+## Future routes (wave 03 remainder)
+
+`/services` (Home already CTAs here). About/contact may stay hashes.

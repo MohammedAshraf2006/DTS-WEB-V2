@@ -19,7 +19,7 @@ Canonical structural documentation for this repo.
 
 ## Project status (high level)
 
-See [`plans/status.md`](../plans/status.md). As of 2026-08-14: foundation **done**; Home wave **in progress** (partners section, remaining client assets, product media still open).
+See [`plans/status.md`](../plans/status.md). As of 2026-08-14: foundation **done**; Home **in progress** (partners/clients); products routes **shipped** (`/products`, `/products/:key`); `/services` still open.
 
 ## Related paths
 

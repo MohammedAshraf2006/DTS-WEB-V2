@@ -4,7 +4,7 @@
 
 - Library: vue-i18n 9, `legacy: false`
 - Default locale: `ar` (from `localStorage` key `dts-locale`, fallback `en`)
-- Namespaces merged per locale: `common`, `home`
+- Namespaces merged per locale: `common`, `home`, `products`
 - Usage: `t('common.nav.home')`, `t('home.hero.titlePrefix')`, `tm(...)` for arrays/objects
 - Add a new page namespace as `src/locales/{ar,en}/<page>.json` and register it in `i18n.js`
 - Keep `ar` and `en` key trees in parallel — no hardcoded UI copy in templates
@@ -19,7 +19,7 @@
 ## Routing (`src/router/index.js`)
 
 - History mode via `createWebHistory`
-- Shell: `MainLayout` with nested home route
+- Shell: `MainLayout` with nested home + products routes
 - `scrollBehavior` supports saved position, hash targets (offset 90), else top
 
 ### Hash targets (Home / footer)

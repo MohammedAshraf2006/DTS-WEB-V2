@@ -2,33 +2,22 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { PRODUCT_KEYS, getProduct, firstMedia } from '@/data/products'
 
 const { t, tm } = useI18n()
 
-const tabKeys = ['ess', 'ers', 'esa']
+const tabKeys = PRODUCT_KEYS
 const activeTab = ref('ess')
 
-/**
- * Media per product — drop files under public/ and set type + src.
- * type: 'image' | 'video'
- */
-const productMedia = {
-  ess: { type: 'image', src: '' }, // e.g. '/images/Products/media/ess.png'
-  ers: { type: 'image', src: '' },
-  esa: { type: 'image', src: '' }
-}
+const activeProduct = computed(() => getProduct(activeTab.value))
+const activeMedia = computed(() => firstMedia(activeProduct.value))
 
 const activeFeatures = computed(() => {
   const raw = tm(`home.products.tabs.${activeTab.value}.features`)
   return Array.isArray(raw) ? raw : []
 })
 
-const activeMedia = computed(() => productMedia[activeTab.value])
-
-const hasMedia = computed(() => {
-  const src = activeMedia.value?.src
-  return typeof src === 'string' && src.trim().length > 0
-})
+const hasMedia = computed(() => Boolean(activeMedia.value))
 </script>
 
 <template>
@@ -116,7 +105,7 @@ const hasMedia = computed(() => {
               </ul>
 
               <RouterLink
-                to="/#contact"
+                :to="`/products/${activeTab}`"
                 class="mt-8 inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-hover"
               >
                 {{ t('home.products.cta') }}
@@ -134,6 +123,7 @@ const hasMedia = computed(() => {
                 :key="activeMedia.src"
                 class="h-full w-full object-cover"
                 :src="activeMedia.src"
+                :poster="activeMedia.poster || undefined"
                 controls
                 playsinline
                 preload="metadata"
@@ -162,6 +152,17 @@ const hasMedia = computed(() => {
           </div>
         </div>
       </Transition>
+
+      <div class="reveal mt-10 text-center" style="transition-delay: .12s">
+        <RouterLink
+          to="/products"
+          class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all duration-200 hover:border-primary hover:text-primary"
+        >
+          {{ t('home.products.viewAll') }}
+          <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
+          <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
+        </RouterLink>
+      </div>
     </div>
   </section>
 </template>

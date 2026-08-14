@@ -9,18 +9,30 @@
 | `public/images/` | Logos, clients, partners, product art |
 | `src/assets/colors.css` | Brand tokens |
 
-Namespaces today: `common`, `home`. Add one JSON pair per new page/section namespace.
+Namespaces today: `common`, `home`, `products`. Add one JSON pair per new page/section namespace.
 
 ### Notable asset paths
 
 | Path | Use |
 |------|-----|
 | `public/images/DTS.png` | Header / loader / footer brand mark |
-| `public/images/Products/{ess,ers,esa}-logo.png` | Product tabs + hero floating cards |
+| `public/images/Products/{ess,ers,esa}-logo.png` | Tabs, header, listing, detail |
+| `public/images/Products/media/{ess,ers,esa}/` | Product screenshots |
+| `public/videos/{ess,ers,esa}/` | Product explainers |
 | `public/images/clients/*.png` | TrustBar (partial fill today) |
 | `public/images/partners/` | Reserved for partners section (not wired) |
 
-Product media for `ProductTabs` is configured in-component (`productMedia`); drop files under `public/images/Products/media/` or `public/videos/` then set `type` + `src`.
+Product media is wired in `src/data/products.js` (`gallery` items: `type`, `src`, optional `poster`). Empty `src` keeps the placeholder. ESA Lite installer URL: `productsCatalog.esa.liteDownloadUrl`.
+
+Buyer-facing product copy comes from what the apps actually do (do not copy their UI):
+
+| Product | Source (intent only) |
+|---------|----------------------|
+| ESS | `C:\Users\PC\Desktop\ESS-Legacy\ess-front-web` |
+| ERS | `C:\Users\PC\Desktop\ers-web` |
+| ESA | `C:\Users\PC\Desktop\ESS-Legacy\esa-agent` |
+
+Locales: `home.products.tabs.*` (short home teaser) vs `products.items.*` (listing `shortDescription` + detail `description` / `features`).
 
 ## External reference (intent only)
 

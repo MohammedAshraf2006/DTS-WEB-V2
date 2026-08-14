@@ -18,39 +18,39 @@
   },
   "products": {
     "title": "Our Products",
-    "subtitle": "3 specialized tools covering the full invoicing and e-signature cycle",
+    "subtitle": "Browser invoicing and receipts, a cashier POS lane, and a signing agent on your PC",
     "tabs": {
       "ess": {
         "name": "ESS",
-        "title": "E-Invoicing & E-Receipts",
-        "description": "A flexible cloud platform to issue and manage e-invoices and e-receipts from anywhere, right from your browser — no software installation needed.",
+        "title": "Electronic Sales System",
+        "description": "From the browser: issue the invoice or receipt, send it to the tax authority, and track accept or reject — no software to install.",
         "features": [
-          "Full flexibility issuing invoices and receipts on the web",
-          "Access the system from mobile, tablet, or desktop",
-          "Instant automatic updates in line with tax authority decisions",
-          "Regular automatic backups of your sales data"
+          "Invoices, receipts, and returns in one workflow",
+          "Items, customers, and suppliers ready for fast issuance",
+          "Document status tracked with the tax authority",
+          "Bulk import and A4 or thermal print"
         ]
       },
       "ers": {
         "name": "ERS",
         "title": "POS E-Receipts",
-        "description": "The fastest digital solution for managing web-based point-of-sale and retail, built specifically for one-tap e-receipt issuance.",
+        "description": "A fast cashier screen: issue the e-receipt at the POS and link it to the tax authority — without the invoice cycle.",
         "features": [
-          "Direct, real-time link to the tax authority for receipts",
-          "A very simple interface built specifically for POS",
-          "Full support for cashier devices and thermal printers",
-          "Real-time tracking of daily sales from anywhere"
+          "Sales receipt or return from the cashier screen",
+          "POS devices and branches ready to run",
+          "Accept/reject status and net for the shift",
+          "Thermal print and sales follow-up from anywhere"
         ]
       },
       "esa": {
         "name": "ESA",
-        "title": "E-Signature & E-Stamp",
-        "description": "The specialized tool for linking e-signatures and e-stamps to tax systems, ensuring the legality and reliability of every document.",
+        "title": "Electronic Signature Agent",
+        "description": "A Windows agent that signs the document from a USB token before it reaches the tax authority — the PIN is never saved on disk.",
         "features": [
-          "Full support for all e-signature and e-stamp certificates in Egypt",
-          "High-level encryption to protect digital data",
-          "Fast, easy integration with various invoicing systems",
-          "Alerts ahead of digital certificate renewal dates"
+          "Detects the token on plug-in; supports signature and seal",
+          "PIN stays in memory only and is never written to disk",
+          "Works with ESS on the same PC over a secure local link",
+          "Expiry alerts so issuance does not stop"
         ]
       }
     },

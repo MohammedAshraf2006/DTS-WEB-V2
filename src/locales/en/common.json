@@ -9,9 +9,9 @@
     "cta": "Contact Us"
   },
   "products": {
-    "ess": { "name": "ESS", "tagline": "E-Invoicing & E-Receipts" },
+    "ess": { "name": "ESS", "tagline": "Electronic Sales System" },
     "ers": { "name": "ERS", "tagline": "POS E-Receipts" },
-    "esa": { "name": "ESA", "tagline": "E-Signature & E-Stamp" }
+    "esa": { "name": "ESA", "tagline": "Electronic Signature Agent" }
   },
   "footer": {
     "tagline": "Digital transformation with confidence",

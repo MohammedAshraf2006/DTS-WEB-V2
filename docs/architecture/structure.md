@@ -11,6 +11,8 @@ src/
   layouts/MainLayout.vue  # SiteBackground + header + main + footer
   views/
     HomeView.vue
+    ProductsView.vue
+    ProductDetailView.vue
     NotFoundView.vue
   components/
     AppHeader.vue
@@ -18,7 +20,10 @@ src/
     AppLoader.vue         # first-open splash
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
+    products/             # listing cards, header menu cards, media stage
     icons/AppIcon.vue
+  data/
+    products.js           # ESS / ERS / ESA catalog + gallery paths
   composables/
     useTheme.js
     useScrolledHeader.js
@@ -26,7 +31,7 @@ src/
     useCountUp.js
     useCardTilt.js
     runViewTransition.js  # thin theme/locale update helper
-  locales/{ar,en}/        # namespaced JSON (common, home)
+  locales/{ar,en}/        # namespaced JSON (common, home, products)
   services/api.js         # thin fetch wrapper (VITE_API_BASE_URL)
 public/images/            # logos, clients, partners, products
 ```
@@ -54,6 +59,8 @@ Ambient orbs on Home are **dark mode only**.
 ## Routes (today)
 
 - `/` → `MainLayout` → `HomeView` (`name: home`)
+- `/products` → `ProductsView` (`name: products`)
+- `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | ers | esa)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header
-- `/services` is linked from Home but **not routed yet** (wave 03)
+- `/services` is linked from Home but **not routed yet**

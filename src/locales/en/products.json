@@ -1,0 +1,54 @@
+{
+  "title": "Our Products",
+  "subtitle": "Three complementary tools: browser invoicing and receipts, a fast POS lane, and a signing agent on your PC.",
+  "learnMore": "Learn more",
+  "contactCta": "Contact us",
+  "otherProducts": "More products",
+  "mediaPlaceholder": "Product image or video goes here",
+  "lite": {
+    "badge": "Lite",
+    "cta": "Download ESA Lite",
+    "hint": "A lighter Windows build — try it without a full fleet setup."
+  },
+  "items": {
+    "ess": {
+      "title": "Electronic Sales System",
+      "shortDescription": "From the browser: issue e-invoices and e-receipts, send them to the tax authority, and track status — no software to install.",
+      "description": "ESS is the electronic sales system for businesses that need certified e-invoices and e-receipts. You work in the browser: create the document, review it, submit it to the Egyptian Tax Authority, and follow acceptance or rejection in one place. Manage items, customers, and suppliers; register branches and POS devices; and code your items on the tax portal. Legal signing happens with a USB token on your PC through ESA — without installing invoicing software on every machine.",
+      "features": [
+        "Issue and manage e-invoices: create, edit, and adjustments",
+        "Sales receipts and returns with submit-and-track to the tax authority",
+        "Ready master data: items, customers, suppliers, and bulk import",
+        "Tax portal view: recent documents, GPC codes, and coding requests",
+        "Multi-company, branches, POS devices, and user permissions",
+        "Print A4, A5, or thermal with templates that match your business"
+      ]
+    },
+    "ers": {
+      "title": "POS E-Receipts",
+      "shortDescription": "A fast cashier screen to issue e-receipts and link them to the tax authority — without the full invoice workflow.",
+      "description": "ERS is built for retail and point-of-sale teams that need an e-receipt at the cashier — not an invoice. The cashier picks items, issues the receipt, and sends it to the Egyptian Tax Authority. You manage POS devices, branches, and customers, and import receipts when needed. The dashboard shows accepted, rejected, and net daily sales so you can follow the shift from anywhere.",
+      "features": [
+        "A simplified cashier path: sales receipts and returns",
+        "POS devices and branches linked to the tax authority",
+        "Items, customers, and bulk receipt import",
+        "View receipts, line items, and accept/reject status",
+        "Print templates suited to cashiers and thermal printers",
+        "Daily sales board: valid, in process, and net for the shift"
+      ]
+    },
+    "esa": {
+      "title": "Electronic Signature Agent",
+      "shortDescription": "A Windows agent that signs your invoices and receipts from a USB token before they reach the tax authority — the PIN is never saved on disk.",
+      "description": "ESA is an electronic signature agent for Windows 10 and 11. Plug in a USB token (certified e-signature or e-seal), log in with your PIN, and the agent signs the document to ITIDA and tax-authority standards. It detects the token the moment you insert or remove it, and works locally with ESS on the same PC through a secure interface that never leaves the machine. For companies with many PCs, signing can run across devices without moving the certificate. It supports the token brands most used in Egypt, and warns you before a certificate expires so issuance does not stop.",
+      "features": [
+        "E-signature and e-seal from a USB token on Windows",
+        "Instant detection when a token is plugged in or removed",
+        "PIN stays in memory only — never written to disk, cleared on logout",
+        "Secure local link with ESS on the same PC",
+        "More than one token on the same machine for higher signing volume",
+        "Certificate expiry alerts and PIN change from the interface"
+      ]
+    }
+  }
+}

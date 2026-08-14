@@ -7,9 +7,9 @@ const { t, tm } = useI18n()
 const year = new Date().getFullYear()
 
 const productLinks = [
-  { key: 'ess', to: '/#products' },
-  { key: 'ers', to: '/#products' },
-  { key: 'esa', to: '/#products' }
+  { key: 'ess', to: '/products/ess' },
+  { key: 'ers', to: '/products/ers' },
+  { key: 'esa', to: '/products/esa' }
 ]
 
 const companyLinks = [
@@ -180,7 +180,7 @@ const companyLinks = [
           © {{ year }} DTS — {{ t('common.footer.rights') }}
         </p>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-subtle">
-          <RouterLink to="/#products" class="transition-colors hover:text-text-base">
+          <RouterLink to="/products" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.products') }}
           </RouterLink>
           <RouterLink to="/#services" class="transition-colors hover:text-text-base">

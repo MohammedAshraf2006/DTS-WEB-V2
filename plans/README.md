@@ -10,8 +10,8 @@ Wave-based delivery for DTS-WEB V2.
 ## Current focus
 
 - **Done:** wave 00, wave 01
-- **Active:** wave 02 (Home polish; partners hash / client assets / product media remaining)
-- **Next:** wave 03 (`/services` and other routes), then forms (04) and launch QA (05)
+- **Active:** wave 03 products slice shipped; `/services` remaining. Wave 02 partners/clients still open.
+- **Next:** finish wave 03 `/services`, then forms (04) and launch QA (05)
 
 ## How to work
 

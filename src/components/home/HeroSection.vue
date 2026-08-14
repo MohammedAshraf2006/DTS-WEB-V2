@@ -230,7 +230,7 @@ onBeforeUnmount(() => {
           <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
         </RouterLink>
         <RouterLink
-          to="/#products"
+          to="/products"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-7 py-3.5 text-sm font-bold text-text-base transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
         >
           {{ t('home.hero.ctaSecondary') }}

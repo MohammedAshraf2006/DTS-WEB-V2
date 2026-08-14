@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import HomeView from '@/views/HomeView.vue'
+import { isProductKey } from '@/data/products'
 
 const routes = [
   {
@@ -11,6 +12,21 @@ const routes = [
         path: '',
         name: 'home',
         component: HomeView
+      },
+      {
+        path: 'products',
+        name: 'products',
+        component: () => import('@/views/ProductsView.vue')
+      },
+      {
+        path: 'products/:key',
+        name: 'product-detail',
+        component: () => import('@/views/ProductDetailView.vue'),
+        beforeEnter(to) {
+          if (!isProductKey(to.params.key)) {
+            return { name: 'not-found' }
+          }
+        }
       }
     ]
   },
