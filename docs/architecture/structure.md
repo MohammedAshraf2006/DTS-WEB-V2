@@ -3,7 +3,7 @@
 ```
 src/
   main.js                 # app bootstrap, locale dir sync, ApexCharts
-  App.vue                 # AppLoader + RouterView
+  App.vue                 # AppLoader + RouterView + WhatsAppFloat
   i18n.js                 # vue-i18n messages merge
   style.css               # Tailwind + shared utilities / motion
   assets/colors.css       # design tokens (CSS variables)
@@ -19,6 +19,7 @@ src/
     AppHeader.vue
     AppFooter.vue
     AppLoader.vue         # first-open splash
+    WhatsAppFloat.vue     # site-wide WhatsApp FAB
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
     products/             # listing cards, header menu cards, media stage

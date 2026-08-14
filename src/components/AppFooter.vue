@@ -120,7 +120,7 @@ const companyLinks = [
             {{ t('common.footer.helpTitle') }}
           </h3>
           <ul class="mt-5 space-y-3 text-[15px]">
-            <li>
+            <li class="flex flex-col items-start">
               <button
                 type="button"
                 class="text-start text-text-muted transition-colors hover:text-text-base"
@@ -132,12 +132,13 @@ const companyLinks = [
               <a
                 v-if="revealed.support"
                 :href="`mailto:${t('common.footer.supportEmail')}`"
-                class="mt-1 block text-sm font-semibold text-primary"
+                dir="ltr"
+                class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
                 {{ t('common.footer.supportEmail') }}
               </a>
             </li>
-            <li>
+            <li class="flex flex-col items-start">
               <button
                 type="button"
                 class="text-start text-text-muted transition-colors hover:text-text-base"
@@ -149,7 +150,8 @@ const companyLinks = [
               <a
                 v-if="revealed.sales"
                 :href="`mailto:${t('common.footer.salesEmail')}`"
-                class="mt-1 block text-sm font-semibold text-primary"
+                dir="ltr"
+                class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
                 {{ t('common.footer.salesEmail') }}
               </a>
@@ -167,7 +169,7 @@ const companyLinks = [
               <a
                 :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
                 dir="ltr"
-                class="inline-block text-[15px] text-text-muted transition-colors hover:text-text-base"
+                class="inline-block text-[15px] text-text-muted transition-colors hover:text-text-base [unicode-bidi:isolate]"
               >
                 {{ num }}
               </a>

@@ -9,7 +9,7 @@
 | Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
 | 404 | `NotFoundView` |
 | Contact `/contact` | `ContactView` — form to support@dts-eg.com + Mail Box Lottie on success |
-| Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) |
+| Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) + `WhatsAppFloat` |
 
 ### Home / footer anchors
 
@@ -34,7 +34,7 @@ Nav **Products** → `/products`. Partners still → `/#partners` (section not i
 | Clients / trust | Partial — `TrustBar` with 2 logos; more URLs/assets pending |
 | Partners | Missing section (`public/images/partners` available) |
 | Contact | Live `/contact` form; footer Support/Sales emails reveal on click |
-| WhatsApp float | Missing (wave 04 remainder) |
+| WhatsApp float | Live — `https://wa.me/201050992817` (same as DTS-WEB) |
 
 ## Media drop paths
 

@@ -17,7 +17,7 @@ const {
 } = useContactForm()
 
 const fieldClass =
-  'w-full rounded-xl border bg-surface px-4 py-3 text-sm text-text-base outline-none transition-colors placeholder:text-text-subtle focus:border-primary'
+  'w-full rounded-xl border bg-surface px-4 py-3 text-start text-sm text-text-base outline-none transition-colors placeholder:text-text-subtle focus:border-primary'
 </script>
 
 <template>
@@ -62,8 +62,8 @@ const fieldClass =
     <div>
       <input
         v-model="form.phone"
-        type="tel"
-        dir="ltr"
+        type="text"
+        inputmode="tel"
         :placeholder="t('contact.fields.phone')"
         :class="[fieldClass, errors.phone ? 'border-danger' : 'border-border']"
         autocomplete="tel"
@@ -75,7 +75,6 @@ const fieldClass =
       <input
         v-model="form.email"
         type="email"
-        dir="ltr"
         :placeholder="t('contact.fields.email')"
         :class="[fieldClass, errors.email ? 'border-danger' : 'border-border']"
         autocomplete="email"

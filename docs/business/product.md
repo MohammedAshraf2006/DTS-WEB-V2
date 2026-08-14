@@ -28,7 +28,7 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 - Sales: `Info@dts-eg.com` (footer: revealed on click)
 - Contact form `/contact` posts to `support@dts-eg.com`
 - Phones and address live under `common.footer.*`
-- Footer pre-CTA goes to `/contact`
+- WhatsApp float: `https://wa.me/201050992817` (verified from DTS-WEB)
 - Public reference site/domain intent: `dts-eg.com`
 
 ## Visual / brand notes (V2)

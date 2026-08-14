@@ -9,9 +9,9 @@ Wave-based delivery for DTS-WEB V2.
 
 ## Current focus
 
-- **Done:** wave 00, wave 01; products routes; contact page (`/contact`)
-- **Active:** wave 03 `/services` remaining. Wave 02 partners/clients still open. Wave 04 WhatsApp remaining.
-- **Next:** finish wave 03 `/services`, then WhatsApp (04) and launch QA (05)
+- **Done:** wave 00, wave 01, wave 04; products routes; contact page (`/contact`)
+- **Active:** wave 03 `/services` remaining. Wave 02 partners/clients still open.
+- **Next:** finish wave 03 `/services`, then launch QA (05)
 
 ## How to work
 

@@ -1,6 +1,6 @@
 # Wave 04 — Forms and integrations
 
-**Status:** in_progress
+**Status:** done
 
 ## Goal
 
@@ -13,7 +13,7 @@ Ship a real contact page (not footer-hash only) and verified support/sales email
 - Success Lottie (`public/animations/mail-box.json` from `social proof/Mail Box.json`)
 - Footer Support / Sales reveal emails on click
 - Locale strings for form validation/success
-- WhatsApp float still later
+- WhatsApp float (same number as DTS-WEB)
 
 ## Shipped (this slice)
 
@@ -22,14 +22,16 @@ Ship a real contact page (not footer-hash only) and verified support/sales email
 - [x] Mail Box Lottie after successful send
 - [x] Header / product / home CTAs point to `/contact`
 - [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `Info@dts-eg.com`
+- [x] WhatsApp float → `https://wa.me/201050992817` (verified from DTS-WEB)
 
 ## Remaining
 
-- [ ] WhatsApp / extra external floats after link verification
+- None for this wave
 
 ## Test criteria
 
 - Validation messages localized (ar / en)
 - Submit success shows Lottie; error path is visible
 - Support/Sales emails hidden until click
+- WhatsApp float matches DTS-WEB (number + look)
 - `npm run build` succeeds

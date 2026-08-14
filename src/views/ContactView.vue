@@ -28,7 +28,8 @@ useScrollReveal()
               <AppIcon name="support" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <a
                 :href="`mailto:${t('common.footer.supportEmail')}`"
-                class="transition-colors hover:text-primary"
+                dir="ltr"
+                class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
               >
                 {{ t('common.footer.supportEmail') }}
               </a>
@@ -39,7 +40,7 @@ useScrollReveal()
                   <a
                     :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
                     dir="ltr"
-                    class="inline-block transition-colors hover:text-primary"
+                    class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
                   >
                     {{ num }}
                   </a>

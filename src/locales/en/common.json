@@ -43,6 +43,10 @@
     "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
     "rights": "All rights reserved"
   },
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "href": "https://wa.me/201050992817"
+  },
   "buttons": {
     "learnMore": "Learn more",
     "contactUs": "Contact Us",
