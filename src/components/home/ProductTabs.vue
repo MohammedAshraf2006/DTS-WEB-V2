@@ -3,24 +3,39 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
-const { t } = useI18n()
+const { t, tm } = useI18n()
 
 const tabKeys = ['ess', 'ers', 'esa']
 const activeTab = ref('ess')
 
-const activeContent = computed(() => ({
-  title: t(`home.products.tabs.${activeTab.value}.title`),
-  description: t(`home.products.tabs.${activeTab.value}.description`),
-  features: t(`home.products.tabs.${activeTab.value}.features`)
-}))
+/**
+ * Media per product — drop files under public/ and set type + src.
+ * type: 'image' | 'video'
+ */
+const productMedia = {
+  ess: { type: 'image', src: '' }, // e.g. '/images/Products/media/ess.png'
+  ers: { type: 'image', src: '' },
+  esa: { type: 'image', src: '' }
+}
+
+const activeFeatures = computed(() => {
+  const raw = tm(`home.products.tabs.${activeTab.value}.features`)
+  return Array.isArray(raw) ? raw : []
+})
+
+const activeMedia = computed(() => productMedia[activeTab.value])
+
+const hasMedia = computed(() => {
+  const src = activeMedia.value?.src
+  return typeof src === 'string' && src.trim().length > 0
+})
 </script>
 
 <template>
   <section id="products" class="bg-surface py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-5 lg:px-10">
-      <!-- Section Header -->
       <div class="reveal mx-auto max-w-3xl text-center">
-        <h2 class="font-heading text-3xl font-bold text-text-base sm:text-4xl lg:text-5xl">
+        <h2 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl lg:text-5xl">
           {{ t('home.products.title') }}
         </h2>
         <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
@@ -28,95 +43,80 @@ const activeContent = computed(() => ({
         </p>
       </div>
 
-      <!-- Product Tabs -->
-      <div class="reveal mt-12 flex flex-wrap items-center justify-center gap-3 lg:gap-4" style="transition-delay: .08s">
+      <!-- Notion-like text tabs -->
+      <div
+        class="reveal mt-12 flex flex-wrap items-end justify-center gap-x-8 gap-y-3 border-b border-border"
+        style="transition-delay: .05s"
+        role="tablist"
+        :aria-label="t('home.products.title')"
+      >
         <button
           v-for="key in tabKeys"
           :key="key"
-          class="group flex items-center gap-2 rounded-full border border-border px-6 py-3 transition-all duration-200"
-          :class="activeTab === key
-            ? 'border-primary bg-primary shadow-md'
-            : 'bg-surface-alt hover:border-primary/40 hover:bg-surface-alt/80'"
+          type="button"
+          role="tab"
+          :aria-selected="activeTab === key"
+          :aria-label="t(`common.products.${key}.name`)"
+          class="relative -mb-px flex items-center justify-center pb-3 transition-opacity"
+          :class="
+            activeTab === key
+              ? 'border-b-2 border-primary opacity-100'
+              : 'border-b-2 border-transparent opacity-55 hover:opacity-90'
+          "
           @click="activeTab = key"
         >
           <img
             :src="`/images/Products/${key}-logo.png`"
-            :alt="key.toUpperCase()"
-            class="h-5 w-auto object-contain transition-opacity duration-200"
-            :class="activeTab === key ? 'opacity-100' : 'opacity-75 group-hover:opacity-100'"
+            :alt="t(`common.products.${key}.name`)"
+            class="h-7 w-auto object-contain sm:h-8"
           />
-          <span
-            class="hidden text-sm font-semibold transition-colors duration-200 sm:inline"
-            :class="activeTab === key ? 'text-text-onprimary' : 'text-text-base'"
-          >
-            {{ t(`common.products.${key}.name`) }}
-          </span>
         </button>
       </div>
 
-      <!-- Product Content Card -->
       <Transition
         mode="out-in"
         enter-active-class="transition duration-300 ease-out"
-        enter-from-class="opacity-0 translate-y-4"
+        enter-from-class="opacity-0 translate-y-3"
         enter-to-class="opacity-100 translate-y-0"
         leave-active-class="transition duration-200 ease-in"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 translate-y--4"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
       >
-        <div
-          :key="activeTab"
-          class="reveal is-visible mt-14 overflow-hidden rounded-2xl border border-border bg-surface-alt shadow-sm transition-all lg:mt-16"
-          style="transition-delay: .1s"
-        >
-          <!-- Grid Layout: Info on left, Image on right -->
-          <div class="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_1fr]">
-            <!-- Left: Product Information -->
-            <div class="flex flex-col justify-between p-8 sm:p-10 lg:p-12">
-              <!-- Product Name -->
-              <div>
-                <h3 class="font-heading text-2xl font-bold text-text-base sm:text-3xl">
-                  {{ activeContent.title }}
-                </h3>
+        <div :key="activeTab" class="reveal is-visible mt-12 lg:mt-16" role="tabpanel">
+          <!-- Notion-style: copy + large media -->
+          <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="max-w-xl">
+              <h3 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl">
+                {{ t(`home.products.tabs.${activeTab}.title`) }}
+              </h3>
+              <p class="mt-5 text-lg leading-relaxed text-text-muted">
+                {{ t(`home.products.tabs.${activeTab}.description`) }}
+              </p>
 
-                <!-- Description -->
-                <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
-                  {{ activeContent.description }}
-                </p>
+              <!-- Capability rows (Notion “See what Notion can do” vibe) -->
+              <ul class="mt-8 divide-y divide-border border-y border-border">
+                <li
+                  v-for="(feature, i) in activeFeatures"
+                  :key="i"
+                  class="flex items-center justify-between gap-4 py-4"
+                >
+                  <span class="text-[15px] font-medium leading-snug text-text-base">
+                    {{ feature }}
+                  </span>
+                  <AppIcon
+                    name="arrowLeft"
+                    class="h-4 w-4 shrink-0 text-text-subtle rtl:block ltr:hidden"
+                  />
+                  <AppIcon
+                    name="arrowRight"
+                    class="h-4 w-4 shrink-0 text-text-subtle ltr:block rtl:hidden"
+                  />
+                </li>
+              </ul>
 
-                <!-- Key Features List -->
-                <ul class="mt-8 space-y-3 sm:space-y-4">
-                  <li
-                    v-for="(feature, i) in activeContent.features"
-                    :key="i"
-                    class="flex items-start gap-3"
-                  >
-                    <!-- Checkmark Icon -->
-                    <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="h-3 w-3"
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </span>
-                    <!-- Feature Text -->
-                    <span class="text-base text-text-muted sm:text-[15px]">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- CTA Link -->
               <RouterLink
                 to="/#contact"
-                class="mt-10 inline-flex items-center gap-2 text-base font-bold text-primary transition-colors duration-200 hover:text-primary-hover"
+                class="mt-8 inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-hover"
               >
                 {{ t('home.products.cta') }}
                 <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
@@ -124,53 +124,58 @@ const activeContent = computed(() => ({
               </RouterLink>
             </div>
 
-            <!-- Right: Product Image/Screenshot -->
+            <!-- Large media plane -->
             <div
-              class="relative flex items-center justify-center bg-gradient-to-br from-primary-light/30 via-surface to-surface-alt p-8 sm:min-h-[400px] sm:p-10 lg:min-h-[450px] lg:p-12"
+              class="product-media relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-alt sm:aspect-[5/4] lg:aspect-[4/3]"
             >
-              <!-- Background decoration -->
-              <div class="absolute inset-0 overflow-hidden">
-                <div class="absolute -end-12 -top-12 h-40 w-40 rounded-full bg-primary-light/20 blur-3xl"></div>
-                <div class="absolute -start-12 -bottom-12 h-40 w-40 rounded-full bg-primary-light/10 blur-3xl"></div>
-              </div>
-
-              <!-- Product Logo/Screenshot -->
-              <div class="relative z-10 text-center">
+              <video
+                v-if="hasMedia && activeMedia.type === 'video'"
+                :key="activeMedia.src"
+                class="h-full w-full object-cover"
+                :src="activeMedia.src"
+                controls
+                playsinline
+                preload="metadata"
+              />
+              <img
+                v-else-if="hasMedia"
+                :key="activeMedia.src"
+                :src="activeMedia.src"
+                :alt="t(`home.products.tabs.${activeTab}.title`)"
+                class="h-full w-full object-cover"
+              />
+              <div
+                v-else
+                class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-primary-light/30 via-surface to-surface-alt px-8 text-center"
+              >
                 <img
                   :src="`/images/Products/${activeTab}-logo.png`"
                   :alt="activeTab.toUpperCase()"
-                  class="mx-auto h-32 w-auto object-contain sm:h-40 lg:h-48"
+                  class="h-14 w-auto object-contain opacity-80"
                 />
-                <p class="mt-6 text-sm font-medium text-text-subtle">
-                  {{ t(`common.products.${activeTab}.tagline`) }}
+                <p class="text-sm font-medium text-text-subtle">
+                  {{ t('home.products.mediaPlaceholder') }}
                 </p>
               </div>
             </div>
           </div>
         </div>
       </Transition>
-
-      <!-- Bottom CTA for Products Page -->
-      <div class="reveal mt-10 text-center" style="transition-delay: .15s">
-        <RouterLink
-          to="/#products"
-          class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-bold text-text-base transition-all duration-200 hover:border-primary hover:text-primary"
-        >
-          {{ t('home.products.viewAll') || 'See all products' }}
-          <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
-          <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
-        </RouterLink>
-      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* Smooth animation transitions */
+.product-media {
+  box-shadow: 0 24px 48px -28px rgba(15, 23, 42, 0.35);
+}
+
+.dark .product-media {
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

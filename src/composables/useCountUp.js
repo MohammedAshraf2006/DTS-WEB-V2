@@ -1,12 +1,21 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 /**
- * بيدّي عداد رقمي بسيط يعدّ لأعلى لما يظهر في الشاشة (زي أرقام الإحصائيات).
- * بيقبل قيمة نصية زي "10000+" أو "95%" ويستخرج الرقم منها، ويسيب أي prefix/suffix زي ما هو.
+ * Animated numeric display that counts up (or down) when the element enters view.
+ * Accepts values like "10000+", "95%", "+12%", "-48%".
  */
-export function useCountUp(targetEl, rawValue, duration = 1400) {
-  const displayValue = ref(rawValue)
+export function useCountUp(targetEl, rawValue, options = {}) {
+  const { duration = 1600, direction = 'up' } = options
+  const displayValue = ref(direction === 'up' ? formatStart(rawValue) : String(rawValue))
   let observer
+  let rafId
+
+  function formatStart(raw) {
+    const match = String(raw).match(/^(\D*)([\d,.]+)(\D*)$/)
+    if (!match) return raw
+    const [, prefix, , suffix] = match
+    return `${prefix}0${suffix}`
+  }
 
   onMounted(() => {
     const match = String(rawValue).match(/^(\D*)([\d,.]+)(\D*)$/)
@@ -18,20 +27,21 @@ export function useCountUp(targetEl, rawValue, duration = 1400) {
     const [, prefix, numStr, suffix] = match
     const target = parseFloat(numStr.replace(/,/g, ''))
     const decimals = numStr.includes('.') ? numStr.split('.')[1].length : 0
+    const startValue = direction === 'down' ? target * 1.55 : 0
 
     const animate = () => {
       const start = performance.now()
       const step = (now) => {
         const progress = Math.min((now - start) / duration, 1)
         const eased = 1 - Math.pow(1 - progress, 3)
-        const current = target * eased
+        const current = startValue + (target - startValue) * eased
         displayValue.value = `${prefix}${current.toLocaleString('en-US', {
           minimumFractionDigits: decimals,
           maximumFractionDigits: decimals
         })}${suffix}`
-        if (progress < 1) requestAnimationFrame(step)
+        if (progress < 1) rafId = requestAnimationFrame(step)
       }
-      requestAnimationFrame(step)
+      rafId = requestAnimationFrame(step)
     }
 
     if (!('IntersectionObserver' in window)) {
@@ -48,12 +58,15 @@ export function useCountUp(targetEl, rawValue, duration = 1400) {
           }
         })
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     )
     observer.observe(targetEl.value)
   })
 
-  onBeforeUnmount(() => observer?.disconnect())
+  onBeforeUnmount(() => {
+    observer?.disconnect()
+    if (rafId) cancelAnimationFrame(rafId)
+  })
 
   return { displayValue }
 }

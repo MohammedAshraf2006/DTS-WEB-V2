@@ -14,10 +14,23 @@
     "esa": { "name": "ESA", "tagline": "التوقيع والختم الإلكتروني" }
   },
   "footer": {
+    "tagline": "التحول الرقمي بثقة",
     "description": "منظومة متكاملة لإصدار الفواتير والإيصالات الإلكترونية والتوقيع الرقمي، مرتبطة مباشرة بمصلحة الضرائب المصرية.",
+    "ctaTitle": "جاهز تبدأ مع DTS؟",
+    "ctaSubtitle": "تواصل معنا اليوم واحصل على استشارة سريعة لحلول الفوترة والتوقيع الإلكتروني.",
+    "ctaButton": "تواصل معنا",
+    "productTitle": "المنتجات",
+    "companyTitle": "الشركة",
+    "helpTitle": "الدعم",
+    "contactTitle": "تواصل",
     "quickLinksTitle": "روابط سريعة",
-    "quickLinks": { "about": "عن الشركة", "services": "خدماتنا", "partners": "شركاؤنا" },
-    "helpTitle": "محتاج مساعدة؟",
+    "quickLinks": {
+      "about": "عن الشركة",
+      "services": "خدماتنا",
+      "partners": "شركاؤنا",
+      "products": "المنتجات",
+      "home": "الرئيسية"
+    },
     "support": "الدعم الفني",
     "sales": "المبيعات",
     "contactNumbersTitle": "أرقام التواصل",

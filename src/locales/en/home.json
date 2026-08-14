@@ -55,28 +55,60 @@
       }
     },
     "cta": "Learn more",
-    "viewAll": "See all products"
+    "viewAll": "See all products",
+    "mediaPlaceholder": "Product image or video goes here"
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "An integrated set of technical services covering the full digital transformation journey",
+    "subtitle": "Our top services for digital transformation and tax compliance",
+    "signatureHighlight": {
+      "eyebrow": "Start now",
+      "title": "Get your e-signature now",
+      "subtitle": "Get a certified e-signature and e-stamp quickly, and connect them to the tax system to secure your documents.",
+      "cta": "Get Your Signature"
+    },
     "items": [
-      { "title": "E-Invoicing & E-Receipts", "description": "An integrated system for issuing e-invoices and e-receipts with a direct link to the Egyptian Tax Authority." },
-      { "title": "Integrated ERP Systems", "description": "A comprehensive system to manage inventory, accounting, customers, and sales on one platform for maximum efficiency." },
-      { "title": "E-Signature & E-Stamp", "description": "Certified solutions linking e-signatures and e-stamps to tax systems and securing your digital documents." },
-      { "title": "Consulting & Systems Analysis", "description": "A precise study and analysis of your work environment to identify the best technical solutions for your future needs." },
-      { "title": "Integration Services", "description": "Connecting our new systems with your existing software for smooth data flow across all company departments." },
-      { "title": "Digital Transformation Project Management", "description": "Professional management of your entire digital transformation project, from planning to final delivery and operation." },
-      { "title": "Training & Enablement", "description": "Customized training programs for your team to maximize the benefit of new systems and boost performance." },
-      { "title": "Specialized Technical Support", "description": "Flexible, fast-response support plans to keep your business running without interruption." }
+      {
+        "title": "E-Invoicing & E-Receipts",
+        "description": "An integrated system for issuing e-invoices and e-receipts with a direct link to the Egyptian Tax Authority."
+      },
+      {
+        "title": "Integrated ERP Systems",
+        "description": "A comprehensive system to manage inventory, accounting, customers, and sales on one platform for maximum efficiency."
+      },
+      {
+        "title": "E-Signature & E-Stamp",
+        "description": "Certified solutions linking e-signatures and e-stamps to tax systems and securing your digital documents."
+      }
     ],
+    "learnMore": "Learn more",
     "cta": "All services"
   },
   "stats": {
+    "title": "Numbers that speak",
+    "subtitle": "Real results from teams that trust DTS every day",
     "items": [
-      { "value": "10,000+", "label": "Clients", "growth": "+12%" },
-      { "value": "95%", "label": "Annual growth", "growth": "+18%" },
-      { "value": "100+", "label": "Experts", "growth": "+8%" }
+      {
+        "value": "10,000+",
+        "label": "Clients",
+        "growth": "+12%",
+        "trend": "up",
+        "hint": "Last 12 months"
+      },
+      {
+        "value": "95%",
+        "label": "Annual growth",
+        "growth": "+18%",
+        "trend": "up",
+        "hint": "Expansion signal"
+      },
+      {
+        "value": "48%",
+        "label": "Response time",
+        "growth": "-48%",
+        "trend": "down",
+        "hint": "Faster support"
+      }
     ]
   },
   "cta": {

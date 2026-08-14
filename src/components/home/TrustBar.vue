@@ -3,91 +3,146 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-// Updated to show client logos instead of text
-// Each client has name, logo path, and optional URL
+// Drop real names + https URLs here as assets are added under /public/images/clients
 const clients = [
-  {
-    name: 'Client 1',
-    logo: '/images/clients/client-1.svg',
-    url: '#'
-  },
-  {
-    name: 'Client 2',
-    logo: '/images/clients/client-2.svg',
-    url: '#'
-  },
-  {
-    name: 'Client 3',
-    logo: '/images/clients/client-3.svg',
-    url: '#'
-  },
-  {
-    name: 'Client 4',
-    logo: '/images/clients/client-4.svg',
-    url: '#'
-  },
-  {
-    name: 'Client 5',
-    logo: '/images/clients/client-5.svg',
-    url: '#'
-  }
+  { name: 'Client 1', logo: '/images/clients/1.png', url: '' },
+  { name: 'Client 2', logo: '/images/clients/2.png', url: '' }
 ]
 
-// For mobile marquee effect if needed
 const loopClients = [...clients, ...clients]
+
+function hasExternalUrl(url) {
+  return typeof url === 'string' && /^https?:\/\//i.test(url.trim())
+}
+
+function staggerDelay(index) {
+  return `${index * 0.1}s`
+}
+
+const logoImgClass =
+  'h-12 max-w-[180px] object-contain opacity-55 grayscale transition-all duration-300 sm:h-14 sm:max-w-[200px] lg:h-16 lg:max-w-[220px] group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0'
 </script>
 
 <template>
-  <section class="reveal border-y border-border bg-surface-alt py-12 lg:py-16">
-    <!-- Label -->
-    <p class="mb-8 text-center text-xs font-bold uppercase tracking-widest text-text-subtle">
-      {{ t('home.trustBar.label') }}
-    </p>
+  <section class="overflow-hidden border-y border-border bg-surface-alt">
+    <header class="trust-header reveal relative border-b border-border/80 px-5 py-5 sm:py-6 lg:px-10">
+      <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt dark:from-surface-raised dark:via-surface dark:to-surface-alt"
+        aria-hidden="true"
+      />
+      <h2 class="trust-header-title relative z-10 mx-auto max-w-4xl text-center text-base font-semibold leading-snug tracking-normal text-text-base sm:text-lg lg:text-xl">
+        {{ t('home.trustBar.label') }}
+      </h2>
+    </header>
 
-    <!-- Desktop View: Static logo display -->
-    <div class="mx-auto hidden max-w-7xl px-5 lg:block lg:px-10">
-      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-10 lg:gap-12">
-        <a
-          v-for="client in clients"
-          :key="client.name"
-          :href="client.url"
-          class="group flex items-center justify-center transition-all duration-300"
-        >
-          <img
-            :src="client.logo"
-            :alt="client.name"
-            class="h-8 max-w-[120px] object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 sm:h-10 sm:max-w-[140px]"
-          />
-        </a>
+    <!-- One always-in-flow reveal target; logos stagger when section enters view -->
+    <div class="reveal trust-logos py-12 lg:py-16" style="transition-delay: 0.08s">
+      <div class="mx-auto hidden max-w-6xl px-6 lg:block lg:px-10">
+        <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-20">
+          <template v-for="(client, index) in clients" :key="client.name">
+            <a
+              v-if="hasExternalUrl(client.url)"
+              :href="client.url.trim()"
+              :aria-label="client.name"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="trust-logo-item group inline-flex items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+              :style="{ transitionDelay: staggerDelay(index) }"
+            >
+              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+            </a>
+            <span
+              v-else
+              class="trust-logo-item group inline-flex items-center justify-center"
+              :aria-label="client.name"
+              :style="{ transitionDelay: staggerDelay(index) }"
+            >
+              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+            </span>
+          </template>
+        </div>
       </div>
-    </div>
 
-    <!-- Mobile View: Marquee scroll -->
-    <div class="group relative overflow-hidden lg:hidden">
-      <div class="pointer-events-none absolute inset-y-0 start-0 z-10 w-12 bg-gradient-to-r from-surface-alt to-transparent sm:w-16"></div>
-      <div class="pointer-events-none absolute inset-y-0 end-0 z-10 w-12 bg-gradient-to-l from-surface-alt to-transparent sm:w-16"></div>
+      <div class="group/marquee relative overflow-hidden lg:hidden">
+        <div class="pointer-events-none absolute inset-y-0 start-0 z-10 w-12 bg-gradient-to-r from-surface-alt to-transparent sm:w-16" />
+        <div class="pointer-events-none absolute inset-y-0 end-0 z-10 w-12 bg-gradient-to-l from-surface-alt to-transparent sm:w-16" />
 
-      <div class="flex w-max gap-8 animate-marquee rtl:animate-marquee-rtl group-hover:[animation-play-state:paused]">
-        <a
-          v-for="(client, i) in loopClients"
-          :key="`${client.name}-${i}`"
-          :href="client.url"
-          class="flex shrink-0 items-center transition-all duration-300"
+        <div
+          class="trust-logo-item flex w-max gap-14 animate-marquee px-4 rtl:animate-marquee-rtl group-hover/marquee:[animation-play-state:paused]"
         >
-          <img
-            :src="client.logo"
-            :alt="client.name"
-            class="h-8 max-w-[120px] object-contain grayscale transition-all duration-300 hover:grayscale-0"
-          />
-        </a>
+          <template v-for="(client, i) in loopClients" :key="`${client.name}-${i}`">
+            <a
+              v-if="hasExternalUrl(client.url)"
+              :href="client.url.trim()"
+              :aria-label="client.name"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex shrink-0 items-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            >
+              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+            </a>
+            <span v-else class="group inline-flex shrink-0 items-center">
+              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+            </span>
+          </template>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* Ensure smooth animation */
+.trust-header {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.06),
+    0 8px 20px -12px rgba(15, 23, 42, 0.28),
+    0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.dark .trust-header {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 10px 24px -12px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.trust-header-title {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 4px rgba(15, 23, 42, 0.12),
+    0 6px 14px rgba(15, 23, 42, 0.1);
+}
+
+.dark .trust-header-title {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Logos stay hidden until the strip scrolls into view, then stagger in */
+.trust-logo-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trust-logos.is-visible .trust-logo-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .trust-logo-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .animate-marquee,
   .animate-marquee-rtl {
     animation: none !important;

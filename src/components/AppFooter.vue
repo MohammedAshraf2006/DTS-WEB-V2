@@ -5,88 +5,194 @@ import AppIcon from '@/components/icons/AppIcon.vue'
 const { t, tm } = useI18n()
 
 const year = new Date().getFullYear()
+
+const productLinks = [
+  { key: 'ess', to: '/#products' },
+  { key: 'ers', to: '/#products' },
+  { key: 'esa', to: '/#products' }
+]
+
+const companyLinks = [
+  { labelKey: 'common.footer.quickLinks.home', to: '/' },
+  { labelKey: 'common.footer.quickLinks.about', to: '/#about' },
+  { labelKey: 'common.footer.quickLinks.services', to: '/#services' },
+  { labelKey: 'common.footer.quickLinks.partners', to: '/#partners' }
+]
 </script>
 
 <template>
-  <footer class="bg-surface-alt border-t border-border">
-    <div class="mx-auto max-w-7xl px-5 py-16 lg:px-10">
-      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <!-- Company -->
-        <div class="sm:col-span-2 lg:col-span-1">
-          <img src="/images/DTS.png" alt="DTS" class="h-9 w-auto" />
-          <p class="mt-4 max-w-xs text-sm leading-relaxed text-text-subtle">
-            {{ t('common.footer.description') }}
+  <footer id="contact" class="relative overflow-hidden border-t border-border bg-surface-alt">
+    <!-- Soft Notion-like ambient -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+      aria-hidden="true"
+    />
+    <div
+      class="pointer-events-none absolute -end-24 top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+      aria-hidden="true"
+    />
+
+    <!-- Pre-footer CTA band -->
+    <div class="border-b border-border/80">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-12 sm:flex-row sm:items-center lg:px-10 lg:py-14">
+        <div class="max-w-xl">
+          <h2 class="font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
+            {{ t('common.footer.ctaTitle') }}
+          </h2>
+          <p class="mt-2 text-base leading-relaxed text-text-muted">
+            {{ t('common.footer.ctaSubtitle') }}
           </p>
         </div>
+        <RouterLink
+          to="/#contact"
+          class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
+        >
+          {{ t('common.footer.ctaButton') }}
+          <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
+          <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
+        </RouterLink>
+      </div>
+    </div>
 
-        <!-- Quick links -->
-        <div>
-          <h4 class="text-sm font-bold text-text-base">{{ t('common.footer.quickLinksTitle') }}</h4>
-          <ul class="mt-4 space-y-3">
-            <li>
-              <RouterLink to="/#about" class="text-sm text-text-subtle transition-colors hover:text-primary">
-                {{ t('common.footer.quickLinks.about') }}
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/#services" class="text-sm text-text-subtle transition-colors hover:text-primary">
-                {{ t('common.footer.quickLinks.services') }}
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/#partners" class="text-sm text-text-subtle transition-colors hover:text-primary">
-                {{ t('common.footer.quickLinks.partners') }}
+    <!-- Link grid -->
+    <div class="mx-auto max-w-7xl px-5 py-14 lg:px-10 lg:py-16">
+      <div class="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
+        <!-- Brand column -->
+        <div class="col-span-2 md:col-span-3 lg:col-span-4">
+          <RouterLink to="/" class="inline-flex items-center gap-3">
+            <img src="/images/DTS.png" alt="DTS" class="h-10 w-auto" />
+          </RouterLink>
+          <p class="mt-2 text-sm font-semibold text-primary">
+            {{ t('common.footer.tagline') }}
+          </p>
+          <p class="mt-4 max-w-sm text-[15px] leading-relaxed text-text-subtle">
+            {{ t('common.footer.description') }}
+          </p>
+          <a
+            :href="`mailto:${t('common.footer.email')}`"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-text-base transition-colors hover:text-primary"
+          >
+            {{ t('common.footer.email') }}
+            <AppIcon name="arrowLeft" class="h-3.5 w-3.5 rtl:block ltr:hidden" />
+            <AppIcon name="arrowRight" class="h-3.5 w-3.5 ltr:block rtl:hidden" />
+          </a>
+        </div>
+
+        <!-- Product -->
+        <div class="lg:col-span-2">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-text-subtle">
+            {{ t('common.footer.productTitle') }}
+          </h3>
+          <ul class="mt-5 space-y-3">
+            <li v-for="item in productLinks" :key="item.key">
+              <RouterLink
+                :to="item.to"
+                class="group inline-flex items-center gap-2 text-[15px] text-text-muted transition-colors hover:text-text-base"
+              >
+                <img
+                  :src="`/images/Products/${item.key}-logo.png`"
+                  :alt="t(`common.products.${item.key}.name`)"
+                  class="h-4 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100"
+                />
+                <span>{{ t(`common.products.${item.key}.name`) }}</span>
               </RouterLink>
             </li>
           </ul>
         </div>
 
-        <!-- Need help -->
-        <div>
-          <h4 class="text-sm font-bold text-text-base">{{ t('common.footer.helpTitle') }}</h4>
-          <ul class="mt-4 space-y-3 text-sm text-text-subtle">
-            <li class="flex items-center justify-between gap-3">
-              <span>{{ t('common.footer.support') }}</span>
-              <a :href="`tel:${t('common.footer.supportPhone').replace(/[^\d+]/g, '')}`" class="font-semibold text-text-base transition-colors hover:text-primary">
-                {{ t('common.footer.supportPhone') }}
+        <!-- Company -->
+        <div class="lg:col-span-2">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-text-subtle">
+            {{ t('common.footer.companyTitle') }}
+          </h3>
+          <ul class="mt-5 space-y-3">
+            <li v-for="link in companyLinks" :key="link.labelKey">
+              <RouterLink
+                :to="link.to"
+                class="text-[15px] text-text-muted transition-colors hover:text-text-base"
+              >
+                {{ t(link.labelKey) }}
+              </RouterLink>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="lg:col-span-2">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-text-subtle">
+            {{ t('common.footer.helpTitle') }}
+          </h3>
+          <ul class="mt-5 space-y-3 text-[15px]">
+            <li>
+              <a
+                :href="`tel:${t('common.footer.supportPhone').replace(/[^\d+]/g, '')}`"
+                class="text-text-muted transition-colors hover:text-text-base"
+              >
+                {{ t('common.footer.support') }}
               </a>
             </li>
             <li>
-              <a :href="`mailto:${t('common.footer.supportEmail')}`" class="transition-colors hover:text-primary">
+              <a
+                :href="`mailto:${t('common.footer.supportEmail')}`"
+                class="text-text-muted transition-colors hover:text-text-base"
+              >
                 {{ t('common.footer.supportEmail') }}
               </a>
             </li>
-            <li class="flex items-center justify-between gap-3">
-              <span>{{ t('common.footer.sales') }}</span>
-              <a :href="`mailto:${t('common.footer.salesEmail')}`" class="font-semibold text-text-base transition-colors hover:text-primary">
-                {{ t('common.footer.salesEmail') }}
+            <li>
+              <a
+                :href="`mailto:${t('common.footer.salesEmail')}`"
+                class="text-text-muted transition-colors hover:text-text-base"
+              >
+                {{ t('common.footer.sales') }}
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Contact numbers / address -->
-        <div>
-          <h4 class="text-sm font-bold text-text-base">{{ t('common.footer.contactNumbersTitle') }}</h4>
-          <ul class="mt-4 space-y-2">
+        <!-- Contact -->
+        <div class="col-span-2 md:col-span-1 lg:col-span-2">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-text-subtle">
+            {{ t('common.footer.contactTitle') }}
+          </h3>
+          <ul class="mt-5 space-y-2.5">
             <li v-for="(num, i) in tm('common.footer.numbers')" :key="i">
-              <a :href="`tel:${String(num).replace(/[^\d+]/g, '')}`" class="text-sm text-text-subtle transition-colors hover:text-primary">
+              <a
+                :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
+                class="text-[15px] text-text-muted transition-colors hover:text-text-base"
+              >
                 {{ num }}
               </a>
             </li>
           </ul>
-          <a :href="`mailto:${t('common.footer.email')}`" class="mt-3 block text-sm font-semibold text-text-base transition-colors hover:text-primary">
-            {{ t('common.footer.email') }}
-          </a>
-          <p class="mt-3 flex items-start gap-2 text-xs leading-relaxed text-text-subtle">
+          <p class="mt-5 flex items-start gap-2 text-xs leading-relaxed text-text-subtle">
             <AppIcon name="shield" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             {{ t('common.footer.address') }}
           </p>
         </div>
       </div>
 
-      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-        <p class="text-xs text-text-subtle">© {{ year }} DTS — {{ t('common.footer.rights') }}</p>
+      <!-- Bottom bar -->
+      <div
+        class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center"
+      >
+        <p class="text-sm text-text-subtle">
+          © {{ year }} DTS — {{ t('common.footer.rights') }}
+        </p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-subtle">
+          <RouterLink to="/#products" class="transition-colors hover:text-text-base">
+            {{ t('common.footer.quickLinks.products') }}
+          </RouterLink>
+          <RouterLink to="/#services" class="transition-colors hover:text-text-base">
+            {{ t('common.footer.quickLinks.services') }}
+          </RouterLink>
+          <a
+            :href="`mailto:${t('common.footer.email')}`"
+            class="transition-colors hover:text-text-base"
+          >
+            {{ t('common.footer.email') }}
+          </a>
+        </div>
       </div>
     </div>
   </footer>
