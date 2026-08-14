@@ -12,43 +12,42 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 - `src/components/home/*`
 - `src/locales/{ar,en}/home.json` (+ `common.json` if nav/hashes change)
 - `public/images/**`
-- Shell polish shared with Home: `AppHeader`, `AppFooter`, `AppLoader`, `SiteBackground`, tokens
+- Shared polish already used by Home: header/footer/loader/background/tokens
 
-## Partial progress
+## Shipped
 
-### Shipped on Home
+- [x] **Hero** — Vanta globe; rotating pills (invoice blue / receipt green / signature gold); light hero brightened; dark hero solid navy; spacing tuned
+- [x] **TrustBar** — logo strip; `clients/1.png`, `2.png`; external `http(s)` only; dark bevel without white edges
+- [x] **ProductTabs** — Notion two-column; logo-only tabs; soft tab transition; media slot via `productMedia` (src empty until assets drop)
+- [x] **ServicesGrid** — 3 home services + sculpted e-signature highlight; “all services” → `/services` (page still wave 03)
+- [x] **StatsCta** — 3D StatCards (`useCardTilt` / `useCountUp`); sparklines; i18n live label; green growth badges in light mode; `#about`; sculpted CTA band
+- [x] **Background / atmosphere** — starfield light+dark; subtle light-mode glows; Home orbs dark-only
+- [x] **Copy / i18n** — home + common AR/EN in sync for shipped sections
 
-- [x] **Hero** — Vanta globe; rotating product pills (blue / green / gold); light hero brightened; dark hero restored to solid navy surface; spacing tuned
-- [x] **TrustBar** — Notion-style logo strip; client assets `1.png` / `2.png`; external URL open-in-new-tab; dark-mode 3D bevel without white edges
-- [x] **ProductTabs** — Notion two-column layout; logo-only tabs; soft panel transition on tab change; media slot ready (`productMedia`)
-- [x] **ServicesGrid** — 3 home services + sculpted “Get your e-signature now” highlight; link to `/services`
-- [x] **StatsCta** — 3D tilt StatCards, count-up/down, trend arrows, sparklines; i18n “live” / “مباشر”; light-mode green growth badges; plain stats headline; sculpted bottom CTA
-- [x] **SiteBackground** — animated starfield for light + dark; light-mode soft brand glows; wired in `MainLayout`
-- [x] **AppLoader** — first-open splash (logo pulse ~1s + fade), reference intent with V2 tokens
-- [x] **Shell polish** — shorter header, larger DTS logo, compact Contact CTA; theme/locale control micro-animations; footer CTA separator color for dark mode; brand palette refresh in `colors.css`
+## Still open
 
-### Still open (wave 02 / 03)
+- [ ] `#partners` section (nav still links here)
+- [ ] Remaining client logos + real URLs in `TrustBar.vue`
+- [ ] Optional WhyUs if still distinct from `#about` / stats
+- [ ] Product media files under `public/` wired in `ProductTabs` `productMedia`
+- [ ] Dedicated `/services` page content (owned by wave 03; Home CTA already points there)
 
-- [ ] Hash targets that lack sections: `#partners`, full `#contact` form page behavior as needed
-- [ ] Remaining client logos + real URLs in TrustBar
-- [ ] WhyUs / Partners sections if still required vs TrustBar
-- [ ] Product media files dropped into `public/` and wired in `productMedia`
+## Tasks (remaining)
 
-## Tasks
-
-1. Add/align missing sections vs reference: WhyUs, Partners, Contact (Clients if distinct from TrustBar)
-2. Fix hash targets (`#contact`, `#partners`, `#about`/`#home`) for nav/CTAs
-3. Sync i18n copy + images from reference intent (add remaining client logos + real URLs in TrustBar)
-4. Tune scroll-reveal / motion without new libraries
+1. Partners section (or retarget nav) + assets
+2. Finish TrustBar client list / URLs
+3. Drop product media and set `productMedia` srcs
+4. Final Home AR/EN + dark/light smoke pass before marking done
 
 ## Test criteria
 
-- Every header/CTA hash lands on an existing section
+- Every header/CTA hash lands on an existing section (currently fails for `#partners`)
 - AR and EN home content render without missing keys
 - Partners/clients assets display as intended
 - Light/dark + AR/EN smoke check on Home
+- `npm run build` succeeds
 
 ## Post-close docs
 
-- Update `docs/business/site-map.md` to match shipped sections
+- Update `docs/business/site-map.md` when partners/media land
 - Mark this wave `done` in `plans/status.md`

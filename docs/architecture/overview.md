@@ -16,16 +16,30 @@ DTS-WEB V2 is a marketing SPA for **Digital Transformation Services (DTS)** (`dt
 | Language | Plain JavaScript (no TypeScript) |
 | State | No Pinia — composables + `localStorage` |
 
+## Brand tokens (summary)
+
+Source: `src/assets/colors.css`
+
+| Role | Hex |
+|------|-----|
+| Navy | `#050D1E` |
+| Teal / accent | `#23B8C1` |
+| Deep teal | `#0B5F75` |
+| Blue / light primary | `#1B739F` |
+
+Dark mode keeps **navy-ramp surfaces** and **teal/blue accents** (no white edge highlights on sculpted panels).
+
 ## System boundaries
 
-- **In scope:** public pages, locale switching, light/dark theme, marketing sections, thin `fetch` helper
-- **Out of scope (today):** backend CMS, auth, admin, real contact API endpoint until wired in a later wave
+- **In scope:** public pages, locale switching, light/dark theme, marketing sections, thin `fetch` helper, first-load splash, site-wide starfield background
+- **Out of scope (today):** backend CMS, auth, admin, real contact API endpoint until wave 04
 - **External reference:** `C:\Users\PC\Desktop\DTS-WEB` supplies product copy, assets, and UX intent — not V2 folder layout or legacy i18n helpers
 
 ## Runtime extras
 
-- ApexCharts loaded in `src/main.js` (used by stats/CTA visuals)
-- Hero may load CDN visuals (e.g. Vanta/Three) — treat as presentation, not core architecture
+- ApexCharts available on `window` from `src/main.js` (optional charting)
+- Home hero loads Vanta Globe via CDN (Three.js) — presentation only
+- Stat cards use CSS sparklines + `useCountUp` (not ApexCharts by default)
 
 ## Source of truth
 

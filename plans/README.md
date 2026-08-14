@@ -7,6 +7,12 @@ Wave-based delivery for DTS-WEB V2.
 | [status.md](status.md) | Overall execution status board |
 | [wave-00-bootstrap.md](wave-00-bootstrap.md) … [wave-05-*.md](wave-05-quality-launch.md) | Per-wave scope |
 
+## Current focus
+
+- **Done:** wave 00, wave 01
+- **Active:** wave 02 (Home polish; partners hash / client assets / product media remaining)
+- **Next:** wave 03 (`/services` and other routes), then forms (04) and launch QA (05)
+
 ## How to work
 
 Follow Cursor rule **Plan → Execute → Test → Fix → Document**:

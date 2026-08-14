@@ -5,11 +5,11 @@ const { t } = useI18n()
 
 // Drop real names + https URLs here as assets are added under /public/images/clients
 const clients = [
-  { name: 'Client 1', logo: '/images/clients/1.png', url: 'https://orientalweavers.com' },
-  { name: 'Client 1', logo: '/images/clients/2.png', url: 'https://orientalweavers.com' },
-  { name: 'Client 1', logo: '/images/clients/3.png', url: 'https://orientalweavers.com' },
-  { name: 'Client 1', logo: '/images/clients/4.png', url: 'https://orientalweavers.com' },
-  { name: 'Client 2', logo: '/images/clients/5.png', url: '' }
+  { name: 'Client 1', logo: '/images/clients/1.png', url: '' },
+  { name: 'Client 2', logo: '/images/clients/2.png', url: 'https://orientalweavers.com' },
+  { name: 'Client 3', logo: '/images/clients/3.png', url: 'https://www.bue.edu.eg' },
+  { name: 'Client 4', logo: '/images/clients/4.png', url: 'https://https://www.ykk.com' },
+  { name: 'Client 5', logo: '/images/clients/5.png', url: 'https://savco-eg.com' }
 ]
 
 const loopClients = [...clients, ...clients]

@@ -5,11 +5,20 @@ Last updated: 2026-08-14
 | Wave | File | Status | Goal |
 |------|------|--------|------|
 | 00 | [wave-00-bootstrap.md](wave-00-bootstrap.md) | done | Cursor rules, inventory, docs/plans bootstrap |
-| 01 | [wave-01-foundation.md](wave-01-foundation.md) | pending | Stabilize shell, i18n, theme, tokens |
-| 02 | [wave-02-home-complete.md](wave-02-home-complete.md) | in_progress | Home sections + polish largely shipped; hashes/partners/media remain |
-| 03 | [wave-03-pages-routes.md](wave-03-pages-routes.md) | pending | Extra pages/routes as needed |
+| 01 | [wave-01-foundation.md](wave-01-foundation.md) | done | Shell, i18n, theme, tokens, loader, site background |
+| 02 | [wave-02-home-complete.md](wave-02-home-complete.md) | in_progress | Home largely shipped; partners hash, client assets, product media remain |
+| 03 | [wave-03-pages-routes.md](wave-03-pages-routes.md) | pending | Extra pages/routes (`/services`, etc.) as needed |
 | 04 | [wave-04-forms-integrations.md](wave-04-forms-integrations.md) | pending | Contact form + WhatsApp/links |
 | 05 | [wave-05-quality-launch.md](wave-05-quality-launch.md) | pending | QA, SEO basics, deploy |
+
+## Snapshot (current product)
+
+- **Stack:** Vue 3 + Vite + Tailwind 3 + vue-i18n 9 + vue-router 4 (JS only)
+- **Shell:** `MainLayout` + `AppHeader` / `AppFooter` + `SiteBackground` + `AppLoader`
+- **Home sections:** Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta
+- **Hashes live:** `#products`, `#services`, `#about`, `#contact` (footer)
+- **Hash missing:** `#partners`
+- **Build:** `npm run build` passes (2026-08-14)
 
 ## Dependency order
 

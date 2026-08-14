@@ -8,13 +8,15 @@
 
 Primary product family (from live locales):
 
-| Code | Focus |
-|------|--------|
-| ESS | E-invoice / e-receipt |
-| ERS | POS electronic receipts |
-| ESA | E-signature / e-seal |
+| Code | Focus | Home treatment |
+|------|--------|----------------|
+| ESS | E-invoice / e-receipt | Product tab + hero rotating “invoice” |
+| ERS | POS electronic receipts | Product tab + hero rotating “receipt” |
+| ESA | E-signature / e-seal | Product tab + hero rotating “signature” + services highlight CTA |
 
-Broader positioning: integrated issuance of e-invoices/receipts and digital signature, tied to the Egyptian Tax Authority narrative used in footer/copy.
+Broader positioning: integrated issuance of e-invoices/receipts and digital signature, tied to the Egyptian Tax Authority narrative used in hero/footer copy.
+
+Home services strip (3 cards): e-invoicing & receipts, ERP/layers, e-signature — remaining catalog deferred to `/services`.
 
 ## Audience
 
@@ -24,7 +26,14 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 
 - Email examples: `Info@dts-eg.net`, `support@dts-eg.net`, `sales@dts-eg.net`
 - Phones and address live under `common.footer.*`
+- Footer pre-CTA uses `mailto` to sales
 - Public reference site/domain intent: `dts-eg.com` (see legacy `CNAME` in reference repo)
+
+## Visual / brand notes (V2)
+
+- Palette source of truth: `src/assets/colors.css` (navy `#050D1E`, teal `#23B8C1`, deep teal `#0B5F75`, blue `#1B739F`)
+- Site atmosphere: animated starfield (`SiteBackground`); light mode uses subtle brand glows
+- First visit: `AppLoader` splash with DTS logo
 
 ## Reference vs V2
 
