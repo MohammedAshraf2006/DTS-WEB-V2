@@ -18,7 +18,7 @@ const tintClass = computed(() => {
     return 'from-[#c9fbfe]/70 to-surface-alt dark:from-[#23b8c1]/20 dark:to-surface-raised'
   }
   if (props.tint === 'esa') {
-    return 'from-[#c0eefe]/70 to-surface-alt dark:from-[#0b5f75]/28 dark:to-surface-raised'
+    return 'from-gold-light to-surface-alt dark:from-[#e0b84d]/32 dark:to-surface-raised'
   }
   return 'from-[#afdefc]/65 to-surface-alt dark:from-[#1b739f]/22 dark:to-surface-raised'
 })
@@ -27,33 +27,33 @@ const tintClass = computed(() => {
 <template>
   <div
     ref="root"
-    class="menu-card-wrap"
+    class="menu-card-wrap h-full"
     @mousemove="onMove"
     @mouseleave="onLeave"
   >
     <RouterLink
       :to="`/products/${productKey}`"
-      class="block"
+      class="flex h-full"
       @click="emit('navigate')"
     >
       <div
-        class="menu-card relative flex h-full flex-col overflow-hidden rounded-2xl border border-border p-5"
+        class="menu-card relative flex h-full min-h-[9.25rem] w-full flex-col overflow-hidden rounded-2xl border border-border p-3.5"
         :style="{
           transform: `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(0)`
         }"
       >
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-br" :class="tintClass" />
-        <span class="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-surface-alt shadow-sm">
+        <span class="logo-well relative z-10 mb-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl p-0.5 shadow-sm">
           <img
             :src="`/images/Products/${productKey}-logo.png`"
             :alt="t(`common.products.${productKey}.name`)"
-            class="h-9 w-9 object-contain"
+            class="h-full w-full object-contain"
           />
         </span>
-        <span class="relative z-10 text-base font-bold text-text-base">
+        <span class="relative z-10 text-base font-bold leading-snug text-text-base">
           {{ t(`common.products.${productKey}.name`) }}
         </span>
-        <span class="relative z-10 mt-1 text-sm text-text-subtle">
+        <span class="relative z-10 mt-1 line-clamp-2 min-h-[2rem] text-sm leading-snug text-text-subtle">
           {{ t(`common.products.${productKey}.tagline`) }}
         </span>
       </div>

@@ -54,11 +54,13 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
           "
           @click="activeTab = key"
         >
-          <img
-            :src="`/images/Products/${key}-logo.png`"
-            :alt="t(`common.products.${key}.name`)"
-            class="h-7 w-auto object-contain sm:h-8"
-          />
+          <span class="logo-well flex h-9 items-center rounded-lg px-2.5 sm:h-10">
+            <img
+              :src="`/images/Products/${key}-logo.png`"
+              :alt="t(`common.products.${key}.name`)"
+              class="h-6 w-auto object-contain sm:h-7"
+            />
+          </span>
         </button>
       </div>
 
@@ -87,20 +89,12 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
                 <li
                   v-for="(feature, i) in activeFeatures"
                   :key="i"
-                  class="product-feature flex items-center justify-between gap-4 py-4"
+                  class="product-feature py-4"
                   :style="{ transitionDelay: `${0.05 + i * 0.04}s` }"
                 >
                   <span class="text-[15px] font-medium leading-snug text-text-base">
                     {{ feature }}
                   </span>
-                  <AppIcon
-                    name="arrowLeft"
-                    class="h-4 w-4 shrink-0 text-text-subtle rtl:block ltr:hidden"
-                  />
-                  <AppIcon
-                    name="arrowRight"
-                    class="h-4 w-4 shrink-0 text-text-subtle ltr:block rtl:hidden"
-                  />
                 </li>
               </ul>
 
@@ -139,11 +133,13 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
                 v-else
                 class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-primary-light/30 via-surface to-surface-alt px-8 text-center"
               >
-                <img
-                  :src="`/images/Products/${activeTab}-logo.png`"
-                  :alt="activeTab.toUpperCase()"
-                  class="h-14 w-auto object-contain opacity-80"
-                />
+                <span class="logo-well flex h-16 w-16 items-center justify-center rounded-2xl">
+                  <img
+                    :src="`/images/Products/${activeTab}-logo.png`"
+                    :alt="activeTab.toUpperCase()"
+                    class="h-10 w-auto object-contain"
+                  />
+                </span>
                 <p class="text-sm font-medium text-text-subtle">
                   {{ t('home.products.mediaPlaceholder') }}
                 </p>

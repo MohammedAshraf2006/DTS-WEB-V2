@@ -87,14 +87,9 @@ const companyLinks = [
             <li v-for="item in productLinks" :key="item.key">
               <RouterLink
                 :to="item.to"
-                class="group inline-flex items-center transition-opacity hover:opacity-100"
-                :aria-label="t(`common.products.${item.key}.name`)"
+                class="text-[15px] text-text-muted transition-colors hover:text-text-base"
               >
-                <img
-                  :src="`/images/Products/${item.key}-logo.png`"
-                  :alt="t(`common.products.${item.key}.name`)"
-                  class="h-7 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100 sm:h-8"
-                />
+                {{ t(`common.products.${item.key}.name`) }}
               </RouterLink>
             </li>
           </ul>
@@ -159,14 +154,15 @@ const companyLinks = [
             <li v-for="(num, i) in tm('common.footer.numbers')" :key="i">
               <a
                 :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
-                class="text-[15px] text-text-muted transition-colors hover:text-text-base"
+                dir="ltr"
+                class="inline-block text-[15px] text-text-muted transition-colors hover:text-text-base"
               >
                 {{ num }}
               </a>
             </li>
           </ul>
           <p class="mt-5 flex items-start gap-2 text-xs leading-relaxed text-text-subtle">
-            <AppIcon name="shield" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <AppIcon name="mapPin" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             {{ t('common.footer.address') }}
           </p>
         </div>

@@ -2,13 +2,15 @@
   "title": "Our Products",
   "subtitle": "Three complementary tools: browser invoicing and receipts, a fast POS lane, and a signing agent on your PC.",
   "learnMore": "Learn more",
-  "contactCta": "Contact us",
+  "contactCta": "Request the product",
   "otherProducts": "More products",
   "mediaPlaceholder": "Product image or video goes here",
+  "featuresTitle": "What does it do?",
+  "featuresHint": "Tap a line to read the details.",
   "lite": {
     "badge": "Lite",
-    "cta": "Download ESA Lite",
-    "hint": "A lighter Windows build — try it without a full fleet setup."
+    "cta": "Try the free Lite version",
+    "hint": "Direct Windows installer — no full setup required."
   },
   "items": {
     "ess": {
@@ -16,12 +18,30 @@
       "shortDescription": "From the browser: issue e-invoices and e-receipts, send them to the tax authority, and track status — no software to install.",
       "description": "ESS is the electronic sales system for businesses that need certified e-invoices and e-receipts. You work in the browser: create the document, review it, submit it to the Egyptian Tax Authority, and follow acceptance or rejection in one place. Manage items, customers, and suppliers; register branches and POS devices; and code your items on the tax portal. Legal signing happens with a USB token on your PC through ESA — without installing invoicing software on every machine.",
       "features": [
-        "Issue and manage e-invoices: create, edit, and adjustments",
-        "Sales receipts and returns with submit-and-track to the tax authority",
-        "Ready master data: items, customers, suppliers, and bulk import",
-        "Tax portal view: recent documents, GPC codes, and coding requests",
-        "Multi-company, branches, POS devices, and user permissions",
-        "Print A4, A5, or thermal with templates that match your business"
+        {
+          "title": "E-invoices",
+          "detail": "In the browser you build the invoice: seller and buyer, items, quantities, and tax, then review totals before you save. You edit the draft, and you issue an adjustment when price, quantity, or discount changes after issuance.\n\nAfter submit you follow the document at the tax authority: accepted, rejected, or still processing. All of it stays in the browser on any device — no invoicing software to install on every PC."
+        },
+        {
+          "title": "Receipts and returns",
+          "detail": "Beside the invoice you issue a sales receipt or a return in the same system. You pick the type, add lines, send the receipt to the tax authority, and see whether it was accepted or rejected.\n\nManagement shows receipts and their lines, with status actions limited by each user’s permission. Built for companies that need an e-receipt next to the invoice without a separate cashier product."
+        },
+        {
+          "title": "Items, customers, suppliers",
+          "detail": "Master data is stored once: items and services, invoice and receipt customers, and suppliers. You search them inside the document form instead of retyping, and you can add a customer quickly from the same screen while you issue.\n\nWhen you leave an older system you import items and customers in bulk and follow the import job until it finishes. An update to an item or customer shows up on the next invoices and receipts."
+        },
+        {
+          "title": "Tax portal follow-up",
+          "detail": "Inside ESS you see recent invoices and receipts as they appear at the tax authority, without opening the official portal every time. You review GPC and portal codes, submit item coding requests, and follow the result.\n\nThe aim is one screen for the team: issue, send, code, and track accept or reject in the same company account."
+        },
+        {
+          "title": "Branches, POS, and permissions",
+          "detail": "You run more than one company from the same login, with a profile per company: branches, activities, POS devices, currencies, taxes, and units. Each user sees only what their permission allows, and you can switch company without a full re-login.\n\nYou register the signature and seal tokens used with ESA, and you set print templates and notifications. Central settings feed the invoice and receipt forms so branch and POS data is not typed again on every document."
+        },
+        {
+          "title": "Print that matches your work",
+          "detail": "You print A4 or A5 for the office, or thermal at the point of sale, using the template linked to the company. The template pulls company name, branch, buyer, lines, and totals so the look stays the same in every branch.\n\nYou pick the template that matches the activity in settings, and you reprint from the view screen when needed without recreating the document."
+        }
       ]
     },
     "ers": {
@@ -29,12 +49,30 @@
       "shortDescription": "A fast cashier screen to issue e-receipts and link them to the tax authority — without the full invoice workflow.",
       "description": "ERS is built for retail and point-of-sale teams that need an e-receipt at the cashier — not an invoice. The cashier picks items, issues the receipt, and sends it to the Egyptian Tax Authority. You manage POS devices, branches, and customers, and import receipts when needed. The dashboard shows accepted, rejected, and net daily sales so you can follow the shift from anywhere.",
       "features": [
-        "A simplified cashier path: sales receipts and returns",
-        "POS devices and branches linked to the tax authority",
-        "Items, customers, and bulk receipt import",
-        "View receipts, line items, and accept/reject status",
-        "Print templates suited to cashiers and thermal printers",
-        "Daily sales board: valid, in process, and net for the shift"
+        {
+          "title": "Receipt from the cashier screen",
+          "detail": "The cashier path is short on purpose: pick items from the grid, set quantity, then issue a sales receipt or a return. There are no invoice screens and no fields the seller does not need during the shift.\n\nAfter issue, the receipt is sent to the tax authority in the same step. The design is for point-of-sale speed: fewer taps, and fewer entry mistakes at peak hours."
+        },
+        {
+          "title": "POS devices and branches",
+          "detail": "Each cashier device is registered as a POS linked to a branch and a tax-approved activity. The receipt is attributed to the right device and branch so shifts do not mix, and the tax authority does not reject the receipt for the wrong POS data.\n\nIn settings you add branches and devices, connect the tax link and activity codes once, then the cashier works on the simple screen with no daily reconfiguration."
+        },
+        {
+          "title": "Items, customers, and import",
+          "detail": "You manage items and customers on their own screens: prices, taxes, units, and customer type. At the cashier the item is ready to pick, and you can attach a customer when needed without slowing the shift.\n\nIf you have an external source — a file or an older system — you import items, customers, or receipts in bulk and follow the import job until it finishes, instead of typing every record."
+        },
+        {
+          "title": "Accept and reject status",
+          "detail": "Receipt management shows the list and the lines, and separates valid documents, those accepted by the tax authority, those still processing, and those rejected. Rejected items are obvious so a supervisor can fix them before the day closes.\n\nReturns have their own view so they do not mix with shift sales. Each status comes from the tax authority, not a local guess on the device."
+        },
+        {
+          "title": "Thermal cashier print",
+          "detail": "Templates are set for a thermal printer at the point of sale: a short customer receipt right after the sale, with no layout work each shift. You can reprint from the view screen if the paper jams or the customer asks for a copy.\n\nSeller, branch, and POS data come from company settings so the receipt looks the same on every cashier."
+        },
+        {
+          "title": "Shift sales board",
+          "detail": "The dashboard summarizes today, this week, or this month: total receipts, valid, accepted by the tax authority, in process, and rejected. It shows sales versus returns and net for the shift.\n\nA supervisor follows this from any connected device without standing at the cashier. The financial view counts only valid receipts so in-process numbers do not distort close-of-day decisions."
+        }
       ]
     },
     "esa": {
@@ -42,12 +80,30 @@
       "shortDescription": "A Windows agent that signs your invoices and receipts from a USB token before they reach the tax authority — the PIN is never saved on disk.",
       "description": "ESA is an electronic signature agent for Windows 10 and 11. Plug in a USB token (certified e-signature or e-seal), log in with your PIN, and the agent signs the document to ITIDA and tax-authority standards. It detects the token the moment you insert or remove it, and works locally with ESS on the same PC through a secure interface that never leaves the machine. For companies with many PCs, signing can run across devices without moving the certificate. It supports the token brands most used in Egypt, and warns you before a certificate expires so issuance does not stop.",
       "features": [
-        "E-signature and e-seal from a USB token on Windows",
-        "Instant detection when a token is plugged in or removed",
-        "PIN stays in memory only — never written to disk, cleared on logout",
-        "Secure local link with ESS on the same PC",
-        "More than one token on the same machine for higher signing volume",
-        "Certificate expiry alerts and PIN change from the interface"
+        {
+          "title": "Sign and seal from the token",
+          "detail": "ESA is a Windows 10 and 11 agent. You plug in a certified USB token — e-signature or e-seal — log in with the PIN, and the agent builds a signature to ITIDA and tax-authority standards before the document leaves your PC.\n\nIt supports the token brands most used in Egypt. The interface is Arabic and English, and it can sit in the system tray so the token stays ready without a window open all day."
+        },
+        {
+          "title": "Detects the token instantly",
+          "detail": "When you plug the token in or remove it, it appears or disappears in the list at once — no restart and no search through Windows settings. Status shows ready, logged in, or disconnected.\n\nIf the Windows Smart Card service is stopped, the agent warns you so you can fix it before invoices fail to sign during the shift."
+        },
+        {
+          "title": "The PIN is never saved",
+          "detail": "The token PIN is never written to disk or to settings files. It stays in memory for the session only, and it is cleared on logout, when the token is removed, or when the agent closes.\n\nWrong PIN attempts are counted on screen. After too many tries the token locks and a message tells you to contact the issuer — so the key is not closed for good without you noticing. You change the PIN from the same interface after entering the current one."
+        },
+        {
+          "title": "Works with ESS on the same PC",
+          "detail": "ESS in the browser never talks to the token directly. It asks the agent on your PC only, through a local interface that does not leave the machine. You create the invoice or receipt as usual; legal signing happens on the PC that holds the token.\n\nIf the agent is not running, ESS points you to install it. After it starts, it finds connected tokens and you register them in company settings for the next issuance."
+        },
+        {
+          "title": "More than one token on the PC",
+          "detail": "The same PC can hold more than one token for different companies or certificates. The agent lists each one: type, issuer, and expiry, and it signs each request on the right token without mixing sessions.\n\nWhile signing, the token shows as busy, and logout is blocked until jobs finish — so a batch of invoices is not cut off mid-send."
+        },
+        {
+          "title": "Alert before the certificate expires",
+          "detail": "Each token shows how many days remain until the certificate expires, or that it has already expired. The warning appears in the interface before invoices and receipts stop because of an expired certificate.\n\nYou check status daily from the same screen you log in on, instead of waiting for a tax rejection at the end of the day. Renew on time, plug the token back in, and the agent detects the new certificate."
+        }
       ]
     }
   }

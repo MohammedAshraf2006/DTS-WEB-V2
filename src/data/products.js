@@ -1,7 +1,7 @@
 /**
  * Shared product catalog (identifiers + media only).
  * Drop files under public/, then set gallery src/poster.
- * ESA Lite: set liteDownloadUrl when the installer URL is ready.
+ * ESA Lite installer: productsCatalog.esa.liteDownloadUrl
  */
 export const PRODUCT_KEYS = ['ess', 'ers', 'esa']
 
@@ -28,7 +28,8 @@ export const productsCatalog = {
     key: 'esa',
     logo: '/images/Products/esa-logo.png',
     tint: 'esa',
-    liteDownloadUrl: '',
+    liteDownloadUrl:
+      'https://github.com/Mohamedosama-dts/ESA-Lite/releases/download/v2.1.1/ESA_Lite_en.msi',
     gallery: [
       { type: 'video', src: '', poster: '' },
       { type: 'image', src: '' }

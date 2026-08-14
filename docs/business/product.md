@@ -16,7 +16,7 @@ Primary product family (buyer copy taken from what the live apps do):
 
 Home `#products` uses short teaser copy (`home.products.tabs`). Listing cards use `products.items.*.shortDescription`. Detail `/products/:key` uses the longer description + features.
 
-ESA Lite: optional installer via `liteDownloadUrl` in `src/data/products.js`.
+ESA Lite: installer URL is set on `esa.liteDownloadUrl` in `src/data/products.js`. Detail page CTA: request the product; ESA also has “try the free Lite version”.
 
 ## Audience
 

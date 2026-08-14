@@ -16,7 +16,7 @@
           background-color: #fafcfd;
           background-image:
             linear-gradient(180deg, #ffffff 0%, #f8fafc 55%, #f2f7fa 100%),
-            radial-gradient(ellipse 70% 40% at 50% 0%, rgba(27, 115, 159, 0.07), transparent 65%);
+            radial-gradient(ellipse 70% 40% at 50% 0%, rgba(27, 115, 159, 0.11), transparent 65%);
         "
       />
       <div class="site-glow site-glow--a" />
@@ -27,8 +27,13 @@
     <!-- Dark sky -->
     <div
       class="absolute inset-0 hidden dark:block"
-      style="background: radial-gradient(ellipse at bottom, #0c1629 0%, #050d1e 42%, #02060f 100%)"
+      style="background: radial-gradient(ellipse at bottom, #14243c 0%, #07101f 42%, #030812 100%)"
     />
+    <div class="absolute inset-0 hidden dark:block">
+      <div class="site-glow site-glow--a site-glow--dark" />
+      <div class="site-glow site-glow--b site-glow--dark" />
+      <div class="site-glow site-glow--c site-glow--dark" />
+    </div>
 
     <!-- Light stars -->
     <div class="absolute inset-0 dark:hidden">
@@ -66,7 +71,7 @@
   inset-inline-start: 8%;
   width: 16rem;
   height: 16rem;
-  background: rgba(35, 184, 193, 0.08);
+  background: rgba(35, 184, 193, 0.12);
 }
 
 .site-glow--b {
@@ -74,7 +79,7 @@
   inset-inline-end: 4%;
   width: 18rem;
   height: 18rem;
-  background: rgba(27, 115, 159, 0.07);
+  background: rgba(27, 115, 159, 0.11);
   animation-delay: -4s;
 }
 
@@ -83,18 +88,30 @@
   inset-inline-start: 35%;
   width: 14rem;
   height: 14rem;
-  background: rgba(184, 134, 11, 0.05);
+  background: rgba(184, 134, 11, 0.08);
   animation-delay: -7s;
+}
+
+.site-glow--dark.site-glow--a {
+  background: rgba(35, 184, 193, 0.14);
+}
+
+.site-glow--dark.site-glow--b {
+  background: rgba(78, 188, 249, 0.1);
+}
+
+.site-glow--dark.site-glow--c {
+  background: rgba(224, 184, 77, 0.1);
 }
 
 @keyframes glow-breathe {
   0%,
   100% {
-    opacity: 0.5;
+    opacity: 0.65;
     transform: scale(1);
   }
   50% {
-    opacity: 0.8;
+    opacity: 0.95;
     transform: scale(1.03);
   }
 }
@@ -159,7 +176,7 @@
 }
 
 .stars-light--sm {
-  opacity: 0.9;
+  opacity: 1;
   box-shadow:
     100px 100px #d49200, 200px 300px #d49200, 400px 150px #c48a00, 800px 700px #d49200,
     1200px 1100px #c48a00, 1400px 1300px #d49200, 1600px 1150px #c48a00, 1800px 1700px #d49200,
@@ -170,7 +187,7 @@
 }
 
 .stars-light--md {
-  opacity: 0.85;
+  opacity: 0.95;
   box-shadow:
     150px 200px #0b5f75, 300px 400px #1b739f, 500px 250px #0b5f75, 900px 800px #1b739f,
     1200px 1050px #0b5f75, 1400px 1200px #1b739f, 1600px 1350px #0b5f75, 1800px 1500px #1b739f,
@@ -181,7 +198,7 @@
 }
 
 .stars-light--lg {
-  opacity: 0.55;
+  opacity: 0.7;
   box-shadow:
     200px 300px #050d1e, 400px 500px #0b5f75, 600px 350px #050d1e, 1000px 900px #1b739f,
     1300px 1150px #050d1e, 1500px 1300px #0b5f75, 1700px 1450px #050d1e, 1900px 1600px #1b739f,

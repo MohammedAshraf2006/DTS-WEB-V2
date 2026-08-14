@@ -48,7 +48,9 @@ const active = computed(() => items.value[activeIndex.value] || null)
         v-else
         class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-primary-light/30 via-surface to-surface-alt px-6 text-center"
       >
-        <img :src="product.logo" alt="" class="h-14 w-auto object-contain opacity-80" />
+        <span class="logo-well flex h-16 w-16 items-center justify-center rounded-2xl">
+          <img :src="product.logo" alt="" class="h-10 w-auto object-contain" />
+        </span>
         <p class="text-sm font-medium text-text-subtle">{{ t('products.mediaPlaceholder') }}</p>
       </div>
     </div>

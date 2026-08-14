@@ -27,8 +27,9 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - [x] Home ProductTabs media from catalog; Learn more → detail; view all → `/products`
 - [x] Header mega menu: sculpted brand-tint cards → detail; discover → `/products`
 - [x] Footer product links → `/products/:key`
-- [x] ESA Lite download CTA when `liteDownloadUrl` is set
+- [x] ESA Lite download CTA (`liteDownloadUrl` → GitHub release MSI v2.1.1)
 - [x] Buyer-facing copy from live ESS / ERS / ESA apps (home teaser vs detail)
+- [x] Detail features as expandable lines; sculpted panel drops with the explanation
 
 ## Remaining (wave 03)
 

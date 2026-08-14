@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import { PRODUCT_KEYS, getProduct } from '@/data/products'
 import ProductMediaStage from '@/components/products/ProductMediaStage.vue'
+import ProductFeatureCards from '@/components/products/ProductFeatureCards.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t, tm } = useI18n()
@@ -17,7 +18,15 @@ const product = computed(() => getProduct(key.value))
 
 const features = computed(() => {
   const raw = tm(`products.items.${key.value}.features`)
-  return Array.isArray(raw) ? raw : []
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (item && typeof item === 'object') {
+        return { title: item.title, detail: item.detail }
+      }
+      return null
+    })
+    .filter((item) => item?.title)
 })
 
 const liteUrl = computed(() => {
@@ -39,15 +48,12 @@ watch(key, async () => {
       <div class="reveal grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <div class="flex items-center gap-4">
-            <span class="flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-surface-alt shadow-sm">
-              <img :src="product.logo" :alt="t(`common.products.${key}.name`)" class="h-10 w-auto object-contain" />
+            <span class="logo-well flex h-16 w-16 items-center justify-center rounded-2xl border border-border shadow-sm">
+              <img :src="product.logo" :alt="t(`products.items.${key}.title`)" class="h-10 w-auto object-contain" />
             </span>
-            <div>
-              <p class="text-sm font-semibold text-primary">{{ t(`common.products.${key}.name`) }}</p>
-              <h1 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl">
-                {{ t(`products.items.${key}.title`) }}
-              </h1>
-            </div>
+            <h1 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl">
+              {{ t(`products.items.${key}.title`) }}
+            </h1>
           </div>
 
           <p class="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
@@ -80,17 +86,7 @@ watch(key, async () => {
         <ProductMediaStage :product="product" :title="t(`products.items.${key}.title`)" />
       </div>
 
-      <ul class="reveal mt-12 divide-y divide-border border-y border-border lg:mt-16">
-        <li
-          v-for="(feature, i) in features"
-          :key="i"
-          class="flex items-center justify-between gap-4 py-4"
-        >
-          <span class="text-[15px] font-medium leading-snug text-text-base">{{ feature }}</span>
-          <AppIcon name="arrowLeft" class="h-4 w-4 shrink-0 text-text-subtle rtl:block ltr:hidden" />
-          <AppIcon name="arrowRight" class="h-4 w-4 shrink-0 text-text-subtle ltr:block rtl:hidden" />
-        </li>
-      </ul>
+      <ProductFeatureCards :product-key="key" :features="features" />
 
       <div class="reveal mt-14">
         <h2 class="font-heading text-lg font-bold text-text-base">{{ t('products.otherProducts') }}</h2>
@@ -101,7 +97,7 @@ watch(key, async () => {
             :to="`/products/${other}`"
             class="group flex items-center gap-4 rounded-2xl border border-border bg-surface-alt p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
           >
-            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light">
+            <span class="logo-well flex h-12 w-12 items-center justify-center rounded-xl">
               <img :src="`/images/Products/${other}-logo.png`" :alt="t(`common.products.${other}.name`)" class="h-8 w-auto object-contain" />
             </span>
             <div>

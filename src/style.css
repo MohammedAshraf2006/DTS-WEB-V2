@@ -24,6 +24,15 @@ body {
   background-color: transparent;
 }
 
+/* Light chip so blue product marks stay readable on navy (dark mode) */
+.logo-well {
+  background-color: var(--color-surface-alt);
+}
+
+.dark .logo-well {
+  background-color: rgba(209, 220, 238, 0.34);
+}
+
 [dir='ltr'] body {
   font-family: 'Inter', 'Tajawal', sans-serif;
 }

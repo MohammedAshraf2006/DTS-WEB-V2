@@ -21,7 +21,7 @@ const tintClass = computed(() => {
     return 'from-[#c9fbfe]/55 to-surface-alt dark:from-[#23b8c1]/16 dark:to-surface-alt'
   }
   if (props.product.tint === 'esa') {
-    return 'from-[#c0eefe]/55 to-surface-alt dark:from-[#0b5f75]/22 dark:to-surface-alt'
+    return 'from-gold-light to-surface-alt dark:from-[#e0b84d]/32 dark:to-surface-alt'
   }
   return 'from-[#afdefc]/50 to-surface-alt dark:from-[#1b739f]/18 dark:to-surface-alt'
 })
@@ -48,22 +48,14 @@ const tintClass = computed(() => {
 
       <div class="relative z-10 flex flex-1 flex-col p-6 sm:p-8">
         <div class="sculpt-content flex items-center gap-3">
-          <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-surface-alt shadow-sm">
+          <span class="logo-well flex h-14 w-14 items-center justify-center rounded-xl shadow-sm">
             <img :src="product.logo" :alt="t(`common.products.${productKey}.name`)" class="h-9 w-auto object-contain" />
           </span>
           <div>
-            <div class="flex flex-wrap items-center gap-2">
-              <h2 class="font-heading text-xl font-bold text-text-base">
-                {{ t(`common.products.${productKey}.name`) }}
-              </h2>
-              <span
-                v-if="product.liteDownloadUrl"
-                class="rounded-full bg-primary-light px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary"
-              >
-                {{ t('products.lite.badge') }}
-              </span>
-            </div>
-            <p class="mt-0.5 text-sm text-text-subtle">
+            <h2 class="font-heading text-xl font-bold text-black dark:text-white">
+              {{ t(`common.products.${productKey}.name`) }}
+            </h2>
+            <p class="mt-0.5 font-heading text-base font-bold text-text-base">
               {{ t(`common.products.${productKey}.tagline`) }}
             </p>
           </div>
@@ -93,7 +85,9 @@ const tintClass = computed(() => {
             v-else
             class="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center"
           >
-            <img :src="product.logo" alt="" class="h-10 w-auto object-contain opacity-70" />
+            <span class="logo-well flex h-14 w-14 items-center justify-center rounded-xl">
+              <img :src="product.logo" alt="" class="h-9 w-auto object-contain" />
+            </span>
             <p class="text-xs font-medium text-text-subtle">{{ t('products.mediaPlaceholder') }}</p>
           </div>
         </div>

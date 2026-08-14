@@ -173,7 +173,7 @@ onBeforeUnmount(() => {
         <div
           v-for="(card, index) in floatingProductCards"
           :key="card.alt"
-          class="floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-border/60 bg-surface-alt/70 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-border dark:bg-surface-raised/50 sm:h-12 sm:w-20"
+          class="logo-well floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-border/60 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:h-12 sm:w-20"
           :class="card.className"
           :style="{ animationDelay: `${index * 220}ms` }"
         >

@@ -159,7 +159,7 @@ function closeMobile() {
             <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
           </RouterLink>
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 items-stretch gap-4">
           <ProductMenuCard
             v-for="key in productKeys"
             :key="key"
