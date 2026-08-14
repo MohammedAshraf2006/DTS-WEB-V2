@@ -30,7 +30,7 @@ const logoImgClass =
   <section class="overflow-hidden border-y border-border bg-surface-alt dark:border-border dark:bg-surface-alt">
     <header class="trust-header reveal relative border-b border-border px-5 py-5 sm:py-6 lg:px-10 dark:border-border">
       <div
-        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt dark:from-[#152338] dark:via-surface-alt dark:to-surface-alt"
+        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt"
         aria-hidden="true"
       />
       <h2 class="trust-header-title relative z-10 mx-auto max-w-4xl text-center text-base font-semibold leading-snug tracking-normal text-text-base sm:text-lg lg:text-xl">
@@ -108,11 +108,11 @@ const logoImgClass =
 .dark .trust-header {
   transform: perspective(900px) rotateX(4deg);
   box-shadow:
-    inset 0 1px 0 rgba(35, 184, 193, 0.14),
+    inset 0 1px 0 rgba(0, 232, 240, 0.14),
     inset 0 -2px 0 rgba(0, 0, 0, 0.55),
     0 18px 40px -16px rgba(0, 0, 0, 0.75),
     0 6px 16px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(35, 184, 193, 0.08);
+    0 0 0 1px rgba(0, 232, 240, 0.08);
 }
 
 .trust-header-title {

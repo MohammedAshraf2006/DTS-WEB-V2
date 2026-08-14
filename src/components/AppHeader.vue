@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrolledHeader } from '@/composables/useScrolledHeader'
 import { useTheme } from '@/composables/useTheme'
@@ -17,6 +17,28 @@ const isMobileOpen = ref(false)
 
 const productKeys = PRODUCT_KEYS
 
+let productsCloseTimer = null
+
+function openProducts() {
+  clearTimeout(productsCloseTimer)
+  productsCloseTimer = null
+  isProductsOpen.value = true
+}
+
+function closeProducts() {
+  clearTimeout(productsCloseTimer)
+  productsCloseTimer = null
+  isProductsOpen.value = false
+}
+
+function scheduleCloseProducts() {
+  clearTimeout(productsCloseTimer)
+  productsCloseTimer = setTimeout(() => {
+    isProductsOpen.value = false
+    productsCloseTimer = null
+  }, 180)
+}
+
 async function toggleLocale() {
   await runViewTransition(() => {
     locale.value = locale.value === 'ar' ? 'en' : 'ar'
@@ -26,6 +48,10 @@ async function toggleLocale() {
 function closeMobile() {
   isMobileOpen.value = false
 }
+
+onBeforeUnmount(() => {
+  clearTimeout(productsCloseTimer)
+})
 </script>
 
 <template>
@@ -47,22 +73,20 @@ function closeMobile() {
           <RouterLink
             to="/"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            @mouseenter="closeProducts"
           >
             {{ t('common.nav.home') }}
           </RouterLink>
         </li>
 
         <!-- Products mega dropdown -->
-        <li
-          @mouseenter="isProductsOpen = true"
-          @mouseleave="isProductsOpen = false"
-        >
+        <li @mouseenter="openProducts">
           <RouterLink
             to="/products"
             class="flex items-center gap-1.5 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-primary-light"
             :class="isProductsOpen ? 'bg-primary-light text-primary' : 'text-text-base'"
             :aria-expanded="isProductsOpen"
-            @click="isProductsOpen = false"
+            @click="closeProducts"
           >
             {{ t('common.nav.products') }}
             <AppIcon
@@ -77,6 +101,7 @@ function closeMobile() {
           <RouterLink
             to="/#services"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            @mouseenter="closeProducts"
           >
             {{ t('common.nav.services') }}
           </RouterLink>
@@ -85,6 +110,7 @@ function closeMobile() {
           <RouterLink
             to="/#about"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            @mouseenter="closeProducts"
           >
             {{ t('common.nav.about') }}
           </RouterLink>
@@ -93,6 +119,7 @@ function closeMobile() {
           <RouterLink
             to="/#partners"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            @mouseenter="closeProducts"
           >
             {{ t('common.nav.partners') }}
           </RouterLink>
@@ -148,25 +175,27 @@ function closeMobile() {
     >
       <div
         v-if="isProductsOpen"
-        class="absolute left-1/2 top-full mt-3 w-[640px] -translate-x-1/2 rounded-2xl border border-border bg-surface-alt p-6 shadow-xl"
-        @mouseenter="isProductsOpen = true"
-        @mouseleave="isProductsOpen = false"
+        class="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3"
+        @mouseenter="openProducts"
+        @mouseleave="scheduleCloseProducts"
       >
-        <div class="mb-4 flex items-center justify-between">
-          <span class="text-sm text-text-subtle">{{ t('common.nav.products') }}</span>
-          <RouterLink to="/products" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="isProductsOpen = false">
-            {{ t('common.buttons.discoverProducts') }}
-            <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
-          </RouterLink>
-        </div>
-        <div class="grid grid-cols-3 items-stretch gap-4">
-          <ProductMenuCard
-            v-for="key in productKeys"
-            :key="key"
-            :product-key="key"
-            :tint="productsCatalog[key].tint"
-            @navigate="isProductsOpen = false"
-          />
+        <div class="rounded-2xl border border-border bg-surface-alt p-6 shadow-xl">
+          <div class="mb-4 flex items-center justify-between">
+            <span class="text-sm text-text-subtle">{{ t('common.nav.products') }}</span>
+            <RouterLink to="/products" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeProducts">
+              {{ t('common.buttons.discoverProducts') }}
+              <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
+            </RouterLink>
+          </div>
+          <div class="grid grid-cols-3 items-stretch gap-4">
+            <ProductMenuCard
+              v-for="key in productKeys"
+              :key="key"
+              :product-key="key"
+              :tint="productsCatalog[key].tint"
+              @navigate="closeProducts"
+            />
+          </div>
         </div>
       </div>
     </Transition>

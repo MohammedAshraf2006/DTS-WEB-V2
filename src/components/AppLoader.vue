@@ -21,7 +21,7 @@ onUnmounted(() => {
   <Transition name="app-loader-fade">
     <div
       v-if="isLoading"
-      class="fixed inset-0 z-[99999] flex items-center justify-center bg-white dark:bg-[#050d1e]"
+      class="fixed inset-0 z-[99999] flex items-center justify-center bg-white dark:bg-surface"
       aria-busy="true"
       aria-live="polite"
     >

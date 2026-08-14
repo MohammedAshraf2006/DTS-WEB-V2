@@ -178,7 +178,7 @@ function onLeave() {
 
 .dark .stat-card-inner {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.12) inset,
+    0 1px 0 rgba(0, 232, 240, 0.12) inset,
     0 -1px 0 rgba(0, 0, 0, 0.4) inset,
     0 20px 44px -20px rgba(0, 0, 0, 0.65);
 }
@@ -191,7 +191,7 @@ function onLeave() {
 
 .dark .stat-card:hover .stat-card-inner {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.18) inset,
+    0 1px 0 rgba(0, 232, 240, 0.18) inset,
     0 -1px 0 rgba(0, 0, 0, 0.45) inset,
     0 28px 52px -18px rgba(0, 0, 0, 0.75);
 }

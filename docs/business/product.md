@@ -33,7 +33,9 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 
 ## Visual / brand notes (V2)
 
-- Palette source of truth: `src/assets/colors.css` (navy `#050D1E`, teal `#23B8C1`, deep teal `#0B5F75`, blue `#1B739F`)
+- Palette source of truth: `src/assets/colors.css`
+- Light: navy `#050D1E`, teal `#23B8C1`, deep teal `#0B5F75`, blue `#1B739F`
+- Dark: very dark royal navy `#050A18` + electric cyan `#00E8F0`
 - Site atmosphere: animated starfield (`SiteBackground`); light mode uses subtle brand glows
 - First visit: `AppLoader` splash with DTS logo
 

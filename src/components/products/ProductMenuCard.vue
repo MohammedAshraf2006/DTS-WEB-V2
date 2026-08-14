@@ -15,12 +15,12 @@ const { root, tilt, onMove, onLeave } = useCardTilt({ maxX: 8, maxY: 10 })
 
 const tintClass = computed(() => {
   if (props.tint === 'ers') {
-    return 'from-[#c9fbfe]/70 to-surface-alt dark:from-[#23b8c1]/20 dark:to-surface-raised'
+    return 'from-[#c9fbfe]/70 to-surface-alt dark:from-[#00e8f0]/18 dark:to-surface-raised'
   }
   if (props.tint === 'esa') {
     return 'from-gold-light to-surface-alt dark:from-[#e0b84d]/32 dark:to-surface-raised'
   }
-  return 'from-[#afdefc]/65 to-surface-alt dark:from-[#1b739f]/22 dark:to-surface-raised'
+  return 'from-[#afdefc]/65 to-surface-alt dark:from-[#00e8f0]/16 dark:to-surface-raised'
 })
 </script>
 
@@ -76,7 +76,7 @@ const tintClass = computed(() => {
 
 .dark .menu-card {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.14) inset,
+    0 1px 0 rgba(0, 232, 240, 0.14) inset,
     0 -1px 0 rgba(0, 0, 0, 0.4) inset,
     0 18px 36px -18px rgba(0, 0, 0, 0.6);
 }
@@ -89,10 +89,10 @@ const tintClass = computed(() => {
 
 .dark .menu-card-wrap:hover .menu-card {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.2) inset,
+    0 1px 0 rgba(0, 232, 240, 0.2) inset,
     0 -1px 0 rgba(0, 0, 0, 0.45) inset,
     0 24px 44px -16px rgba(0, 0, 0, 0.7),
-    0 0 24px -8px rgba(35, 184, 193, 0.18);
+    0 0 24px -8px rgba(0, 232, 240, 0.18);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -72,29 +72,26 @@
 }
 
 /*
-  Dark mode — one navy family for surfaces/borders, teal+blue for accents.
-  Avoid mixing neon greens / purple blues; keep contrast readable.
+  Dark mode — very dark royal navy + electric cyan glow (pixel DTS mark).
+  Light tokens above stay unchanged.
 */
 .dark {
-  --color-primary: #23b8c1;
-  --color-primary-hover: #2de2ed;
-  --color-primary-light: rgba(35, 184, 193, 0.14);
-  --color-accent: #4ebcf9;
+  --color-primary: #00e8f0;
+  --color-primary-hover: #6ffbff;
+  --color-primary-light: rgba(0, 232, 240, 0.14);
+  --color-accent: #2de2ed;
 
-  /* Surfaces from navy ramp only */
-  --color-surface: #050d1e;
-  --color-surface-alt: #0c1629;
-  --color-surface-raised: #152338;
+  --color-surface: #050a18;
+  --color-surface-alt: #0a1528;
+  --color-surface-raised: #12203a;
 
-  /* Borders — soft navy, not loud */
-  --color-border: #243a5c;
-  --color-border-strong: #2e4c84;
+  --color-border: #1a3552;
+  --color-border-strong: #254a6e;
 
-  /* Text — gray ramp on navy */
   --color-text-base: #edeff0;
   --color-text-muted: #c2c9cc;
-  --color-text-subtle: #9ba3a8;
-  --color-text-on-primary: #050d1e;
+  --color-text-subtle: #8a9aa8;
+  --color-text-on-primary: #050a18;
 
   --color-danger: #f87171;
   --color-danger-light: rgba(248, 113, 113, 0.12);
@@ -102,29 +99,29 @@
   --color-success-light: rgba(45, 226, 237, 0.12);
   --color-warning: #e0b84d;
   --color-warning-light: rgba(224, 184, 77, 0.12);
-  --color-info: #4ebcf9;
-  --color-info-light: rgba(78, 188, 249, 0.12);
+  --color-info: #00e8f0;
+  --color-info-light: rgba(0, 232, 240, 0.12);
 
-  --color-navy: #a0b6dc;
-  --color-navy-light: rgba(160, 182, 220, 0.14);
+  --color-navy: #9eb6dc;
+  --color-navy-light: rgba(27, 80, 159, 0.18);
   --color-gold: #e0b84d;
   --color-gold-light: rgba(224, 184, 77, 0.12);
 
-  --color-blue: #4ebcf9;
-  --color-green: #23b8c1;
+  --color-blue: #2de2ed;
+  --color-green: #00e8f0;
   --color-amber: #e0b84d;
   --color-red: #f87171;
 
-  --color-gray-200: #152338;
-  --color-gray-300: #243a5c;
-  --color-gray-400: #6f90cb;
-  --color-gray-500: #9ba3a8;
+  --color-gray-200: #12203a;
+  --color-gray-300: #1a3552;
+  --color-gray-400: #2de2ed;
+  --color-gray-500: #8a9aa8;
 
-  --color-primary-rgb: 35 184 193;
-  --color-accent-rgb: 78 188 249;
+  --color-primary-rgb: 0 232 240;
+  --color-accent-rgb: 45 226 237;
   --color-success-rgb: 45 226 237;
   --color-danger-rgb: 248 113 113;
   --color-amber-rgb: 224 184 77;
-  --overlay-rgb: 5 13 30;
-  --color-surface-rgb: 5 13 30;
+  --overlay-rgb: 5 10 24;
+  --color-surface-rgb: 5 10 24;
 }

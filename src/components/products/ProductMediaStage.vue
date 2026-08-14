@@ -86,7 +86,7 @@ const active = computed(() => items.value[activeIndex.value] || null)
 
 .dark .product-stage {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.1) inset,
+    0 1px 0 rgba(0, 232, 240, 0.1) inset,
     0 24px 48px -24px rgba(0, 0, 0, 0.55);
 }
 </style>

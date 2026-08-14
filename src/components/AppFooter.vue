@@ -23,7 +23,9 @@ const companyLinks = [
 </script>
 
 <template>
-  <footer class="relative overflow-hidden border-t border-border bg-surface-alt dark:border-[#1a2d4a]">
+  <footer
+    class="relative overflow-hidden border-t border-border bg-surface-alt dark:border-[#152a45] dark:[--color-text-base:#d4e2f5] dark:[--color-text-muted:#a3b6ce] dark:[--color-text-subtle:#7e93ae]"
+  >
     <!-- Soft Notion-like ambient -->
     <div
       class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent dark:via-primary/15"
@@ -35,7 +37,7 @@ const companyLinks = [
     />
 
     <!-- Pre-footer CTA band -->
-    <div class="border-b border-border/80 dark:border-[#1a2d4a]">
+    <div class="border-b border-border/80 dark:border-[#152a45]">
       <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-8 sm:flex-row sm:items-center lg:px-10 lg:py-10">
         <div class="max-w-xl">
           <h2 class="font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
@@ -70,14 +72,6 @@ const companyLinks = [
           <p class="mt-4 max-w-sm text-[15px] leading-relaxed text-text-subtle">
             {{ t('common.footer.description') }}
           </p>
-          <RouterLink
-            to="/contact"
-            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-text-base transition-colors hover:text-primary"
-          >
-            {{ t('common.buttons.contactUs') }}
-            <AppIcon name="arrowLeft" class="h-3.5 w-3.5 rtl:block ltr:hidden" />
-            <AppIcon name="arrowRight" class="h-3.5 w-3.5 ltr:block rtl:hidden" />
-          </RouterLink>
         </div>
 
         <!-- Product -->
@@ -184,7 +178,7 @@ const companyLinks = [
 
       <!-- Bottom bar -->
       <div
-        class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center"
+        class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 dark:border-[#152a45] sm:flex-row sm:items-center"
       >
         <p class="text-sm text-text-subtle">
           © {{ year }} DTS — {{ t('common.footer.rights') }}

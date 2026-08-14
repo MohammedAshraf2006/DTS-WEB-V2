@@ -136,7 +136,7 @@ const {
 
 .dark .sculpt-panel {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.12) inset,
+    0 1px 0 rgba(0, 232, 240, 0.12) inset,
     0 -1px 0 rgba(0, 0, 0, 0.45) inset,
     0 26px 52px -22px rgba(0, 0, 0, 0.65),
     0 10px 24px -14px rgba(0, 0, 0, 0.45);
@@ -151,10 +151,10 @@ const {
 
 .dark .sculpt-wrap:hover .sculpt-panel {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.18) inset,
+    0 1px 0 rgba(0, 232, 240, 0.18) inset,
     0 -1px 0 rgba(0, 0, 0, 0.5) inset,
     0 32px 60px -20px rgba(0, 0, 0, 0.75),
-    0 12px 28px -12px rgba(35, 184, 193, 0.12);
+    0 12px 28px -12px rgba(0, 232, 240, 0.12);
 }
 
 .sculpt-content {

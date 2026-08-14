@@ -54,9 +54,9 @@ const initHeroBackground = async () => {
       const isDark = document.documentElement.classList.contains('dark')
       const themeColors = isDark
         ? {
-            backgroundColor: 0x050d1e,
-            color: 0x23b8c1,
-            color2: 0x4ebcf9,
+            backgroundColor: 0x050a18,
+            color: 0x00e8f0,
+            color2: 0x2de2ed,
             alpha: 0.22
           }
         : {
@@ -165,7 +165,7 @@ onBeforeUnmount(() => {
     <!-- Vanta globe — stays inside hero only -->
     <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-35 dark:opacity-45"></div>
     <div
-      class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/20 via-white/50 to-white dark:from-[#0c1629]/80 dark:via-transparent dark:to-surface"
+      class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/20 via-white/50 to-white dark:from-surface/90 dark:via-transparent dark:to-surface"
     ></div>
 
     <div class="relative mx-auto max-w-4xl px-5 text-center lg:px-10">

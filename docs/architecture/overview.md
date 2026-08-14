@@ -27,7 +27,7 @@ Source: `src/assets/colors.css`
 | Deep teal | `#0B5F75` |
 | Blue / light primary | `#1B739F` |
 
-Dark mode keeps **navy-ramp surfaces** and **teal/blue accents** (no white edge highlights on sculpted panels).
+Light mode keeps this navy/blue family. Dark mode: **very dark royal navy** surfaces (`#050A18`) and **electric cyan** (`#00E8F0`) accents.
 
 ## System boundaries
 

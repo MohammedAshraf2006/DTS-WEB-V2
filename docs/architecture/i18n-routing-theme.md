@@ -37,6 +37,7 @@
 - Dark mode via `dark` class on `<html>`
 - Persisted as `dts-theme` in `localStorage`
 - Tokens live in `src/assets/colors.css` and are mapped in `tailwind.config.js`
+- Light palette unchanged (navy / blue). Dark palette: very dark royal navy `#050A18` + electric cyan `#00E8F0`
 - Header controls use small icon/label transitions; full-page View Transitions are intentionally **not** used (they broke the starfield)
 
 ## Styling approach

@@ -14,12 +14,12 @@ const openIndex = ref(0)
 
 const tintClass = computed(() => {
   if (props.productKey === 'ers') {
-    return 'from-[#c9fbfe]/55 to-surface-alt dark:from-[#23b8c1]/16 dark:to-surface-alt'
+    return 'from-[#c9fbfe]/55 to-surface-alt dark:from-[#00e8f0]/14 dark:to-surface-alt'
   }
   if (props.productKey === 'esa') {
-    return 'from-[#c0eefe]/55 to-surface-alt dark:from-[#0b5f75]/22 dark:to-surface-alt'
+    return 'from-[#c0eefe]/55 to-surface-alt dark:from-[#00e8f0]/12 dark:to-surface-alt'
   }
-  return 'from-[#afdefc]/50 to-surface-alt dark:from-[#1b739f]/18 dark:to-surface-alt'
+  return 'from-[#afdefc]/50 to-surface-alt dark:from-[#00e8f0]/14 dark:to-surface-alt'
 })
 
 watch(

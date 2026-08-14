@@ -18,12 +18,12 @@ const preview = computed(() => firstMedia(props.product))
 
 const tintClass = computed(() => {
   if (props.product.tint === 'ers') {
-    return 'from-[#c9fbfe]/55 to-surface-alt dark:from-[#23b8c1]/16 dark:to-surface-alt'
+    return 'from-[#c9fbfe]/55 to-surface-alt dark:from-[#00e8f0]/14 dark:to-surface-alt'
   }
   if (props.product.tint === 'esa') {
     return 'from-gold-light to-surface-alt dark:from-[#e0b84d]/32 dark:to-surface-alt'
   }
-  return 'from-[#afdefc]/50 to-surface-alt dark:from-[#1b739f]/18 dark:to-surface-alt'
+  return 'from-[#afdefc]/50 to-surface-alt dark:from-[#00e8f0]/14 dark:to-surface-alt'
 })
 </script>
 
@@ -121,7 +121,7 @@ const tintClass = computed(() => {
 
 .dark .sculpt-panel {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.12) inset,
+    0 1px 0 rgba(0, 232, 240, 0.16) inset,
     0 -1px 0 rgba(0, 0, 0, 0.45) inset,
     0 26px 52px -22px rgba(0, 0, 0, 0.65),
     0 10px 24px -14px rgba(0, 0, 0, 0.45);
@@ -136,10 +136,10 @@ const tintClass = computed(() => {
 
 .dark .sculpt-wrap:hover .sculpt-panel {
   box-shadow:
-    0 1px 0 rgba(35, 184, 193, 0.18) inset,
+    0 1px 0 rgba(0, 232, 240, 0.22) inset,
     0 -1px 0 rgba(0, 0, 0, 0.5) inset,
     0 32px 60px -20px rgba(0, 0, 0, 0.75),
-    0 12px 28px -12px rgba(35, 184, 193, 0.12);
+    0 12px 28px -12px rgba(0, 232, 240, 0.14);
 }
 
 .sculpt-content {

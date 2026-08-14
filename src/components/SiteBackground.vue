@@ -1,7 +1,7 @@
 <script setup>
 /**
  * Animated starfield site background.
- * Dark: gold / teal / white on navy.
+ * Dark: cyan / white on very dark royal navy.
  * Light: brand dots on pale sky.
  */
 </script>
@@ -27,7 +27,7 @@
     <!-- Dark sky -->
     <div
       class="absolute inset-0 hidden dark:block"
-      style="background: radial-gradient(ellipse at bottom, #14243c 0%, #07101f 42%, #030812 100%)"
+      style="background: radial-gradient(ellipse at bottom, #12203a 0%, #07101f 48%, #050a18 100%)"
     />
     <div class="absolute inset-0 hidden dark:block">
       <div class="site-glow site-glow--a site-glow--dark" />
@@ -93,15 +93,15 @@
 }
 
 .site-glow--dark.site-glow--a {
-  background: rgba(35, 184, 193, 0.14);
+  background: rgba(0, 232, 240, 0.16);
 }
 
 .site-glow--dark.site-glow--b {
-  background: rgba(78, 188, 249, 0.1);
+  background: rgba(30, 64, 140, 0.28);
 }
 
 .site-glow--dark.site-glow--c {
-  background: rgba(224, 184, 77, 0.1);
+  background: rgba(0, 232, 240, 0.08);
 }
 
 @keyframes glow-breathe {
@@ -147,22 +147,22 @@
 
 .stars-dark--sm {
   box-shadow:
-    100px 100px #f8aa00, 200px 300px #f8aa00, 400px 150px #f8aa00, 800px 700px #f8aa00,
-    1200px 1100px #f8aa00, 1400px 1300px #f8aa00, 1600px 1150px #f8aa00, 1800px 1700px #f8aa00,
-    500px 400px #f8aa00, 600px 600px #f8aa00, 700px 900px #f8aa00, 1100px 800px #f8aa00,
-    200px 1200px #f8aa00, 400px 1300px #f8aa00, 600px 1450px #f8aa00, 800px 1600px #f8aa00,
-    1700px 1700px #f8aa00, 1500px 1800px #f8aa00, 1300px 1950px #f8aa00, 1100px 2100px #f8aa00,
-    80px 500px #f8aa00, 950px 200px #f8aa00, 1350px 450px #f8aa00, 1750px 900px #f8aa00;
+    100px 100px #00e8f0, 200px 300px #00e8f0, 400px 150px #2de2ed, 800px 700px #00e8f0,
+    1200px 1100px #2de2ed, 1400px 1300px #00e8f0, 1600px 1150px #2de2ed, 1800px 1700px #00e8f0,
+    500px 400px #00e8f0, 600px 600px #2de2ed, 700px 900px #00e8f0, 1100px 800px #2de2ed,
+    200px 1200px #00e8f0, 400px 1300px #2de2ed, 600px 1450px #00e8f0, 800px 1600px #2de2ed,
+    1700px 1700px #00e8f0, 1500px 1800px #2de2ed, 1300px 1950px #00e8f0, 1100px 2100px #2de2ed,
+    80px 500px #00e8f0, 950px 200px #2de2ed, 1350px 450px #00e8f0, 1750px 900px #2de2ed;
 }
 
 .stars-dark--md {
   box-shadow:
-    150px 200px #23b8c1, 300px 400px #23b8c1, 500px 250px #23b8c1, 900px 800px #23b8c1,
-    1200px 1050px #23b8c1, 1400px 1200px #23b8c1, 1600px 1350px #23b8c1, 1800px 1500px #23b8c1,
-    200px 200px #01a2ff, 400px 500px #01a2ff, 600px 800px #01a2ff, 1000px 900px #01a2ff,
-    300px 1100px #23b8c1, 500px 1250px #23b8c1, 700px 1400px #01a2ff, 900px 1550px #23b8c1,
-    1100px 1600px #01a2ff, 1300px 1700px #23b8c1, 1500px 1850px #01a2ff, 1700px 2000px #23b8c1,
-    50px 750px #23b8c1, 850px 350px #01a2ff, 1550px 600px #23b8c1, 1900px 1100px #01a2ff;
+    150px 200px #00e8f0, 300px 400px #2de2ed, 500px 250px #00e8f0, 900px 800px #2de2ed,
+    1200px 1050px #00e8f0, 1400px 1200px #2de2ed, 1600px 1350px #00e8f0, 1800px 1500px #2de2ed,
+    200px 200px #6ffbff, 400px 500px #00e8f0, 600px 800px #6ffbff, 1000px 900px #00e8f0,
+    300px 1100px #2de2ed, 500px 1250px #00e8f0, 700px 1400px #6ffbff, 900px 1550px #2de2ed,
+    1100px 1600px #00e8f0, 1300px 1700px #2de2ed, 1500px 1850px #6ffbff, 1700px 2000px #00e8f0,
+    50px 750px #2de2ed, 850px 350px #6ffbff, 1550px 600px #00e8f0, 1900px 1100px #6ffbff;
 }
 
 .stars-dark--lg {
