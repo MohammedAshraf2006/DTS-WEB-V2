@@ -17,7 +17,9 @@ export function useScrollReveal(rootSelector = null) {
     const root = rootSelector ? document.querySelector(rootSelector) : document
     const els = root ? root.querySelectorAll('.reveal') : []
 
-    if (!('IntersectionObserver' in window) || els.length === 0) {
+    if (!els.length) return
+
+    if (!('IntersectionObserver' in window)) {
       els.forEach((el) => el.classList.add('is-visible'))
       return
     }
@@ -31,7 +33,7 @@ export function useScrollReveal(rootSelector = null) {
           }
         })
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     )
 
     els.forEach((el) => observer.observe(el))

@@ -1,15 +1,23 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { useCardTilt } from '@/composables/useCardTilt'
 
 const { t, tm } = useI18n()
 
 // Home shows only the top 3 services
 const icons = ['invoice', 'layers', 'signature']
+
+const {
+  root: signatureRoot,
+  tilt: signatureTilt,
+  onMove: onSignatureMove,
+  onLeave: onSignatureLeave
+} = useCardTilt({ maxX: 6, maxY: 8 })
 </script>
 
 <template>
-  <section id="services" class="bg-surface py-20 lg:py-28">
+  <section id="services" class="bg-transparent py-12 lg:py-16">
     <div class="mx-auto max-w-7xl px-5 lg:px-10">
       <!-- Section belongs to Services: title first -->
       <div class="reveal mx-auto max-w-3xl text-center">
@@ -21,35 +29,49 @@ const icons = ['invoice', 'layers', 'signature']
         </p>
       </div>
 
-      <!-- Signature highlight — still inside Services, above the 3 cards -->
+      <!-- Signature highlight — sculpted 3D panel -->
       <div
-        class="reveal mt-12 overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary-light/40 via-surface-alt to-surface-alt px-6 py-8 sm:mt-14 sm:px-10 sm:py-10 lg:px-12"
+        ref="signatureRoot"
+        class="sculpt-wrap reveal mt-8 sm:mt-10"
+        @mousemove="onSignatureMove"
+        @mouseleave="onSignatureLeave"
       >
-        <div class="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-          <div class="max-w-2xl">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              {{ t('home.services.signatureHighlight.eyebrow') }}
-            </p>
-            <h3 class="mt-2 font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
-              {{ t('home.services.signatureHighlight.title') }}
-            </h3>
-            <p class="mt-3 text-base leading-relaxed text-text-muted">
-              {{ t('home.services.signatureHighlight.subtitle') }}
-            </p>
+        <div
+          class="sculpt-panel relative overflow-hidden rounded-2xl border border-primary/25 bg-surface-alt px-6 py-7 dark:border-border sm:px-10 sm:py-8 lg:px-12"
+          :style="{
+            transform: `perspective(1100px) rotateX(${signatureTilt.x}deg) rotateY(${signatureTilt.y}deg) translateZ(0)`
+          }"
+        >
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-light/30 via-transparent to-accent/10 dark:from-primary-light/40" />
+          <div class="pointer-events-none absolute -end-16 -top-16 h-44 w-44 rounded-full bg-primary/20 blur-3xl" />
+          <div class="pointer-events-none absolute -bottom-20 -start-10 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
+
+          <div class="relative z-10 flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div class="sculpt-content max-w-2xl">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                {{ t('home.services.signatureHighlight.eyebrow') }}
+              </p>
+              <h3 class="mt-2 font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
+                {{ t('home.services.signatureHighlight.title') }}
+              </h3>
+              <p class="mt-3 text-base leading-relaxed text-text-muted">
+                {{ t('home.services.signatureHighlight.subtitle') }}
+              </p>
+            </div>
+            <RouterLink
+              to="/#contact"
+              class="sculpt-cta inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
+            >
+              {{ t('home.services.signatureHighlight.cta') }}
+              <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
+              <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
+            </RouterLink>
           </div>
-          <RouterLink
-            to="/#contact"
-            class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
-          >
-            {{ t('home.services.signatureHighlight.cta') }}
-            <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
-            <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
-          </RouterLink>
         </div>
       </div>
 
       <!-- Top 3 services -->
-      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
+      <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
         <article
           v-for="(service, i) in tm('home.services.items')"
           :key="i"
@@ -84,7 +106,7 @@ const icons = ['invoice', 'layers', 'signature']
         </article>
       </div>
 
-      <div class="reveal mt-12 text-center lg:mt-16" style="transition-delay: .15s">
+      <div class="reveal mt-8 text-center lg:mt-10" style="transition-delay: .15s">
         <RouterLink
           to="/services"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all duration-200 hover:border-primary hover:text-primary"
@@ -99,9 +121,54 @@ const icons = ['invoice', 'layers', 'signature']
 </template>
 
 <style scoped>
+.sculpt-wrap {
+  transform-style: preserve-3d;
+}
+
+.sculpt-panel {
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out, box-shadow 0.25s ease;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 22px 48px -26px rgba(15, 23, 42, 0.38),
+    0 8px 20px -12px rgba(27, 115, 159, 0.2);
+}
+
+.dark .sculpt-panel {
+  box-shadow:
+    0 1px 0 rgba(35, 184, 193, 0.12) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.45) inset,
+    0 26px 52px -22px rgba(0, 0, 0, 0.65),
+    0 10px 24px -14px rgba(0, 0, 0, 0.45);
+}
+
+.sculpt-wrap:hover .sculpt-panel {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 30px 56px -22px rgba(27, 115, 159, 0.32),
+    0 12px 28px -12px rgba(15, 23, 42, 0.25);
+}
+
+.dark .sculpt-wrap:hover .sculpt-panel {
+  box-shadow:
+    0 1px 0 rgba(35, 184, 193, 0.18) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.5) inset,
+    0 32px 60px -20px rgba(0, 0, 0, 0.75),
+    0 12px 28px -12px rgba(35, 184, 193, 0.12);
+}
+
+.sculpt-content {
+  transform: translateZ(24px);
+}
+
+.sculpt-cta {
+  transform: translateZ(36px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
+  .sculpt-panel {
+    transition: none;
+    transform: none !important;
   }
 }
 </style>

@@ -6,7 +6,7 @@ Last updated: 2026-08-14
 |------|------|--------|------|
 | 00 | [wave-00-bootstrap.md](wave-00-bootstrap.md) | done | Cursor rules, inventory, docs/plans bootstrap |
 | 01 | [wave-01-foundation.md](wave-01-foundation.md) | pending | Stabilize shell, i18n, theme, tokens |
-| 02 | [wave-02-home-complete.md](wave-02-home-complete.md) | in_progress | Complete Home vs reference |
+| 02 | [wave-02-home-complete.md](wave-02-home-complete.md) | in_progress | Home sections + polish largely shipped; hashes/partners/media remain |
 | 03 | [wave-03-pages-routes.md](wave-03-pages-routes.md) | pending | Extra pages/routes as needed |
 | 04 | [wave-04-forms-integrations.md](wave-04-forms-integrations.md) | pending | Contact form + WhatsApp/links |
 | 05 | [wave-05-quality-launch.md](wave-05-quality-launch.md) | pending | QA, SEO basics, deploy |

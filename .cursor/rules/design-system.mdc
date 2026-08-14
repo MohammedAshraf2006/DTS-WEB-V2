@@ -9,8 +9,10 @@ alwaysApply: false
 ## Tokens
 
 - Source of truth: `src/assets/colors.css` CSS variables
+- Brand core: Navy `#050D1E` · Teal `#23B8C1` · Deep Teal `#0B5F75` · Blue `#1B739F`
 - Map into Tailwind via `tailwind.config.js` (e.g. `bg-surface`, `text-text-muted`, `primary`)
 - Prefer utilities + tokens over new one-off hex values
+- Dark mode: navy-ramp surfaces/borders only; teal/blue accents — keep one cohesive hue family
 
 ## Styling approach
 

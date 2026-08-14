@@ -54,16 +54,16 @@ const initHeroBackground = async () => {
       const isDark = document.documentElement.classList.contains('dark')
       const themeColors = isDark
         ? {
-            backgroundColor: 0x0a1424,
-            color: 0x76b8ff,
-            color2: 0xcfe7ff,
-            alpha: 0.18
+            backgroundColor: 0x050d1e,
+            color: 0x23b8c1,
+            color2: 0x4ebcf9,
+            alpha: 0.22
           }
         : {
-            backgroundColor: 0xf8fafc,
-            color: 0x1c6e8e,
-            color2: 0x9ec7f9,
-            alpha: 0.14
+            backgroundColor: 0xffffff,
+            color: 0x1b739f,
+            color2: 0x23b8c1,
+            alpha: 0.12
           }
 
       vantaEffect = window.VANTA.GLOBE({
@@ -115,12 +115,11 @@ const toneClasses = {
   warning: { border: 'border-warning', bg: 'bg-warning', text: 'text-warning' }
 }
 
-// الكلمة الدايرة جوه العنوان — لون هادي شفاف (زي pill الموجودة في notion.com بالظبط)
-// مبني على متغيرات الـ RGB الموجودة في colors.css نفسه، مفيش لون جديد اتضاف
+// Rotating hero pills — brand core hues (readable in light + dark)
 const rotatingWords = [
-  { key: 'invoice', rgb: 'var(--color-primary-rgb)' },
-  { key: 'receipt', rgb: 'var(--color-success-rgb)' },
-  { key: 'signature', rgb: 'var(--color-gold-rgb)' }
+  { key: 'invoice', rgb: '27 115 159' }, // Blue #1B739F
+  { key: 'receipt', rgb: '22 163 74' }, // Green #16A34A
+  { key: 'signature', rgb: '224 184 77' } // Gold #E0B84D
 ]
 
 const activeIndex = ref(0)
@@ -162,17 +161,19 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="relative overflow-hidden bg-surface pb-20 pt-40 lg:pb-28 lg:pt-48">
-    <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-35"></div>
-    <!-- خلفية متدرجة هادئة -->
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/60 via-transparent to-transparent"></div>
+  <section class="relative isolate overflow-hidden bg-white pb-12 pt-28 dark:bg-surface lg:pb-16 lg:pt-36">
+    <!-- Vanta globe — stays inside hero only -->
+    <div ref="heroBackground" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-35 dark:opacity-45"></div>
+    <div
+      class="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-light/20 via-white/50 to-white dark:from-[#0c1629]/80 dark:via-transparent dark:to-surface"
+    ></div>
 
     <div class="relative mx-auto max-w-4xl px-5 text-center lg:px-10">
       <div class="reveal mt-0 flex items-center justify-center gap-3 sm:gap-4" style="transition-delay: .04s">
         <div
           v-for="(card, index) in floatingProductCards"
           :key="card.alt"
-          class="floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-white/50 bg-white/25 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/20 sm:h-12 sm:w-20"
+          class="floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-border/60 bg-surface-alt/70 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-border dark:bg-surface-raised/50 sm:h-12 sm:w-20"
           :class="card.className"
           :style="{ animationDelay: `${index * 220}ms` }"
         >
@@ -182,7 +183,7 @@ onBeforeUnmount(() => {
 
       <!-- العنوان الرئيسي مع الكلمة المتغيّرة (نفس فكرة هيرو) -->
       <h1
-        class="reveal mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-sans text-4xl font-extrabold leading-[1.1] tracking-tight text-text-base sm:text-5xl lg:text-6xl xl:text-7xl"
+        class="reveal mt-9 flex flex-wrap items-center justify-center gap-x-3 gap-y-5 font-sans text-4xl font-extrabold leading-[1.25] tracking-tight text-text-base sm:mt-11 sm:gap-y-6 sm:text-5xl lg:text-6xl xl:text-7xl"
         style="transition-delay: .08s"
       >
         <span>{{ t('home.hero.titlePrefix') }}</span>
@@ -201,7 +202,7 @@ onBeforeUnmount(() => {
             <span
               class="absolute inset-0 rounded-full shadow-sm ring-1 ring-black/5"
               :class="isEnglishLocale ? 'translate-y-1 sm:translate-y-1.3' : 'translate-y-1.5 sm:translate-y-2.1'"
-              :style="{ backgroundColor: `rgb(${word.rgb} / 0.18)` }"
+              :style="{ backgroundColor: `rgb(${word.rgb} / 0.2)` }"
             ></span>
             <!-- النقطة والنص — فاضلة في مكانها الطبيعي -->
             <span class="relative z-10 h-2.5 w-2.5 shrink-0 rounded-full sm:h-3 sm:w-3" :style="{ backgroundColor: `rgb(${word.rgb})` }"></span>
@@ -213,7 +214,7 @@ onBeforeUnmount(() => {
       </h1>
 
       <p
-        class="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-text-muted"
+        class="reveal mx-auto mt-12 max-w-2xl text-lg leading-relaxed text-text-muted sm:mt-14"
         style="transition-delay: .16s"
       >
         {{ t('home.hero.subtitle') }}

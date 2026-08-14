@@ -1,6 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useCountUp } from '@/composables/useCountUp'
+
+const { t } = useI18n()
 
 const props = defineProps({
   value: { type: String, required: true },
@@ -153,7 +156,7 @@ function onLeave() {
       <!-- Floating mini chips for motion -->
       <div class="pointer-events-none absolute bottom-4 end-4 flex flex-col gap-1 opacity-70" aria-hidden="true">
         <span class="stat-float-chip rounded-md bg-surface/80 px-2 py-0.5 text-[10px] font-bold text-text-subtle shadow-sm backdrop-blur">
-          {{ isUp ? '▲ live' : '▼ live' }}
+          {{ isUp ? '▲' : '▼' }} {{ t('home.stats.live') }}
         </span>
       </div>
     </div>
@@ -175,14 +178,22 @@ function onLeave() {
 
 .dark .stat-card-inner {
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 20px 44px -20px rgba(0, 0, 0, 0.55);
+    0 1px 0 rgba(35, 184, 193, 0.12) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 20px 44px -20px rgba(0, 0, 0, 0.65);
 }
 
 .stat-card:hover .stat-card-inner {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.75) inset,
     0 28px 50px -20px rgba(28, 110, 142, 0.35);
+}
+
+.dark .stat-card:hover .stat-card-inner {
+  box-shadow:
+    0 1px 0 rgba(35, 184, 193, 0.18) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.45) inset,
+    0 28px 52px -18px rgba(0, 0, 0, 0.75);
 }
 
 .stat-number {

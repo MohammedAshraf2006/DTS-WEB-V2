@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrolledHeader } from '@/composables/useScrolledHeader'
 import { useTheme } from '@/composables/useTheme'
+import { runViewTransition } from '@/composables/runViewTransition'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t, locale } = useI18n()
@@ -14,8 +15,10 @@ const isMobileOpen = ref(false)
 
 const productKeys = ['ess', 'ers', 'esa']
 
-function toggleLocale() {
-  locale.value = locale.value === 'ar' ? 'en' : 'ar'
+async function toggleLocale() {
+  await runViewTransition(() => {
+    locale.value = locale.value === 'ar' ? 'en' : 'ar'
+  }, 'locale')
 }
 
 function closeMobile() {
@@ -26,14 +29,14 @@ function closeMobile() {
 <template>
   <header
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="isScrolled || isMobileOpen
-      ? 'bg-surface-alt/90 backdrop-blur-md border-b border-border shadow-sm'
+    :class="isScrolled || isMobileOpen || isProductsOpen
+      ? 'bg-surface-alt border-b border-border shadow-sm'
       : 'bg-transparent border-b border-transparent'"
   >
-    <nav class="grid h-20 w-full grid-cols-[1fr_auto_1fr] items-center px-6 lg:px-12">
+    <nav class="grid h-16 w-full grid-cols-[1fr_auto_1fr] items-center px-6 lg:px-12">
       <!-- Logo -->
       <RouterLink to="/" class="flex items-center gap-2 shrink-0 justify-self-start" @click="closeMobile">
-        <img src="/images/DTS.png" alt="DTS" class="h-11 w-auto" />
+        <img src="/images/DTS.png" alt="DTS" class="h-11 w-auto lg:h-12" />
       </RouterLink>
 
       <!-- Desktop nav (centered) -->
@@ -96,21 +99,25 @@ function closeMobile() {
       <div class="flex items-center justify-self-end gap-3">
         <div class="hidden items-center gap-3 lg:flex">
           <button
-            class="flex h-11 w-11 items-center justify-center rounded-full text-text-subtle transition-colors hover:bg-primary-light hover:text-primary"
+            class="theme-toggle flex h-10 w-10 items-center justify-center rounded-full text-text-subtle transition-colors hover:bg-primary-light hover:text-primary"
             :aria-label="isDark ? 'Light mode' : 'Dark mode'"
             @click="toggleTheme"
           >
-            <AppIcon :name="isDark ? 'sun' : 'moon'" class="h-6 w-6" />
+            <Transition name="icon-swap" mode="out-in">
+              <AppIcon :key="isDark ? 'sun' : 'moon'" :name="isDark ? 'sun' : 'moon'" class="h-6 w-6" />
+            </Transition>
           </button>
           <button
-            class="h-11 rounded-full px-4 text-base font-semibold text-text-subtle transition-colors hover:bg-primary-light hover:text-primary"
+            class="locale-toggle h-10 rounded-full px-4 text-base font-semibold text-text-subtle transition-colors hover:bg-primary-light hover:text-primary"
             @click="toggleLocale"
           >
-            {{ locale === 'ar' ? 'EN' : 'AR' }}
+            <Transition name="locale-swap" mode="out-in">
+              <span :key="locale" class="inline-block">{{ locale === 'ar' ? 'EN' : 'AR' }}</span>
+            </Transition>
           </button>
           <RouterLink
             to="/#contact"
-            class="rounded-lg bg-primary px-5 py-3 text-base font-semibold text-text-onprimary shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
+            class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-text-onprimary shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
           >
             {{ t('common.nav.cta') }}
           </RouterLink>
@@ -118,7 +125,7 @@ function closeMobile() {
 
         <!-- Mobile toggle -->
         <button
-          class="flex h-11 w-11 items-center justify-center rounded-lg text-text-base lg:hidden"
+          class="flex h-10 w-10 items-center justify-center rounded-lg text-text-base lg:hidden"
           @click="isMobileOpen = !isMobileOpen"
         >
           <AppIcon :name="isMobileOpen ? 'close' : 'menu'" class="h-7 w-7" />
@@ -184,11 +191,15 @@ function closeMobile() {
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
         </ul>
         <div class="mt-4 flex items-center gap-2 border-t border-border pt-4">
-          <button class="flex h-9 w-9 items-center justify-center rounded-full text-text-subtle" @click="toggleTheme">
-            <AppIcon :name="isDark ? 'sun' : 'moon'" class="h-5 w-5" />
+          <button class="theme-toggle flex h-9 w-9 items-center justify-center rounded-full text-text-subtle" @click="toggleTheme">
+            <Transition name="icon-swap" mode="out-in">
+              <AppIcon :key="isDark ? 'sun' : 'moon'" :name="isDark ? 'sun' : 'moon'" class="h-5 w-5" />
+            </Transition>
           </button>
-          <button class="h-9 rounded-full px-3 text-sm font-semibold text-text-subtle" @click="toggleLocale">
-            {{ locale === 'ar' ? 'EN' : 'AR' }}
+          <button class="locale-toggle h-9 rounded-full px-3 text-sm font-semibold text-text-subtle" @click="toggleLocale">
+            <Transition name="locale-swap" mode="out-in">
+              <span :key="locale" class="inline-block">{{ locale === 'ar' ? 'EN' : 'AR' }}</span>
+            </Transition>
           </button>
           <RouterLink
             to="/#contact"

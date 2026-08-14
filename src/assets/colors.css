@@ -1,117 +1,130 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   DTS — ملف الألوان الرئيسي (Single Source of Truth)
-   أي تعديل مستقبلي على هوية الشركة اللونية يتم هنا فقط.
-   Tailwind (tailwind.config.js) بيقرا من الـ CSS variables دي مباشرة،
-   فمفيش داعي تلمس أي ملف تاني عشان تغيّر لون.
+   DTS — brand palette (source of truth)
+   Core: Navy #050D1E · Teal #23B8C1 · Deep Teal #0B5F75 · Blue #1B739F
+
+   Ramps (light → dark):
+   Navy   #D1DCEE #A0B6DC #6F90CB #446DBA #2E4C84 #182B4E #050D1E
+   Teal   #C9FBFE #2DE2ED #23B8C1 #1A939A #106C71 #074448 #022123
+   Deep   #C0EEFE #34D1FC #1CA8CD #1484A2 #0B5F75 #043948 #01171F
+   Blue   #AFDEFC #4EBCF9 #2696CD #1B739F #104F6F #052C3F #010C15
+   Gray   #EDEFF0 #C2C9CC #9BA3A8 #7B8285 #595F61 #383B3D #191B1C
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Primary */
-  --color-primary: #1c6e8e; /* Deep Petrol Blue */
-  --color-primary-hover: #0f485e; /* Dark Ocean Hover */
-  --color-primary-light: #eff9fe; /* Soft Ice Blue Tint */
+  /* Primary actions — brand blue */
+  --color-primary: #1b739f;
+  --color-primary-hover: #0b5f75;
+  --color-primary-light: #e4f3fb;
+  --color-accent: #23b8c1;
 
   /* Surfaces */
-  --color-surface: #eff6ff;
+  --color-surface: #edeff0;
   --color-surface-alt: #ffffff;
   --color-surface-raised: #ffffff;
 
-  /* Borders */
-  --color-border: #cbd5e1;
-  --color-border-strong: #94a3b8;
+  /* Borders — cool gray ramp */
+  --color-border: #c2c9cc;
+  --color-border-strong: #9ba3a8;
 
-  /* Text */
-  --color-text-base: #0f172a;
-  --color-text-muted: #334155;
-  --color-text-subtle: #64748b;
+  /* Text — navy + gray */
+  --color-text-base: #050d1e;
+  --color-text-muted: #383b3d;
+  --color-text-subtle: #595f61;
   --color-text-on-primary: #ffffff;
 
   /* Status */
   --color-danger: #dc2626;
   --color-danger-light: #fef2f2;
   --color-success: #16a34a;
-  --color-success-light: #f0fdf4;
+  --color-success-light: #dcfce7;
   --color-warning: #d97706;
   --color-warning-light: #fffbeb;
-  --color-info: #0284c7;
-  --color-info-light: #f0f9ff;
+  --color-info: #1b739f;
+  --color-info-light: #e4f3fb;
 
-  /* Product accents (Products mega menu) */
-  --color-navy: #0b1f3a;
-  --color-navy-light: #eef1f7;
+  /* Product / accent helpers */
+  --color-navy: #050d1e;
+  --color-navy-light: #d1dcee;
   --color-gold: #b8860b;
   --color-gold-light: #fbf3df;
 
-  /* Helpers */
-  --color-blue: #1c6e8e;
+  --color-blue: #1b739f;
   --color-green: #16a34a;
   --color-amber: #d97706;
   --color-red: #dc2626;
 
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
+  --color-gray-200: #edeff0;
+  --color-gray-300: #c2c9cc;
+  --color-gray-400: #9ba3a8;
+  --color-gray-500: #595f61;
 
-  /* RGB helpers (لاستخدامها مع rgba()) */
-  --color-primary-rgb: 28 110 142;
+  --color-primary-rgb: 27 115 159;
+  --color-accent-rgb: 35 184 193;
   --color-success-rgb: 22 163 74;
   --color-danger-rgb: 220 38 38;
   --color-amber-rgb: 217 119 6;
-  --color-navy-rgb: 11 31 58;
+  --color-navy-rgb: 5 13 30;
   --color-gold-rgb: 184 134 11;
-  --color-gray-400-rgb: 148 163 184;
-  --color-gray-600-rgb: 71 85 105;
-  --overlay-rgb: 15 23 42;
-  --color-surface-rgb: 239 246 255;
+  --color-gray-400-rgb: 155 163 168;
+  --color-gray-600-rgb: 56 59 61;
+  --overlay-rgb: 5 13 30;
+  --color-surface-rgb: 237 239 240;
 }
 
-/* ─── Dark Mode (Midnight Obsidian & Vibrant Cyan) ─────────────────────── */
+/*
+  Dark mode — one navy family for surfaces/borders, teal+blue for accents.
+  Avoid mixing neon greens / purple blues; keep contrast readable.
+*/
 .dark {
-  --color-primary: #3898ec;
-  --color-primary-hover: #60adfc;
-  --color-primary-light: rgba(56, 152, 236, 0.12);
+  --color-primary: #23b8c1;
+  --color-primary-hover: #2de2ed;
+  --color-primary-light: rgba(35, 184, 193, 0.14);
+  --color-accent: #4ebcf9;
 
-  --color-surface-alt: #060c15;
-  --color-surface: #0a1424;
-  --color-surface-raised: #122038;
+  /* Surfaces from navy ramp only */
+  --color-surface: #050d1e;
+  --color-surface-alt: #0c1629;
+  --color-surface-raised: #152338;
 
-  --color-border: #1a2e4a;
-  --color-border-strong: #2a456c;
+  /* Borders — soft navy, not loud */
+  --color-border: #243a5c;
+  --color-border-strong: #2e4c84;
 
-  --color-text-base: #f0f5fa;
-  --color-text-muted: #b0c4de;
-  --color-text-subtle: #7a93b2;
-  --color-text-on-primary: #060c15;
+  /* Text — gray ramp on navy */
+  --color-text-base: #edeff0;
+  --color-text-muted: #c2c9cc;
+  --color-text-subtle: #9ba3a8;
+  --color-text-on-primary: #050d1e;
 
-  --color-danger: #e56b6b;
-  --color-danger-light: rgba(229, 107, 107, 0.12);
-  --color-success: #52b788;
-  --color-success-light: rgba(82, 183, 136, 0.12);
-  --color-warning: #e2a03f;
-  --color-warning-light: rgba(226, 160, 63, 0.12);
-  --color-info: #3898ec;
-  --color-info-light: rgba(56, 152, 236, 0.12);
+  --color-danger: #f87171;
+  --color-danger-light: rgba(248, 113, 113, 0.12);
+  --color-success: #2de2ed;
+  --color-success-light: rgba(45, 226, 237, 0.12);
+  --color-warning: #e0b84d;
+  --color-warning-light: rgba(224, 184, 77, 0.12);
+  --color-info: #4ebcf9;
+  --color-info-light: rgba(78, 188, 249, 0.12);
 
-  --color-navy: #7fa2d4;
-  --color-navy-light: rgba(127, 162, 212, 0.12);
+  --color-navy: #a0b6dc;
+  --color-navy-light: rgba(160, 182, 220, 0.14);
   --color-gold: #e0b84d;
   --color-gold-light: rgba(224, 184, 77, 0.12);
 
-  --color-blue: #3898ec;
-  --color-green: #52b788;
-  --color-amber: #e2a03f;
-  --color-red: #e56b6b;
+  --color-blue: #4ebcf9;
+  --color-green: #23b8c1;
+  --color-amber: #e0b84d;
+  --color-red: #f87171;
 
-  --color-gray-200: #122038;
-  --color-gray-300: #1a2e4a;
-  --color-gray-400: #3f5a7e;
-  --color-gray-500: #7a93b2;
+  --color-gray-200: #152338;
+  --color-gray-300: #243a5c;
+  --color-gray-400: #6f90cb;
+  --color-gray-500: #9ba3a8;
 
-  --color-primary-rgb: 56 152 236;
-  --color-success-rgb: 82 183 136;
-  --color-danger-rgb: 229 107 107;
-  --color-amber-rgb: 226 160 63;
-  --overlay-rgb: 6 12 21;
-  --color-surface-rgb: 10 20 36;
+  --color-primary-rgb: 35 184 193;
+  --color-accent-rgb: 78 188 249;
+  --color-success-rgb: 45 226 237;
+  --color-danger-rgb: 248 113 113;
+  --color-amber-rgb: 224 184 77;
+  --overlay-rgb: 5 13 30;
+  --color-surface-rgb: 5 13 30;
 }

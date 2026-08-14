@@ -32,7 +32,7 @@ const hasMedia = computed(() => {
 </script>
 
 <template>
-  <section id="products" class="bg-surface py-20 lg:py-28">
+  <section id="products" class="bg-transparent py-12 lg:py-16">
     <div class="mx-auto max-w-7xl px-5 lg:px-10">
       <div class="reveal mx-auto max-w-3xl text-center">
         <h2 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl lg:text-5xl">
@@ -45,7 +45,7 @@ const hasMedia = computed(() => {
 
       <!-- Notion-like text tabs -->
       <div
-        class="reveal mt-12 flex flex-wrap items-end justify-center gap-x-8 gap-y-3 border-b border-border"
+        class="reveal mt-8 flex flex-wrap items-end justify-center gap-x-8 gap-y-3 border-b border-border"
         style="transition-delay: .05s"
         role="tablist"
         :aria-label="t('home.products.title')"
@@ -75,17 +75,17 @@ const hasMedia = computed(() => {
 
       <Transition
         mode="out-in"
-        enter-active-class="transition duration-300 ease-out"
-        enter-from-class="opacity-0 translate-y-3"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="transition duration-200 ease-in"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
+        enter-active-class="product-panel-enter-active"
+        enter-from-class="product-panel-enter-from"
+        enter-to-class="product-panel-enter-to"
+        leave-active-class="product-panel-leave-active"
+        leave-from-class="product-panel-leave-from"
+        leave-to-class="product-panel-leave-to"
       >
-        <div :key="activeTab" class="reveal is-visible mt-12 lg:mt-16" role="tabpanel">
+        <div :key="activeTab" class="reveal is-visible mt-8 lg:mt-10" role="tabpanel">
           <!-- Notion-style: copy + large media -->
           <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div class="max-w-xl">
+            <div class="product-copy max-w-xl">
               <h3 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl">
                 {{ t(`home.products.tabs.${activeTab}.title`) }}
               </h3>
@@ -98,7 +98,8 @@ const hasMedia = computed(() => {
                 <li
                   v-for="(feature, i) in activeFeatures"
                   :key="i"
-                  class="flex items-center justify-between gap-4 py-4"
+                  class="product-feature flex items-center justify-between gap-4 py-4"
+                  :style="{ transitionDelay: `${0.05 + i * 0.04}s` }"
                 >
                   <span class="text-[15px] font-medium leading-snug text-text-base">
                     {{ feature }}
@@ -174,9 +175,69 @@ const hasMedia = computed(() => {
   box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
 }
 
+.product-panel-enter-active {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.product-panel-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.product-panel-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.product-panel-enter-to,
+.product-panel-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-panel-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.product-panel-enter-active .product-media {
+  transition:
+    opacity 0.4s ease 0.06s,
+    transform 0.4s ease 0.06s;
+}
+
+.product-panel-enter-from .product-media {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+}
+
+.product-panel-enter-active .product-feature {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.product-panel-enter-from .product-feature {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .product-panel-enter-active,
+  .product-panel-leave-active,
+  .product-panel-enter-active .product-media,
+  .product-panel-enter-active .product-feature {
     transition-duration: 0.01ms !important;
+  }
+
+  .product-panel-enter-from,
+  .product-panel-enter-from .product-media,
+  .product-panel-enter-from .product-feature {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>

@@ -12,13 +12,27 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 - `src/components/home/*`
 - `src/locales/{ar,en}/home.json` (+ `common.json` if nav/hashes change)
 - `public/images/**`
+- Shell polish shared with Home: `AppHeader`, `AppFooter`, `AppLoader`, `SiteBackground`, tokens
 
 ## Partial progress
 
-- [x] **TrustBar** — Notion-style muted logo strip; logos from `public/images/clients/1.png` and `2.png`; click opens external `http(s)` company URL in a new tab only (no in-site detail page). Empty `url` stays non-clickable until real links are filled in `TrustBar.vue`.
-- [x] **ProductTabs** — Notion-like two-column layout: simple product copy + reserved media frame for image or video (`productMedia` in `ProductTabs.vue`). Drop files in `public/images/Products/media/` or `public/videos/` and set `type`/`src`.
-- [x] **ServicesGrid** — Home shows only 3 services (e-invoice, ERP, e-signature) plus a top “Get your e-signature now” highlight. Remaining services deferred to `/services` (wave 03).
-- [x] **StatsCta** — 3D tilt cards, count-up / count-down numbers, bouncing trend arrows, animated sparklines; CTA block with depth.
+### Shipped on Home
+
+- [x] **Hero** — Vanta globe; rotating product pills (blue / green / gold); light hero brightened; dark hero restored to solid navy surface; spacing tuned
+- [x] **TrustBar** — Notion-style logo strip; client assets `1.png` / `2.png`; external URL open-in-new-tab; dark-mode 3D bevel without white edges
+- [x] **ProductTabs** — Notion two-column layout; logo-only tabs; soft panel transition on tab change; media slot ready (`productMedia`)
+- [x] **ServicesGrid** — 3 home services + sculpted “Get your e-signature now” highlight; link to `/services`
+- [x] **StatsCta** — 3D tilt StatCards, count-up/down, trend arrows, sparklines; i18n “live” / “مباشر”; light-mode green growth badges; plain stats headline; sculpted bottom CTA
+- [x] **SiteBackground** — animated starfield for light + dark; light-mode soft brand glows; wired in `MainLayout`
+- [x] **AppLoader** — first-open splash (logo pulse ~1s + fade), reference intent with V2 tokens
+- [x] **Shell polish** — shorter header, larger DTS logo, compact Contact CTA; theme/locale control micro-animations; footer CTA separator color for dark mode; brand palette refresh in `colors.css`
+
+### Still open (wave 02 / 03)
+
+- [ ] Hash targets that lack sections: `#partners`, full `#contact` form page behavior as needed
+- [ ] Remaining client logos + real URLs in TrustBar
+- [ ] WhyUs / Partners sections if still required vs TrustBar
+- [ ] Product media files dropped into `public/` and wired in `productMedia`
 
 ## Tasks
 
@@ -32,6 +46,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 - Every header/CTA hash lands on an existing section
 - AR and EN home content render without missing keys
 - Partners/clients assets display as intended
+- Light/dark + AR/EN smoke check on Home
 
 ## Post-close docs
 

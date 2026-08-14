@@ -5,8 +5,11 @@ const { t } = useI18n()
 
 // Drop real names + https URLs here as assets are added under /public/images/clients
 const clients = [
-  { name: 'Client 1', logo: '/images/clients/1.png', url: '' },
-  { name: 'Client 2', logo: '/images/clients/2.png', url: '' }
+  { name: 'Client 1', logo: '/images/clients/1.png', url: 'https://orientalweavers.com' },
+  { name: 'Client 1', logo: '/images/clients/2.png', url: 'https://orientalweavers.com' },
+  { name: 'Client 1', logo: '/images/clients/3.png', url: 'https://orientalweavers.com' },
+  { name: 'Client 1', logo: '/images/clients/4.png', url: 'https://orientalweavers.com' },
+  { name: 'Client 2', logo: '/images/clients/5.png', url: '' }
 ]
 
 const loopClients = [...clients, ...clients]
@@ -24,10 +27,10 @@ const logoImgClass =
 </script>
 
 <template>
-  <section class="overflow-hidden border-y border-border bg-surface-alt">
-    <header class="trust-header reveal relative border-b border-border/80 px-5 py-5 sm:py-6 lg:px-10">
+  <section class="overflow-hidden border-y border-border bg-surface-alt dark:border-border dark:bg-surface-alt">
+    <header class="trust-header reveal relative border-b border-border px-5 py-5 sm:py-6 lg:px-10 dark:border-border">
       <div
-        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt dark:from-surface-raised dark:via-surface dark:to-surface-alt"
+        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt dark:from-[#152338] dark:via-surface-alt dark:to-surface-alt"
         aria-hidden="true"
       />
       <h2 class="trust-header-title relative z-10 mx-auto max-w-4xl text-center text-base font-semibold leading-snug tracking-normal text-text-base sm:text-lg lg:text-xl">
@@ -36,7 +39,7 @@ const logoImgClass =
     </header>
 
     <!-- One always-in-flow reveal target; logos stagger when section enters view -->
-    <div class="reveal trust-logos py-12 lg:py-16" style="transition-delay: 0.08s">
+    <div class="reveal trust-logos py-8 lg:py-10" style="transition-delay: 0.08s">
       <div class="mx-auto hidden max-w-6xl px-6 lg:block lg:px-10">
         <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-20">
           <template v-for="(client, index) in clients" :key="client.name">
@@ -93,6 +96,8 @@ const logoImgClass =
 
 <style scoped>
 .trust-header {
+  transform: perspective(900px) rotateX(3deg);
+  transform-origin: center top;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.85),
     inset 0 -1px 0 rgba(15, 23, 42, 0.06),
@@ -101,11 +106,13 @@ const logoImgClass =
 }
 
 .dark .trust-header {
+  transform: perspective(900px) rotateX(4deg);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-    0 10px 24px -12px rgba(0, 0, 0, 0.55),
-    0 2px 8px rgba(0, 0, 0, 0.25);
+    inset 0 1px 0 rgba(35, 184, 193, 0.14),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+    0 18px 40px -16px rgba(0, 0, 0, 0.75),
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(35, 184, 193, 0.08);
 }
 
 .trust-header-title {
@@ -117,9 +124,8 @@ const logoImgClass =
 
 .dark .trust-header-title {
   text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.45),
-    0 8px 18px rgba(0, 0, 0, 0.35);
+    0 2px 10px rgba(0, 0, 0, 0.65),
+    0 8px 22px rgba(0, 0, 0, 0.45);
 }
 
 /* Logos stay hidden until the strip scrolls into view, then stagger in */
@@ -137,6 +143,10 @@ const logoImgClass =
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .trust-header {
+    transform: none;
+  }
+
   .trust-logo-item {
     opacity: 1;
     transform: none;

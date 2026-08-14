@@ -21,10 +21,10 @@ const companyLinks = [
 </script>
 
 <template>
-  <footer id="contact" class="relative overflow-hidden border-t border-border bg-surface-alt">
+  <footer id="contact" class="relative overflow-hidden border-t border-border bg-surface-alt dark:border-[#1a2d4a]">
     <!-- Soft Notion-like ambient -->
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+      class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent dark:via-primary/15"
       aria-hidden="true"
     />
     <div
@@ -33,8 +33,8 @@ const companyLinks = [
     />
 
     <!-- Pre-footer CTA band -->
-    <div class="border-b border-border/80">
-      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-12 sm:flex-row sm:items-center lg:px-10 lg:py-14">
+    <div class="border-b border-border/80 dark:border-[#1a2d4a]">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-8 sm:flex-row sm:items-center lg:px-10 lg:py-10">
         <div class="max-w-xl">
           <h2 class="font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
             {{ t('common.footer.ctaTitle') }}
@@ -43,19 +43,19 @@ const companyLinks = [
             {{ t('common.footer.ctaSubtitle') }}
           </p>
         </div>
-        <RouterLink
-          to="/#contact"
+        <a
+          :href="`mailto:${t('common.footer.salesEmail')}`"
           class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
         >
           {{ t('common.footer.ctaButton') }}
           <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
           <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
-        </RouterLink>
+        </a>
       </div>
     </div>
 
     <!-- Link grid -->
-    <div class="mx-auto max-w-7xl px-5 py-14 lg:px-10 lg:py-16">
+    <div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-12">
       <div class="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
         <!-- Brand column -->
         <div class="col-span-2 md:col-span-3 lg:col-span-4">
@@ -87,14 +87,14 @@ const companyLinks = [
             <li v-for="item in productLinks" :key="item.key">
               <RouterLink
                 :to="item.to"
-                class="group inline-flex items-center gap-2 text-[15px] text-text-muted transition-colors hover:text-text-base"
+                class="group inline-flex items-center transition-opacity hover:opacity-100"
+                :aria-label="t(`common.products.${item.key}.name`)"
               >
                 <img
                   :src="`/images/Products/${item.key}-logo.png`"
                   :alt="t(`common.products.${item.key}.name`)"
-                  class="h-4 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100"
+                  class="h-7 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100 sm:h-8"
                 />
-                <span>{{ t(`common.products.${item.key}.name`) }}</span>
               </RouterLink>
             </li>
           </ul>

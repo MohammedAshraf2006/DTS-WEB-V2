@@ -13,6 +13,9 @@ export default {
           hover: 'var(--color-primary-hover)',
           light: 'var(--color-primary-light)'
         },
+        accent: {
+          DEFAULT: 'var(--color-accent)'
+        },
         surface: {
           DEFAULT: 'var(--color-surface)',
           alt: 'var(--color-surface-alt)',

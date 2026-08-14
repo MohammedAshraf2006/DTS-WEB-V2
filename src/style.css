@@ -6,16 +6,22 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: transparent;
 }
 
 body {
-  @apply bg-surface text-text-base transition-colors duration-300;
+  @apply text-text-base;
   font-family: 'Tajawal', 'Inter', sans-serif;
-  background-image: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.04), rgba(15, 23, 42, 0.02), rgba(255, 255, 255, 0.02));
+  background-color: transparent;
+  transition:
+    color 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 #app {
   min-height: 100vh;
+  background-color: transparent;
 }
 
 [dir='ltr'] body {
@@ -27,15 +33,49 @@ body {
   color: var(--color-text-on-primary);
 }
 
-/* Scroll-reveal utility: يبدأ العنصر مخفي، ولما ياخد كلاس is-visible (من الـ composable) يتحرك */
+/* Soft page depth (legacy helper; orbs use ambient-orb) */
+.page-atmosphere {
+  position: relative;
+  isolation: isolate;
+}
+
+.page-atmosphere > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(56px);
+  opacity: 0.22;
+  z-index: 0;
+  animation: ambient-drift 16s ease-in-out infinite;
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, -14px, 0) scale(1.05);
+  }
+}
+
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(22px) scale(0.99);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
+
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .floating-icon {
@@ -57,8 +97,8 @@ body {
 
 .floating-card:hover {
   transform: translateY(-8px) scale(1.04);
-  border-color: rgba(28, 110, 142, 0.35);
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+  border-color: rgba(var(--color-primary-rgb), 0.35);
+  box-shadow: 0 14px 36px rgba(var(--overlay-rgb), 0.12);
 }
 
 @keyframes hero-float {
@@ -81,25 +121,94 @@ body {
   }
 }
 
+/* ── Theme / locale view transitions (soft crossfade) ── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: ease;
+}
+
+html[data-transition='theme']::view-transition-old(root),
+html[data-transition='locale']::view-transition-old(root) {
+  animation-name: vt-fade-out;
+}
+
+html[data-transition='theme']::view-transition-new(root),
+html[data-transition='locale']::view-transition-new(root) {
+  animation-name: vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Header control micro-animations */
+.icon-swap-enter-active,
+.icon-swap-leave-active {
+  transition: opacity 0.18s ease, transform 0.2s ease;
+}
+
+.icon-swap-enter-from {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.icon-swap-leave-to {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.locale-swap-enter-active,
+.locale-swap-leave-active {
+  transition: opacity 0.16s ease;
+}
+
+.locale-swap-enter-from,
+.locale-swap-leave-to {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .floating-icon {
-    animation: none;
-    transition: none;
+  html {
+    scroll-behavior: auto;
   }
 
-  .floating-icon:hover {
-    transform: none;
-    filter: none;
-  }
-
+  .ambient-orb,
+  .floating-icon,
   .floating-card {
-    animation: none;
-    transition: none;
+    animation: none !important;
   }
 
+  .floating-icon:hover,
   .floating-card:hover {
     transform: none;
-    border-color: inherit;
+    filter: none;
     box-shadow: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  .icon-swap-enter-active,
+  .icon-swap-leave-active,
+  .locale-swap-enter-active,
+  .locale-swap-leave-active {
+    transition: none !important;
   }
 }
