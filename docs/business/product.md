@@ -28,6 +28,7 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 
 - Technical support: `support@dts-eg.com` (footer: revealed on click)
 - Sales: `sales@dts-eg.com` (footer: revealed on click; shown on `/contact`)
+- E-signature: `tawqe3y_10thoframdan@dts-eg.com` (footer: revealed on click; shown on `/contact` after support)
 - Contact form `/contact` posts to `sales@dts-eg.com`
 - Signature request form `/services/signature` posts to `tawqe3y_10thoframdan@dts-eg.com`
 - Signature page WhatsApp: `https://wa.me/201050992816`

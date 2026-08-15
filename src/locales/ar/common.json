@@ -33,6 +33,7 @@
     },
     "support": "الدعم الفني",
     "sales": "المبيعات",
+    "signature": "التوقيع الإلكتروني",
     "contactNumbersTitle": "أرقام التواصل",
     "address": "رقم 99, مجاورة 44, طريق مصر النور, العاشر من رمضان, الشرقية, مصر",
     "email": "sales@dts-eg.com",
@@ -40,6 +41,7 @@
     "supportPhone": "(+20) 10 50992816",
     "supportEmail": "support@dts-eg.com",
     "salesEmail": "sales@dts-eg.com",
+    "signatureEmail": "tawqe3y_10thoframdan@dts-eg.com",
     "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
     "rights": "جميع الحقوق محفوظة"
   },

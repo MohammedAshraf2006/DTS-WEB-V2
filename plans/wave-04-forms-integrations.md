@@ -21,7 +21,7 @@ Ship a real contact page (not footer-hash only) and verified support/sales email
 - [x] Submit via FormSubmit → `sales@dts-eg.com` (mailto fallback)
 - [x] Mail Box Lottie after successful send
 - [x] Header / product / home CTAs point to `/contact`
-- [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `sales@dts-eg.com`
+- [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `sales@dts-eg.com`; E-signature reveals `tawqe3y_10thoframdan@dts-eg.com`
 - [x] WhatsApp float → `https://wa.me/201050992817` (verified from DTS-WEB)
 
 ## Remaining

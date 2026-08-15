@@ -6,7 +6,7 @@ import AppIcon from '@/components/icons/AppIcon.vue'
 const { t, tm, locale } = useI18n()
 
 const year = new Date().getFullYear()
-const revealed = reactive({ support: false, sales: false })
+const revealed = reactive({ support: false, sales: false, signature: false })
 
 const footerNumbers = computed(() => {
   void locale.value
@@ -124,6 +124,24 @@ const companyLinks = [
               <button
                 type="button"
                 class="text-start text-text-muted transition-colors hover:text-text-base"
+                :aria-expanded="revealed.sales"
+                @click="revealed.sales = !revealed.sales"
+              >
+                {{ t('common.footer.sales') }}
+              </button>
+              <a
+                v-if="revealed.sales"
+                :href="`mailto:${t('common.footer.salesEmail')}`"
+                dir="ltr"
+                class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
+              >
+                {{ t('common.footer.salesEmail') }}
+              </a>
+            </li>
+            <li class="flex flex-col items-start">
+              <button
+                type="button"
+                class="text-start text-text-muted transition-colors hover:text-text-base"
                 :aria-expanded="revealed.support"
                 @click="revealed.support = !revealed.support"
               >
@@ -142,18 +160,18 @@ const companyLinks = [
               <button
                 type="button"
                 class="text-start text-text-muted transition-colors hover:text-text-base"
-                :aria-expanded="revealed.sales"
-                @click="revealed.sales = !revealed.sales"
+                :aria-expanded="revealed.signature"
+                @click="revealed.signature = !revealed.signature"
               >
-                {{ t('common.footer.sales') }}
+                {{ t('common.footer.signature') }}
               </button>
               <a
-                v-if="revealed.sales"
-                :href="`mailto:${t('common.footer.salesEmail')}`"
+                v-if="revealed.signature"
+                :href="`mailto:${t('common.footer.signatureEmail')}`"
                 dir="ltr"
                 class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.salesEmail') }}
+                {{ t('common.footer.signatureEmail') }}
               </a>
             </li>
           </ul>

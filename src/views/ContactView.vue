@@ -51,6 +51,16 @@ useScrollReveal()
                 {{ t('common.footer.supportEmail') }}
               </a>
             </li>
+            <li class="flex items-start gap-3">
+              <AppIcon name="usbFlash" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <a
+                :href="`mailto:${t('common.footer.signatureEmail')}`"
+                dir="ltr"
+                class="inline-block break-all transition-colors hover:text-primary [unicode-bidi:isolate]"
+              >
+                {{ t('common.footer.signatureEmail') }}
+              </a>
+            </li>
             <li>
               <ul class="space-y-2 ps-8">
                 <li v-for="(num, i) in contactNumbers" :key="`${locale}-${i}`">

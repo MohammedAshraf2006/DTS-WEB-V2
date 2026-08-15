@@ -35,7 +35,7 @@ Nav **Products** → `/products`. Nav **Services** → `/services`. Partners sti
 | About / numbers | Live as `#about` (StatsCta) |
 | Clients / trust | Partial — `TrustBar` with 2 logos; more URLs/assets pending |
 | Partners | Missing section (`public/images/partners` available) |
-| Contact | Live `/contact` form to `sales@dts-eg.com`; footer Support/Sales emails reveal on click |
+| Contact | Live `/contact` form to `sales@dts-eg.com`; footer Support/Sales/E-signature emails reveal on click |
 | WhatsApp float | Live — `https://wa.me/201050992817` (same as DTS-WEB) |
 
 ## Media drop paths
