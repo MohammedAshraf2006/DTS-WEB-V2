@@ -42,7 +42,7 @@ src/
   locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services)
   services/
     api.js
-    contact.js            # FormSubmit → support@dts-eg.com
+    contact.js            # FormSubmit → sales@dts-eg.com (signature form → tawqe3y_10thoframdan@dts-eg.com)
 public/images/            # logos, clients, partners, products, services icons
 public/animations/        # Lottie (mail-box.json)
 ```

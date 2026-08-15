@@ -1,6 +1,6 @@
 # Execution status
 
-Last updated: 2026-08-14
+Last updated: 2026-08-16
 
 | Wave | File | Status | Goal |
 |------|------|--------|------|
@@ -17,9 +17,10 @@ Last updated: 2026-08-14
 - **Shell:** `MainLayout` + `AppHeader` / `AppFooter` + `SiteBackground` + `AppLoader` + `WhatsAppFloat`
 - **Home sections:** Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta
 - **Routes:** `/`, `/products`, `/products/ess|ers|esa`, `/services`, `/services/signature`, `/contact`, 404
+- **Contact:** `/contact` → `sales@dts-eg.com`; signature form → `tawqe3y_10thoframdan@dts-eg.com`; sales email `sales@dts-eg.com`
 - **Hashes live:** `#products`, `#services` (home teaser), `#about` (footer)
 - **Hash missing:** `#partners`
-- **Build:** `npm run build` passes (2026-08-14)
+- **Build:** `npm run build` passes (2026-08-16)
 
 ## Dependency order
 

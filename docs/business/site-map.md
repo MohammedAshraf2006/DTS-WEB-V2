@@ -8,9 +8,9 @@
 | Products `/products` | `ProductsView` — three sculpted cards (ESS / ERS / ESA) |
 | Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
 | Services `/services` | `ServicesView` — 8 services with detail copy + 3D icons |
-| Signature `/services/signature` | `SignatureServiceView` — توقيع/ختم panels + benefits |
+| Signature `/services/signature` | `SignatureServiceView` — توقيع/ختم panels + benefits + request form to `tawqe3y_10thoframdan@dts-eg.com` (WhatsApp `201050992816`) |
 | 404 | `NotFoundView` |
-| Contact `/contact` | `ContactView` — form to support@dts-eg.com + Mail Box Lottie on success |
+| Contact `/contact` | `ContactView` — form to `sales@dts-eg.com` + Mail Box Lottie on success |
 | Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) + `WhatsAppFloat` |
 
 ### Home / footer anchors
@@ -35,7 +35,7 @@ Nav **Products** → `/products`. Nav **Services** → `/services`. Partners sti
 | About / numbers | Live as `#about` (StatsCta) |
 | Clients / trust | Partial — `TrustBar` with 2 logos; more URLs/assets pending |
 | Partners | Missing section (`public/images/partners` available) |
-| Contact | Live `/contact` form; footer Support/Sales emails reveal on click |
+| Contact | Live `/contact` form to `sales@dts-eg.com`; footer Support/Sales emails reveal on click |
 | WhatsApp float | Live — `https://wa.me/201050992817` (same as DTS-WEB) |
 
 ## Media drop paths

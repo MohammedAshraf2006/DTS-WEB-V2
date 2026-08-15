@@ -35,7 +35,7 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 ## Shipped (services slice)
 
 - [x] `/services` — full catalog (8 services) with long `detail` copy + 3D SVG icons
-- [x] `/services/signature` — signature + seal panels, benefits, contact/WhatsApp CTAs
+- [x] `/services/signature` — signature + seal panels, benefits, request form (`tawqe3y_10thoframdan@dts-eg.com`), WhatsApp `201050992816`
 - [x] Catalog `src/data/services.js` + locales `services.json` (ar/en)
 - [x] Header / footer / Home CTAs point to `/services` and `/services/signature`
 

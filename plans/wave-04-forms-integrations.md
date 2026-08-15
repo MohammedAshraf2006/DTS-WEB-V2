@@ -9,7 +9,7 @@ Ship a real contact page (not footer-hash only) and verified support/sales email
 ## Expected scope
 
 - `/contact` view + form
-- Send to `support@dts-eg.com`
+- Send to `sales@dts-eg.com`
 - Success Lottie (`public/animations/mail-box.json` from `social proof/Mail Box.json`)
 - Footer Support / Sales reveal emails on click
 - Locale strings for form validation/success
@@ -18,10 +18,10 @@ Ship a real contact page (not footer-hash only) and verified support/sales email
 ## Shipped (this slice)
 
 - [x] `/contact` with name, phone, email, message (same fields as DTS-WEB footer form)
-- [x] Submit via FormSubmit → `support@dts-eg.com` (mailto fallback)
+- [x] Submit via FormSubmit → `sales@dts-eg.com` (mailto fallback)
 - [x] Mail Box Lottie after successful send
 - [x] Header / product / home CTAs point to `/contact`
-- [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `Info@dts-eg.com`
+- [x] Footer: Technical support reveals `support@dts-eg.com`; Sales reveals `sales@dts-eg.com`
 - [x] WhatsApp float → `https://wa.me/201050992817` (verified from DTS-WEB)
 
 ## Remaining

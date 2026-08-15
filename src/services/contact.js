@@ -1,4 +1,4 @@
-const DEFAULT_CONTACT_EMAIL = 'Info@dts-eg.com'
+const DEFAULT_CONTACT_EMAIL = 'sales@dts-eg.com'
 const SIGNATURE_CONTACT_EMAIL = 'tawqe3y_10thoframdan@dts-eg.com'
 
 function buildMailto(payload, toEmail) {

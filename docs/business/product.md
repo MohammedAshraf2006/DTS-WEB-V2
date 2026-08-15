@@ -27,8 +27,10 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 ## Domains / contact (from live `common` locale)
 
 - Technical support: `support@dts-eg.com` (footer: revealed on click)
-- Sales: `Info@dts-eg.com` (footer: revealed on click)
-- Contact form `/contact` posts to `support@dts-eg.com`
+- Sales: `sales@dts-eg.com` (footer: revealed on click; shown on `/contact`)
+- Contact form `/contact` posts to `sales@dts-eg.com`
+- Signature request form `/services/signature` posts to `tawqe3y_10thoframdan@dts-eg.com`
+- Signature page WhatsApp: `https://wa.me/201050992816`
 - Phones and address live under `common.footer.*`
 - WhatsApp float: `https://wa.me/201050992817` (verified from DTS-WEB)
 - Public reference site/domain intent: `dts-eg.com`

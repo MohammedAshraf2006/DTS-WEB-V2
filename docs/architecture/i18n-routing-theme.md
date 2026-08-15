@@ -27,7 +27,7 @@
 | Path | Status |
 |------|--------|
 | `/services` | Live — full services catalog |
-| `/services/signature` | Live — e-signature / e-seal detail |
+| `/services/signature` | Live — e-signature / e-seal detail + request form |
 
 ### Hash targets (Home / footer)
 
