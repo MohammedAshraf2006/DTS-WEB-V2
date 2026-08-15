@@ -100,10 +100,10 @@ const bullets = computed(() => {
           </ul>
           <RouterLink
             :to="href"
-            class="sculpt-cta mt-6 inline-flex items-center gap-2 text-sm font-bold transition-colors"
+            class="sculpt-cta mt-6 inline-flex items-center gap-2 transition-all"
             :class="featured
-              ? 'text-[#1b739f] hover:text-[#0b5f75] dark:text-[#00e8f0] dark:hover:text-[#c9fbfe]'
-              : 'text-primary hover:text-primary-hover'"
+              ? 'rounded-full bg-[#1b739f] px-6 py-3 text-sm font-bold text-white shadow-md hover:-translate-y-0.5 hover:bg-[#0b5f75] hover:shadow-lg dark:bg-[#00e8f0] dark:text-[#050a18] dark:hover:bg-[#6ffbff]'
+              : 'text-sm font-bold text-primary hover:text-primary-hover'"
           >
             {{ featured ? t('services.featuredCta') : t('services.requestCta') }}
             <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />

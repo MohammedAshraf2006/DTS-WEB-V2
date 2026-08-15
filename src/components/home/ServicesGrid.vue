@@ -82,7 +82,7 @@ const {
       <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
         <article
           v-for="(service, i) in serviceItems"
-          :key="`${locale}-${i}`"
+          :key="i"
           class="reveal group rounded-2xl border border-border bg-surface-alt p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg sm:p-10"
           :style="{ transitionDelay: `${i * 0.08}s` }"
         >
