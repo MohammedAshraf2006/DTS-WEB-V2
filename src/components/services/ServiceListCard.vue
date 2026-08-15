@@ -116,12 +116,7 @@ const bullets = computed(() => {
 </template>
 
 <style scoped>
-.sculpt-wrap {
-  transform-style: preserve-3d;
-}
-
 .sculpt-panel {
-  transform-style: preserve-3d;
   transition: transform 0.18s ease-out, box-shadow 0.25s ease;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.7) inset,
@@ -169,19 +164,6 @@ const bullets = computed(() => {
     0 0 0 2px rgba(0, 232, 240, 0.55),
     0 32px 60px -14px rgba(0, 0, 0, 0.8),
     0 0 56px -6px rgba(0, 232, 240, 0.55) !important;
-}
-
-.icon-well {
-  transform: translateZ(28px);
-  transform-style: preserve-3d;
-}
-
-.sculpt-content {
-  transform: translateZ(16px);
-}
-
-.sculpt-cta {
-  transform: translateZ(24px);
 }
 
 @media (prefers-reduced-motion: reduce) {
