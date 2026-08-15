@@ -99,13 +99,15 @@
     "whatsappHref": "https://wa.me/201050992816",
     "form": {
       "title": "Request signature or seal issuance",
-      "subtitle": "Fill in your details and the Tawqe3y team will reply. Extra fields are optional.",
+      "subtitle": "Fill in your details and the DTS team will reply. Extra fields are optional.",
       "submit": "Send request",
       "successTitle": "Request sent",
-      "successMsg": "Thank you. The Tawqe3y team will contact you soon.",
+      "successMsg": "Thank you. The DTS team will contact you soon.",
       "fields": {
         "companyOptional": "Company name (optional)",
         "nationalIdOptional": "National ID / registry (optional)",
+        "jobTitleOptional": "Job title / position (optional)",
+        "governorateOptional": "Governorate (optional)",
         "serviceTypeOptional": "Service type (optional)",
         "message": "Describe your request here"
       },
@@ -164,7 +166,7 @@
       }
     },
     "bottomTitle": "Ready to start?",
-    "bottomSubtitle": "Contact us to issue your signature or seal and link them to your stack.",
-    "bottomCta": "Contact us"
+    "bottomSubtitle": "Send your request from the form above, or reach the DTS team on WhatsApp.",
+    "bottomCta": "Back to form"
   }
 }

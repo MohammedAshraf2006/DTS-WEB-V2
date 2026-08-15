@@ -13,6 +13,8 @@ export function useSignatureForm() {
     email: '',
     company: '',
     nationalId: '',
+    jobTitle: '',
+    governorate: '',
     serviceType: '',
     message: '',
     honeypot: ''
@@ -29,6 +31,8 @@ export function useSignatureForm() {
     form.email = ''
     form.company = ''
     form.nationalId = ''
+    form.jobTitle = ''
+    form.governorate = ''
     form.serviceType = ''
     form.message = ''
     form.honeypot = ''
@@ -94,6 +98,8 @@ export function useSignatureForm() {
           email: form.email.trim(),
           company: form.company.trim(),
           nationalId: form.nationalId.trim(),
+          jobTitle: form.jobTitle.trim(),
+          governorate: form.governorate.trim(),
           serviceType: serviceLabel,
           message: form.message.trim(),
           honeypot: form.honeypot,

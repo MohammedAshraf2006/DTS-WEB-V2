@@ -1,5 +1,5 @@
 const DEFAULT_CONTACT_EMAIL = 'support@dts-eg.com'
-const SIGNATURE_CONTACT_EMAIL = 'tawqe3y_10thoframadan@dts-eg.com'
+const SIGNATURE_CONTACT_EMAIL = 'tawqe3y_10thoframdan@dts-eg.com'
 
 function buildMailto(payload, toEmail) {
   const lines = [
@@ -9,6 +9,8 @@ function buildMailto(payload, toEmail) {
   ]
   if (payload.company) lines.push(`Company: ${payload.company}`)
   if (payload.nationalId) lines.push(`National ID: ${payload.nationalId}`)
+  if (payload.jobTitle) lines.push(`Job title: ${payload.jobTitle}`)
+  if (payload.governorate) lines.push(`Governorate: ${payload.governorate}`)
   if (payload.serviceType) lines.push(`Service type: ${payload.serviceType}`)
   lines.push('', payload.message || '')
 
@@ -36,6 +38,8 @@ export async function sendContactMessage(payload, options = {}) {
 
     if (payload.company) body.company = payload.company
     if (payload.nationalId) body.nationalId = payload.nationalId
+    if (payload.jobTitle) body.jobTitle = payload.jobTitle
+    if (payload.governorate) body.governorate = payload.governorate
     if (payload.serviceType) body.serviceType = payload.serviceType
 
     const res = await fetch(formSubmitUrl, {

@@ -105,6 +105,26 @@ const fieldClass =
     </div>
 
     <div>
+      <input
+        v-model="form.jobTitle"
+        type="text"
+        :placeholder="t('services.signaturePage.form.fields.jobTitleOptional')"
+        :class="[fieldClass, 'border-border']"
+        autocomplete="organization-title"
+      />
+    </div>
+
+    <div>
+      <input
+        v-model="form.governorate"
+        type="text"
+        :placeholder="t('services.signaturePage.form.fields.governorateOptional')"
+        :class="[fieldClass, 'border-border']"
+        autocomplete="address-level1"
+      />
+    </div>
+
+    <div>
       <select
         v-model="form.serviceType"
         :class="[fieldClass, 'border-border', !form.serviceType ? 'text-text-subtle' : '']"

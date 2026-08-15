@@ -222,7 +222,7 @@ onBeforeUnmount(() => {
 
       <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row" style="transition-delay: .24s">
         <RouterLink
-          to="/contact"
+          to="/services/signature"
           class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
         >
           {{ t('home.hero.ctaPrimary') }}
