@@ -30,7 +30,17 @@ useScrollReveal()
 
       <div class="reveal mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-8 lg:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-12">
         <aside class="rounded-2xl border border-border bg-surface-alt p-6 sm:p-8">
-          <ul class="space-y-5 text-sm leading-relaxed text-text-muted">
+          <ul class="space-y-3 text-sm leading-relaxed text-text-muted">
+            <li class="flex items-start gap-3">
+              <AppIcon name="mail" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <a
+                :href="`mailto:${t('common.footer.salesEmail')}`"
+                dir="ltr"
+                class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
+              >
+                {{ t('common.footer.salesEmail') }}
+              </a>
+            </li>
             <li class="flex items-start gap-3">
               <AppIcon name="support" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <a
