@@ -34,9 +34,9 @@ const routes = [
         component: () => import('@/views/ContactView.vue')
       },
       {
-        path: 'clients',
-        name: 'clients',
-        component: () => import('@/views/ClientsView.vue')
+        path: 'partners',
+        name: 'partners',
+        component: () => import('@/views/PartnersView.vue')
       },
       {
         path: 'products/:key',

@@ -49,7 +49,8 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - [x] `/clients` — 1000+ hero + 30 featured-client cards (3 per row)
 - [x] Catalog `src/data/clients.js` + locales `clients.json` (ar/en)
 - [x] 5 real logos/names; remaining 25 placeholder records until data arrives
-- [x] Nav label **العملاء / Clients** (no mega menu). Partners stays a simple link (no mega menu)
+- [x] Nav label **العملاء / Clients** (no mega menu). **Partners** → `/partners` (no mega menu)
+- [x] `/partners` — 3 stacked feature cards (FEDIS, Tawqe3y, MTS last) + visit-site CTA (label only; no raw URL). FEDIS/Tawqe3y are real `<a href>` links; MTS has no URL yet. Card 3D tilt + full-bleed overlay removed so the CTA is not covered.
 - [x] Header services mega menu (8 items) mirroring products dropdown
 - [x] Company address updated to Villa 136, District 44, Misr El Noor Road, 10th of Ramadan
 

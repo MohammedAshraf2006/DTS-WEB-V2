@@ -15,6 +15,7 @@ src/
     ServicesView.vue
     SignatureServiceView.vue
     ClientsView.vue
+    PartnersView.vue
     ContactView.vue
     ProductDetailView.vue
     NotFoundView.vue
@@ -28,12 +29,14 @@ src/
     products/             # listing cards, header menu cards, media stage
     services/             # services listing cards + signature panels + header menu cards
     clients/              # client logo cards
+    partners/             # stacked partner feature cards
     contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
     products.js           # ESS / ERS / ESA catalog + gallery paths
     services.js           # services catalog + icon paths
     clients.js            # featured clients catalog + logo paths
+    partners.js           # MTS / FEDIS / Tawqe3y + website URLs
   composables/
     useTheme.js
     useScrolledHeader.js
@@ -42,7 +45,7 @@ src/
     useCardTilt.js
     useContactForm.js
     runViewTransition.js  # thin theme/locale update helper
-  locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services, clients)
+  locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services, clients, partners)
   services/
     api.js
     contact.js            # FormSubmit → sales@dts-eg.com (signature form → tawqe3y_10thoframdan@dts-eg.com)
@@ -78,6 +81,7 @@ Ambient orbs on Home are **dark mode only**.
 - `/services/signature` → `SignatureServiceView` (`name: services-signature`)
 - `/contact` → `ContactView` (`name: contact`)
 - `/clients` → `ClientsView` (`name: clients`)
+- `/partners` → `PartnersView` (`name: partners`)
 - `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | ers | esa)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header

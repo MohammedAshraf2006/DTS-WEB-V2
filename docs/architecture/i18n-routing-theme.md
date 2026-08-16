@@ -4,7 +4,7 @@
 
 - Library: vue-i18n 9, `legacy: false`
 - Default locale: `ar` (from `localStorage` key `dts-locale`, fallback `en`)
-- Namespaces merged per locale: `common`, `home`, `products`, `contact`, `services`, `clients`
+- Namespaces merged per locale: `common`, `home`, `products`, `contact`, `services`, `clients`, `partners`
 - Usage: `t('common.nav.home')`, `t('home.hero.titlePrefix')`, `tm(...)` for arrays/objects
 - Add a new page namespace as `src/locales/{ar,en}/<page>.json` and register it in `i18n.js`
 - Keep `ar` and `en` key trees in parallel — no hardcoded UI copy in templates
@@ -29,6 +29,7 @@
 | `/services` | Live — full services catalog |
 | `/services/signature` | Live — e-signature / e-seal detail + request form |
 | `/clients` | Live — 1000+ hero + 30 featured client cards |
+| `/partners` | Live — 3 stacked partner cards + visit-site button |
 
 ### Hash targets (Home / footer)
 
@@ -38,7 +39,7 @@
 | `#services` | Live — `ServicesGrid` teaser (full list on `/services`) |
 | `#about` | Live — `StatsCta` |
 | `#contact` | Redirected to page `/contact` (form) |
-| `#partners` | **Missing** — still linked from header; wave 02 remaining |
+| `#partners` | Replaced by page `/partners` |
 | `/services#service-{key}` | Live — scrolls to and highlights a services card (signature still uses `/services/signature`) |
 
 ## Theme (`src/composables/useTheme.js`)

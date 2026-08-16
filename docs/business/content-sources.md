@@ -9,7 +9,7 @@
 | `public/images/` | Logos, clients, partners, product art |
 | `src/assets/colors.css` | Brand tokens |
 
-Namespaces today: `common`, `home`, `products`, `contact`, `services`, `clients`. Add one JSON pair per new page/section namespace.
+Namespaces today: `common`, `home`, `products`, `contact`, `services`, `clients`, `partners`. Add one JSON pair per new page/section namespace.
 
 ### Notable asset paths
 

@@ -1,0 +1,23 @@
+{
+  "eyebrow": "Our partners",
+  "title": "Partners in success",
+  "subtitle": "We work with certified partners in technology, digital security, and e-signature — so clients get a clearer, faster path.",
+  "visitSite": "Visit partner website",
+  "items": {
+    "mts": {
+      "name": "M.T.S",
+      "role": "Technology solutions",
+      "description": "A technology partner supporting digital solutions and enterprise systems across day-to-day operations."
+    },
+    "fedis": {
+      "name": "FEDIS Egypt",
+      "role": "Digital solutions & information security",
+      "description": "A certified partner for digital solutions and information security, including e-signature and e-seal pathways."
+    },
+    "tawqe3y": {
+      "name": "Tawqe3y",
+      "role": "E-signature & e-seal",
+      "description": "A platform to issue and activate certified e-signature and e-seal — with a clear path for people and companies."
+    }
+  }
+}

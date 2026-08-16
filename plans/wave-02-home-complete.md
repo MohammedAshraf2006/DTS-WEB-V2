@@ -26,7 +26,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 
 ## Still open
 
-- [ ] `#partners` section (nav still links here)
+- [x] `/partners` page (nav no longer uses missing `#partners`)
 - [ ] Remaining client logos + real names in `src/data/clients.js` (25 placeholders on `/clients` until data arrives)
 - [ ] Optional WhyUs if still distinct from `#about` / stats
 - [ ] Product media files under `public/` wired in `ProductTabs` `productMedia`
@@ -34,14 +34,14 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 
 ## Tasks (remaining)
 
-1. Partners section (or retarget nav) + assets
+1. Optional Home partners teaser (full list is `/partners`)
 2. Replace placeholder client records in `src/data/clients.js` when remaining logos/names arrive
 3. Drop product media and set `productMedia` srcs
 4. Final Home AR/EN + dark/light smoke pass before marking done
 
 ## Test criteria
 
-- Every header/CTA hash lands on an existing section (currently fails for `#partners`)
+- Every header/CTA hash lands on an existing section (`#partners` replaced by `/partners`)
 - AR and EN home content render without missing keys
 - Partners/clients assets display as intended
 - Light/dark + AR/EN smoke check on Home

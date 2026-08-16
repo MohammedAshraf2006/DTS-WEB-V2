@@ -10,6 +10,7 @@
 | Services `/services` | `ServicesView` — 8 services with detail copy + 3D icons |
 | Signature `/services/signature` | `SignatureServiceView` — توقيع/ختم panels + benefits + request form to `tawqe3y_10thoframdan@dts-eg.com` (WhatsApp `201050992816`) |
 | Clients `/clients` | `ClientsView` — 1000+ highlight + 30 cards (logo, name, industry). Stories later. |
+| Partners `/partners` | `PartnersView` — 3 stacked feature cards (MTS, FEDIS, Tawqe3y) + visit-site button |
 | 404 | `NotFoundView` |
 | Contact `/contact` | `ContactView` — form to `sales@dts-eg.com` + Mail Box Lottie on success |
 | Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader`, `AppFooter`) + `WhatsAppFloat` |
@@ -23,7 +24,7 @@
 | `#about` | Stats + “trusted by” CTA band |
 | `#contact` | Replaced by `/contact` |
 
-Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (mega menu). Nav **Clients** → `/clients` (no mega menu). Partners still → `/#partners` (section not implemented yet; no mega menu).
+Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (mega menu). Nav **Clients** → `/clients` (no mega menu). Nav **Partners** → `/partners` (no mega menu).
 
 ## Target map (from reference + nav labels)
 
@@ -35,7 +36,7 @@ Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (
 | Product detail | Live `/products/ess`, `/products/ers`, `/products/esa` (media placeholders until files are dropped) |
 | About / numbers | Live as home `#about` (StatsCta); former About nav label is now **Clients** |
 | Clients / trust | Live `/clients` (5 real + 25 placeholders); Home `TrustBar` uses the 5 real logos |
-| Partners | Missing section (`public/images/partners` available); header link only, no mega menu |
+| Partners | Live `/partners` (3 cards; visit-site button; no mega menu) |
 | Contact | Live `/contact` form to `sales@dts-eg.com`; footer Support/Sales/E-signature emails reveal on click |
 | WhatsApp float | Live — `https://wa.me/201050992817` (same as DTS-WEB) |
 
@@ -47,6 +48,7 @@ Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (
 - Wire paths in `src/data/products.js` (`gallery` + ESA `liteDownloadUrl`)
 - Services catalog: `src/data/services.js`
 - Clients catalog: `src/data/clients.js` (logos under `public/images/clients/`)
+- Partners catalog: `src/data/partners.js` (logos under `public/images/partners/`)
 
 ## Future routes
 

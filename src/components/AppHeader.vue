@@ -163,7 +163,7 @@ onBeforeUnmount(() => {
         </li>
         <li>
           <RouterLink
-            to="/#partners"
+            to="/partners"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
             @mouseenter="closeMenus"
           >
@@ -317,7 +317,7 @@ onBeforeUnmount(() => {
             </RouterLink>
           </li>
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/clients" @click="closeMobile">{{ t('common.nav.clients') }}</RouterLink></li>
-          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
+          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
         </ul>
         <div class="mt-4 flex items-center gap-2 border-t border-border pt-4">
           <button class="theme-toggle flex h-9 w-9 items-center justify-center rounded-full text-text-subtle" @click="toggleTheme">
