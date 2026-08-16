@@ -22,8 +22,9 @@ const productLinks = [
 
 const companyLinks = [
   { labelKey: 'common.footer.quickLinks.home', to: '/' },
-  { labelKey: 'common.footer.quickLinks.about', to: '/clients' },
+  { labelKey: 'common.footer.quickLinks.products', to: '/products' },
   { labelKey: 'common.footer.quickLinks.services', to: '/services' },
+  { labelKey: 'common.footer.quickLinks.about', to: '/clients' },
   { labelKey: 'common.footer.quickLinks.partners', to: '/partners' }
 ]
 </script>
@@ -70,7 +71,7 @@ const companyLinks = [
         <!-- Brand column -->
         <div class="col-span-2 md:col-span-3 lg:col-span-4">
           <RouterLink to="/" class="inline-flex items-center gap-3">
-            <img src="/images/DTS.webp" alt="DTS" class="h-10 w-auto" width="160" height="40" decoding="async" />
+            <img src="/images/DTS.webp" alt="DTS" class="h-11 w-auto lg:h-12" width="180" height="48" decoding="async" />
           </RouterLink>
           <p class="mt-2 text-sm font-semibold text-primary">
             {{ t('common.footer.tagline') }}
