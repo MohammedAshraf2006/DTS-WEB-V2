@@ -42,6 +42,16 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 ## Remaining (optional later)
 
 - Dedicated about route (hash `#about` may stay)
+- Client story pages (only selected cards; copy not available yet)
+
+## Shipped (clients slice)
+
+- [x] `/clients` — 1000+ hero + 30 featured-client cards (3 per row)
+- [x] Catalog `src/data/clients.js` + locales `clients.json` (ar/en)
+- [x] 5 real logos/names; remaining 25 placeholder records until data arrives
+- [x] Nav label **العملاء / Clients** (no mega menu). Partners stays a simple link (no mega menu)
+- [x] Header services mega menu (8 items) mirroring products dropdown
+- [x] Company address updated to Villa 136, District 44, Misr El Noor Road, 10th of Ramadan
 
 ## Drop media here
 
@@ -58,6 +68,8 @@ Extend navigation beyond single-page hashes where needed: products, services, ab
 - Header/footer links match IA
 - Empty gallery still shows placeholder
 - `/services` and `/services/signature` resolve
+- `/clients` shows 30 cards in 3 columns (desktop)
+- Header services dropdown lists all 8 services
 - `npm run build` succeeds
 
 ## Post-close docs

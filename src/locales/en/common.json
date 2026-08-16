@@ -3,7 +3,7 @@
     "home": "Home",
     "services": "Services",
     "products": "Products",
-    "about": "About Us",
+    "clients": "Clients",
     "partners": "Partners",
     "contact": "Contact",
     "cta": "Contact Us"
@@ -25,7 +25,7 @@
     "contactTitle": "Contact",
     "quickLinksTitle": "Quick Links",
     "quickLinks": {
-      "about": "About us",
+      "about": "Clients",
       "services": "Services",
       "partners": "Partners",
       "products": "Products",
@@ -35,7 +35,7 @@
     "sales": "Sales",
     "signature": "E-signature",
     "contactNumbersTitle": "Phone numbers",
-    "address": "99, District 44, Misr El Noor Road, 10th of Ramadan City, Sharqia, Egypt",
+    "address": "Villa 136, District 44, Misr El Noor Road, 10th of Ramadan City",
     "email": "sales@dts-eg.com",
     "phone": "(+20) 55 4492037",
     "supportPhone": "(+20) 10 50992816",
@@ -52,6 +52,7 @@
   "buttons": {
     "learnMore": "Learn more",
     "contactUs": "Contact Us",
-    "discoverProducts": "Discover Our Products"
+    "discoverProducts": "Discover Our Products",
+    "discoverServices": "All services"
   }
 }

@@ -3,7 +3,7 @@
     "home": "الرئيسية",
     "services": "خدماتنا",
     "products": "المنتجات",
-    "about": "عن الشركة",
+    "clients": "العملاء",
     "partners": "شركاؤنا",
     "contact": "تواصل معنا",
     "cta": "تواصل معنا"
@@ -25,7 +25,7 @@
     "contactTitle": "تواصل",
     "quickLinksTitle": "روابط سريعة",
     "quickLinks": {
-      "about": "عن الشركة",
+      "about": "العملاء",
       "services": "خدماتنا",
       "partners": "شركاؤنا",
       "products": "المنتجات",
@@ -35,7 +35,7 @@
     "sales": "المبيعات",
     "signature": "التوقيع الإلكتروني",
     "contactNumbersTitle": "أرقام التواصل",
-    "address": "رقم 99, مجاورة 44, طريق مصر النور, العاشر من رمضان, الشرقية, مصر",
+    "address": "فيلا 136، مجاورة 44، طريق مصر النور، العاشر من رمضان",
     "email": "sales@dts-eg.com",
     "phone": "(+20) 55 4492037",
     "supportPhone": "(+20) 10 50992816",
@@ -52,6 +52,7 @@
   "buttons": {
     "learnMore": "اعرف أكتر",
     "contactUs": "تواصل معنا",
-    "discoverProducts": "اكتشف منتجاتنا"
+    "discoverProducts": "اكتشف منتجاتنا",
+    "discoverServices": "كل الخدمات"
   }
 }

@@ -22,7 +22,7 @@ const productLinks = [
 
 const companyLinks = [
   { labelKey: 'common.footer.quickLinks.home', to: '/' },
-  { labelKey: 'common.footer.quickLinks.about', to: '/#about' },
+  { labelKey: 'common.footer.quickLinks.about', to: '/clients' },
   { labelKey: 'common.footer.quickLinks.services', to: '/services' },
   { labelKey: 'common.footer.quickLinks.partners', to: '/#partners' }
 ]

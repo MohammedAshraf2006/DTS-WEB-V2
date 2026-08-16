@@ -27,7 +27,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 ## Still open
 
 - [ ] `#partners` section (nav still links here)
-- [ ] Remaining client logos + real URLs in `TrustBar.vue`
+- [ ] Remaining client logos + real names in `src/data/clients.js` (25 placeholders on `/clients` until data arrives)
 - [ ] Optional WhyUs if still distinct from `#about` / stats
 - [ ] Product media files under `public/` wired in `ProductTabs` `productMedia`
 - [ ] Dedicated `/services` page content (owned by wave 03; Home CTA already points there)
@@ -35,7 +35,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 ## Tasks (remaining)
 
 1. Partners section (or retarget nav) + assets
-2. Finish TrustBar client list / URLs
+2. Replace placeholder client records in `src/data/clients.js` when remaining logos/names arrive
 3. Drop product media and set `productMedia` srcs
 4. Final Home AR/EN + dark/light smoke pass before marking done
 

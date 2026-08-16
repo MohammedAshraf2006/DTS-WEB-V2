@@ -1,17 +1,10 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { getTrustBarClients } from '@/data/clients'
 
 const { t } = useI18n()
 
-// Drop real names + https URLs here as assets are added under /public/images/clients
-const clients = [
-  { name: 'Client 1', logo: '/images/clients/1.png', url: '' },
-  { name: 'Client 2', logo: '/images/clients/2.png', url: 'https://www.bue.edu.eg' },
-  { name: 'Client 3', logo: '/images/clients/3.png', url: 'https://orientalweavers.com' },
-  { name: 'Client 4', logo: '/images/clients/4.png', url: 'https://https://www.ykk.com' },
-  { name: 'Client 5', logo: '/images/clients/5.png', url: 'https://savco-eg.com' }
-]
-
+const clients = getTrustBarClients()
 const loopClients = [...clients, ...clients]
 
 function hasExternalUrl(url) {
@@ -42,25 +35,25 @@ const logoImgClass =
     <div class="reveal trust-logos py-8 lg:py-10" style="transition-delay: 0.08s">
       <div class="mx-auto hidden max-w-6xl px-6 lg:block lg:px-10">
         <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-20">
-          <template v-for="(client, index) in clients" :key="client.name">
+          <template v-for="(client, index) in clients" :key="client.key">
             <a
               v-if="hasExternalUrl(client.url)"
               :href="client.url.trim()"
-              :aria-label="client.name"
+              :aria-label="t(`clients.items.${client.key}.name`)"
               target="_blank"
               rel="noopener noreferrer"
               class="trust-logo-item group inline-flex items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
             </a>
             <span
               v-else
               class="trust-logo-item group inline-flex items-center justify-center"
-              :aria-label="client.name"
+              :aria-label="t(`clients.items.${client.key}.name`)"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
             </span>
           </template>
         </div>
@@ -73,19 +66,19 @@ const logoImgClass =
         <div
           class="trust-logo-item flex w-max gap-14 animate-marquee px-4 rtl:animate-marquee-rtl group-hover/marquee:[animation-play-state:paused]"
         >
-          <template v-for="(client, i) in loopClients" :key="`${client.name}-${i}`">
+          <template v-for="(client, i) in loopClients" :key="`${client.key}-${i}`">
             <a
               v-if="hasExternalUrl(client.url)"
               :href="client.url.trim()"
-              :aria-label="client.name"
+              :aria-label="t(`clients.items.${client.key}.name`)"
               target="_blank"
               rel="noopener noreferrer"
               class="group inline-flex shrink-0 items-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
-              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
             </a>
             <span v-else class="group inline-flex shrink-0 items-center">
-              <img :src="client.logo" :alt="client.name" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
             </span>
           </template>
         </div>

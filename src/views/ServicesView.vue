@@ -1,20 +1,68 @@
 <script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
-import { getServicesList } from '@/data/services'
+import { getServicesList, isServiceKey } from '@/data/services'
 import ServiceListCard from '@/components/services/ServiceListCard.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t } = useI18n()
+const route = useRoute()
 const services = getServicesList()
+
+function keyFromHash(hash) {
+  const raw = String(hash || '').replace(/^#/, '')
+  if (!raw.startsWith('service-')) return ''
+  const key = raw.slice('service-'.length)
+  return isServiceKey(key) ? key : ''
+}
+
+const highlightedKey = ref(keyFromHash(route.hash))
+const forceReveal = ref(Boolean(highlightedKey.value))
+
+let highlightTimer = null
+
+function scrollToService(key) {
+  const el = document.getElementById(`service-${key}`)
+  if (!el) return
+  const headerOffset = 112
+  const top = el.getBoundingClientRect().top + window.scrollY - headerOffset
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+}
+
+function focusHashedService() {
+  const key = keyFromHash(route.hash)
+  highlightedKey.value = key
+  if (!key) return
+
+  forceReveal.value = true
+
+  nextTick(() => {
+    requestAnimationFrame(() => {
+      scrollToService(key)
+    })
+  })
+
+  clearTimeout(highlightTimer)
+  highlightTimer = setTimeout(() => {
+    if (highlightedKey.value === key) highlightedKey.value = ''
+  }, 2400)
+}
+
+onMounted(focusHashedService)
+watch(() => route.hash, focusHashedService)
+onBeforeUnmount(() => {
+  clearTimeout(highlightTimer)
+})
 
 useScrollReveal()
 </script>
 
 <template>
-  <section class="relative overflow-hidden bg-transparent pb-16 pt-28 lg:pb-20 lg:pt-32">
+  <section class="relative bg-transparent pb-16 pt-28 lg:pb-20 lg:pt-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-10">
-      <div class="reveal mx-auto max-w-3xl text-center">
+      <div class="reveal mx-auto max-w-3xl text-center" :class="{ 'is-visible': forceReveal }">
         <h1 class="font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl lg:text-5xl">
           {{ t('services.title') }}
         </h1>
@@ -31,11 +79,13 @@ useScrollReveal()
           :icon="svc.icon"
           :href="svc.href"
           :featured="!!svc.featured"
+          :highlighted="highlightedKey === svc.key"
+          :revealed="forceReveal"
           :delay="i * 0.05"
         />
       </div>
 
-      <div class="reveal mt-12 text-center">
+      <div class="reveal mt-12 text-center" :class="{ 'is-visible': forceReveal }">
         <RouterLink
           to="/contact"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all hover:border-primary hover:text-primary"

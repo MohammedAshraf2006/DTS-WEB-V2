@@ -32,7 +32,7 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 - Contact form `/contact` posts to `sales@dts-eg.com`
 - Signature request form `/services/signature` posts to `tawqe3y_10thoframdan@dts-eg.com`
 - Signature page WhatsApp: `https://wa.me/201050992816`
-- Phones and address live under `common.footer.*`
+- Phones and address live under `common.footer.*` (Villa 136, District 44, Misr El Noor Road, 10th of Ramadan City)
 - WhatsApp float: `https://wa.me/201050992817` (verified from DTS-WEB)
 - Public reference site/domain intent: `dts-eg.com`
 

@@ -9,6 +9,8 @@ const props = defineProps({
   icon: { type: String, required: true },
   href: { type: String, required: true },
   featured: { type: Boolean, default: false },
+  highlighted: { type: Boolean, default: false },
+  revealed: { type: Boolean, default: false },
   delay: { type: Number, default: 0 }
 })
 
@@ -24,9 +26,14 @@ const bullets = computed(() => {
 
 <template>
   <article
-    class="reveal group"
-    :class="featured ? 'featured-service' : ''"
-    :style="{ transitionDelay: `${delay}s` }"
+    :id="`service-${serviceKey}`"
+    class="reveal group scroll-mt-28"
+    :class="{
+      'featured-service': featured,
+      'is-targeted': highlighted,
+      'is-visible': revealed
+    }"
+    :style="{ transitionDelay: revealed ? '0s' : `${delay}s` }"
   >
     <div
       ref="root"
@@ -155,6 +162,23 @@ const bullets = computed(() => {
     0 0 0 2px rgba(35, 184, 193, 0.5),
     0 28px 56px -14px rgba(27, 115, 159, 0.5),
     0 14px 32px -8px rgba(35, 184, 193, 0.48) !important;
+}
+
+.is-targeted .sculpt-panel {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 0 0 3px rgba(27, 115, 159, 0.7),
+    0 22px 48px -16px rgba(27, 115, 159, 0.42),
+    0 0 36px -8px rgba(35, 184, 193, 0.45);
+}
+
+.dark .is-targeted .sculpt-panel {
+  box-shadow:
+    0 1px 0 rgba(0, 232, 240, 0.35) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.45) inset,
+    0 0 0 3px rgba(0, 232, 240, 0.7),
+    0 26px 52px -16px rgba(0, 0, 0, 0.7),
+    0 0 40px -6px rgba(0, 232, 240, 0.5);
 }
 
 .dark .featured-service:hover .featured-panel {

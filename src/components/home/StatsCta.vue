@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import StatCard from '@/components/home/StatCard.vue'
+import AppIcon from '@/components/icons/AppIcon.vue'
 import { useCardTilt } from '@/composables/useCardTilt'
 
 const { t, tm, locale } = useI18n()
@@ -81,6 +82,14 @@ const {
             <p class="mx-auto mt-4 max-w-lg text-base leading-relaxed text-text-muted sm:text-lg">
               {{ t('home.cta.subtitle') }}
             </p>
+            <RouterLink
+              to="/clients"
+              class="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
+            >
+              {{ t('home.cta.button') }}
+              <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
+              <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
+            </RouterLink>
           </div>
         </div>
       </div>

@@ -57,6 +57,15 @@ export const servicesCatalog = {
   }
 }
 
+export function getServiceAnchorId(key) {
+  return `service-${key}`
+}
+
+export function getServiceMenuHref(service) {
+  if (service.key === 'signature') return service.href
+  return `/services#${getServiceAnchorId(service.key)}`
+}
+
 export function isServiceKey(key) {
   return SERVICE_KEYS.includes(key)
 }

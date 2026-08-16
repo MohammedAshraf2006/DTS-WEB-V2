@@ -14,6 +14,7 @@ src/
     ProductsView.vue
     ServicesView.vue
     SignatureServiceView.vue
+    ClientsView.vue
     ContactView.vue
     ProductDetailView.vue
     NotFoundView.vue
@@ -25,12 +26,14 @@ src/
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
     products/             # listing cards, header menu cards, media stage
-    services/             # services listing cards + signature panels
+    services/             # services listing cards + signature panels + header menu cards
+    clients/              # client logo cards
     contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
     products.js           # ESS / ERS / ESA catalog + gallery paths
     services.js           # services catalog + icon paths
+    clients.js            # featured clients catalog + logo paths
   composables/
     useTheme.js
     useScrolledHeader.js
@@ -39,7 +42,7 @@ src/
     useCardTilt.js
     useContactForm.js
     runViewTransition.js  # thin theme/locale update helper
-  locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services)
+  locales/{ar,en}/        # namespaced JSON (common, home, products, contact, services, clients)
   services/
     api.js
     contact.js            # FormSubmit → sales@dts-eg.com (signature form → tawqe3y_10thoframdan@dts-eg.com)
@@ -71,9 +74,10 @@ Ambient orbs on Home are **dark mode only**.
 
 - `/` → `MainLayout` → `HomeView` (`name: home`)
 - `/products` → `ProductsView` (`name: products`)
-- `/services` → `ServicesView` (`name: services`)
+- `/services` → `ServicesView` (`name: services`); header menu hashes `#service-{key}` scroll to the matching card
 - `/services/signature` → `SignatureServiceView` (`name: services-signature`)
 - `/contact` → `ContactView` (`name: contact`)
+- `/clients` → `ClientsView` (`name: clients`)
 - `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | ers | esa)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header

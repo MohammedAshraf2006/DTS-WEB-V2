@@ -34,6 +34,11 @@ const routes = [
         component: () => import('@/views/ContactView.vue')
       },
       {
+        path: 'clients',
+        name: 'clients',
+        component: () => import('@/views/ClientsView.vue')
+      },
+      {
         path: 'products/:key',
         name: 'product-detail',
         component: () => import('@/views/ProductDetailView.vue'),
@@ -58,11 +63,21 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
     if (to.hash) {
-      return {
-        el: to.hash,
-        top: 90, // مساحة تعويض ارتفاع الـ Header الثابت (fixed)
-        behavior: 'smooth'
+      if (to.hash.startsWith('#service-')) {
+        return false
       }
+      return new Promise((resolve) => {
+        requestAnimationFrame(() => {
+          const el = document.querySelector(to.hash)
+          if (!el) {
+            resolve(false)
+            return
+          }
+          const headerOffset = 112
+          const top = el.getBoundingClientRect().top + window.scrollY - headerOffset
+          resolve({ top: Math.max(0, top), behavior: 'smooth' })
+        })
+      })
     }
     return { top: 0 }
   }

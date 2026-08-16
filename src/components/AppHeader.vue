@@ -6,22 +6,40 @@ import { useTheme } from '@/composables/useTheme'
 import { runViewTransition } from '@/composables/runViewTransition'
 import AppIcon from '@/components/icons/AppIcon.vue'
 import ProductMenuCard from '@/components/products/ProductMenuCard.vue'
+import ServiceMenuCard from '@/components/services/ServiceMenuCard.vue'
 import { PRODUCT_KEYS, productsCatalog } from '@/data/products'
+import { getServicesList, getServiceMenuHref } from '@/data/services'
 
 const { t, locale } = useI18n()
 const { isScrolled } = useScrolledHeader()
 const { isDark, toggleTheme } = useTheme()
 
 const isProductsOpen = ref(false)
+const isServicesOpen = ref(false)
 const isMobileOpen = ref(false)
 
 const productKeys = PRODUCT_KEYS
+const services = getServicesList()
 
 let productsCloseTimer = null
+let servicesCloseTimer = null
+
+function clearMenuTimers() {
+  clearTimeout(productsCloseTimer)
+  clearTimeout(servicesCloseTimer)
+  productsCloseTimer = null
+  servicesCloseTimer = null
+}
+
+function closeMenus() {
+  clearMenuTimers()
+  isProductsOpen.value = false
+  isServicesOpen.value = false
+}
 
 function openProducts() {
-  clearTimeout(productsCloseTimer)
-  productsCloseTimer = null
+  clearMenuTimers()
+  isServicesOpen.value = false
   isProductsOpen.value = true
 }
 
@@ -36,7 +54,27 @@ function scheduleCloseProducts() {
   productsCloseTimer = setTimeout(() => {
     isProductsOpen.value = false
     productsCloseTimer = null
-  }, 180)
+  }, 70)
+}
+
+function openServices() {
+  clearMenuTimers()
+  isProductsOpen.value = false
+  isServicesOpen.value = true
+}
+
+function closeServices() {
+  clearTimeout(servicesCloseTimer)
+  servicesCloseTimer = null
+  isServicesOpen.value = false
+}
+
+function scheduleCloseServices() {
+  clearTimeout(servicesCloseTimer)
+  servicesCloseTimer = setTimeout(() => {
+    isServicesOpen.value = false
+    servicesCloseTimer = null
+  }, 70)
 }
 
 async function toggleLocale() {
@@ -50,14 +88,14 @@ function closeMobile() {
 }
 
 onBeforeUnmount(() => {
-  clearTimeout(productsCloseTimer)
+  clearMenuTimers()
 })
 </script>
 
 <template>
   <header
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="isScrolled || isMobileOpen || isProductsOpen
+    :class="isScrolled || isMobileOpen || isProductsOpen || isServicesOpen
       ? 'bg-surface-alt border-b border-border shadow-sm'
       : 'bg-transparent border-b border-transparent'"
   >
@@ -73,14 +111,14 @@ onBeforeUnmount(() => {
           <RouterLink
             to="/"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
-            @mouseenter="closeProducts"
+            @mouseenter="closeMenus"
           >
             {{ t('common.nav.home') }}
           </RouterLink>
         </li>
 
         <!-- Products mega dropdown -->
-        <li @mouseenter="openProducts">
+        <li @mouseenter="openProducts" @mouseleave="scheduleCloseProducts">
           <RouterLink
             to="/products"
             class="flex items-center gap-1.5 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-primary-light"
@@ -97,29 +135,37 @@ onBeforeUnmount(() => {
           </RouterLink>
         </li>
 
-        <li>
+        <!-- Services mega dropdown -->
+        <li @mouseenter="openServices" @mouseleave="scheduleCloseServices">
           <RouterLink
             to="/services"
-            class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
-            @mouseenter="closeProducts"
+            class="flex items-center gap-1.5 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-primary-light"
+            :class="isServicesOpen ? 'bg-primary-light text-primary' : 'text-text-base'"
+            :aria-expanded="isServicesOpen"
+            @click="closeServices"
           >
             {{ t('common.nav.services') }}
+            <AppIcon
+              name="chevronDown"
+              class="h-4 w-4 transition-transform"
+              :style="{ transform: isServicesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }"
+            />
           </RouterLink>
         </li>
         <li>
           <RouterLink
-            to="/#about"
+            to="/clients"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
-            @mouseenter="closeProducts"
+            @mouseenter="closeMenus"
           >
-            {{ t('common.nav.about') }}
+            {{ t('common.nav.clients') }}
           </RouterLink>
         </li>
         <li>
           <RouterLink
             to="/#partners"
             class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
-            @mouseenter="closeProducts"
+            @mouseenter="closeMenus"
           >
             {{ t('common.nav.partners') }}
           </RouterLink>
@@ -164,18 +210,18 @@ onBeforeUnmount(() => {
       </div>
     </nav>
 
-    <!-- Products mega menu: full-width panel below the whole header -->
+    <!-- Products mega menu -->
     <Transition
-      enter-active-class="transition duration-200 ease-out"
+      enter-active-class="transition duration-150 ease-out"
       enter-from-class="opacity-0 -translate-y-2"
       enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition duration-150 ease-in"
+      leave-active-class="transition duration-75 ease-in"
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
       <div
         v-if="isProductsOpen"
-        class="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3"
+        class="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-2"
         @mouseenter="openProducts"
         @mouseleave="scheduleCloseProducts"
       >
@@ -194,6 +240,44 @@ onBeforeUnmount(() => {
               :product-key="key"
               :tint="productsCatalog[key].tint"
               @navigate="closeProducts"
+            />
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Services mega menu -->
+    <Transition
+      enter-active-class="transition duration-150 ease-out"
+      enter-from-class="opacity-0 -translate-y-2"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition duration-75 ease-in"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-2"
+    >
+      <div
+        v-if="isServicesOpen"
+        class="absolute left-1/2 top-full w-[min(920px,calc(100vw-2rem))] -translate-x-1/2 pt-2"
+        @mouseenter="openServices"
+        @mouseleave="scheduleCloseServices"
+      >
+        <div class="rounded-2xl border border-border bg-surface-alt p-6 shadow-xl">
+          <div class="mb-4 flex items-center justify-between">
+            <span class="text-sm text-text-subtle">{{ t('common.nav.services') }}</span>
+            <RouterLink to="/services" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeServices">
+              {{ t('common.buttons.discoverServices') }}
+              <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
+            </RouterLink>
+          </div>
+          <div class="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-4 sm:gap-4">
+            <ServiceMenuCard
+              v-for="svc in services"
+              :key="svc.key"
+              :service-key="svc.key"
+              :icon="svc.icon"
+              :href="getServiceMenuHref(svc)"
+              :featured="!!svc.featured"
+              @navigate="closeServices"
             />
           </div>
         </div>
@@ -223,7 +307,16 @@ onBeforeUnmount(() => {
             </RouterLink>
           </li>
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/services" @click="closeMobile">{{ t('common.nav.services') }}</RouterLink></li>
-          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#about" @click="closeMobile">{{ t('common.nav.about') }}</RouterLink></li>
+          <li v-for="svc in services" :key="svc.key">
+            <RouterLink
+              class="block rounded-lg px-3 py-2 ps-6 text-sm font-medium text-text-muted"
+              :to="getServiceMenuHref(svc)"
+              @click="closeMobile"
+            >
+              {{ t(`services.items.${svc.key}.title`) }}
+            </RouterLink>
+          </li>
+          <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/clients" @click="closeMobile">{{ t('common.nav.clients') }}</RouterLink></li>
           <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/#partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
         </ul>
         <div class="mt-4 flex items-center gap-2 border-t border-border pt-4">

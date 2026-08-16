@@ -9,7 +9,7 @@
 | `public/images/` | Logos, clients, partners, product art |
 | `src/assets/colors.css` | Brand tokens |
 
-Namespaces today: `common`, `home`, `products`, `contact`, `services`. Add one JSON pair per new page/section namespace.
+Namespaces today: `common`, `home`, `products`, `contact`, `services`, `clients`. Add one JSON pair per new page/section namespace.
 
 ### Notable asset paths
 
@@ -19,7 +19,7 @@ Namespaces today: `common`, `home`, `products`, `contact`, `services`. Add one J
 | `public/images/Products/{ess,ers,esa}-logo.png` | Tabs, header, listing, detail |
 | `public/images/Products/media/{ess,ers,esa}/` | Product screenshots |
 | `public/videos/{ess,ers,esa}/` | Product explainers |
-| `public/images/clients/*.png` | TrustBar (partial fill today) |
+| `public/images/clients/*.png` | TrustBar + `/clients` cards (5 real logos today) |
 | `public/animations/mail-box.json` | Contact form success Lottie |
 | `public/images/services/*.svg` | Services page 3D-style icons |
 
