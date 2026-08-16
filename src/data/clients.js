@@ -39,35 +39,35 @@ export const CLIENT_KEYS = [
 export const clientsCatalog = {
   hellmann: {
     key: 'hellmann',
-    logo: '/images/clients/1.png',
+    logo: '/images/clients/1.webp',
     url: '',
     placeholder: false,
     hasStory: false
   },
   bue: {
     key: 'bue',
-    logo: '/images/clients/2.png',
+    logo: '/images/clients/2.webp',
     url: 'https://www.bue.edu.eg',
     placeholder: false,
     hasStory: false
   },
   orientalWeavers: {
     key: 'orientalWeavers',
-    logo: '/images/clients/3.png',
+    logo: '/images/clients/3.webp',
     url: 'https://orientalweavers.com',
     placeholder: false,
     hasStory: false
   },
   ykk: {
     key: 'ykk',
-    logo: '/images/clients/4.png',
+    logo: '/images/clients/4.webp',
     url: 'https://www.ykk.com',
     placeholder: false,
     hasStory: false
   },
   savco: {
     key: 'savco',
-    logo: '/images/clients/5.png',
+    logo: '/images/clients/5.webp',
     url: 'https://savco-eg.com',
     placeholder: false,
     hasStory: false

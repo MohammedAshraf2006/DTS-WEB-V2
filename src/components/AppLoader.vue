@@ -26,7 +26,7 @@ onUnmounted(() => {
       aria-live="polite"
     >
       <img
-        src="/images/DTS.png"
+        src="/images/DTS.webp"
         alt="DTS"
         class="app-loader-logo h-auto w-[220px] sm:w-[280px]"
         :class="isDark ? 'brightness-110' : ''"

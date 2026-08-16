@@ -35,7 +35,7 @@ const active = computed(() => items.value[activeIndex.value] || null)
         :poster="active.poster || undefined"
         controls
         playsinline
-        preload="metadata"
+        preload="none"
       />
       <img
         v-else-if="active"
@@ -43,6 +43,8 @@ const active = computed(() => items.value[activeIndex.value] || null)
         :src="active.src"
         :alt="title"
         class="h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
       <div
         v-else
@@ -64,16 +66,15 @@ const active = computed(() => items.value[activeIndex.value] || null)
         :class="i === activeIndex ? 'border-primary ring-2 ring-primary/30' : 'border-border opacity-70 hover:opacity-100'"
         @click="activeIndex = i"
       >
-        <video
-          v-if="item.type === 'video'"
+        <img
+          v-if="item.type === 'video' && item.poster"
+          :src="item.poster"
+          alt=""
           class="h-full w-full object-cover"
-          :src="item.src"
-          :poster="item.poster || undefined"
-          muted
-          playsinline
-          preload="metadata"
+          loading="lazy"
+          decoding="async"
         />
-        <img v-else :src="item.src" alt="" class="h-full w-full object-cover" />
+        <img v-else-if="item.type !== 'video'" :src="item.src" alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />
       </button>
     </div>
   </div>

@@ -70,7 +70,7 @@ const companyLinks = [
         <!-- Brand column -->
         <div class="col-span-2 md:col-span-3 lg:col-span-4">
           <RouterLink to="/" class="inline-flex items-center gap-3">
-            <img src="/images/DTS.png" alt="DTS" class="h-10 w-auto" />
+            <img src="/images/DTS.webp" alt="DTS" class="h-10 w-auto" width="160" height="40" decoding="async" />
           </RouterLink>
           <p class="mt-2 text-sm font-semibold text-primary">
             {{ t('common.footer.tagline') }}

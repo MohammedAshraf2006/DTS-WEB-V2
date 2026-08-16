@@ -67,8 +67,8 @@ useScrollReveal()
           </p>
         </div>
         <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-8">
-          <SignatureSealPanels kind="signature" icon="/images/services/signature-token.png" />
-          <SignatureSealPanels kind="seal" icon="/images/services/seal.png" />
+          <SignatureSealPanels kind="signature" icon="/images/services/signature-token.webp" />
+          <SignatureSealPanels kind="seal" icon="/images/services/seal.webp" />
         </div>
       </div>
 

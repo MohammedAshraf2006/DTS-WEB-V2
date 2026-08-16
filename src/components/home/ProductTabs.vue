@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
-import { PRODUCT_KEYS, getProduct, firstMedia } from '@/data/products'
+import { PRODUCT_KEYS, getProduct, listingPreview } from '@/data/products'
 
 const { t, tm, locale } = useI18n()
 
@@ -10,7 +10,7 @@ const tabKeys = PRODUCT_KEYS
 const activeTab = ref('ess')
 
 const activeProduct = computed(() => getProduct(activeTab.value))
-const activeMedia = computed(() => firstMedia(activeProduct.value))
+const activeMedia = computed(() => listingPreview(activeProduct.value))
 
 const activeFeatures = computed(() => {
   void locale.value
@@ -57,7 +57,7 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
         >
           <span class="logo-well flex h-9 items-center rounded-lg px-2.5 sm:h-10">
             <img
-              :src="`/images/Products/${key}-logo.png`"
+              :src="`/images/Products/${key}-logo.webp`"
               :alt="t(`common.products.${key}.name`)"
               class="h-6 w-auto object-contain sm:h-7"
             />
@@ -113,22 +113,14 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
             <div
               class="product-media relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-alt sm:aspect-[5/4] lg:aspect-[4/3]"
             >
-              <video
-                v-if="hasMedia && activeMedia.type === 'video'"
-                :key="activeMedia.src"
-                class="h-full w-full object-cover"
-                :src="activeMedia.src"
-                :poster="activeMedia.poster || undefined"
-                controls
-                playsinline
-                preload="metadata"
-              />
               <img
-                v-else-if="hasMedia"
+                v-if="hasMedia"
                 :key="activeMedia.src"
                 :src="activeMedia.src"
                 :alt="t(`home.products.tabs.${activeTab}.title`)"
                 class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div
                 v-else
@@ -136,7 +128,7 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
               >
                 <span class="logo-well flex h-16 w-16 items-center justify-center rounded-2xl">
                   <img
-                    :src="`/images/Products/${activeTab}-logo.png`"
+                    :src="`/images/Products/${activeTab}-logo.webp`"
                     :alt="activeTab.toUpperCase()"
                     class="h-10 w-auto object-contain"
                   />

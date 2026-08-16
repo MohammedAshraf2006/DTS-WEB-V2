@@ -47,6 +47,8 @@ const initials = computed(() => {
             :src="logo"
             :alt="name"
             class="max-h-full max-w-full object-contain"
+            loading="lazy"
+            decoding="async"
           />
           <span
             v-else

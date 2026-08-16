@@ -45,9 +45,11 @@ const tintClass = computed(() => {
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-br" :class="tintClass" />
         <span class="logo-well relative z-10 mb-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl p-0.5 shadow-sm">
           <img
-            :src="`/images/Products/${productKey}-logo.png`"
+            :src="`/images/Products/${productKey}-logo.webp`"
             :alt="t(`common.products.${productKey}.name`)"
             class="h-full w-full object-contain"
+            loading="lazy"
+            decoding="async"
           />
         </span>
         <span class="relative z-10 text-base font-bold leading-snug text-text-base">

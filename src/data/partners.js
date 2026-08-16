@@ -7,19 +7,19 @@ export const PARTNER_KEYS = ['fedis', 'tawqe3y', 'mts']
 export const partnersCatalog = {
   fedis: {
     key: 'fedis',
-    logo: '/images/partners/fedis.png',
+    logo: '/images/partners/fedis.webp',
     url: 'https://fedis.com.eg/',
     tint: 'red'
   },
   tawqe3y: {
     key: 'tawqe3y',
-    logo: '/images/partners/tawqe3y.png',
+    logo: '/images/partners/tawqe3y.webp',
     url: 'https://tawqe3y.com/',
     tint: 'signature'
   },
   mts: {
     key: 'mts',
-    logo: '/images/partners/mts.png',
+    logo: '/images/partners/mts.webp',
     url: '',
     tint: 'navy'
   }

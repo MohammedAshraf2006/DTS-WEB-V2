@@ -99,7 +99,7 @@ watch(key, async () => {
             class="group flex items-center gap-4 rounded-2xl border border-border bg-surface-alt p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
           >
             <span class="logo-well flex h-12 w-12 items-center justify-center rounded-xl">
-              <img :src="`/images/Products/${other}-logo.png`" :alt="t(`common.products.${other}.name`)" class="h-8 w-auto object-contain" />
+              <img :src="`/images/Products/${other}-logo.webp`" :alt="t(`common.products.${other}.name`)" class="h-8 w-auto object-contain" loading="lazy" decoding="async" />
             </span>
             <div>
               <p class="font-bold text-text-base group-hover:text-primary">{{ t(`common.products.${other}.name`) }}</p>

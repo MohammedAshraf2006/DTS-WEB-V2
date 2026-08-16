@@ -35,7 +35,7 @@ const points = computed(() => {
       <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-light/25 via-transparent to-accent/10 dark:from-primary-light/35" />
       <div class="relative z-10 flex flex-1 flex-col">
         <div class="mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-xl bg-white/50 dark:bg-white/5">
-          <img :src="icon" alt="" class="h-20 w-20 object-contain drop-shadow-lg" />
+          <img :src="icon" alt="" class="h-20 w-20 object-contain drop-shadow-lg" loading="lazy" decoding="async" />
         </div>
         <h3 class="font-heading text-xl font-bold text-text-base sm:text-2xl">
           {{ t(`services.signaturePage.${kind}.title`) }}

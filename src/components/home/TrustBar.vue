@@ -45,7 +45,7 @@ const logoImgClass =
               class="trust-logo-item group inline-flex items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
             </a>
             <span
               v-else
@@ -53,7 +53,7 @@ const logoImgClass =
               :aria-label="t(`clients.items.${client.key}.name`)"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
             </span>
           </template>
         </div>
@@ -75,10 +75,10 @@ const logoImgClass =
               rel="noopener noreferrer"
               class="group inline-flex shrink-0 items-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
             </a>
             <span v-else class="group inline-flex shrink-0 items-center">
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
             </span>
           </template>
         </div>

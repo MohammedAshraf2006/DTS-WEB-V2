@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCardTilt } from '@/composables/useCardTilt'
-import { firstMedia } from '@/data/products'
+import { listingPreview } from '@/data/products'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const props = defineProps({
@@ -14,7 +14,7 @@ const props = defineProps({
 const { t } = useI18n()
 const { root, tilt, onMove, onLeave } = useCardTilt({ maxX: 6, maxY: 8 })
 
-const preview = computed(() => firstMedia(props.product))
+const preview = computed(() => listingPreview(props.product))
 
 const tintClass = computed(() => {
   if (props.product.tint === 'ers') {
@@ -66,27 +66,20 @@ const tintClass = computed(() => {
         </p>
 
         <div class="product-preview relative mt-6 aspect-[16/10] overflow-hidden rounded-xl bg-surface">
-          <video
-            v-if="preview?.type === 'video'"
-            class="h-full w-full object-cover"
-            :src="preview.src"
-            :poster="preview.poster || undefined"
-            muted
-            playsinline
-            preload="metadata"
-          />
           <img
-            v-else-if="preview"
+            v-if="preview"
             :src="preview.src"
             :alt="t(`products.items.${productKey}.title`)"
             class="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div
             v-else
             class="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center"
           >
             <span class="logo-well flex h-14 w-14 items-center justify-center rounded-xl">
-              <img :src="product.logo" alt="" class="h-9 w-auto object-contain" />
+              <img :src="product.logo" alt="" class="h-9 w-auto object-contain" loading="lazy" decoding="async" />
             </span>
             <p class="text-xs font-medium text-text-subtle">{{ t('products.mediaPlaceholder') }}</p>
           </div>

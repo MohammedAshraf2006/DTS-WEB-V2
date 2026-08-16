@@ -75,6 +75,8 @@ const bullets = computed(() => {
             alt=""
             class="relative z-10 object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
             :class="featured ? 'h-[6.5rem] w-[6.5rem]' : 'h-16 w-16'"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

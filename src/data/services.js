@@ -26,7 +26,7 @@ export const servicesCatalog = {
   },
   signature: {
     key: 'signature',
-    icon: '/images/services/signature-token.png',
+    icon: '/images/services/signature-token.webp',
     href: '/services/signature',
     featured: true
   },

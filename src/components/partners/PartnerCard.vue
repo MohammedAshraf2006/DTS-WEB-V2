@@ -49,6 +49,8 @@ const ctaClass =
           :src="logo"
           :alt="name"
           class="max-h-40 w-auto max-w-full object-contain sm:max-h-48"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

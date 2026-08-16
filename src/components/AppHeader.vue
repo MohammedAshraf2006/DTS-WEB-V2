@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
     <nav class="grid h-16 w-full grid-cols-[1fr_auto_1fr] items-center px-6 lg:px-12">
       <!-- Logo -->
       <RouterLink to="/" class="flex items-center gap-2 shrink-0 justify-self-start" @click="closeMobile">
-        <img src="/images/DTS.png" alt="DTS" class="h-11 w-auto lg:h-12" />
+        <img src="/images/DTS.webp" alt="DTS" class="h-11 w-auto lg:h-12" width="180" height="48" fetchpriority="high" decoding="async" />
       </RouterLink>
 
       <!-- Desktop nav (centered) -->

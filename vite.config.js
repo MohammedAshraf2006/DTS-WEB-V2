@@ -12,5 +12,17 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true
+  },
+  build: {
+    target: 'es2018',
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vue-vendor': ['vue', 'vue-router', 'vue-i18n']
+        }
+      }
+    }
   }
 })

@@ -40,7 +40,8 @@ const loadScript = (src, key) => {
 
 const initHeroBackground = async () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!heroBackground.value || prefersReducedMotion) return
+  const saveData = Boolean(navigator.connection?.saveData)
+  if (!heroBackground.value || prefersReducedMotion || saveData) return
 
   try {
     await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js', 'three-r134')
@@ -101,9 +102,9 @@ const heroIcons = [
 ]
 
 const floatingProductCards = [
-  { src: '/images/Products/ers-logo.png', alt: 'ERS', className: 'sm:-translate-y-1' },
-  { src: '/images/Products/esa-logo.png', alt: 'ESA', className: 'translate-y-2 sm:translate-y-3' },
-  { src: '/images/Products/ess-logo.png', alt: 'ESS', className: '-translate-y-1 sm:-translate-y-2' }
+  { src: '/images/Products/ers-logo.webp', alt: 'ERS', className: 'sm:-translate-y-1' },
+  { src: '/images/Products/esa-logo.webp', alt: 'ESA', className: 'translate-y-2 sm:translate-y-3' },
+  { src: '/images/Products/ess-logo.webp', alt: 'ESS', className: '-translate-y-1 sm:-translate-y-2' }
 ]
 
 const toneClasses = {
