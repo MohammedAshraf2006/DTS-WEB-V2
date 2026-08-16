@@ -237,11 +237,6 @@ onBeforeUnmount(() => {
           {{ t('home.hero.ctaSecondary') }}
         </RouterLink>
       </div>
-
-      <p class="reveal mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-text-subtle" style="transition-delay: .3s">
-        <AppIcon name="shield" class="h-4 w-4 text-primary" />
-        {{ t('home.hero.trustBadge') }}
-      </p>
     </div>
   </section>
 </template>
