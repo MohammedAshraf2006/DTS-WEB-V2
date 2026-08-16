@@ -2,6 +2,7 @@
 import { computed, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { SALES_EMAIL, SUPPORT_EMAIL, SIGNATURE_EMAIL } from '@/data/contactEmails'
 
 const { t, tm, locale } = useI18n()
 
@@ -132,11 +133,11 @@ const companyLinks = [
               </button>
               <a
                 v-if="revealed.sales"
-                :href="`mailto:${t('common.footer.salesEmail')}`"
+                :href="`mailto:${SALES_EMAIL}`"
                 dir="ltr"
                 class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.salesEmail') }}
+                {{ SALES_EMAIL }}
               </a>
             </li>
             <li class="flex flex-col items-start">
@@ -150,11 +151,11 @@ const companyLinks = [
               </button>
               <a
                 v-if="revealed.support"
-                :href="`mailto:${t('common.footer.supportEmail')}`"
+                :href="`mailto:${SUPPORT_EMAIL}`"
                 dir="ltr"
                 class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.supportEmail') }}
+                {{ SUPPORT_EMAIL }}
               </a>
             </li>
             <li class="flex flex-col items-start">
@@ -168,11 +169,11 @@ const companyLinks = [
               </button>
               <a
                 v-if="revealed.signature"
-                :href="`mailto:${t('common.footer.signatureEmail')}`"
+                :href="`mailto:${SIGNATURE_EMAIL}`"
                 dir="ltr"
                 class="mt-1 text-sm font-semibold text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.signatureEmail') }}
+                {{ SIGNATURE_EMAIL }}
               </a>
             </li>
           </ul>

@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import ContactForm from '@/components/contact/ContactForm.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { SALES_EMAIL, SUPPORT_EMAIL, SIGNATURE_EMAIL } from '@/data/contactEmails'
 
 const { t, tm, locale } = useI18n()
 
@@ -34,31 +35,31 @@ useScrollReveal()
             <li class="flex items-start gap-3">
               <AppIcon name="mail" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <a
-                :href="`mailto:${t('common.footer.salesEmail')}`"
+                :href="`mailto:${SALES_EMAIL}`"
                 dir="ltr"
                 class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.salesEmail') }}
+                {{ SALES_EMAIL }}
               </a>
             </li>
             <li class="flex items-start gap-3">
               <AppIcon name="support" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <a
-                :href="`mailto:${t('common.footer.supportEmail')}`"
+                :href="`mailto:${SUPPORT_EMAIL}`"
                 dir="ltr"
                 class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.supportEmail') }}
+                {{ SUPPORT_EMAIL }}
               </a>
             </li>
             <li class="flex items-start gap-3">
               <AppIcon name="usbFlash" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <a
-                :href="`mailto:${t('common.footer.signatureEmail')}`"
+                :href="`mailto:${SIGNATURE_EMAIL}`"
                 dir="ltr"
                 class="inline-block break-all transition-colors hover:text-primary [unicode-bidi:isolate]"
               >
-                {{ t('common.footer.signatureEmail') }}
+                {{ SIGNATURE_EMAIL }}
               </a>
             </li>
             <li>
