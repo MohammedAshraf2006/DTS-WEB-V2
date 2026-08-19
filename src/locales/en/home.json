@@ -23,34 +23,34 @@
       "ess": {
         "name": "ESS",
         "title": "Electronic Sales System",
-        "description": "From the browser: issue the invoice or receipt, send it to the tax authority, and track accept or reject — no software to install.",
+        "description": "ESS is a comprehensive system for managing electronic invoices and receipts. Create, review, and send documents to the Egyptian Tax Authority while tracking their status and managing sales operations—all in one integrated platform.",
         "features": [
-          "Invoices, receipts, and returns in one workflow",
-          "Items, customers, and suppliers ready for fast issuance",
-          "Document status tracked with the tax authority",
-          "Bulk import and A4 or thermal print"
+          "Unified management: products, customers, suppliers, branches, and POS devices in one place",
+          "Operational flexibility: access from any device with tailored user permissions and controls",
+          "Easier migration: bulk import products, customers, and data—no manual entry required",
+          "Greater multi-company management: run multiple companies from one account with independent profiles"
         ]
       },
       "ers": {
         "name": "ERS",
         "title": "POS E-Receipts",
-        "description": "A fast cashier screen: issue the e-receipt at the POS and link it to the tax authority — without the invoice cycle.",
+        "description": "Designed specifically for retail point-of-sale teams to issue e-receipts instantly and send them to the tax authority from one fast cashier screen. Manage branches and POS devices centrally, track receipt status in real time, and monitor daily sales performance from any device.",
         "features": [
-          "Sales receipt or return from the cashier screen",
-          "POS devices and branches ready to run",
-          "Accept/reject status and net for the shift",
-          "Thermal print and sales follow-up from anywhere"
+          "Instant receipt issuance purpose-built cashier interface designed for speed and accuracy",
+          "Flexible integration seamlessly import receipts from other sales systems",
+          "Centralized management complete control over POS devices, branches, and cashier permissions from one dashboard",
+          "Live monitoring cloud-based dashboard tracks receipt status (accepted, rejected, processing) and daily sales in real time"
         ]
       },
       "esa": {
         "name": "ESA",
         "title": "Electronic Signature Agent",
-        "description": "A Windows agent that signs the document from a USB token before it reaches the tax authority — the PIN is never saved on disk.",
+        "description": "An advanced electronic signature application designed as a practical and modern alternative to ePass2003. Enables secure and easy use of e-signature and e-seal certificates across different platforms and electronic portals.",
         "features": [
-          "Detects the token on plug-in; supports signature and seal",
-          "PIN stays in memory only and is never written to disk",
-          "Works with ESS on the same PC over a secure local link",
-          "Expiry alerts so issuance does not stop"
+          "Comprehensive support for signing devices: works with various electronic signature devices (USB Tokens)",
+          "User-error protection: designed to reduce operational errors and usage mistakes, ensuring safer, more stable signing",
+          "Compatible with tax portal requirements: designed to meet Egyptian Tax Authority e-signature standards",
+          "Higher efficiency and dependable security"
         ]
       }
     },
@@ -113,7 +113,7 @@
     ]
   },
   "cta": {
-    "title": "Trusted by 1,000+ clients",
+    "title": "Trusted by 10,000+ clients",
     "subtitle": "Join them — use our services and grow your business.",
     "button": "See our clients"
   }

@@ -13,8 +13,11 @@ export const productsCatalog = {
     logo: '/images/Products/ess-logo.webp',
     tint: 'ess',
     gallery: [
-      { type: 'video', src: '', poster: '' },
-      { type: 'image', src: '' }
+      { type: 'video', src: '/images/Products/media/ess/ESS.mp4', poster: '/images/Products/media/ess/ESS.webp' },
+      { type: 'image', src: '/images/Products/media/ess/ess-light-ar.webp' },
+      { type: 'image', src: '/images/Products/media/ess/ess-light-en.webp' },
+      { type: 'image', src: '/images/Products/media/ess/ess-dark-ar.webp' },
+      { type: 'image', src: '/images/Products/media/ess/ess-dark-en.webp' }
     ]
   },
   ers: {
@@ -22,8 +25,11 @@ export const productsCatalog = {
     logo: '/images/Products/ers-logo.webp',
     tint: 'ers',
     gallery: [
-      { type: 'video', src: '', poster: '' },
-      { type: 'image', src: '' }
+      { type: 'video', src: '/images/Products/media/ers/ERS.mp4', poster: '/images/Products/media/ers/ERS.webp' },
+      { type: 'image', src: '/images/Products/media/ers/ers-light-ar.webp' },
+      { type: 'image', src: '/images/Products/media/ers/ers-light-en.webp' },
+      { type: 'image', src: '/images/Products/media/ers/ers-dark-ar.webp' },
+      { type: 'image', src: '/images/Products/media/ers/ers-dark-en.webp' }
     ]
   },
   esa: {
@@ -33,8 +39,11 @@ export const productsCatalog = {
     liteDownloadUrl:
       'https://github.com/Mohamedosama-dts/ESA-Lite/releases/download/v2.1.1/ESA_Lite_en.msi',
     gallery: [
-      { type: 'video', src: '', poster: '' },
-      { type: 'image', src: '' }
+      { type: 'video', src: '/images/Products/media/esa/ESA.mp4', poster: '/images/Products/media/esa/ESA.webp' },
+      { type: 'image', src: '/images/Products/media/esa/esa-light-ar.webp' },
+      { type: 'image', src: '/images/Products/media/esa/esa-light-en.webp' },
+      { type: 'image', src: '/images/Products/media/esa/esa-dark-ar.webp' },
+      { type: 'image', src: '/images/Products/media/esa/esa-dark-en.webp' }
     ]
   }
 }
@@ -60,12 +69,39 @@ export function firstMedia(product) {
   return items.find((item) => item.type === 'video') || items[0] || null
 }
 
-/** Listing/home teaser: never attach a video file; prefer poster or a still. */
-export function listingPreview(product) {
-  const media = firstMedia(product)
-  if (!media) return null
-  if (media.type === 'video') {
-    return media.poster ? { type: 'image', src: media.poster } : null
+/** Select appropriate image based on theme and language */
+export function selectProductImage(product, isDark, locale) {
+  if (!product?.gallery) return null
+  
+  // Try to find image matching theme and language
+  const themeName = isDark ? 'dark' : 'light'
+  const lang = locale === 'ar' ? 'ar' : 'en'
+  const targetName = `${themeName}-${lang}`
+  
+  // Search for matching image pattern (e.g., "esa-light-ar", "esa-dark-en")
+  const matchedImage = product.gallery.find(item => 
+    item.type === 'image' && item.src.includes(targetName)
+  )
+  
+  if (matchedImage) return matchedImage
+  
+  // Fallback to any image if exact match not found
+  const fallbackImage = product.gallery.find(item => item.type === 'image')
+  if (fallbackImage) return fallbackImage
+  
+  return null
+}
+
+/** Listing/home teaser: select appropriate image based on theme and language */
+export function listingPreview(product, isDark = false, locale = 'en') {
+  return selectProductImage(product, isDark, locale)
+}
+
+/** Get video for product pages */
+export function productVideo(product) {
+  if (!product?.video) return null
+  return {
+    type: 'video',
+    src: product.video
   }
-  return media
 }

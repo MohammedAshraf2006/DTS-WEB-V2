@@ -30,3 +30,4 @@ See [`plans/status.md`](../plans/status.md). As of 2026-08-14: foundation **done
 ## Language
 
 Documentation files are written in **English**. Chat with contributors stays Arabic per project Cursor rules.
+زز

@@ -41,7 +41,7 @@ const initials = computed(() => {
           transform: `perspective(1100px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(0)`
         }"
       >
-        <div class="flex h-28 items-center justify-center rounded-xl bg-primary-light/40 p-4 dark:bg-surface-raised">
+        <div class="logo-well flex h-28 items-center justify-center rounded-xl border border-border/60 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
           <img
             v-if="logo"
             :src="logo"

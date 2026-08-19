@@ -1,16 +1,20 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useTheme } from '@/composables/useTheme'
 import AppIcon from '@/components/icons/AppIcon.vue'
-import { PRODUCT_KEYS, getProduct, listingPreview } from '@/data/products'
+import { PRODUCT_KEYS, getProduct, selectProductImage } from '@/data/products'
 
 const { t, tm, locale } = useI18n()
+const { isDark } = useTheme()
 
 const tabKeys = PRODUCT_KEYS
 const activeTab = ref('ess')
 
 const activeProduct = computed(() => getProduct(activeTab.value))
-const activeMedia = computed(() => listingPreview(activeProduct.value))
+const activeMedia = computed(() => {
+  return selectProductImage(activeProduct.value, isDark.value, locale.value)
+})
 
 const activeFeatures = computed(() => {
   void locale.value
@@ -111,15 +115,15 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
 
             <!-- Large media plane -->
             <div
-              class="product-media relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-alt sm:aspect-[5/4] lg:aspect-[4/3]"
+              class="product-media relative w-full overflow-hidden rounded-xl bg-surface-alt"
+              :class="activeTab === 'esa' ? 'h-[400px] sm:h-[480px] lg:h-[540px]' : activeTab === 'ess' ? 'h-[240px] sm:h-[290px] lg:h-[330px]' : 'aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]'"
             >
               <img
                 v-if="hasMedia"
                 :key="activeMedia.src"
                 :src="activeMedia.src"
                 :alt="t(`home.products.tabs.${activeTab}.title`)"
-                class="h-full w-full object-cover"
-                loading="lazy"
+                class="h-full w-full object-contain"
                 decoding="async"
               />
               <div

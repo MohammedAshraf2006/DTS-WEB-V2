@@ -12,7 +12,7 @@ function hasExternalUrl(url) {
 }
 
 function staggerDelay(index) {
-  return `${index * 0.1}s`
+  return `${index * 0.035}s`
 }
 
 const logoImgClass =
@@ -20,7 +20,7 @@ const logoImgClass =
 </script>
 
 <template>
-  <section class="overflow-hidden border-y border-border bg-surface-alt dark:border-border dark:bg-surface-alt">
+  <section class="overflow-hidden border-y border-border bg-surface-alt dark:border-border dark:bg-[linear-gradient(180deg,#edf4ff_0%,#e6eef9_35%,#dfeaf8_100%)]">
     <header class="trust-header reveal relative border-b border-border px-5 py-5 sm:py-6 lg:px-10 dark:border-border">
       <div
         class="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface-raised via-surface-alt to-surface-alt"
@@ -45,7 +45,7 @@ const logoImgClass =
               class="trust-logo-item group inline-flex items-center justify-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" decoding="async" />
             </a>
             <span
               v-else
@@ -53,7 +53,7 @@ const logoImgClass =
               :aria-label="t(`clients.items.${client.key}.name`)"
               :style="{ transitionDelay: staggerDelay(index) }"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" decoding="async" />
             </span>
           </template>
         </div>
@@ -75,10 +75,10 @@ const logoImgClass =
               rel="noopener noreferrer"
               class="group inline-flex shrink-0 items-center rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" decoding="async" />
             </a>
             <span v-else class="group inline-flex shrink-0 items-center">
-              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" loading="lazy" decoding="async" />
+              <img :src="client.logo" :alt="t(`clients.items.${client.key}.name`)" :class="logoImgClass" decoding="async" />
             </span>
           </template>
         </div>
@@ -126,8 +126,8 @@ const logoImgClass =
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .trust-logos.is-visible .trust-logo-item {

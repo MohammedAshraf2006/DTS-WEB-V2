@@ -2,7 +2,7 @@
  * Partners catalog (identifiers, media, and website only).
  * Copy lives in locales/partners.json under items.{key}.
  */
-export const PARTNER_KEYS = ['fedis', 'tawqe3y', 'mts']
+export const PARTNER_KEYS = ['fedis', 'tawqe3y', 'mts', 'khalil']
 
 export const partnersCatalog = {
   fedis: {
@@ -22,6 +22,12 @@ export const partnersCatalog = {
     logo: '/images/partners/mts.webp',
     url: '',
     tint: 'navy'
+  },
+  khalil: {
+    key: 'khalil',
+    logo: '/images/partners/khalil.webp',
+    url: '',
+    tint: 'amber'
   }
 }
 

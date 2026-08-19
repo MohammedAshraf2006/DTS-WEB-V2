@@ -15,94 +15,102 @@
   "items": {
     "ess": {
       "title": "Electronic Sales System",
-      "shortDescription": "From the browser: issue e-invoices and e-receipts, send them to the tax authority, and track status — no software to install.",
-      "description": "ESS is the electronic sales system for businesses that need certified e-invoices and e-receipts. You work in the browser: create the document, review it, submit it to the Egyptian Tax Authority, and follow acceptance or rejection in one place. Manage items, customers, and suppliers; register branches and POS devices; and code your items on the tax portal. Legal signing happens with a USB token on your PC through ESA — without installing invoicing software on every machine.",
+      "shortDescription": "ESS is a comprehensive system for managing electronic invoices and receipts. Issue, review, and send documents to the Egyptian Tax Authority while tracking their status—all from one integrated platform, no software installation needed.",
+      "description": "ESS – Electronic Sales System is a comprehensive system for managing electronic invoices and receipts, allowing companies to create, review, and send documents to the Egyptian Tax Authority while tracking their status and managing sales operations from a single integrated platform. It goes beyond simply sending documents to the tax authority—it provides an integrated environment to issue, manage, and track their status from one unified location.\n\nMaster data is stored once: products, customers, and suppliers. You organize everything by branch, POS device, activity, currency, tax, and measurement unit. Users access the system from any device with permissions tailored to their role, enabling centralized document management while maintaining data consistency across branches. Manage multiple companies from a single account, each with its own independent file for branches, activities, POS devices, currencies, taxes, and units. Switch between companies based on your permissions. ESS supports bulk operations through customizable Excel files and flexible printing templates that match your business type—A4, A5, or thermal formats.\n\nWith ESS you get easier management, greater control, and higher efficiency.",
       "features": [
         {
-          "title": "E-invoices",
-          "detail": "In the browser you build the invoice: seller and buyer, items, quantities, and tax, then review totals before you save. You edit the draft, and you issue an adjustment when price, quantity, or discount changes after issuance.\n\nAfter submit you follow the document at the tax authority: accepted, rejected, or still processing. All of it stays in the browser on any device — no invoicing software to install on every PC."
+          "title": "Unified management",
+          "detail": "Manage all your business data in one place: products, customers, suppliers, branches, POS devices, and users. Store master data once and reuse it across all documents. Organize everything by branch, activity, POS device, currency, tax, and measurement unit. No duplicate data entry—one source of truth for your entire operation."
         },
         {
-          "title": "Receipts and returns",
-          "detail": "Beside the invoice you issue a sales receipt or a return in the same system. You pick the type, add lines, send the receipt to the tax authority, and see whether it was accepted or rejected.\n\nManagement shows receipts and their lines, with status actions limited by each user’s permission. Built for companies that need an e-receipt next to the invoice without a separate cashier product."
+          "title": "Operational flexibility",
+          "detail": "Access ESS from any device, anywhere. Manage user access and permissions according to your business structure. Each user sees only what they need, and approval workflows respect role-based permissions. Switch between companies without re-logging in. Work across multiple devices while maintaining consistent data and permissions."
         },
         {
-          "title": "Items, customers, suppliers",
-          "detail": "Master data is stored once: items and services, invoice and receipt customers, and suppliers. You search them inside the document form instead of retyping, and you can add a customer quickly from the same screen while you issue.\n\nWhen you leave an older system you import items and customers in bulk and follow the import job until it finishes. An update to an item or customer shows up on the next invoices and receipts."
+          "title": "Easier migration",
+          "detail": "Move from your old system without manual data entry. Bulk import products, customers, suppliers, and transaction data through customizable Excel files. Monitor import jobs in real time. Update product or customer information once, and changes reflect automatically on all future documents."
         },
         {
-          "title": "Tax portal follow-up",
-          "detail": "Inside ESS you see recent invoices and receipts as they appear at the tax authority, without opening the official portal every time. You review GPC and portal codes, submit item coding requests, and follow the result.\n\nThe aim is one screen for the team: issue, send, code, and track accept or reject in the same company account."
+          "title": "Control & tracking",
+          "detail": "Monitor all your invoices and receipts in one place: see their status at the tax authority (accepted, rejected, or processing), manage product coding requests, and track tax authority feedback. View GPC and portal codes without opening the official tax portal each time. One screen for your team: issue, send, code, and track."
         },
         {
-          "title": "Branches, POS, and permissions",
-          "detail": "You run more than one company from the same login, with a profile per company: branches, activities, POS devices, currencies, taxes, and units. Each user sees only what their permission allows, and you can switch company without a full re-login.\n\nYou register the signature and seal tokens used with ESA, and you set print templates and notifications. Central settings feed the invoice and receipt forms so branch and POS data is not typed again on every document."
+          "title": "Bulk submission",
+          "detail": "Issue and send multiple invoices and receipts at once using customizable Excel files. Handle large document volumes efficiently with bulk operations. Perfect for high-volume processing, end-of-day batch submissions, or migrating historical transactions."
         },
         {
-          "title": "Print that matches your work",
-          "detail": "You print A4 or A5 for the office, or thermal at the point of sale, using the template linked to the company. The template pulls company name, branch, buyer, lines, and totals so the look stays the same in every branch.\n\nYou pick the template that matches the activity in settings, and you reprint from the view screen when needed without recreating the document."
+          "title": "Tailored issuance & printing",
+          "detail": "Choose from multiple templates and sizes to print invoices and receipts that match your business type. Print A4 or A5 for the office, or thermal format at the point of sale. Templates automatically pull company name, branch, customer data, line items, and totals so every receipt looks professional and consistent. Reprint anytime from the document view without recreating the transaction."
+        },
+        {
+          "title": "Multi-company management",
+          "detail": "Run multiple companies from a single account. Each company has its own independent profile: separate branches, activities, POS devices, currencies, taxes, and units. Switch between companies effortlessly based on your permissions. Centralize access control while keeping company data isolated and organized."
+        },
+        {
+          "title": "Easier management, greater control, higher efficiency",
+          "detail": "ESS combines integrated workflow, flexible permissions, and bulk capabilities to give you one unified platform for document management. Spend less time on administrative tasks, gain full visibility into your operations, and handle larger transaction volumes without increasing overhead."
         }
       ]
     },
     "ers": {
       "title": "POS E-Receipts",
-      "shortDescription": "A fast cashier screen to issue e-receipts and link them to the tax authority — without the full invoice workflow.",
-      "description": "ERS is built for retail and point-of-sale teams that need an e-receipt at the cashier — not an invoice. The cashier picks items, issues the receipt, and sends it to the Egyptian Tax Authority. You manage POS devices, branches, and customers, and import receipts when needed. The dashboard shows accepted, rejected, and net daily sales so you can follow the shift from anywhere.",
+      "shortDescription": "Designed specifically for retail point-of-sale teams. Issue e-receipts instantly, send them to the tax authority, and monitor their status from a centralized cloud dashboard.",
+      "description": "Designed specifically for retail point-of-sale teams to issue e-receipts instantly and send them to the tax authority from one fast cashier screen. A cashier selects items, issues a receipt or return in seconds, and the system automatically encrypts and sends it to the Egyptian Tax Authority. From one centralized dashboard, you manage branches, POS devices, cashier permissions, and track receipt status in real time. The cloud-based monitoring panel shows daily sales performance, acceptance and rejection rates, and net shift totals from anywhere, without needing to stand at the cashier.\n\nERS combines ease of use with complete tax compliance, designed for speed and accuracy at the point of sale.",
       "features": [
         {
-          "title": "Receipt from the cashier screen",
-          "detail": "The cashier path is short on purpose: pick items from the grid, set quantity, then issue a sales receipt or a return. There are no invoice screens and no fields the seller does not need during the shift.\n\nAfter issue, the receipt is sent to the tax authority in the same step. The design is for point-of-sale speed: fewer taps, and fewer entry mistakes at peak hours."
+          "title": "Instant receipt issuance",
+          "detail": "A purpose-built fast cashier interface with minimal fields and maximum speed. Select items, set quantity, issue a sales receipt or return in seconds. The interface strips away complex invoice fields to minimize errors during peak hours. Upon issuance, receipts are encrypted and sent instantly to the tax authority automatically—no extra steps required from the cashier."
         },
         {
-          "title": "POS devices and branches",
-          "detail": "Each cashier device is registered as a POS linked to a branch and a tax-approved activity. The receipt is attributed to the right device and branch so shifts do not mix, and the tax authority does not reject the receipt for the wrong POS data.\n\nIn settings you add branches and devices, connect the tax link and activity codes once, then the cashier works on the simple screen with no daily reconfiguration."
+          "title": "Branch and POS device management",
+          "detail": "Precise organizational structure: register each cashier device as an independent POS linked to a specific branch and tax-approved activity code. This ensures every receipt is attributed to the correct device and branch, preventing shift data from mixing and eliminating tax rejection risks. Set up branches, devices, and activity codes once in centralized settings, then the cashier operates the simplified screen with zero daily reconfiguration."
         },
         {
-          "title": "Items, customers, and import",
-          "detail": "You manage items and customers on their own screens: prices, taxes, units, and customer type. At the cashier the item is ready to pick, and you can attach a customer when needed without slowing the shift.\n\nIf you have an external source — a file or an older system — you import items, customers, or receipts in bulk and follow the import job until it finishes, instead of typing every record."
+          "title": "Data management and bulk import",
+          "detail": "Centralized management of items, customers, prices, tax brackets, measurement units, and customer categories through dedicated screens. Items appear ready-to-pick at the cashier, and customers can be linked to receipts seamlessly without slowing the shift. For seamless system integration, use advanced bulk import tools to upload items, customers, or receipts from external files, with real-time import progress tracking."
         },
         {
-          "title": "Accept and reject status",
-          "detail": "Receipt management shows the list and the lines, and separates valid documents, those accepted by the tax authority, those still processing, and those rejected. Rejected items are obvious so a supervisor can fix them before the day closes.\n\nReturns have their own view so they do not mix with shift sales. Each status comes from the tax authority, not a local guess on the device."
+          "title": "Receipt status tracking",
+          "detail": "Detailed receipt lifecycle monitoring with intelligent categorization: locally valid, in-process, tax authority approved, or rejected. Rejected receipts are highlighted as urgent alerts, enabling supervisors to review and correct them immediately before shift closing. Returns are displayed separately to prevent mixing with sales totals. Status accuracy is guaranteed—each status reflects the official response from the tax authority, not a local device estimate."
         },
         {
           "title": "Thermal cashier print",
-          "detail": "Templates are set for a thermal printer at the point of sale: a short customer receipt right after the sale, with no layout work each shift. You can reprint from the view screen if the paper jams or the customer asks for a copy.\n\nSeller, branch, and POS data come from company settings so the receipt looks the same on every cashier."
+          "detail": "Pre-configured thermal printer templates optimized for point-of-sale efficiency. Issue a professional customer receipt immediately after sale with zero layout setup required each shift. The system automatically pulls entity name, branch, POS device number, and transaction totals from centralized settings to ensure uniform branding across all cashiers. Reprint any receipt with a single tap if paper jams or the customer requests a copy."
         },
         {
-          "title": "Shift sales board",
-          "detail": "The dashboard summarizes today, this week, or this month: total receipts, valid, accepted by the tax authority, in process, and rejected. It shows sales versus returns and net for the shift.\n\nA supervisor follows this from any connected device without standing at the cashier. The financial view counts only valid receipts so in-process numbers do not distort close-of-day decisions."
+          "title": "Shift sales dashboard",
+          "detail": "Panoramic performance view for any time period (daily, weekly, or monthly): total receipts, locally valid, tax authority approved, in-process, and rejected counts. Compare sales against returns to extract accurate net shift totals. Monitor from any connected device—supervisors track performance remotely without standing at the cashier. Intelligent financial filter counts only complete valid receipts, excluding in-process transactions to prevent number distortion during shift close decisions."
         }
       ]
     },
     "esa": {
       "title": "Electronic Signature Agent",
-      "shortDescription": "A Windows agent that signs your invoices and receipts from a USB token before they reach the tax authority — the PIN is never saved on disk.",
-      "description": "ESA is an electronic signature agent for Windows 10 and 11. Plug in a USB token (certified e-signature or e-seal), log in with your PIN, and the agent signs the document to ITIDA and tax-authority standards. It detects the token the moment you insert or remove it, and works locally with ESS on the same PC through a secure interface that never leaves the machine. For companies with many PCs, signing can run across devices without moving the certificate. It supports the token brands most used in Egypt, and warns you before a certificate expires so issuance does not stop.",
+      "shortDescription": "An advanced electronic signature application designed as a practical and modern alternative to ePass2003, enabling secure and easy use of e-signature and e-seal certificates across different platforms and electronic portals.",
+      "description": "ESA – Electronic Signature Agent is an advanced electronic signature application designed as a practical and modern alternative to ePass2003, enabling secure and easy use of e-signature and e-seal certificates across different platforms and electronic portals. It keeps pace with the growing reliance on electronic signing in digital transactions, providing a reliable solution for use in different business environments and electronic services.\n\nESA provides a more stable and user-friendly signing experience while maintaining the highest security standards. It protects against user mistakes, supports multiple signing device types, and integrates seamlessly with the Egyptian Tax Authority's requirements. Whether you're signing invoices, receipts, or other critical documents, ESA delivers dependable performance with comprehensive device support and fail-safe operation.\n\nWith ESA you get higher efficiency and dependable security.",
       "features": [
         {
-          "title": "Sign and seal from the token",
-          "detail": "ESA is a Windows 10 and 11 agent. You plug in a certified USB token — e-signature or e-seal — log in with the PIN, and the agent builds a signature to ITIDA and tax-authority standards before the document leaves your PC.\n\nIt supports the token brands most used in Egypt. The interface is Arabic and English, and it can sit in the system tray so the token stays ready without a window open all day."
+          "title": "Comprehensive support for signing devices",
+          "detail": "ESA supports various types of electronic signature devices (USB Tokens). Works with different device types without compatibility issues, providing a unified solution for electronic signing across your organization."
         },
         {
-          "title": "Detects the token instantly",
-          "detail": "When you plug the token in or remove it, it appears or disappears in the list at once — no restart and no search through Windows settings. Status shows ready, logged in, or disconnected.\n\nIf the Windows Smart Card service is stopped, the agent warns you so you can fix it before invoices fail to sign during the shift."
+          "title": "User-error protection",
+          "detail": "Designed to reduce operational errors and usage mistakes, ensuring a safer and more stable signing experience. The application guides users through the signing workflow with clear prompts and confirmations, minimizing the risk of incorrect signatures or rejected documents."
         },
         {
-          "title": "The PIN is never saved",
-          "detail": "The token PIN is never written to disk or to settings files. It stays in memory for the session only, and it is cleared on logout, when the token is removed, or when the agent closes.\n\nWrong PIN attempts are counted on screen. After too many tries the token locks and a message tells you to contact the issuer — so the key is not closed for good without you noticing. You change the PIN from the same interface after entering the current one."
+          "title": "Compatible with tax portal requirements",
+          "detail": "Designed to operate according to approved e-signature standards required by the Egyptian Tax Authority. Works seamlessly with ESS and ERS for invoice and receipt signing, supporting the full tax compliance workflow without additional configuration."
         },
         {
-          "title": "Works with ESS on the same PC",
-          "detail": "ESS in the browser never talks to the token directly. It asks the agent on your PC only, through a local interface that does not leave the machine. You create the invoice or receipt as usual; legal signing happens on the PC that holds the token.\n\nIf the agent is not running, ESS points you to install it. After it starts, it finds connected tokens and you register them in company settings for the next issuance."
+          "title": "Simpler, more stable signing experience",
+          "detail": "Delivers an easier and more stable electronic signature experience compared to ePass2003. The modern interface makes signing intuitive, and the stable performance ensures signing operations complete reliably without interruptions or failures."
         },
         {
-          "title": "More than one token on the PC",
-          "detail": "The same PC can hold more than one token for different companies or certificates. The agent lists each one: type, issuer, and expiry, and it signs each request on the right token without mixing sessions.\n\nWhile signing, the token shows as busy, and logout is blocked until jobs finish — so a batch of invoices is not cut off mid-send."
+          "title": "Practical modern alternative to ePass2003",
+          "detail": "Built as a practical replacement for ePass2003 with all the functionality you need plus a smoother user experience. Maintains compatibility with existing workflows while providing better stability and a clearer signing interface."
         },
         {
-          "title": "Alert before the certificate expires",
-          "detail": "Each token shows how many days remain until the certificate expires, or that it has already expired. The warning appears in the interface before invoices and receipts stop because of an expired certificate.\n\nYou check status daily from the same screen you log in on, instead of waiting for a tax rejection at the end of the day. Renew on time, plug the token back in, and the agent detects the new certificate."
+          "title": "Higher efficiency and dependable security",
+          "detail": "ESA combines greater signing efficiency with reliable protection. Spend less time on signing operations, gain confidence in security, and maintain consistent document integrity across your entire organization."
         }
       ]
     }

@@ -2,19 +2,24 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCardTilt } from '@/composables/useCardTilt'
-import { listingPreview } from '@/data/products'
+import { useTheme } from '@/composables/useTheme'
+import { selectProductImage } from '@/data/products'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const props = defineProps({
   productKey: { type: String, required: true },
   product: { type: Object, required: true },
-  delay: { type: Number, default: 0 }
+  delay: { type: Number, default: 0 },
+  compact: { type: Boolean, default: false }
 })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const { isDark } = useTheme()
 const { root, tilt, onMove, onLeave } = useCardTilt({ maxX: 6, maxY: 8 })
 
-const preview = computed(() => listingPreview(props.product))
+const preview = computed(() => {
+  return selectProductImage(props.product, isDark.value, locale.value)
+})
 
 const tintClass = computed(() => {
   if (props.product.tint === 'ers') {
@@ -65,12 +70,12 @@ const tintClass = computed(() => {
           {{ t(`products.items.${productKey}.shortDescription`) }}
         </p>
 
-        <div class="product-preview relative mt-6 aspect-[16/10] overflow-hidden rounded-xl bg-surface">
+        <div class="product-preview relative mt-6 overflow-hidden rounded-xl bg-surface-alt" :class="[productKey === 'ess' ? (compact ? 'h-[100px] sm:h-[130px] lg:h-[150px]' : 'h-[120px] sm:h-[150px] lg:h-[180px]') : productKey === 'esa' ? (compact ? 'mx-auto w-[78%] max-w-[240px] h-[120px] sm:h-[160px] lg:h-[200px]' : 'mx-auto w-[82%] max-w-[320px] h-[160px] sm:h-[200px] lg:h-[240px]') : 'aspect-[16/10]']">
           <img
             v-if="preview"
             :src="preview.src"
             :alt="t(`products.items.${productKey}.title`)"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-contain"
             loading="lazy"
             decoding="async"
           />
