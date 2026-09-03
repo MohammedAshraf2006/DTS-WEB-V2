@@ -14,6 +14,9 @@ const contactNumbers = computed(() => {
   return Array.isArray(raw) ? raw : []
 })
 
+const footerAddressUrl =
+  'https://www.google.com/maps/place/Digital+Transformation+Services+DTS/@30.3094896,31.7275622,14.67z/data=!4m6!3m5!1s0x1457fdc94317b8b7:0x1ab0121372ea4db6!8m2!3d30.3085736!4d31.7089065!16s%2Fg%2F11syxf9_5p?entry=ttu&g_ep=EgoyMDI2MDgxNi4wIKXMDSoASAFQAw%3D%3D'
+
 useScrollReveal()
 </script>
 
@@ -77,7 +80,14 @@ useScrollReveal()
             </li>
             <li class="flex items-start gap-3">
               <AppIcon name="mapPin" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <span>{{ t('common.footer.address') }}</span>
+              <a
+                :href="footerAddressUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors hover:text-primary"
+              >
+                {{ t('common.footer.address') }}
+              </a>
             </li>
           </ul>
         </aside>

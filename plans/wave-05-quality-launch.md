@@ -17,6 +17,7 @@ Production readiness: RTL/LTR QA, performance, assets, basic SEO, deploy alignme
 1. RTL/LTR, performance, assets, basic SEO pass
 2. Deploy alignment vs reference host/domain
 3. Confirm archive docs remain non-canonical
+4. Origin crawler files on GitHub Pages (`robots.txt` allow AI, `sitemap.xml`, `llms.txt`) — **Cloudflare proxy on dts-eg.com still injects managed robots.txt**; disable that overlay or grey-cloud DNS (see `docs/architecture/crawlers.md`)
 
 ## Test criteria
 

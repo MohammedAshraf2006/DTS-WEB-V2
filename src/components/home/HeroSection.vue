@@ -102,9 +102,9 @@ const heroIcons = [
 ]
 
 const floatingProductCards = [
-  { src: '/images/Products/ers-logo.webp', alt: 'ERS', className: 'sm:-translate-y-1' },
-  { src: '/images/Products/esa-logo.webp', alt: 'ESA', className: 'translate-y-2 sm:translate-y-3' },
-  { src: '/images/Products/ess-logo.webp', alt: 'ESS', className: '-translate-y-1 sm:-translate-y-2' }
+  { src: '/images/Products/ers-logo.webp', key: 'ers', to: '/products/ers', className: 'sm:-translate-y-1' },
+  { src: '/images/Products/esa-logo.webp', key: 'esa', to: '/products/esa', className: 'translate-y-2 sm:translate-y-3' },
+  { src: '/images/Products/ess-logo.webp', key: 'ess', to: '/products/ess', className: '-translate-y-1 sm:-translate-y-2' }
 ]
 
 const toneClasses = {
@@ -118,9 +118,9 @@ const toneClasses = {
 
 // Rotating hero pills — brand core hues (readable in light + dark)
 const rotatingWords = [
-  { key: 'invoice', rgb: '27 115 159' }, // Blue #1B739F
-  { key: 'receipt', rgb: '22 163 74' }, // Green #16A34A
-  { key: 'signature', rgb: '224 184 77' } // Gold #E0B84D
+  { key: 'invoice', rgb: '27 115 159', to: '/products/ess' }, // Blue #1B739F
+  { key: 'receipt', rgb: '22 163 74', to: '/products/ers' }, // Green #16A34A
+  { key: 'signature', rgb: '224 184 77', to: '/products/esa' } // Gold #E0B84D
 ]
 
 const activeIndex = ref(0)
@@ -171,15 +171,17 @@ onBeforeUnmount(() => {
 
     <div class="relative mx-auto max-w-4xl px-5 text-center lg:px-10">
       <div class="reveal mt-0 flex items-center justify-center gap-3 sm:gap-4" style="transition-delay: .04s">
-        <div
+        <RouterLink
           v-for="(card, index) in floatingProductCards"
-          :key="card.alt"
-          class="logo-well floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-border/60 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:h-12 sm:w-20"
+          :key="card.key"
+          :to="card.to"
+          class="logo-well floating-card flex h-10 w-16 items-center justify-center rounded-2xl border border-border/60 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-primary sm:h-12 sm:w-20"
           :class="card.className"
           :style="{ animationDelay: `${index * 220}ms` }"
+          :aria-label="t(`common.products.${card.key}.name`)"
         >
-          <img :src="card.src" :alt="card.alt" class="h-6 w-auto object-contain sm:h-7" />
-        </div>
+          <img :src="card.src" :alt="t(`common.products.${card.key}.name`)" class="h-6 w-auto object-contain sm:h-7" />
+        </RouterLink>
       </div>
 
       <!-- العنوان الرئيسي مع الكلمة المتغيّرة (نفس فكرة هيرو) -->
@@ -193,10 +195,11 @@ onBeforeUnmount(() => {
              طبقة الخلفية مفصولة عن طبقة النص (absolute + translate) عشان نقدر ننزل الخلفية لوحدها
              من غير ما نحرّك الكلام (النقطة + النص) اللي فاضل ثابت في مكانه الطبيعي -->
         <span class="relative inline-grid place-items-center">
-          <span
+          <RouterLink
             v-for="(word, i) in rotatingWords"
             :key="word.key"
-            class="relative col-start-1 row-start-1 inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 leading-none text-text-base transition-opacity duration-500 ease-out sm:px-5 sm:py-2.5"
+            :to="word.to"
+            class="relative col-start-1 row-start-1 inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 leading-none text-text-base transition-opacity duration-500 ease-out hover:brightness-110 sm:px-5 sm:py-2.5"
             :class="i === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0'"
           >
             <!-- طبقة الخلفية بس — هي اللي بتنزل شوية لتحت -->
@@ -208,7 +211,7 @@ onBeforeUnmount(() => {
             <!-- النقطة والنص — فاضلة في مكانها الطبيعي -->
             <span class="relative z-10 h-2.5 w-2.5 shrink-0 rounded-full sm:h-3 sm:w-3" :style="{ backgroundColor: `rgb(${word.rgb})` }"></span>
             <span class="relative z-10">{{ t(`home.hero.rotatingWords.${word.key}`) }}</span>
-          </span>
+          </RouterLink>
         </span>
 
         <span>{{ t('home.hero.titleSuffix') }}</span>

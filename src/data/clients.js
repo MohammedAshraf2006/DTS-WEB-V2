@@ -166,7 +166,7 @@ export const clientsCatalog = {
   classSolutions: {
     key: 'classSolutions',
     logo: '/images/clients/19.webp',
-    url: 'https://www.class-solution.com/home/index/ar',
+    url: '',
     placeholder: false,
     hasStory: false
   },

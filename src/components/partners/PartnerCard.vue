@@ -5,7 +5,7 @@ import AppIcon from '@/components/icons/AppIcon.vue'
 
 const props = defineProps({
   partnerKey: { type: String, required: true },
-  logo: { type: String, required: true },
+  logo: { type: String, default: '' },
   url: { type: String, default: '' },
   tint: { type: String, default: 'navy' },
   reverse: { type: Boolean, default: false },
@@ -46,12 +46,19 @@ const ctaClass =
         class="logo-well pointer-events-none flex min-h-[16rem] shrink-0 items-center justify-center rounded-2xl border border-border/60 bg-surface p-8 shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:min-h-[18rem] sm:p-10 lg:w-[42%]"
       >
         <img
+          v-if="logo"
           :src="logo"
           :alt="name"
           class="max-h-40 w-auto max-w-full object-contain sm:max-h-48"
           loading="lazy"
           decoding="async"
         />
+        <span
+          v-else
+          class="inline-flex max-w-full break-words rounded-xl border border-primary/30 bg-primary/5 px-6 py-5 text-center font-heading text-2xl font-extrabold leading-tight text-[#0b5f75] shadow-sm dark:border-[#00e8f0]/40 dark:bg-[#00e8f0]/10 dark:text-black sm:text-3xl"
+        >
+          {{ name }}
+        </span>
       </div>
 
       <div class="relative z-10 flex flex-1 flex-col justify-center p-7 sm:p-10 lg:p-12 pointer-events-auto">

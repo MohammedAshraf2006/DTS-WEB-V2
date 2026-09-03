@@ -116,7 +116,7 @@ const hasMedia = computed(() => Boolean(activeMedia.value))
             <!-- Large media plane -->
             <div
               class="product-media relative w-full overflow-hidden rounded-xl bg-surface-alt"
-              :class="activeTab === 'esa' ? 'h-[400px] sm:h-[480px] lg:h-[540px]' : activeTab === 'ess' ? 'h-[240px] sm:h-[290px] lg:h-[330px]' : 'aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]'"
+              :class="activeTab === 'esa' ? 'h-[400px] sm:h-[480px] lg:h-[540px]' : activeTab === 'ess' ? 'h-[230px] sm:h-[280px] lg:h-[320px]' : 'h-[260px] sm:h-[320px] lg:h-[380px]'"
             >
               <img
                 v-if="hasMedia"

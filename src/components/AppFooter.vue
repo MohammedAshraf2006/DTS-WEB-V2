@@ -15,6 +15,14 @@ const footerNumbers = computed(() => {
   return Array.isArray(raw) ? raw : []
 })
 
+const footerAddress = computed(() => {
+  void locale.value
+  return t('common.footer.address')
+})
+
+const footerAddressUrl =
+  'https://www.google.com/maps/place/Digital+Transformation+Services+DTS/@30.3094896,31.7275622,14.67z/data=!4m6!3m5!1s0x1457fdc94317b8b7:0x1ab0121372ea4db6!8m2!3d30.3085736!4d31.7089065!16s%2Fg%2F11syxf9_5p?entry=ttu&g_ep=EgoyMDI2MDgxNi4wIKXMDSoASAFQAw%3D%3D'
+
 const productLinks = [
   { key: 'ess', to: '/products/ess' },
   { key: 'ers', to: '/products/ers' },
@@ -195,10 +203,15 @@ const companyLinks = [
               </a>
             </li>
           </ul>
-          <p class="mt-5 flex items-start gap-2 text-xs leading-relaxed text-text-subtle">
+          <a
+            :href="footerAddressUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 flex items-start gap-2 text-xs leading-relaxed text-text-subtle transition-colors hover:text-text-base"
+          >
             <AppIcon name="mapPin" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-            {{ t('common.footer.address') }}
-          </p>
+            <span>{{ footerAddress }}</span>
+          </a>
         </div>
       </div>
 

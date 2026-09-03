@@ -53,33 +53,33 @@
       ]
     },
     "ers": {
-      "title": "POS E-Receipts",
-      "shortDescription": "Designed specifically for retail point-of-sale teams. Issue e-receipts instantly, send them to the tax authority, and monitor their status from a centralized cloud dashboard.",
-      "description": "Designed specifically for retail point-of-sale teams to issue e-receipts instantly and send them to the tax authority from one fast cashier screen. A cashier selects items, issues a receipt or return in seconds, and the system automatically encrypts and sends it to the Egyptian Tax Authority. From one centralized dashboard, you manage branches, POS devices, cashier permissions, and track receipt status in real time. The cloud-based monitoring panel shows daily sales performance, acceptance and rejection rates, and net shift totals from anywhere, without needing to stand at the cashier.\n\nERS combines ease of use with complete tax compliance, designed for speed and accuracy at the point of sale.",
+      "title": "POS E-Receipts Management",
+      "shortDescription": "The centralized platform for managing and issuing e-receipts with complete integration to the tax authority. Issue receipts instantly, track status in real time, generate accurate reports, and manage unlimited branches and POS devices from one dashboard.",
+      "description": "ERS is the centralized integrated platform for managing and issuing e-receipts linked to the tax authority with complete efficiency. It gives you full control to create and send e-receipts, monitor their status in real time, and review accurate reports (daily, monthly, and annual). With absolute flexibility, add unlimited branches and POS devices to manage your entire operation from one central dashboard from anywhere.\n\nThe system is designed with a flexible operating interface that suits all users, enabling you to issue sales receipts and returns with just a few taps without complex screens. The system automatically handles documentation and sends the receipt instantly to the tax authority in the background, ensuring immediate compliance without burdening the user with technical details.",
       "features": [
         {
           "title": "Instant receipt issuance",
-          "detail": "A purpose-built fast cashier interface with minimal fields and maximum speed. Select items, set quantity, issue a sales receipt or return in seconds. The interface strips away complex invoice fields to minimize errors during peak hours. Upon issuance, receipts are encrypted and sent instantly to the tax authority automatically—no extra steps required from the cashier."
+          "detail": "A streamlined, flexible operating interface designed for all users. Issue sales receipts and returns with just a few taps and without complex screens. The system automatically handles documentation and sends receipts instantly to the tax authority in the background, ensuring immediate compliance without technical complications. Users can focus on the sale while the system handles tax requirements seamlessly."
         },
         {
           "title": "Branch and POS device management",
-          "detail": "Precise organizational structure: register each cashier device as an independent POS linked to a specific branch and tax-approved activity code. This ensures every receipt is attributed to the correct device and branch, preventing shift data from mixing and eliminating tax rejection risks. Set up branches, devices, and activity codes once in centralized settings, then the cashier operates the simplified screen with zero daily reconfiguration."
+          "detail": "Centralized integrated management of product data, customer information, and pricing that updates instantly across all operating interfaces. The system includes a smart Excel import tool that supports drag-and-drop file uploads, enabling you to upload historical data or receipts in bulk and save time on manual entry. Simply drag, drop, and import—no tedious data typing."
         },
         {
           "title": "Data management and bulk import",
-          "detail": "Centralized management of items, customers, prices, tax brackets, measurement units, and customer categories through dedicated screens. Items appear ready-to-pick at the cashier, and customers can be linked to receipts seamlessly without slowing the shift. For seamless system integration, use advanced bulk import tools to upload items, customers, or receipts from external files, with real-time import progress tracking."
+          "detail": "Centrally manage product prices and customer data with an advanced bulk import tool for uploading data or receipts through external files to save manual entry time. All changes sync instantly to cashier screens and POS devices without delay. Add new branches, configure tax codes, and organize your entire operation from one admin panel."
         },
         {
           "title": "Receipt status tracking",
-          "detail": "Detailed receipt lifecycle monitoring with intelligent categorization: locally valid, in-process, tax authority approved, or rejected. Rejected receipts are highlighted as urgent alerts, enabling supervisors to review and correct them immediately before shift closing. Returns are displayed separately to prevent mixing with sales totals. Status accuracy is guaranteed—each status reflects the official response from the tax authority, not a local device estimate."
+          "detail": "Live monitoring screen that reflects the actual status of each receipt based on the official response from the tax authority (accepted, in-process, or rejected). The interface highlights receipts that need attention for correction before financial closing, with returns completely separated for accurate financial reporting. Status accuracy is guaranteed—every status reflects official tax authority feedback, not a local device estimate."
         },
         {
           "title": "Thermal cashier print",
-          "detail": "Pre-configured thermal printer templates optimized for point-of-sale efficiency. Issue a professional customer receipt immediately after sale with zero layout setup required each shift. The system automatically pulls entity name, branch, POS device number, and transaction totals from centralized settings to ensure uniform branding across all cashiers. Reprint any receipt with a single tap if paper jams or the customer requests a copy."
+          "detail": "Ready-to-use and optimized thermal printer templates that automatically pull company and branch data from centralized settings, ensuring all receipts are issued with uniform visual branding. Supports on-demand reprint with a single button tap as a flexible solution to handle paper jams or customer copy requests. All receipts maintain professional appearance and consistent formatting across all locations."
         },
         {
           "title": "Shift sales dashboard",
-          "detail": "Panoramic performance view for any time period (daily, weekly, or monthly): total receipts, locally valid, tax authority approved, in-process, and rejected counts. Compare sales against returns to extract accurate net shift totals. Monitor from any connected device—supervisors track performance remotely without standing at the cashier. Intelligent financial filter counts only complete valid receipts, excluding in-process transactions to prevent number distortion during shift close decisions."
+          "detail": "Centralized control panel that enables real-time remote monitoring and displays aggregate reports (daily, monthly, and annual) for sales and returns movements and net revenue. Equipped with an intelligent financial filter that calculates closing figures based exclusively on correct receipts, preventing number distortion caused by pending or in-process receipts. Monitor performance from any device, anytime, anywhere."
         }
       ]
     },

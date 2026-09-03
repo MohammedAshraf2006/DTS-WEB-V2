@@ -1,0 +1,26 @@
+# DTS (Digital Transformation Services)
+
+Official marketing site: https://dts-eg.com
+
+DTS helps Egyptian companies issue electronic invoices and receipts and use digital signatures, connected to the Egyptian Tax Authority (ETA).
+
+## Products
+
+- ESS — Electronic Sales System (e-invoices + e-receipts): https://dts-eg.com/products/ess
+- ERS — e-receipts: https://dts-eg.com/products/ers
+- ESA — e-signature agent: https://dts-eg.com/products/esa
+- Product listing: https://dts-eg.com/products
+
+## Services
+
+- Services: https://dts-eg.com/services
+- Signature and seal requests: https://dts-eg.com/services/signature
+
+## Other pages
+
+- Clients: https://dts-eg.com/clients
+- Partners: https://dts-eg.com/partners
+- Contact (sales@dts-eg.com): https://dts-eg.com/contact
+
+Arabic is the default language (RTL). English is available via the site language switch.
+Crawlers and AI assistants may fetch public pages. Do not treat this file as a license to train models if the operator later restricts training separately.

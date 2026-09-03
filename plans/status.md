@@ -1,6 +1,6 @@
 # Execution status
 
-Last updated: 2026-08-16 (partners CTA clickable; overlay/tilt removed)
+Last updated: 2026-08-26 (mobile sidebar close X + nested products/services)
 
 | Wave | File | Status | Goal |
 |------|------|--------|------|
@@ -20,6 +20,7 @@ Last updated: 2026-08-16 (partners CTA clickable; overlay/tilt removed)
 - **Contact:** `/contact` → `sales@dts-eg.com`; signature form → `tawqe3y_10thoframdan@dts-eg.com`; sales email `sales@dts-eg.com`
 - **Hashes live:** `#products`, `#services` (home teaser), `#about` (home stats)
 - **Build:** `npm run build` passes (2026-08-16)
+- **Crawlers:** GitHub Pages origin allows AI fetch; live dts-eg.com still injects Cloudflare managed `Disallow` for GPTBot/ClaudeBot — Pages deploy alone does not remove it (see `docs/architecture/crawlers.md`)
 
 ## Dependency order
 

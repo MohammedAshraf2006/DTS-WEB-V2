@@ -16,7 +16,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 
 ## Shipped
 
-- [x] **Hero** — Vanta globe; rotating pills (invoice blue / receipt green / signature gold); light hero brightened; dark hero solid navy; spacing tuned
+- [x] **Hero** — Vanta globe; rotating pills (invoice blue / receipt green / signature gold) + logo cards link to `/products/ess|ers|esa`; light hero brightened; dark hero solid navy; spacing tuned
 - [x] **TrustBar** — logo strip; `clients/1.png`, `2.png`; external `http(s)` only; dark bevel without white edges
 - [x] **ProductTabs** — Notion two-column; logo-only tabs; soft tab transition; media slot via `productMedia` (src empty until assets drop)
 - [x] **ServicesGrid** — 3 home services + sculpted e-signature highlight; “all services” → `/services` (page still wave 03)
@@ -27,7 +27,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 ## Still open
 
 - [x] `/partners` page (nav no longer uses missing `#partners`)
-- [ ] Remaining client logos + real names in `src/data/clients.js` (25 placeholders on `/clients` until data arrives)
+- [x] Client names and industries in `src/locales/{ar,en}/clients.json` (SAVCO oils, Orman foundation, El Hana, Abdelmaksoud Market, Class Solutions, Seaharvest oil & gas)
 - [ ] Optional WhyUs if still distinct from `#about` / stats
 - [ ] Product media files under `public/` wired in `ProductTabs` `productMedia`
 - [ ] Dedicated `/services` page content (owned by wave 03; Home CTA already points there)
@@ -35,7 +35,7 @@ Align Home sections with reference product intent; fix hash targets; sync copy a
 ## Tasks (remaining)
 
 1. Optional Home partners teaser (full list is `/partners`)
-2. Replace placeholder client records in `src/data/clients.js` when remaining logos/names arrive
+2. Optional extra client stories when copy arrives
 3. Drop product media and set `productMedia` srcs
 4. Final Home AR/EN + dark/light smoke pass before marking done
 

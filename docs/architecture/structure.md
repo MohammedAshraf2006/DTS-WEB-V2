@@ -23,7 +23,7 @@ src/
     AppHeader.vue
     AppFooter.vue
     AppLoader.vue         # first-open splash
-    WhatsAppFloat.vue     # site-wide WhatsApp FAB
+    WhatsAppFloat.vue     # site-wide WhatsApp FAB (below mobile sidebar)
     SiteBackground.vue    # fixed starfield (light + dark)
     home/                 # home page sections
     products/             # listing cards, header menu cards, media stage
@@ -36,7 +36,7 @@ src/
     products.js           # ESS / ERS / ESA catalog + gallery paths
     services.js           # services catalog + icon paths
     clients.js            # featured clients catalog + logo paths
-    partners.js           # MTS / FEDIS / Tawqe3y + website URLs
+    partners.js           # FEDIS / Tawqe3y / MTS + legal accountant offices
   composables/
     useTheme.js
     useScrolledHeader.js
@@ -51,6 +51,9 @@ src/
     contact.js            # FormSubmit → sales@dts-eg.com (signature form → tawqe3y_10thoframdan@dts-eg.com)
 public/images/            # logos, clients, partners, products, services icons
 public/animations/        # Lottie (mail-box.json)
+public/robots.txt         # allow search + AI fetch (see architecture/crawlers.md)
+public/sitemap.xml        # public routes
+public/llms.txt           # short map for AI assistants
 ```
 
 ## Conventions
@@ -65,7 +68,7 @@ public/animations/        # Lottie (mail-box.json)
 
 ## Current home composition (`HomeView`)
 
-1. `HeroSection` — Vanta + rotating product pills
+1. `HeroSection` — Vanta + rotating product pills (links to `/products/:key`)
 2. `TrustBar` — client logo strip
 3. `ProductTabs` — ESS / ERS / ESA (`#products`)
 4. `ServicesGrid` — 3 services + e-signature highlight (`#services`)

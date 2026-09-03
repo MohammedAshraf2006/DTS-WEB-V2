@@ -6,7 +6,9 @@
     "clients": "Clients",
     "partners": "Partners",
     "contact": "Contact",
-    "cta": "Contact Us"
+    "cta": "Contact Us",
+    "closeMenu": "Close menu",
+    "menu": "Menu"
   },
   "products": {
     "ess": { "name": "ESS", "tagline": "Electronic Sales System" },

@@ -20,9 +20,29 @@
       "description": "A platform to issue and activate certified e-signature and e-seal — with a clear path for people and companies."
     },
     "khalil": {
-      "name": "Mahmoud Khalil",
+      "name": "Legal accountant office Mahmoud Khalil",
       "role": "Accounting & tax services",
-      "description": "A specialist partner for accounting, tax, and financial reporting for businesses and individuals in line with local requirements."
+      "description": "A certified accountant office for accounting, tax, and financial reporting for businesses and individuals in line with local requirements."
+    },
+    "textWorld": {
+      "name": "Legal accountant office Text World",
+      "role": "Accounting & tax services",
+      "description": "A certified accountant office providing accounting, tax, and financial reporting for companies and individuals."
+    },
+    "essamAbdelgawad": {
+      "name": "Legal accountant office Essam Abdelgawad",
+      "role": "Accounting & tax services",
+      "description": "A certified accountant office providing accounting, tax, and financial reporting for businesses and individuals."
+    },
+    "ramiMinyaElQamh": {
+      "name": "Legal accountant office Rami",
+      "role": "Accounting & tax services",
+      "description": "A certified accountant office providing bookkeeping, tax, and financial services for businesses and individuals in Minya Al-Qamh."
+    },
+    "gamalAbdelrazek": {
+      "name": "Legal accountant office Gamal Abdelrazek GAT",
+      "role": "Accounting & tax services",
+      "description": "A certified accountant office specializing in accounting, tax, and related financial services for businesses and individuals."
     }
   }
 }

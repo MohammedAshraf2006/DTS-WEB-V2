@@ -9,7 +9,7 @@ const { t } = useI18n()
     :href="t('common.whatsapp.href')"
     target="_blank"
     rel="noopener noreferrer"
-    class="group fixed bottom-4 right-4 z-50 rounded-full bg-[#25D366] p-3 text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20bd5a] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] md:bottom-6 md:right-6 md:p-4"
+    class="group fixed bottom-4 right-4 z-40 rounded-full bg-[#25D366] p-3 text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20bd5a] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] md:bottom-6 md:right-6 md:p-4"
     :aria-label="t('common.whatsapp.label')"
   >
     <svg

@@ -29,7 +29,7 @@
 | `/services` | Live — full services catalog |
 | `/services/signature` | Live — e-signature / e-seal detail + request form |
 | `/clients` | Live — 1000+ hero + 30 featured client cards |
-| `/partners` | Live — 3 stacked partner cards + visit-site button |
+| `/partners` | Live — partner cards; visit-site only when a URL exists; accountant offices prefixed مكتب محاسب قانوني |
 
 ### Hash targets (Home / footer)
 

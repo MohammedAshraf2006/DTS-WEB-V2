@@ -33,13 +33,15 @@
       },
       "ers": {
         "name": "ERS",
-        "title": "POS E-Receipts",
-        "description": "Designed specifically for retail point-of-sale teams to issue e-receipts instantly and send them to the tax authority from one fast cashier screen. Manage branches and POS devices centrally, track receipt status in real time, and monitor daily sales performance from any device.",
+        "title": "POS E-Receipts Management",
+        "description": "The centralized platform for managing and issuing e-receipts with complete integration to the tax authority. Issue receipts instantly, track their status in real time, generate accurate reports (daily, monthly, annual), and manage unlimited branches and POS devices from one central dashboard.",
         "features": [
-          "Instant receipt issuance purpose-built cashier interface designed for speed and accuracy",
-          "Flexible integration seamlessly import receipts from other sales systems",
-          "Centralized management complete control over POS devices, branches, and cashier permissions from one dashboard",
-          "Live monitoring cloud-based dashboard tracks receipt status (accepted, rejected, processing) and daily sales in real time"
+          "Instant receipt issuance: streamlined interface for creating and sending receipts in seconds",
+          "Centralized data management: unified control of items, customers, prices, and sync across all devices",
+          "Smart Excel import: drag-and-drop bulk import tool for items, customers, and historical receipts",
+          "Real-time status tracking: live monitoring of receipt acceptance, rejection, and processing status",
+          "Professional thermal printing: automated templates with company branding, reprint on demand",
+          "Centralized dashboard: comprehensive reports (daily/monthly/annual) with intelligent financial filter"
         ]
       },
       "esa": {
