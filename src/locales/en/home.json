@@ -9,16 +9,30 @@
       "signature": "E-Signature"
     },
     "subtitle": "We connect your business directly to the Egyptian Tax Authority with reliable, fast-to-deploy invoicing, receipts, and e-signature solutions.",
-    "ctaPrimary": "Get Your E-Seal",
-    "ctaSecondary": "Discover Our Products",
-    "trustBadge": "Certified by Hamada (Mizo)"
+    "doors": {
+      "signature": {
+        "title": "Get your signature and seal",
+        "text": "Start a request for an e-signature or e-seal."
+      },
+      "procedures": {
+        "title": "Procedures and contact",
+        "text": "How requests work, and how to reach the DTS team."
+      },
+      "ess": {
+        "title": "Learn about ESS",
+        "text": "The invoice and receipt subscription, quietly."
+      }
+    }
   },
   "trustBar": {
     "label": "Some of our key clients who trust us"
   },
   "products": {
     "title": "Our Products",
-    "subtitle": "Browser invoicing and receipts, a cashier POS lane, and a signing agent on your PC",
+    "subtitle": "ESS is the subscription for e-invoices and e-receipts. ESA complements it by signing and sealing on your PC.",
+    "esaComplement": "ESA signs and seals what ESS issues.",
+    "ersQuiet": "Cashier receipts only",
+    "ersCta": "See ERS",
     "tabs": {
       "ess": {
         "name": "ESS",
@@ -85,38 +99,5 @@
     ],
     "learnMore": "Learn more",
     "cta": "All services"
-  },
-  "stats": {
-    "title": "Numbers that speak",
-    "subtitle": "Real results from teams that trust DTS every day",
-    "live": "live",
-    "items": [
-      {
-        "value": "10,000+",
-        "label": "Clients",
-        "growth": "+12%",
-        "trend": "up",
-        "hint": "Last 12 months"
-      },
-      {
-        "value": "95%",
-        "label": "Annual growth",
-        "growth": "+18%",
-        "trend": "up",
-        "hint": "Expansion signal"
-      },
-      {
-        "value": "48%",
-        "label": "Response time",
-        "growth": "-48%",
-        "trend": "down",
-        "hint": "Faster support"
-      }
-    ]
-  },
-  "cta": {
-    "title": "Trusted by 10,000+ clients",
-    "subtitle": "Join them — use our services and grow your business.",
-    "button": "See our clients"
   }
 }

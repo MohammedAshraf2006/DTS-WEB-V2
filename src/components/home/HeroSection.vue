@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t, locale } = useI18n()
 const isEnglishLocale = computed(() => locale.value === 'en')
@@ -224,20 +223,27 @@ onBeforeUnmount(() => {
         {{ t('home.hero.subtitle') }}
       </p>
 
-      <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row" style="transition-delay: .24s">
+      <div class="reveal mt-9 grid w-full max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3" style="transition-delay: .24s">
         <RouterLink
           to="/services/signature"
-          class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
+          class="flex flex-col rounded-2xl bg-primary px-5 py-4 text-start text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
         >
-          {{ t('home.hero.ctaPrimary') }}
-          <AppIcon name="arrowLeft" class="h-4 w-4 rtl:block ltr:hidden" />
-          <AppIcon name="arrowRight" class="h-4 w-4 ltr:block rtl:hidden" />
+          <span class="text-sm font-bold">{{ t('home.hero.doors.signature.title') }}</span>
+          <span class="mt-1 text-xs leading-relaxed text-text-onprimary/80">{{ t('home.hero.doors.signature.text') }}</span>
         </RouterLink>
         <RouterLink
-          to="/products"
-          class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-7 py-3.5 text-sm font-bold text-text-base transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+          to="/knowledge"
+          class="flex flex-col rounded-2xl border border-border bg-surface-alt px-5 py-4 text-start transition-all hover:-translate-y-0.5 hover:border-primary"
         >
-          {{ t('home.hero.ctaSecondary') }}
+          <span class="text-sm font-bold text-text-base">{{ t('home.hero.doors.procedures.title') }}</span>
+          <span class="mt-1 text-xs leading-relaxed text-text-muted">{{ t('home.hero.doors.procedures.text') }}</span>
+        </RouterLink>
+        <RouterLink
+          to="/products/ess"
+          class="flex flex-col rounded-2xl px-5 py-4 text-start transition-colors hover:bg-surface-alt"
+        >
+          <span class="text-sm font-semibold text-text-muted">{{ t('home.hero.doors.ess.title') }}</span>
+          <span class="mt-1 text-xs leading-relaxed text-text-subtle">{{ t('home.hero.doors.ess.text') }}</span>
         </RouterLink>
       </div>
     </div>

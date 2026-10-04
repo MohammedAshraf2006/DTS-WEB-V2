@@ -6,10 +6,17 @@ DTS helps Egyptian companies issue electronic invoices and receipts and use digi
 
 ## Products
 
-- ESS — Electronic Sales System (e-invoices + e-receipts): https://dts-eg.com/products/ess
-- ERS — e-receipts: https://dts-eg.com/products/ers
-- ESA — e-signature agent: https://dts-eg.com/products/esa
+- ESS — subscription for e-invoices and e-receipts: https://dts-eg.com/products/ess
+- ESA — signs and seals what ESS issues: https://dts-eg.com/products/esa
+- ERS — quiet cashier e-receipts path: https://dts-eg.com/products/ers
 - Product listing: https://dts-eg.com/products
+
+## Procedures
+
+- Knowledge index: https://dts-eg.com/knowledge
+- Request a signature or seal: https://dts-eg.com/knowledge/request-signature
+- What ESS is: https://dts-eg.com/knowledge/what-is-ess
+- How to reach DTS: https://dts-eg.com/knowledge/contact-hours
 
 ## Services
 

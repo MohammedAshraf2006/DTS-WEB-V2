@@ -44,6 +44,16 @@ const routes = [
         component: () => import('@/views/PartnersView.vue')
       },
       {
+        path: 'knowledge',
+        name: 'knowledge',
+        component: () => import('@/views/KnowledgeIndexView.vue')
+      },
+      {
+        path: 'knowledge/:slug',
+        name: 'knowledge-article',
+        component: () => import('@/views/KnowledgeArticleView.vue')
+      },
+      {
         path: 'products/:key',
         name: 'product-detail',
         component: () => import('@/views/ProductDetailView.vue'),

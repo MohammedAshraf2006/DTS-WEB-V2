@@ -2,6 +2,7 @@
 import { defineAsyncComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useContactForm } from '@/composables/useContactForm'
+import { SALES_EMAIL } from '@/data/contactEmails'
 
 const MailSuccessLottie = defineAsyncComponent(() => import('./MailSuccessLottie.vue'))
 
@@ -12,6 +13,7 @@ const {
   isSubmitting,
   showSuccess,
   sendError,
+  mailtoHref,
   handleSubmit,
   sendAnother
 } = useContactForm()
@@ -93,6 +95,18 @@ const fieldClass =
     </div>
 
     <p v-if="sendError" class="text-sm text-danger">{{ sendError }}</p>
+    <a
+      v-if="mailtoHref"
+      :href="mailtoHref"
+      class="inline-flex text-sm font-semibold text-primary hover:underline"
+    >
+      {{ t('contact.openMail') }}
+    </a>
+
+    <p class="text-xs leading-relaxed text-text-subtle">
+      {{ t('contact.inboxNote', { email: SALES_EMAIL }) }}
+      {{ t('common.footer.hours') }}
+    </p>
 
     <button
       type="submit"

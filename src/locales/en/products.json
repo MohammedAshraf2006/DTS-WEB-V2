@@ -1,6 +1,8 @@
 {
   "title": "Our Products",
-  "subtitle": "Three complementary tools: browser invoicing and receipts, a fast POS lane, and a signing agent on your PC.",
+  "subtitle": "ESS is the subscription for e-invoices and e-receipts. ESA complements it with signing and sealing. ERS is a quiet path for cashier receipts.",
+  "ersQuiet": "Cashier receipts only",
+  "ersCta": "See ERS",
   "learnMore": "Learn more",
   "contactCta": "Request the product",
   "otherProducts": "More products",
@@ -54,7 +56,7 @@
     },
     "ers": {
       "title": "POS E-Receipts Management",
-      "shortDescription": "The centralized platform for managing and issuing e-receipts with complete integration to the tax authority. Issue receipts instantly, track status in real time, generate accurate reports, and manage unlimited branches and POS devices from one dashboard.",
+      "shortDescription": "A quiet path for cashier e-receipts only, without an invoice cycle.",
       "description": "ERS is the centralized integrated platform for managing and issuing e-receipts linked to the tax authority with complete efficiency. It gives you full control to create and send e-receipts, monitor their status in real time, and review accurate reports (daily, monthly, and annual). With absolute flexibility, add unlimited branches and POS devices to manage your entire operation from one central dashboard from anywhere.\n\nThe system is designed with a flexible operating interface that suits all users, enabling you to issue sales receipts and returns with just a few taps without complex screens. The system automatically handles documentation and sends the receipt instantly to the tax authority in the background, ensuring immediate compliance without burdening the user with technical details.",
       "features": [
         {
@@ -85,7 +87,7 @@
     },
     "esa": {
       "title": "Electronic Signature Agent",
-      "shortDescription": "An advanced electronic signature application designed as a practical and modern alternative to ePass2003, enabling secure and easy use of e-signature and e-seal certificates across different platforms and electronic portals.",
+      "shortDescription": "Complements ESS: signs and seals documents on your PC before submit, and works with e-signature and e-seal certificates across portals.",
       "description": "ESA – Electronic Signature Agent is an advanced electronic signature application designed as a practical and modern alternative to ePass2003, enabling secure and easy use of e-signature and e-seal certificates across different platforms and electronic portals. It keeps pace with the growing reliance on electronic signing in digital transactions, providing a reliable solution for use in different business environments and electronic services.\n\nESA provides a more stable and user-friendly signing experience while maintaining the highest security standards. It protects against user mistakes, supports multiple signing device types, and integrates seamlessly with the Egyptian Tax Authority's requirements. Whether you're signing invoices, receipts, or other critical documents, ESA delivers dependable performance with comprehensive device support and fail-safe operation.\n\nWith ESA you get higher efficiency and dependable security.",
       "features": [
         {

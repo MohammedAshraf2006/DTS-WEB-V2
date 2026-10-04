@@ -33,6 +33,7 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 - Signature request form `/services/signature` posts to `tawqe3y_10thoframdan@dts-eg.com`
 - Signature page WhatsApp: `https://wa.me/201050992816`
 - Phones and address live under `common.footer.*` (Villa 136, District 44, Misr El Noor Road, 10th of Ramadan City)
+- Business hours in the footer: Sunday–Thursday, 9:00 AM to 5:00 PM. LocalBusiness JSON-LD keeps the same span as 09:00–17:00
 - WhatsApp float: `https://wa.me/201050992817` (verified from DTS-WEB)
 - Public reference site/domain intent: `dts-eg.com`
 

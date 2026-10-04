@@ -53,11 +53,14 @@ export async function sendContactMessage(payload, options = {}) {
 
     if (res.ok) return { ok: true, via: 'formsubmit' }
   } catch {
-    // fall through to mailto
+    // FormSubmit unavailable — offer a visible mailto step
   }
 
-  window.location.href = buildMailto({ ...payload, _subject: subject }, toEmail)
-  return { ok: true, via: 'mailto' }
+  return {
+    ok: false,
+    via: 'mailto',
+    mailto: buildMailto({ ...payload, _subject: subject }, toEmail)
+  }
 }
 
 export { DEFAULT_CONTACT_EMAIL, SIGNATURE_CONTACT_EMAIL }

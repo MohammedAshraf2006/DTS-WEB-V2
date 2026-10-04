@@ -11,9 +11,9 @@
     "menu": "Menu"
   },
   "products": {
-    "ess": { "name": "ESS", "tagline": "Electronic Sales System" },
-    "ers": { "name": "ERS", "tagline": "POS E-Receipts" },
-    "esa": { "name": "ESA", "tagline": "Electronic Signature Agent" }
+    "ess": { "name": "ESS", "tagline": "Subscription for invoices and receipts" },
+    "esa": { "name": "ESA", "tagline": "Signs and seals what ESS issues" },
+    "ers": { "name": "ERS", "tagline": "Cashier receipts" }
   },
   "footer": {
     "tagline": "Digital transformation with confidence",
@@ -38,6 +38,7 @@
     "signature": "E-signature",
     "contactNumbersTitle": "Phone numbers",
     "address": "Villa 136, District 44, Misr El Noor Road, 10th of Ramadan City",
+    "hours": "Sunday–Thursday, 9:00 AM to 5:00 PM",
     "phone": "(+20) 55 4492037",
     "supportPhone": "(+20) 10 50992816",
     "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],

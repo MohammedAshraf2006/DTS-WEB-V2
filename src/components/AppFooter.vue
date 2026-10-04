@@ -25,8 +25,8 @@ const footerAddressUrl =
 
 const productLinks = [
   { key: 'ess', to: '/products/ess' },
-  { key: 'ers', to: '/products/ers' },
-  { key: 'esa', to: '/products/esa' }
+  { key: 'esa', to: '/products/esa' },
+  { key: 'ers', to: '/products/ers' }
 ]
 
 const companyLinks = [
@@ -34,7 +34,8 @@ const companyLinks = [
   { labelKey: 'common.footer.quickLinks.products', to: '/products' },
   { labelKey: 'common.footer.quickLinks.services', to: '/services' },
   { labelKey: 'common.footer.quickLinks.about', to: '/clients' },
-  { labelKey: 'common.footer.quickLinks.partners', to: '/partners' }
+  { labelKey: 'common.footer.quickLinks.partners', to: '/partners' },
+  { labelKey: 'knowledge.title', to: '/knowledge' }
 ]
 </script>
 
@@ -212,6 +213,9 @@ const companyLinks = [
             <AppIcon name="mapPin" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <span>{{ footerAddress }}</span>
           </a>
+          <p class="mt-3 text-xs leading-relaxed text-text-subtle">
+            {{ t('common.footer.hours') }}
+          </p>
         </div>
       </div>
 

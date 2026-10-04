@@ -9,6 +9,7 @@ import arContact from './locales/ar/contact.json'
 import arServices from './locales/ar/services.json'
 import arClients from './locales/ar/clients.json'
 import arPartners from './locales/ar/partners.json'
+import arKnowledge from './locales/ar/knowledge.json'
 import enCommon from './locales/en/common.json'
 import enHome from './locales/en/home.json'
 import enProducts from './locales/en/products.json'
@@ -16,6 +17,7 @@ import enContact from './locales/en/contact.json'
 import enServices from './locales/en/services.json'
 import enClients from './locales/en/clients.json'
 import enPartners from './locales/en/partners.json'
+import enKnowledge from './locales/en/knowledge.json'
 
 const savedLocale = localStorage.getItem('dts-locale') || 'ar'
 
@@ -31,7 +33,8 @@ const i18n = createI18n({
       contact: arContact,
       services: arServices,
       clients: arClients,
-      partners: arPartners
+      partners: arPartners,
+      knowledge: arKnowledge
     },
     en: {
       common: enCommon,
@@ -40,7 +43,8 @@ const i18n = createI18n({
       contact: enContact,
       services: enServices,
       clients: enClients,
-      partners: enPartners
+      partners: enPartners,
+      knowledge: enKnowledge
     }
   }
 })

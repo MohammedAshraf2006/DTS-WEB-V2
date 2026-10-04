@@ -29,6 +29,14 @@ Source: `src/assets/colors.css`
 
 Light mode keeps this navy/blue family. Dark mode: **very dark royal navy** surfaces (`#050A18`) and **electric cyan** (`#00E8F0`) accents.
 
+## Hosting
+
+- **Build output:** `dist/` via `npm run build`
+- **Host:** GitHub Pages, custom domain `dts-eg.com` (`CNAME` in the repo)
+- **Edge:** Cloudflare proxies `dts-eg.com` (orange-cloud). Pages serves origin files; Cloudflare can still rewrite `robots.txt` (see `crawlers.md`)
+- **Deep links:** `scripts/emit-route-html.mjs` writes `dist/<route>/index.html` so public routes return HTTP 200 without JavaScript. Unknown paths still use `public/404.html`
+- This repo does not include `.github/workflows/deploy.yml`. Publishing `dist` is done from the GitHub Pages settings for the repository
+
 ## System boundaries
 
 - **In scope:** public pages, locale switching, light/dark theme, marketing sections, thin `fetch` helper, first-load splash, site-wide starfield background
@@ -39,7 +47,7 @@ Light mode keeps this navy/blue family. Dark mode: **very dark royal navy** surf
 
 - ApexCharts available on `window` from `src/main.js` (optional charting)
 - Home hero loads Vanta Globe via CDN (Three.js) — presentation only
-- Stat cards use CSS sparklines + `useCountUp` (not ApexCharts by default)
+- Procedure articles live in `content/knowledge/{ar,en}` and are compiled at build time (`scripts/build-knowledge.mjs`, `markdown-it`)
 
 ## Source of truth
 

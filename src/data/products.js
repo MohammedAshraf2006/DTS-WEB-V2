@@ -5,7 +5,7 @@
  * Videos: MP4 (H.264) under public/videos/{ess,ers,esa}/ — max ~720p, always set a WebP poster.
  * ESA Lite installer: productsCatalog.esa.liteDownloadUrl
  */
-export const PRODUCT_KEYS = ['ess', 'ers', 'esa']
+export const PRODUCT_KEYS = ['ess', 'esa', 'ers']
 
 export const productsCatalog = {
   ess: {

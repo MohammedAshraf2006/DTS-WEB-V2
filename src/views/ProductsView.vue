@@ -1,8 +1,9 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
-import { PRODUCT_KEYS, productsCatalog } from '@/data/products'
+import { productsCatalog } from '@/data/products'
 import ProductSculptCard from '@/components/products/ProductSculptCard.vue'
+import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t } = useI18n()
 
@@ -21,15 +22,29 @@ useScrollReveal()
         </p>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
+      <div class="mt-10 lg:mt-12">
         <ProductSculptCard
-          v-for="(key, i) in PRODUCT_KEYS"
-          :key="key"
-          :product-key="key"
-          :product="productsCatalog[key]"
-          :delay="i * 0.08"
+          product-key="ess"
+          :product="productsCatalog.ess"
         />
       </div>
+
+      <div class="mt-6 max-w-3xl">
+        <ProductSculptCard
+          product-key="esa"
+          :product="productsCatalog.esa"
+          :delay="0.08"
+        />
+      </div>
+
+      <p class="reveal mt-8 text-sm text-text-subtle">
+        <span>{{ t('products.ersQuiet') }}</span>
+        <RouterLink to="/products/ers" class="ms-2 inline-flex items-center gap-1 font-semibold text-text-muted hover:text-primary">
+          {{ t('products.ersCta') }}
+          <AppIcon name="arrowLeft" class="h-3.5 w-3.5 rtl:block ltr:hidden" />
+          <AppIcon name="arrowRight" class="h-3.5 w-3.5 ltr:block rtl:hidden" />
+        </RouterLink>
+      </p>
     </div>
   </section>
 </template>

@@ -19,6 +19,7 @@ export function useContactForm() {
   const isSubmitting = ref(false)
   const showSuccess = ref(false)
   const sendError = ref('')
+  const mailtoHref = ref('')
 
   function resetForm() {
     form.name = ''
@@ -33,6 +34,7 @@ export function useContactForm() {
       delete errors[key]
     })
     sendError.value = ''
+    mailtoHref.value = ''
   }
 
   function validate() {
@@ -77,15 +79,20 @@ export function useContactForm() {
     sendError.value = ''
 
     try {
-      await sendContactMessage({
+      const result = await sendContactMessage({
         name: form.name.trim(),
         phone: form.phone.trim(),
         email: form.email.trim(),
         message: form.message.trim(),
         honeypot: form.honeypot
       })
-      resetForm()
-      showSuccess.value = true
+      if (result.ok) {
+        resetForm()
+        showSuccess.value = true
+      } else {
+        mailtoHref.value = result.mailto
+        sendError.value = t('contact.errors.send')
+      }
     } catch {
       sendError.value = t('contact.errors.send')
     } finally {
@@ -104,6 +111,7 @@ export function useContactForm() {
     isSubmitting,
     showSuccess,
     sendError,
+    mailtoHref,
     handleSubmit,
     sendAnother
   }

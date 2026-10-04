@@ -259,15 +259,22 @@ onBeforeUnmount(() => {
               <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
             </RouterLink>
           </div>
-          <div class="grid grid-cols-3 items-stretch gap-4">
+          <div class="grid grid-cols-2 items-stretch gap-4">
             <ProductMenuCard
-              v-for="key in productKeys"
+              v-for="key in ['ess', 'esa']"
               :key="key"
               :product-key="key"
               :tint="productsCatalog[key].tint"
               @navigate="closeProducts"
             />
           </div>
+          <RouterLink
+            to="/products/ers"
+            class="mt-4 block text-sm text-text-subtle hover:text-text-muted"
+            @click="closeProducts"
+          >
+            {{ t('common.products.ers.name') }} — {{ t('common.products.ers.tagline') }}
+          </RouterLink>
         </div>
       </div>
     </Transition>
@@ -378,7 +385,8 @@ onBeforeUnmount(() => {
                   </li>
                   <li v-for="key in productKeys" :key="key">
                     <RouterLink
-                      class="block rounded-lg px-3 py-2 text-sm font-medium text-text-muted"
+                      class="block rounded-lg px-3 py-2 text-sm font-medium"
+                      :class="key === 'ers' ? 'text-text-subtle' : 'text-text-muted'"
                       :to="`/products/${key}`"
                       @click="closeMobile"
                     >

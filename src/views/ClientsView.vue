@@ -1,15 +1,11 @@
 <script setup>
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
-import { useCountUp } from '@/composables/useCountUp'
 import { getClientsList } from '@/data/clients'
 import ClientCard from '@/components/clients/ClientCard.vue'
 
 const { t } = useI18n()
 const clients = getClientsList()
-const countEl = ref(null)
-const { displayValue } = useCountUp(countEl, t('clients.count'))
 
 useScrollReveal()
 </script>
@@ -21,13 +17,7 @@ useScrollReveal()
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
           {{ t('clients.eyebrow') }}
         </p>
-        <p
-          ref="countEl"
-          class="mt-4 font-heading text-6xl font-bold tracking-tight text-primary sm:text-7xl lg:text-8xl"
-        >
-          {{ displayValue }}
-        </p>
-        <h1 class="mt-3 font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl lg:text-4xl">
+        <h1 class="mt-4 font-heading text-3xl font-bold tracking-tight text-text-base sm:text-4xl lg:text-5xl">
           {{ t('clients.title') }}
         </h1>
         <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">

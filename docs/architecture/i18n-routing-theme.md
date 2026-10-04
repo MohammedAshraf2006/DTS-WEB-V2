@@ -4,11 +4,11 @@
 
 - Library: vue-i18n 9, `legacy: false`
 - Default locale: `ar` (from `localStorage` key `dts-locale`, fallback `en`)
-- Namespaces merged per locale: `common`, `home`, `products`, `contact`, `services`, `clients`, `partners`
+- Namespaces merged per locale: `common`, `home`, `products`, `contact`, `services`, `clients`, `partners`, `knowledge`
 - Usage: `t('common.nav.home')`, `t('home.hero.titlePrefix')`, `tm(...)` for arrays/objects
 - Add a new page namespace as `src/locales/{ar,en}/<page>.json` and register it in `i18n.js`
 - Keep `ar` and `en` key trees in parallel — no hardcoded UI copy in templates
-- Example localized chrome string: `home.stats.live` → `مباشر` / `live`
+- Example localized chrome string: `common.footer.hours` → `الأحد–الخميس، 9:00 صباحًا إلى 5:00 مساءً` / `Sunday–Thursday, 9:00 AM to 5:00 PM`
 
 ## HTML lang / dir (`src/main.js`)
 
@@ -28,16 +28,17 @@
 |------|--------|
 | `/services` | Live — full services catalog |
 | `/services/signature` | Live — e-signature / e-seal detail + request form |
-| `/clients` | Live — 1000+ hero + 30 featured client cards |
+| `/clients` | Live — featured client cards, no public count claim |
 | `/partners` | Live — partner cards; visit-site only when a URL exists; accountant offices prefixed مكتب محاسب قانوني |
+| `/knowledge` | Live — procedure index compiled from Markdown |
+| `/knowledge/:slug` | Live — one article (`request-signature`, `what-is-ess`, `contact-hours`) |
 
 ### Hash targets (Home / footer)
 
 | Hash | Status |
 |------|--------|
-| `#products` | Live — `ProductTabs` |
+| `#products` | Live — ESS panel, ESA complement, quiet ERS link |
 | `#services` | Live — `ServicesGrid` teaser (full list on `/services`) |
-| `#about` | Live — `StatsCta` |
 | `#contact` | Redirected to page `/contact` (form) |
 | `#partners` | Replaced by page `/partners` |
 | `/services#service-{key}` | Live — scrolls to and highlights a services card (signature still uses `/services/signature`) |

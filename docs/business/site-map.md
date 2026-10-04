@@ -4,24 +4,25 @@
 
 | Surface | Implementation |
 |---------|----------------|
-| Home `/` | `HomeView`: Hero → TrustBar → ProductTabs → ServicesGrid → StatsCta. Hero rotating pills and product logos link to `/products/ess`, `/products/ers`, `/products/esa`. |
-| Products `/products` | `ProductsView` — three sculpted cards (ESS / ERS / ESA) |
+| Home `/` | `HomeView`: Hero (three doors) → TrustBar → ProductTabs (ESS, then ESA, quiet ERS) → ServicesGrid. |
+| Products `/products` | `ProductsView` — ESS featured, ESA complement card, quiet ERS link |
 | Product detail `/products/:key` | `ProductDetailView` — hero, media gallery, features, ESA Lite CTA |
 | Services `/services` | `ServicesView` — 8 services with detail copy + 3D icons |
-| Signature `/services/signature` | `SignatureServiceView` — توقيع/ختم panels + benefits + request form to `tawqe3y_10thoframdan@dts-eg.com` (WhatsApp `201050992816`) |
-| Clients `/clients` | `ClientsView` — 10000+ highlight + 30 cards (logo, name, industry). Names/industries live in locale JSON. Stories later. |
+| Signature `/services/signature` | `SignatureServiceView` — signature/seal panels + request form to `tawqe3y_10thoframdan@dts-eg.com` |
+| Knowledge `/knowledge` | `KnowledgeIndexView` — procedure articles compiled from `content/knowledge/{ar,en}` |
+| Knowledge article `/knowledge/:slug` | `KnowledgeArticleView` |
+| Clients `/clients` | `ClientsView` — featured client cards (logo, name, industry). No public client-count claim. |
 | Partners `/partners` | `PartnersView` — stacked cards (FEDIS, Tawqe3y, MTS, plus certified accountant offices). Visit-site CTA only when a partner has a URL. |
 | 404 | `NotFoundView` |
-| Contact `/contact` | `ContactView` — form to `sales@dts-eg.com` + Mail Box Lottie on success |
+| Contact `/contact` | `ContactView` — form to `sales@dts-eg.com`; mailto is shown only if FormSubmit fails |
 | Chrome | `AppLoader` + `MainLayout` (`SiteBackground`, `AppHeader` with mobile menu at header end and side drawer from the same side, `AppFooter`) + `WhatsAppFloat` |
 
 ### Home / footer anchors
 
 | Id | Section |
 |----|---------|
-| `#products` | Product tabs teaser (links through to `/products/:key`) |
+| `#products` | ESS panel, ESA complement, quiet ERS link |
 | `#services` | Top 3 services + e-signature highlight |
-| `#about` | Stats + “trusted by” CTA band |
 | `#contact` | Replaced by `/contact` |
 
 Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (mega menu). Nav **Clients** → `/clients` (no mega menu). Nav **Partners** → `/partners` (no mega menu).
@@ -34,8 +35,8 @@ Nav **Products** → `/products` (mega menu). Nav **Services** → `/services` (
 | Services (home strip) | Live (`#services` teaser); full `/services` + `/services/signature` |
 | Products listing | Live `/products` |
 | Product detail | Live `/products/ess`, `/products/ers`, `/products/esa` (media placeholders until files are dropped) |
-| About / numbers | Live as home `#about` (StatsCta); former About nav label is now **Clients** |
-| Clients / trust | Live `/clients` (30 featured cards); Home `TrustBar` uses curated logos |
+| About / numbers | Unpublished marketing counts stay off the site until wording is locked. Footer hours: Sunday–Thursday, 9:00 AM to 5:00 PM |
+| Clients / trust | Live `/clients` (featured cards); Home `TrustBar` uses curated logos |
 | Partners | Live `/partners` (tech partners + legal accountant offices; visit-site only if URL exists) |
 | Contact | Live `/contact` form to `sales@dts-eg.com`; footer Support/Sales/E-signature emails reveal on click |
 | WhatsApp float | Live — `https://wa.me/201050992817`; sits under the mobile sidebar when the menu is open |

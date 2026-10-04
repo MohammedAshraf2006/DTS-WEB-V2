@@ -24,6 +24,7 @@ export function useSignatureForm() {
   const isSubmitting = ref(false)
   const showSuccess = ref(false)
   const sendError = ref('')
+  const mailtoHref = ref('')
 
   function resetForm() {
     form.name = ''
@@ -43,6 +44,7 @@ export function useSignatureForm() {
       delete errors[key]
     })
     sendError.value = ''
+    mailtoHref.value = ''
   }
 
   function validate() {
@@ -91,7 +93,7 @@ export function useSignatureForm() {
         ? t(`services.signaturePage.form.serviceTypes.${form.serviceType}`)
         : ''
 
-      await sendContactMessage(
+      const result = await sendContactMessage(
         {
           name: form.name.trim(),
           phone: form.phone.trim(),
@@ -107,8 +109,13 @@ export function useSignatureForm() {
         },
         { to: SIGNATURE_CONTACT_EMAIL }
       )
-      resetForm()
-      showSuccess.value = true
+      if (result.ok) {
+        resetForm()
+        showSuccess.value = true
+      } else {
+        mailtoHref.value = result.mailto
+        sendError.value = t('contact.errors.send')
+      }
     } catch {
       sendError.value = t('contact.errors.send')
     } finally {
@@ -127,6 +134,7 @@ export function useSignatureForm() {
     isSubmitting,
     showSuccess,
     sendError,
+    mailtoHref,
     handleSubmit,
     sendAnother
   }

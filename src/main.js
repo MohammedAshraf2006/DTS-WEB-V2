@@ -18,19 +18,8 @@ function syncHtmlDir(locale) {
   document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
 }
 
-// مزامنة عنوان تاب المتصفح مع اللغة الحالية
-const TITLES = {
-  ar: 'DTS | خدمات التحول الرقمى',
-  en: 'DTS | Digital Transformation Services'
-}
-function syncTitle(locale) {
-  document.title = TITLES[locale] || TITLES.ar
-}
-
 syncHtmlDir(i18n.global.locale.value)
-syncTitle(i18n.global.locale.value)
 watch(i18n.global.locale, (newLocale) => {
   syncHtmlDir(newLocale)
-  syncTitle(newLocale)
   localStorage.setItem('dts-locale', newLocale)
 })

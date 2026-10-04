@@ -2,6 +2,7 @@
 import { defineAsyncComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSignatureForm } from '@/composables/useSignatureForm'
+import { SIGNATURE_CONTACT_EMAIL } from '@/services/contact'
 
 const MailSuccessLottie = defineAsyncComponent(() =>
   import('@/components/contact/MailSuccessLottie.vue')
@@ -14,6 +15,7 @@ const {
   isSubmitting,
   showSuccess,
   sendError,
+  mailtoHref,
   handleSubmit,
   sendAnother
 } = useSignatureForm()
@@ -155,6 +157,18 @@ const fieldClass =
     </div>
 
     <p v-if="sendError" class="text-sm text-danger">{{ sendError }}</p>
+    <a
+      v-if="mailtoHref"
+      :href="mailtoHref"
+      class="inline-flex text-sm font-semibold text-primary hover:underline"
+    >
+      {{ t('contact.openMail') }}
+    </a>
+
+    <p class="text-xs leading-relaxed text-text-subtle">
+      {{ t('contact.inboxNote', { email: SIGNATURE_CONTACT_EMAIL }) }}
+      {{ t('common.footer.hours') }}
+    </p>
 
     <button
       type="submit"

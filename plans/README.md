@@ -5,11 +5,11 @@ Wave-based delivery for DTS-WEB V2.
 | File | Role |
 |------|------|
 | [status.md](status.md) | Overall execution status board |
-| [wave-00-bootstrap.md](wave-00-bootstrap.md) … [wave-05-*.md](wave-05-quality-launch.md) | Per-wave scope |
+| [wave-00-bootstrap.md](wave-00-bootstrap.md) … [wave-06-public-trust.md](wave-06-public-trust.md) | Per-wave scope |
 
 ## Current focus
 
-- **Done:** wave 00, wave 01, wave 03, wave 04; products + services routes; contact page
+- **Done:** wave 00, wave 01, wave 03, wave 04, wave 06; products + services routes; contact page; knowledge center
 - **Active:** Wave 02 partners/clients still open.
 - **Next:** launch QA (05)
 
