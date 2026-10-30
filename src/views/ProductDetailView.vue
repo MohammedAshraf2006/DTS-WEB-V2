@@ -7,6 +7,7 @@ import { PRODUCT_KEYS, getProduct } from '@/data/products'
 import ProductMediaStage from '@/components/products/ProductMediaStage.vue'
 import ProductFeatureCards from '@/components/products/ProductFeatureCards.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { trackEvent } from '@/analytics/track.js'
 
 const { t, tm, locale } = useI18n()
 const route = useRoute()
@@ -63,7 +64,7 @@ watch(key, async () => {
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
             <RouterLink
-              to="/contact"
+              :to="`/contact/?service=${key}`"
               class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
             >
               {{ t('products.contactCta') }}
@@ -74,6 +75,7 @@ watch(key, async () => {
               class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
               target="_blank"
               rel="noopener noreferrer"
+              @click="trackEvent('download_esa_lite')"
             >
               <AppIcon name="download" class="h-4 w-4" />
               {{ t('products.lite.cta') }}
@@ -95,7 +97,7 @@ watch(key, async () => {
           <RouterLink
             v-for="other in others"
             :key="other"
-            :to="`/products/${other}`"
+            :to="`/products/${other}/`"
             class="group flex items-center gap-4 rounded-2xl border border-border bg-surface-alt p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
           >
             <span class="logo-well flex h-12 w-12 items-center justify-center rounded-xl">

@@ -3,7 +3,7 @@
   "title": "Clients who work with DTS",
   "subtitle": "Here are 30 of our key clients across logistics, industry, education, and retail.",
   "gridTitle": "Featured clients",
-  "gridSubtitle": "Each card shows the logo, name, and industry. Selected success stories will be added later.",
+  "gridSubtitle": "Each card shows the logo, name, and industry.",
   "items": {
     "hellmann": { "name": "Hellmann Worldwide Logistics", "industry": "Global logistics" },
     "bue": { "name": "The British University in Egypt", "industry": "Higher education" },

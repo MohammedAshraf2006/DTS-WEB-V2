@@ -10,7 +10,8 @@ const props = defineProps({
   productKey: { type: String, required: true },
   product: { type: Object, required: true },
   delay: { type: Number, default: 0 },
-  compact: { type: Boolean, default: false }
+  compact: { type: Boolean, default: false },
+  featured: { type: Boolean, default: false }
 })
 
 const { t, locale } = useI18n()
@@ -51,26 +52,49 @@ const tintClass = computed(() => {
         :class="tintClass"
       />
 
-      <div class="relative z-10 flex flex-1 flex-col p-6 sm:p-8">
+      <div
+        class="relative z-10 flex flex-1 flex-col p-5 sm:p-7"
+        :class="featured ? 'lg:p-9' : compact ? 'lg:p-6' : 'lg:p-8'"
+      >
         <div class="sculpt-content flex items-center gap-3">
-          <span class="logo-well flex h-14 w-14 items-center justify-center rounded-xl shadow-sm">
-            <img :src="product.logo" :alt="t(`common.products.${productKey}.name`)" class="h-9 w-auto object-contain" />
+          <span
+            class="logo-well flex items-center justify-center rounded-xl shadow-sm"
+            :class="featured ? 'h-16 w-16' : 'h-14 w-14'"
+          >
+            <img
+              :src="product.logo"
+              :alt="t(`common.products.${productKey}.name`)"
+              class="w-auto object-contain"
+              :class="featured ? 'h-10' : 'h-9'"
+            />
           </span>
           <div>
-            <h2 class="font-heading text-xl font-bold text-black dark:text-white">
+            <h2
+              class="font-heading font-bold text-black dark:text-white"
+              :class="featured ? 'text-2xl sm:text-3xl' : 'text-xl'"
+            >
               {{ t(`common.products.${productKey}.name`) }}
             </h2>
-            <p class="mt-0.5 font-heading text-base font-bold text-text-base">
+            <p
+              class="mt-0.5 font-heading font-bold text-text-base"
+              :class="featured ? 'text-lg' : 'text-base'"
+            >
               {{ t(`common.products.${productKey}.tagline`) }}
             </p>
           </div>
         </div>
 
-        <p class="sculpt-content mt-5 text-sm leading-relaxed text-text-muted sm:text-base">
+        <p
+          class="sculpt-content mt-4 flex-1 leading-relaxed text-text-muted"
+          :class="featured ? 'line-clamp-6 text-base' : 'line-clamp-4 text-sm sm:line-clamp-5'"
+        >
           {{ t(`products.items.${productKey}.shortDescription`) }}
         </p>
 
-        <div class="product-preview relative mt-6 overflow-hidden rounded-xl bg-surface-alt" :class="[productKey === 'ess' ? (compact ? 'h-[100px] sm:h-[130px] lg:h-[150px]' : 'h-[120px] sm:h-[150px] lg:h-[180px]') : productKey === 'esa' ? (compact ? 'mx-auto w-[78%] max-w-[240px] h-[120px] sm:h-[160px] lg:h-[200px]' : 'mx-auto w-[82%] max-w-[320px] h-[160px] sm:h-[200px] lg:h-[240px]') : 'aspect-[16/10]']">
+        <div
+          class="product-preview relative mt-6 overflow-hidden rounded-xl bg-surface-alt"
+          :class="featured ? 'aspect-[16/9]' : 'aspect-[16/10]'"
+        >
           <img
             v-if="preview"
             :src="preview.src"
@@ -91,7 +115,7 @@ const tintClass = computed(() => {
         </div>
 
         <RouterLink
-          :to="`/products/${productKey}`"
+          :to="`/products/${productKey}/`"
           class="sculpt-cta mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-primary-hover"
         >
           {{ t('products.learnMore') }}
@@ -148,7 +172,7 @@ const tintClass = computed(() => {
   transform: translateZ(28px);
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (hover: none), (prefers-reduced-motion: reduce) {
   .sculpt-panel {
     transition: none;
     transform: none !important;

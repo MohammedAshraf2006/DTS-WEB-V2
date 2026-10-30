@@ -1,6 +1,6 @@
 {
   "title": "Our Products",
-  "subtitle": "ESS is the subscription for e-invoices and e-receipts. ESA complements it with signing and sealing. ERS is a quiet path for cashier receipts.",
+  "subtitle": "ESS for invoices and receipts in the browser, and ESA to sign and seal on your device.",
   "ersQuiet": "Cashier receipts only",
   "ersCta": "See ERS",
   "learnMore": "Learn more",
@@ -12,7 +12,7 @@
   "lite": {
     "badge": "Lite",
     "cta": "Try the free Lite version",
-    "hint": "Direct Windows installer — no full setup required."
+    "hint": "Direct Windows installer — version v2.1.1. SHA-256 will be published once the company signs off the file."
   },
   "items": {
     "ess": {
@@ -56,7 +56,7 @@
     },
     "ers": {
       "title": "POS E-Receipts Management",
-      "shortDescription": "A quiet path for cashier e-receipts only, without an invoice cycle.",
+      "shortDescription": "ERS manages electronic cashier point-of-sale receipts, without an invoice cycle.",
       "description": "ERS is the centralized integrated platform for managing and issuing e-receipts linked to the tax authority with complete efficiency. It gives you full control to create and send e-receipts, monitor their status in real time, and review accurate reports (daily, monthly, and annual). With absolute flexibility, add unlimited branches and POS devices to manage your entire operation from one central dashboard from anywhere.\n\nThe system is designed with a flexible operating interface that suits all users, enabling you to issue sales receipts and returns with just a few taps without complex screens. The system automatically handles documentation and sends the receipt instantly to the tax authority in the background, ensuring immediate compliance without burdening the user with technical details.",
       "features": [
         {

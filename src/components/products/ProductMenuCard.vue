@@ -32,7 +32,7 @@ const tintClass = computed(() => {
     @mouseleave="onLeave"
   >
     <RouterLink
-      :to="`/products/${productKey}`"
+      :to="`/products/${productKey}/`"
       class="flex h-full"
       @click="emit('navigate')"
     >

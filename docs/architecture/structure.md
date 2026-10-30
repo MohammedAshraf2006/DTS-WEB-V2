@@ -17,8 +17,7 @@ src/
     ClientsView.vue
     PartnersView.vue
     ContactView.vue
-    KnowledgeIndexView.vue
-    KnowledgeArticleView.vue
+    KnowledgeHubView.vue
     ProductDetailView.vue
     NotFoundView.vue
   components/
@@ -32,13 +31,14 @@ src/
     services/             # services listing cards + signature panels + header menu cards
     clients/              # client logo cards
     partners/             # stacked partner feature cards
+    knowledge/            # knowledge article cards
     contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
     products.js           # ESS / ERS / ESA catalog + gallery paths
     services.js           # services catalog + icon paths
     clients.js            # featured clients catalog + logo paths
-    partners.js           # FEDIS / Tawqe3y / MTS + legal accountant offices
+    partners.js           # FEDIS / Tawqe3y / MTS / TAXES WORLD + legal accountant offices
     seo.js               # per-route title, description, canonical path
     knowledge.generated.js # built from content/knowledge
   composables/
@@ -74,8 +74,9 @@ public/llms.txt           # short map for AI assistants
 
 1. `HeroSection` — Vanta + rotating product pills (links to `/products/:key`)
 2. `TrustBar` — client logo strip
-3. `ProductTabs` — ESS featured, ESA as a complement row, ERS as a quiet link (`#products`)
+3. `ProductTabs` — ESS featured, ESA as a complement row, ERS as a cashier-receipts link (`#products`)
 4. `ServicesGrid` — 3 services + e-signature highlight (`#services`)
+5. `ArticlesTeaser` — dense knowledge list with unique covers (`#articles`)
 
 Ambient orbs on Home are **dark mode only**.
 
@@ -88,8 +89,9 @@ Ambient orbs on Home are **dark mode only**.
 - `/contact` → `ContactView` (`name: contact`)
 - `/clients` → `ClientsView` (`name: clients`)
 - `/partners` → `PartnersView` (`name: partners`)
-- `/knowledge` → `KnowledgeIndexView` (`name: knowledge`)
-- `/knowledge/:slug` → `KnowledgeArticleView` (`name: knowledge-article`)
+- `/knowledge` → `KnowledgeHubView` (`name: knowledge`; news-style topic bar, featured story, article stream)
+- `/knowledge/:slug` → `KnowledgeArticleView` (`name: knowledge-article`; full-width article page)
+- `/fix-error-3008-itida-websign` → `KnowledgeArticleView` (`name: fix-error-3008`; video + batch download)
 - `/products/:key` → `ProductDetailView` (`name: product-detail`; `key` = ess | esa | ers)
 - catch-all → lazy `NotFoundView` (`name: not-found`)
 - Hash scroll uses top offset `90` for the fixed header

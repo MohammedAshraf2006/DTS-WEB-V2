@@ -67,7 +67,7 @@ const {
               </p>
             </div>
             <RouterLink
-              to="/services/signature"
+              to="/services/signature/"
               class="sculpt-cta inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
             >
               {{ t('home.services.signatureHighlight.cta') }}
@@ -116,7 +116,7 @@ const {
 
       <div class="reveal mt-8 text-center lg:mt-10" style="transition-delay: .15s">
         <RouterLink
-          to="/services"
+          to="/services/"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all duration-200 hover:border-primary hover:text-primary"
         >
           {{ t('home.services.cta') }}

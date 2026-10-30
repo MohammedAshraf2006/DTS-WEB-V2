@@ -5,6 +5,7 @@
     "products": "Products",
     "clients": "Clients",
     "partners": "Partners",
+    "knowledge": "Articles",
     "contact": "Contact",
     "cta": "Contact Us",
     "closeMenu": "Close menu",
@@ -42,16 +43,32 @@
     "phone": "(+20) 55 4492037",
     "supportPhone": "(+20) 10 50992816",
     "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "numberRoles": ["Sales", "WhatsApp", "Signature", "Support"],
+    "taxIdLabel": "Tax ID",
+    "taxId": "769038883"
+  },
+  "social": {
+    "title": "Follow us",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
   },
   "whatsapp": {
     "label": "Chat on WhatsApp",
-    "href": "https://wa.me/201050992817"
+    "href": "https://wa.me/201050992816"
+  },
+  "notFound": {
+    "title": "Page not found | DTS",
+    "message": "This page does not exist.",
+    "home": "Back to home"
   },
   "buttons": {
     "learnMore": "Learn more",
     "contactUs": "Contact Us",
     "discoverProducts": "Discover Our Products",
+    "latestArticles": "Latest articles",
     "discoverServices": "All services"
   }
 }

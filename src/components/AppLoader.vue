@@ -3,13 +3,21 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const { isDark } = useTheme()
-const isLoading = ref(true)
+const isLoading = ref(false)
 let hideTimer = null
 
 onMounted(() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReducedMotion || sessionStorage.getItem('dts-loader-seen')) {
+    isLoading.value = false
+    return
+  }
+
+  isLoading.value = true
+  sessionStorage.setItem('dts-loader-seen', '1')
   hideTimer = window.setTimeout(() => {
     isLoading.value = false
-  }, 1000)
+  }, 300)
 })
 
 onUnmounted(() => {
@@ -28,7 +36,7 @@ onUnmounted(() => {
       <img
         src="/images/DTS.webp"
         alt="DTS"
-        class="app-loader-logo h-auto w-[220px] sm:w-[280px]"
+        class="h-auto w-[180px] sm:w-[220px]"
         :class="isDark ? 'brightness-110' : ''"
       />
     </div>
@@ -36,35 +44,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.app-loader-logo {
-  animation: app-loader-pulse 1.5s ease-in-out infinite;
-}
-
 .app-loader-fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.2s ease;
 }
 
 .app-loader-fade-leave-to {
   opacity: 0;
 }
 
-@keyframes app-loader-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .app-loader-logo {
-    animation: none;
-  }
-
   .app-loader-fade-leave-active {
     transition-duration: 0.01ms;
   }

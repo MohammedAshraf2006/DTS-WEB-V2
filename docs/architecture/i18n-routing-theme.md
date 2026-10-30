@@ -20,7 +20,11 @@
 
 - History mode via `createWebHistory`
 - Shell: `MainLayout` with nested home, products, services, and contact routes
-- `scrollBehavior` supports saved position, hash targets (offset 90), else top
+- `scrollBehavior` supports saved position, hash targets (offset 90), keeps window scroll on knowledge article switches, else top
+- Canonical, sitemap, in-app links, and emitted shells use trailing slashes (`/products/`). Home is `https://dts-eg.com/`. Vue Router redirects a missing slash with `replace` so clicks match canonical.
+- Indexable language is Arabic. Each URL has `hreflang="ar"` and `hreflang="x-default"` pointing at the same canonical. There is no `/en` prefix until the owner asks for English search URLs.
+- Build injects crawler-visible `h1` + article HTML into `#app`; Vue replaces it on mount
+- Analytics: GA4 `G-EY2GF14XJ0` and Meta Pixel `1763152844965514` (env override via `.env.example`). Direct inject unless `VITE_GTM_ID` is set. Events: `click_whatsapp`, `click_call`, `generate_lead`, `signature_lead`.
 
 ### Page routes (extra)
 
@@ -30,14 +34,15 @@
 | `/services/signature` | Live — e-signature / e-seal detail + request form |
 | `/clients` | Live — featured client cards, no public count claim |
 | `/partners` | Live — partner cards; visit-site only when a URL exists; accountant offices prefixed مكتب محاسب قانوني |
-| `/knowledge` | Live — procedure index compiled from Markdown |
-| `/knowledge/:slug` | Live — one article (`request-signature`, `what-is-ess`, `contact-hours`) |
+| `/knowledge` | Live — topic bar, featured story, article stream |
+| `/knowledge/:slug` | Live — standalone article (signature, receipts, token, ESS, contact) |
+| `/fix-error-3008-itida-websign` | Live — ITIDA WebSign error 3008 article, video, and batch download |
 
 ### Hash targets (Home / footer)
 
 | Hash | Status |
 |------|--------|
-| `#products` | Live — ESS panel, ESA complement, quiet ERS link |
+| `#products` | Live — ESS panel, ESA complement, ERS cashier-receipts link |
 | `#services` | Live — `ServicesGrid` teaser (full list on `/services`) |
 | `#contact` | Redirected to page `/contact` (form) |
 | `#partners` | Replaced by page `/partners` |

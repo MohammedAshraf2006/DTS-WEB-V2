@@ -1,6 +1,6 @@
 # Wave 05 — Quality and launch
 
-**Status:** pending
+**Status:** in_progress — code/SEO/deploy workflow in repo; Cloudflare AI robots overlay is still an owner dashboard change
 
 ## Goal
 

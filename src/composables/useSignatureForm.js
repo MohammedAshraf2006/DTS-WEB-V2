@@ -1,6 +1,7 @@
 import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { sendContactMessage, SIGNATURE_CONTACT_EMAIL } from '@/services/contact'
+import { trackEvent } from '@/analytics/track.js'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -110,6 +111,7 @@ export function useSignatureForm() {
         { to: SIGNATURE_CONTACT_EMAIL }
       )
       if (result.ok) {
+        trackEvent('signature_lead')
         resetForm()
         showSuccess.value = true
       } else {

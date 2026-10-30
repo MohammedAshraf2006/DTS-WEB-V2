@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/HeroSection.vue'
 import TrustBar from '@/components/home/TrustBar.vue'
 import ProductTabs from '@/components/home/ProductTabs.vue'
 import ServicesGrid from '@/components/home/ServicesGrid.vue'
+import ArticlesTeaser from '@/components/home/ArticlesTeaser.vue'
 
 useScrollReveal()
 </script>
@@ -30,5 +31,6 @@ useScrollReveal()
     <TrustBar />
     <ProductTabs />
     <ServicesGrid />
+    <ArticlesTeaser />
   </div>
 </template>

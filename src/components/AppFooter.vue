@@ -1,10 +1,15 @@
 <script setup>
 import { computed, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import SocialLinks from '@/components/SocialLinks.vue'
+import { trackEvent } from '@/analytics/track.js'
 import { SALES_EMAIL, SUPPORT_EMAIL, SIGNATURE_EMAIL } from '@/data/contactEmails'
 
 const { t, tm, locale } = useI18n()
+const route = useRoute()
+const showContactCta = computed(() => route.name !== 'contact')
 
 const year = new Date().getFullYear()
 const revealed = reactive({ support: false, sales: false, signature: false })
@@ -12,7 +17,10 @@ const revealed = reactive({ support: false, sales: false, signature: false })
 const footerNumbers = computed(() => {
   void locale.value
   const raw = tm('common.footer.numbers')
-  return Array.isArray(raw) ? raw : []
+  const roles = tm('common.footer.numberRoles')
+  const nums = Array.isArray(raw) ? raw : []
+  const labels = Array.isArray(roles) ? roles : []
+  return nums.map((num, i) => ({ num, role: labels[i] || '' }))
 })
 
 const footerAddress = computed(() => {
@@ -24,18 +32,18 @@ const footerAddressUrl =
   'https://www.google.com/maps/place/Digital+Transformation+Services+DTS/@30.3094896,31.7275622,14.67z/data=!4m6!3m5!1s0x1457fdc94317b8b7:0x1ab0121372ea4db6!8m2!3d30.3085736!4d31.7089065!16s%2Fg%2F11syxf9_5p?entry=ttu&g_ep=EgoyMDI2MDgxNi4wIKXMDSoASAFQAw%3D%3D'
 
 const productLinks = [
-  { key: 'ess', to: '/products/ess' },
-  { key: 'esa', to: '/products/esa' },
-  { key: 'ers', to: '/products/ers' }
+  { key: 'ess', to: '/products/ess/' },
+  { key: 'esa', to: '/products/esa/' },
+  { key: 'ers', to: '/products/ers/' }
 ]
 
 const companyLinks = [
   { labelKey: 'common.footer.quickLinks.home', to: '/' },
-  { labelKey: 'common.footer.quickLinks.products', to: '/products' },
-  { labelKey: 'common.footer.quickLinks.services', to: '/services' },
-  { labelKey: 'common.footer.quickLinks.about', to: '/clients' },
-  { labelKey: 'common.footer.quickLinks.partners', to: '/partners' },
-  { labelKey: 'knowledge.title', to: '/knowledge' }
+  { labelKey: 'common.footer.quickLinks.products', to: '/products/' },
+  { labelKey: 'common.footer.quickLinks.services', to: '/services/' },
+  { labelKey: 'common.footer.quickLinks.about', to: '/clients/' },
+  { labelKey: 'common.footer.quickLinks.partners', to: '/partners/' },
+  { labelKey: 'common.nav.knowledge', to: '/knowledge/' }
 ]
 </script>
 
@@ -53,8 +61,8 @@ const companyLinks = [
       aria-hidden="true"
     />
 
-    <!-- Pre-footer CTA band -->
-    <div class="border-b border-border/80 dark:border-[#152a45]">
+    <!-- Pre-footer CTA band — hidden on /contact -->
+    <div v-if="showContactCta" class="border-b border-border/80 dark:border-[#152a45]">
       <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-8 sm:flex-row sm:items-center lg:px-10 lg:py-10">
         <div class="max-w-xl">
           <h2 class="font-heading text-2xl font-bold tracking-tight text-text-base sm:text-3xl">
@@ -65,7 +73,7 @@ const companyLinks = [
           </p>
         </div>
         <RouterLink
-          to="/contact"
+          to="/contact/"
           class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
         >
           {{ t('common.footer.ctaButton') }}
@@ -79,7 +87,7 @@ const companyLinks = [
     <div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-12">
       <div class="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
         <!-- Brand column -->
-        <div class="col-span-2 md:col-span-3 lg:col-span-4">
+        <div class="col-span-2 md:col-span-3 lg:col-span-3">
           <RouterLink to="/" class="inline-flex items-center gap-3">
             <img src="/images/DTS.webp" alt="DTS" class="h-11 w-auto lg:h-12" width="180" height="48" decoding="async" />
           </RouterLink>
@@ -89,6 +97,7 @@ const companyLinks = [
           <p class="mt-4 max-w-sm text-[15px] leading-relaxed text-text-subtle">
             {{ t('common.footer.description') }}
           </p>
+          <SocialLinks labelled class="mt-5" />
         </div>
 
         <!-- Product -->
@@ -189,19 +198,25 @@ const companyLinks = [
         </div>
 
         <!-- Contact -->
-        <div class="col-span-2 md:col-span-1 lg:col-span-2">
+        <div class="col-span-2 md:col-span-1 lg:col-span-3">
           <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-text-subtle">
             {{ t('common.footer.contactTitle') }}
           </h3>
           <ul class="mt-5 space-y-2.5">
-            <li v-for="(num, i) in footerNumbers" :key="`${locale}-${i}`">
+            <li
+              v-for="(item, i) in footerNumbers"
+              :key="`${locale}-${i}`"
+              class="flex flex-nowrap items-center gap-2"
+            >
               <a
-                :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
+                :href="`tel:${String(item.num).replace(/[^\d+]/g, '')}`"
                 dir="ltr"
-                class="inline-block text-[15px] text-text-muted transition-colors hover:text-text-base [unicode-bidi:isolate]"
+                class="shrink-0 whitespace-nowrap text-[15px] text-text-muted transition-colors hover:text-text-base [unicode-bidi:isolate]"
+                @click="trackEvent('click_call')"
               >
-                {{ num }}
+                {{ item.num }}
               </a>
+              <span v-if="item.role" class="shrink-0 whitespace-nowrap text-xs text-text-subtle">{{ item.role }}</span>
             </li>
           </ul>
           <a
@@ -216,6 +231,10 @@ const companyLinks = [
           <p class="mt-3 text-xs leading-relaxed text-text-subtle">
             {{ t('common.footer.hours') }}
           </p>
+          <p class="mt-2 text-xs leading-relaxed text-text-subtle">
+            {{ t('common.footer.taxIdLabel') }}:
+            <span dir="ltr" class="[unicode-bidi:isolate]">{{ t('common.footer.taxId') }}</span>
+          </p>
         </div>
       </div>
 
@@ -227,13 +246,13 @@ const companyLinks = [
           © {{ year }} DTS — {{ t('common.footer.rights') }}
         </p>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-subtle">
-          <RouterLink to="/products" class="transition-colors hover:text-text-base">
+          <RouterLink to="/products/" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.products') }}
           </RouterLink>
-          <RouterLink to="/services" class="transition-colors hover:text-text-base">
+          <RouterLink to="/services/" class="transition-colors hover:text-text-base">
             {{ t('common.footer.quickLinks.services') }}
           </RouterLink>
-          <RouterLink to="/contact" class="transition-colors hover:text-text-base">
+          <RouterLink to="/contact/" class="transition-colors hover:text-text-base">
             {{ t('common.nav.contact') }}
           </RouterLink>
         </div>

@@ -34,6 +34,7 @@ Businesses needing compliance and digital document workflows in Egypt (sales, pa
 - Signature page WhatsApp: `https://wa.me/201050992816`
 - Phones and address live under `common.footer.*` (Villa 136, District 44, Misr El Noor Road, 10th of Ramadan City)
 - Business hours in the footer: Sunday–Thursday, 9:00 AM to 5:00 PM. LocalBusiness JSON-LD keeps the same span as 09:00–17:00
+- Public profiles in footer, contact, and JSON-LD `sameAs`: Facebook `DTS.EGYPT22`, LinkedIn `dtsegypt22`, Instagram `dts.egypt`. WhatsApp stays `https://wa.me/201050992816` (footer icon plus the existing float)
 - WhatsApp float: `https://wa.me/201050992817` (verified from DTS-WEB)
 - Public reference site/domain intent: `dts-eg.com`
 

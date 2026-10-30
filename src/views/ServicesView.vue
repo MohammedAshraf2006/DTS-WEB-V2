@@ -87,7 +87,7 @@ useScrollReveal()
 
       <div class="reveal mt-12 text-center" :class="{ 'is-visible': forceReveal }">
         <RouterLink
-          to="/contact"
+          to="/contact/"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-6 py-3 text-sm font-bold text-text-base transition-all hover:border-primary hover:text-primary"
         >
           {{ t('services.contactCta') }}

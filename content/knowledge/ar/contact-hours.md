@@ -1,14 +1,18 @@
 ---
 slug: contact-hours
 title: كيف تتواصل مع DTS
-description: عنوان DTS وأرقام التواصل ومواعيد العمل من الأحد إلى الخميس.
+description: عنوان العاشر من رمضان، صناديق البريد، ومواعيد العمل من الأحد إلى الخميس.
+cover: /images/knowledge/contact.webp
+category: تواصل
 ---
 
-المبيعات: sales@dts-eg.com
+DTS شركة خدمات تحول رقمي في العاشر من رمضان. التواصل للمبيعات والتوقيع والدعم خلال أيام العمل فقط.
 
-طلبات التوقيع والختم: tawqe3y_10thoframdan@dts-eg.com
+## البريد
 
-الدعم الفني: support@dts-eg.com
+- المبيعات: [sales@dts-eg.com](mailto:sales@dts-eg.com)
+- طلبات التوقيع والختم: [tawqe3y_10thoframdan@dts-eg.com](mailto:tawqe3y_10thoframdan@dts-eg.com)
+- الدعم الفني: [support@dts-eg.com](mailto:support@dts-eg.com)
 
 ## العنوان
 
@@ -18,4 +22,4 @@ description: عنوان DTS وأرقام التواصل ومواعيد العم�
 
 الأحد–الخميس، 9:00 صباحًا إلى 5:00 مساءً.
 
-أرقام التواصل ظاهرة في تذييل الموقع. نموذج [تواصل معنا](/contact) يرسل إلى صندوق المبيعات، ويوضّح إن تعذر الإرسال من الصفحة.
+أرقام التواصل في تذييل الموقع. نموذج [تواصل معنا](/contact) يرسل إلى صندوق المبيعات، ويوضّح إن تعذر الإرسال من الصفحة.

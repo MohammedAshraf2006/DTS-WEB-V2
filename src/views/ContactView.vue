@@ -4,7 +4,9 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import ContactForm from '@/components/contact/ContactForm.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import SocialLinks from '@/components/SocialLinks.vue'
 import { SALES_EMAIL, SUPPORT_EMAIL, SIGNATURE_EMAIL } from '@/data/contactEmails'
+import { trackEvent } from '@/analytics/track.js'
 
 const { t, tm, locale } = useI18n()
 
@@ -72,6 +74,7 @@ useScrollReveal()
                     :href="`tel:${String(num).replace(/[^\d+]/g, '')}`"
                     dir="ltr"
                     class="inline-block transition-colors hover:text-primary [unicode-bidi:isolate]"
+                    @click="trackEvent('click_call')"
                   >
                     {{ num }}
                   </a>
@@ -89,7 +92,12 @@ useScrollReveal()
                 {{ t('common.footer.address') }}
               </a>
             </li>
+            <li class="text-sm text-text-muted">
+              {{ t('common.footer.taxIdLabel') }}:
+              <span dir="ltr" class="[unicode-bidi:isolate]">{{ t('common.footer.taxId') }}</span>
+            </li>
           </ul>
+          <SocialLinks labelled class="mt-6 border-t border-border pt-5" />
         </aside>
 
         <div class="rounded-2xl border border-border bg-surface-alt p-6 sm:p-8">

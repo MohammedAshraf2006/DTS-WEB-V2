@@ -24,6 +24,15 @@ npm run build    # ينتج dist/ للنشر
 npm run preview  # يعاين نسخة الـ build محليًا
 ```
 
+القياس المباشر (من غير GTM):
+
+- GA4: `G-EY2GF14XJ0` (`VITE_GA4_MEASUREMENT_ID`)
+- Meta Pixel: `1763152844965514` (`VITE_META_PIXEL_ID`)
+- `VITE_GTM_ID` فاضي — لو اتحط، GTM بيمسك التاجز وما فيش حقن مباشر لـ GA4/Pixel
+- `VITE_GSC_VERIFICATION` اختياري
+
+أحداث التحويل: `click_whatsapp`، `click_call`، `generate_lead` (فورم التواصل)، `signature_lead` (فورم التوقيع). Pixel: `Contact` للواتساب/الاتصال و `Lead` للفورم. مقال خطأ 3008: `article_view_3008` (Pixel `ViewContent`)، `file_download_3008` (Pixel `DownloadFix` فقط)، `copy_code_3008`. أيقونات التواصل: `click_social`.
+
 ## هيكل المشروع
 
 راجع `docs/architecture/structure.md` للتفاصيل الكاملة. باختصار:

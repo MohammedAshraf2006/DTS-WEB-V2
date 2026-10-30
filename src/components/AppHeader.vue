@@ -125,18 +125,18 @@ onBeforeUnmount(() => {
       ? 'bg-surface-alt border-b border-border shadow-sm'
       : 'bg-transparent border-b border-transparent'"
   >
-    <nav class="flex h-16 w-full items-center px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-12">
+    <nav class="flex h-16 w-full min-w-0 items-center px-4 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-8 xl:px-12">
       <!-- Logo -->
-      <RouterLink to="/" class="flex shrink-0 items-center gap-2 lg:justify-self-start" @click="closeMobile">
-        <img src="/images/DTS.webp" alt="DTS" class="h-11 w-auto lg:h-12" width="180" height="48" fetchpriority="high" decoding="async" />
+      <RouterLink to="/" class="flex min-w-0 shrink-0 items-center gap-2 lg:justify-self-start" @click="closeMobile">
+        <img src="/images/DTS.webp" alt="DTS" class="h-9 w-auto sm:h-11 lg:h-12" width="180" height="48" fetchpriority="high" decoding="async" />
       </RouterLink>
 
       <!-- Desktop nav (centered) -->
-      <ul class="hidden items-center gap-3 justify-self-center lg:flex">
+      <ul class="hidden items-center gap-1 justify-self-center lg:flex xl:gap-3">
         <li>
           <RouterLink
             to="/"
-            class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            class="rounded-lg px-2.5 py-2.5 text-sm font-medium text-text-base transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
             @mouseenter="closeMenus"
           >
             {{ t('common.nav.home') }}
@@ -146,8 +146,8 @@ onBeforeUnmount(() => {
         <!-- Products mega dropdown -->
         <li @mouseenter="openProducts" @mouseleave="scheduleCloseProducts">
           <RouterLink
-            to="/products"
-            class="flex items-center gap-1.5 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-primary-light"
+            to="/products/"
+            class="flex items-center gap-1.5 rounded-lg px-2.5 py-2.5 text-sm font-medium transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
             :class="isProductsOpen ? 'bg-primary-light text-primary' : 'text-text-base'"
             :aria-expanded="isProductsOpen"
             @click="closeProducts"
@@ -164,8 +164,8 @@ onBeforeUnmount(() => {
         <!-- Services mega dropdown -->
         <li @mouseenter="openServices" @mouseleave="scheduleCloseServices">
           <RouterLink
-            to="/services"
-            class="flex items-center gap-1.5 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-primary-light"
+            to="/services/"
+            class="flex items-center gap-1.5 rounded-lg px-2.5 py-2.5 text-sm font-medium transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
             :class="isServicesOpen ? 'bg-primary-light text-primary' : 'text-text-base'"
             :aria-expanded="isServicesOpen"
             @click="closeServices"
@@ -180,8 +180,8 @@ onBeforeUnmount(() => {
         </li>
         <li>
           <RouterLink
-            to="/clients"
-            class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            to="/clients/"
+            class="rounded-lg px-2.5 py-2.5 text-sm font-medium text-text-base transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
             @mouseenter="closeMenus"
           >
             {{ t('common.nav.clients') }}
@@ -189,11 +189,20 @@ onBeforeUnmount(() => {
         </li>
         <li>
           <RouterLink
-            to="/partners"
-            class="rounded-lg px-4 py-3 text-base font-medium text-text-base transition-colors hover:bg-primary-light"
+            to="/partners/"
+            class="rounded-lg px-2.5 py-2.5 text-sm font-medium text-text-base transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
             @mouseenter="closeMenus"
           >
             {{ t('common.nav.partners') }}
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink
+            to="/knowledge/"
+            class="rounded-lg px-2.5 py-2.5 text-sm font-medium text-text-base transition-colors hover:bg-primary-light xl:px-4 xl:py-3 xl:text-base"
+            @mouseenter="closeMenus"
+          >
+            {{ t('common.nav.knowledge') }}
           </RouterLink>
         </li>
       </ul>
@@ -219,7 +228,7 @@ onBeforeUnmount(() => {
             </Transition>
           </button>
           <RouterLink
-            to="/contact"
+            to="/contact/"
             class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-text-onprimary shadow-sm transition-all hover:bg-primary-hover hover:shadow-md"
           >
             {{ t('common.nav.cta') }}
@@ -254,7 +263,7 @@ onBeforeUnmount(() => {
         <div class="rounded-2xl border border-border bg-surface-alt p-6 shadow-xl">
           <div class="mb-4 flex items-center justify-between">
             <span class="text-sm text-text-subtle">{{ t('common.nav.products') }}</span>
-            <RouterLink to="/products" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeProducts">
+            <RouterLink to="/products/" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeProducts">
               {{ t('common.buttons.discoverProducts') }}
               <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
             </RouterLink>
@@ -269,7 +278,7 @@ onBeforeUnmount(() => {
             />
           </div>
           <RouterLink
-            to="/products/ers"
+            to="/products/ers/"
             class="mt-4 block text-sm text-text-subtle hover:text-text-muted"
             @click="closeProducts"
           >
@@ -297,7 +306,7 @@ onBeforeUnmount(() => {
         <div class="rounded-2xl border border-border bg-surface-alt p-6 shadow-xl">
           <div class="mb-4 flex items-center justify-between">
             <span class="text-sm text-text-subtle">{{ t('common.nav.services') }}</span>
-            <RouterLink to="/services" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeServices">
+            <RouterLink to="/services/" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" @click="closeServices">
               {{ t('common.buttons.discoverServices') }}
               <AppIcon :name="locale === 'ar' ? 'arrowLeft' : 'arrowRight'" class="h-3.5 w-3.5" />
             </RouterLink>
@@ -379,7 +388,7 @@ onBeforeUnmount(() => {
                 </button>
                 <ul v-if="isMobileProductsOpen" class="ms-3 mt-1 space-y-0.5 border-s border-border ps-3">
                   <li>
-                    <RouterLink class="block rounded-lg px-3 py-2 text-sm font-medium text-primary" to="/products" @click="closeMobile">
+                    <RouterLink class="block rounded-lg px-3 py-2 text-sm font-medium text-primary" to="/products/" @click="closeMobile">
                       {{ t('common.buttons.discoverProducts') }}
                     </RouterLink>
                   </li>
@@ -387,7 +396,7 @@ onBeforeUnmount(() => {
                     <RouterLink
                       class="block rounded-lg px-3 py-2 text-sm font-medium"
                       :class="key === 'ers' ? 'text-text-subtle' : 'text-text-muted'"
-                      :to="`/products/${key}`"
+                      :to="`/products/${key}/`"
                       @click="closeMobile"
                     >
                       {{ t(`common.products.${key}.name`) }}
@@ -411,7 +420,7 @@ onBeforeUnmount(() => {
                 </button>
                 <ul v-if="isMobileServicesOpen" class="ms-3 mt-1 space-y-0.5 border-s border-border ps-3">
                   <li>
-                    <RouterLink class="block rounded-lg px-3 py-2 text-sm font-medium text-primary" to="/services" @click="closeMobile">
+                    <RouterLink class="block rounded-lg px-3 py-2 text-sm font-medium text-primary" to="/services/" @click="closeMobile">
                       {{ t('common.buttons.discoverServices') }}
                     </RouterLink>
                   </li>
@@ -426,8 +435,9 @@ onBeforeUnmount(() => {
                   </li>
                 </ul>
               </li>
-              <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/clients" @click="closeMobile">{{ t('common.nav.clients') }}</RouterLink></li>
-              <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/partners" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
+              <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/clients/" @click="closeMobile">{{ t('common.nav.clients') }}</RouterLink></li>
+              <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/partners/" @click="closeMobile">{{ t('common.nav.partners') }}</RouterLink></li>
+              <li><RouterLink class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text-base" to="/knowledge/" @click="closeMobile">{{ t('common.nav.knowledge') }}</RouterLink></li>
             </ul>
             <div class="mt-4 flex items-center gap-2 border-t border-border pt-4">
               <button class="theme-toggle flex h-9 w-9 items-center justify-center rounded-full text-text-subtle" @click="toggleTheme">
@@ -441,7 +451,7 @@ onBeforeUnmount(() => {
                 </Transition>
               </button>
               <RouterLink
-                to="/contact"
+                to="/contact/"
                 class="ms-auto rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-text-onprimary"
                 @click="closeMobile"
               >

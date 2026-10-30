@@ -47,7 +47,7 @@ Light mode keeps this navy/blue family. Dark mode: **very dark royal navy** surf
 
 - ApexCharts available on `window` from `src/main.js` (optional charting)
 - Home hero loads Vanta Globe via CDN (Three.js) — presentation only
-- Procedure articles live in `content/knowledge/{ar,en}` and are compiled at build time (`scripts/build-knowledge.mjs`, `markdown-it`)
+- Knowledge articles live in `content/knowledge/{ar,en}` and are compiled at build time (`scripts/build-knowledge.mjs`, `markdown-it`)
 
 ## Source of truth
 

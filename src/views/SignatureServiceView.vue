@@ -6,6 +6,7 @@ import SignatureSealPanels from '@/components/services/SignatureSealPanels.vue'
 import SignatureBenefits from '@/components/services/SignatureBenefits.vue'
 import SignatureRequestForm from '@/components/services/SignatureRequestForm.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import { trackEvent } from '@/analytics/track.js'
 
 const { t } = useI18n()
 
@@ -50,6 +51,7 @@ useScrollReveal()
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 rounded-full border border-border bg-surface-alt px-7 py-3.5 text-sm font-bold text-text-base transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            @click="trackEvent('click_whatsapp', { path: '/services/signature' })"
           >
             {{ t('services.signaturePage.heroSecondaryCta') }}
           </a>

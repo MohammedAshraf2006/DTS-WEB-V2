@@ -1,33 +1,45 @@
 # DTS (Digital Transformation Services)
 
-Official marketing site: https://dts-eg.com
+Official marketing site: https://dts-eg.com/
 
 DTS helps Egyptian companies issue electronic invoices and receipts and use digital signatures, connected to the Egyptian Tax Authority (ETA).
 
 ## Products
 
-- ESS — subscription for e-invoices and e-receipts: https://dts-eg.com/products/ess
-- ESA — signs and seals what ESS issues: https://dts-eg.com/products/esa
-- ERS — quiet cashier e-receipts path: https://dts-eg.com/products/ers
-- Product listing: https://dts-eg.com/products
+- ESS — subscription for e-invoices and e-receipts: https://dts-eg.com/products/ess/
+- ESA — signs and seals what ESS issues: https://dts-eg.com/products/esa/
+- ERS — cashier point-of-sale e-receipts: https://dts-eg.com/products/ers/
+- Product listing: https://dts-eg.com/products/
 
-## Procedures
+## Knowledge articles
 
-- Knowledge index: https://dts-eg.com/knowledge
-- Request a signature or seal: https://dts-eg.com/knowledge/request-signature
-- What ESS is: https://dts-eg.com/knowledge/what-is-ess
-- How to reach DTS: https://dts-eg.com/knowledge/contact-hours
+- Fix error 3008 Error in verifying License in ITIDA WebSign for e-invoices and e-receipts: https://dts-eg.com/fix-error-3008-itida-websign/
+- Introduction to e-signature: https://dts-eg.com/knowledge/what-is-e-signature/
+- Characteristics of an e-signature: https://dts-eg.com/knowledge/signature-characteristics/
+- E-signature services: https://dts-eg.com/knowledge/signature-services/
+- E-signature applications: https://dts-eg.com/knowledge/signature-applications/
+- Steps to get an e-seal: https://dts-eg.com/knowledge/e-seal-steps/
+- E-signature vs e-seal: https://dts-eg.com/knowledge/e-seal-vs-signature/
+- E-signature FAQ: https://dts-eg.com/knowledge/signature-faq/
+- The e-signature token: https://dts-eg.com/knowledge/usb-token/
+- Request an e-signature or e-seal: https://dts-eg.com/knowledge/request-signature/
+- What ESS is: https://dts-eg.com/knowledge/what-is-ess/
+- What is the e-invoice: https://dts-eg.com/knowledge/what-is-e-invoice/
+- What is the e-receipt: https://dts-eg.com/knowledge/what-is-e-receipt/
+- E-invoice or e-receipt: https://dts-eg.com/knowledge/invoice-vs-receipt/
+- Starting the e-receipt system with DTS: https://dts-eg.com/knowledge/e-receipt-steps/
+- E-receipt FAQ: https://dts-eg.com/knowledge/e-receipt-faq/
+- How to reach DTS: https://dts-eg.com/knowledge/contact-hours/
 
 ## Services
 
-- Services: https://dts-eg.com/services
-- Signature and seal requests: https://dts-eg.com/services/signature
+- Services: https://dts-eg.com/services/
+- Signature and seal requests: https://dts-eg.com/services/signature/
 
 ## Other pages
 
-- Clients: https://dts-eg.com/clients
-- Partners: https://dts-eg.com/partners
-- Contact (sales@dts-eg.com): https://dts-eg.com/contact
+- Clients: https://dts-eg.com/clients/
+- Partners: https://dts-eg.com/partners/
+- Contact (sales@dts-eg.com): https://dts-eg.com/contact/
 
-Arabic is the default language (RTL). English is available via the site language switch.
-Crawlers and AI assistants may fetch public pages. Do not treat this file as a license to train models if the operator later restricts training separately.
+Arabic is the default language (RTL). English is available via the language switch on the same URL. Indexable URLs are Arabic; there is no /en prefix.

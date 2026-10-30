@@ -1,4 +1,11 @@
 export const SITE_ORIGIN = 'https://dts-eg.com'
+export const OG_IMAGE = `${SITE_ORIGIN}/images/og-default.webp`
+
+export function canonicalUrl(path) {
+  if (!path || path === '/') return `${SITE_ORIGIN}/`
+  const clean = path.startsWith('/') ? path : `/${path}`
+  return `${SITE_ORIGIN}${clean.replace(/\/+$/, '')}/`
+}
 
 const pages = {
   home: {
@@ -16,11 +23,11 @@ const pages = {
     path: '/products',
     ar: {
       title: 'المنتجات | DTS',
-      description: 'ESS اشتراك للفواتير والإيصالات. ESA يكمّله بالتوقيع والختم. ERS مسار هادئ لإيصالات الكاشير.'
+      description: 'ESS اشتراك للفواتير والإيصالات. ESA يكمّله بالتوقيع والختم. ERS لإدارة إيصالات نقاط البيع (الكاشير) الإلكترونية.'
     },
     en: {
       title: 'Products | DTS',
-      description: 'ESS is the invoice and receipt subscription. ESA complements it with signing. ERS is a quiet cashier-receipt path.'
+      description: 'ESS is the invoice and receipt subscription. ESA complements it with signing. ERS manages cashier point-of-sale e-receipts.'
     }
   },
   'product-ess': {
@@ -49,11 +56,11 @@ const pages = {
     path: '/products/ers',
     ar: {
       title: 'ERS | DTS',
-      description: 'ERS مسار هادئ لإيصالات نقاط البيع فقط، من غير دورة فواتير.'
+      description: 'ERS لإدارة إيصالات نقاط البيع (الكاشير) الإلكترونية، من غير دورة فواتير.'
     },
     en: {
       title: 'ERS | DTS',
-      description: 'ERS is a quiet path for cashier e-receipts only, without an invoice cycle.'
+      description: 'ERS manages electronic cashier point-of-sale receipts, without an invoice cycle.'
     }
   },
   services: {
@@ -114,12 +121,23 @@ const pages = {
   knowledge: {
     path: '/knowledge',
     ar: {
-      title: 'إجراءات | DTS',
-      description: 'خطوات طلب التوقيع، ما هو ESS، وكيف تتواصل مع DTS.'
+      title: 'مركز المعرفة | DTS',
+      description: 'شروحات الفاتورة والإيصال الإلكتروني، التوقيع والختم، التوكن، وربط منتجات DTS بمنظومة الضرائب.'
     },
     en: {
-      title: 'Procedures | DTS',
-      description: 'How to request a signature, what ESS is, and how to reach DTS.'
+      title: 'Knowledge center | DTS',
+      description: 'Guides on e-invoices and e-receipts, e-signature and e-seal, the token, and how DTS products connect to the tax system.'
+    }
+  },
+  'not-found': {
+    path: '/404',
+    ar: {
+      title: 'الصفحة غير موجودة | DTS',
+      description: 'هذه الصفحة غير موجودة على موقع DTS.'
+    },
+    en: {
+      title: 'Page not found | DTS',
+      description: 'This page does not exist on the DTS site.'
     }
   }
 }
@@ -138,9 +156,13 @@ export function resolveSeo(locale, routeName, params = {}) {
 }
 
 export function staticHtmlRoutes() {
-  return Object.values(pages).map((page) => ({
-    path: page.path,
-    title: page.ar.title,
-    description: page.ar.description
-  }))
+  return Object.values(pages)
+    .filter((page) => page.path !== '/404')
+    .map((page) => ({
+      path: page.path,
+      title: page.ar.title,
+      description: page.ar.description
+    }))
 }
+
+export { pages }

@@ -15,12 +15,12 @@
         "text": "Start a request for an e-signature or e-seal."
       },
       "procedures": {
-        "title": "Procedures and contact",
-        "text": "How requests work, and how to reach the DTS team."
+        "title": "Knowledge center",
+        "text": "Intro, traits, services, uses, seal steps, and FAQ."
       },
       "ess": {
         "title": "Learn about ESS",
-        "text": "The invoice and receipt subscription, quietly."
+        "text": "The invoice and receipt subscription."
       }
     }
   },
@@ -99,5 +99,14 @@
     ],
     "learnMore": "Learn more",
     "cta": "All services"
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Practical guides on e-signature, the token, and how DTS products connect to the tax system.",
+    "cta": "More",
+    "carousel": "Latest articles",
+    "prev": "Previous article",
+    "next": "Next article",
+    "slide": "Article {n} of {total}"
   }
 }

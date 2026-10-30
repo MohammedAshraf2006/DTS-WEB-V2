@@ -6,11 +6,10 @@ export const PARTNER_KEYS = [
   'fedis',
   'tawqe3y',
   'mts',
-  'khalil',
   'textWorld',
+  'khalil',
   'essamAbdelgawad',
-  'gamalAbdelrazek',
-  'ramiMinyaElQamh'
+  'gamalAbdelrazek'
 ]
 
 export const partnersCatalog = {
@@ -49,12 +48,6 @@ export const partnersCatalog = {
     logo: '',
     url: '',
     tint: 'amber'
-  },
-  ramiMinyaElQamh: {
-    key: 'ramiMinyaElQamh',
-    logo: '',
-    url: '',
-    tint: 'navy'
   },
   gamalAbdelrazek: {
     key: 'gamalAbdelrazek',

@@ -5,6 +5,7 @@
     "products": "المنتجات",
     "clients": "العملاء",
     "partners": "شركاؤنا",
+    "knowledge": "المقالات",
     "contact": "تواصل معنا",
     "cta": "تواصل معنا",
     "closeMenu": "إغلاق القائمة",
@@ -42,16 +43,32 @@
     "phone": "(+20) 55 4492037",
     "supportPhone": "(+20) 10 50992816",
     "numbers": ["(+20) 10 50992815", "(+20) 10 50992816", "(+20) 10 50992817", "(+20) 10 50992818"],
-    "rights": "جميع الحقوق محفوظة"
+    "rights": "جميع الحقوق محفوظة",
+    "numberRoles": ["مبيعات", "واتساب", "توقيع", "دعم"],
+    "taxIdLabel": "الرقم الضريبي",
+    "taxId": "769038883"
+  },
+  "social": {
+    "title": "تابعنا",
+    "whatsapp": "واتساب",
+    "facebook": "فيسبوك",
+    "linkedin": "لينكدإن",
+    "instagram": "إنستجرام"
   },
   "whatsapp": {
     "label": "تواصل عبر واتساب",
-    "href": "https://wa.me/201050992817"
+    "href": "https://wa.me/201050992816"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة | DTS",
+    "message": "هذه الصفحة غير موجودة.",
+    "home": "الرجوع للرئيسية"
   },
   "buttons": {
     "learnMore": "اعرف أكتر",
     "contactUs": "تواصل معنا",
     "discoverProducts": "اكتشف منتجاتنا",
+    "latestArticles": "أحدث المقالات",
     "discoverServices": "كل الخدمات"
   }
 }

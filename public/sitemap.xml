@@ -2,72 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dts-eg.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/products</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dts-eg.com/products/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/products/ess</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dts-eg.com/products/ess/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/products/esa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://dts-eg.com/products/esa/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/products/ers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://dts-eg.com/products/ers/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://dts-eg.com/services/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/services/signature</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://dts-eg.com/services/signature/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/knowledge</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://dts-eg.com/clients/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/knowledge/request-signature</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://dts-eg.com/partners/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/knowledge/what-is-ess</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://dts-eg.com/contact/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/knowledge/contact-hours</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://dts-eg.com/knowledge/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/clients</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://dts-eg.com/fix-error-3008-itida-websign/</loc>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/partners</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://dts-eg.com/knowledge/what-is-e-signature/</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://dts-eg.com/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://dts-eg.com/knowledge/signature-characteristics/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/signature-services/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/signature-applications/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/e-seal-steps/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/e-seal-vs-signature/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/signature-faq/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/usb-token/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/request-signature/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/what-is-ess/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/what-is-e-invoice/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/what-is-e-receipt/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/invoice-vs-receipt/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/e-receipt-steps/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/e-receipt-faq/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dts-eg.com/knowledge/contact-hours/</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
 </urlset>

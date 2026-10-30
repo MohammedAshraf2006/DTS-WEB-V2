@@ -1,16 +1,32 @@
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { trackEvent } from '@/analytics/track.js'
 
 const { t } = useI18n()
+const route = useRoute()
+
+const href = computed(() => {
+  const base = t('common.whatsapp.href')
+  const text = encodeURIComponent(`مرحباً DTS، أتواصل من الصفحة: https://dts-eg.com${route.fullPath}`)
+  const join = base.includes('?') ? '&' : '?'
+  return `${base}${join}text=${text}`
+})
+
+function onClick() {
+  trackEvent('click_whatsapp', { path: route.fullPath })
+}
 </script>
 
 <template>
   <a
-    :href="t('common.whatsapp.href')"
+    :href="href"
     target="_blank"
     rel="noopener noreferrer"
     class="group fixed bottom-4 right-4 z-40 rounded-full bg-[#25D366] p-3 text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20bd5a] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] md:bottom-6 md:right-6 md:p-4"
     :aria-label="t('common.whatsapp.label')"
+    @click="onClick"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

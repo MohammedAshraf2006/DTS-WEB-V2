@@ -4,6 +4,19 @@ import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
 const isEnglishLocale = computed(() => locale.value === 'en')
+const splitOpen = ref(false)
+
+function onSplitFocusOut(event) {
+  if (!event.currentTarget.contains(event.relatedTarget)) splitOpen.value = false
+}
+
+function onSplitHalfClick(event) {
+  if (splitOpen.value) return
+  if (window.matchMedia('(hover: none)').matches) {
+    event.preventDefault()
+    splitOpen.value = true
+  }
+}
 
 const heroBackground = ref(null)
 let vantaEffect = null
@@ -101,9 +114,9 @@ const heroIcons = [
 ]
 
 const floatingProductCards = [
-  { src: '/images/Products/ers-logo.webp', key: 'ers', to: '/products/ers', className: 'sm:-translate-y-1' },
-  { src: '/images/Products/esa-logo.webp', key: 'esa', to: '/products/esa', className: 'translate-y-2 sm:translate-y-3' },
-  { src: '/images/Products/ess-logo.webp', key: 'ess', to: '/products/ess', className: '-translate-y-1 sm:-translate-y-2' }
+  { src: '/images/Products/ers-logo.webp', key: 'ers', to: '/products/ers/', className: 'sm:-translate-y-1' },
+  { src: '/images/Products/esa-logo.webp', key: 'esa', to: '/products/esa/', className: 'translate-y-2 sm:translate-y-3' },
+  { src: '/images/Products/ess-logo.webp', key: 'ess', to: '/products/ess/', className: '-translate-y-1 sm:-translate-y-2' }
 ]
 
 const toneClasses = {
@@ -117,9 +130,9 @@ const toneClasses = {
 
 // Rotating hero pills — brand core hues (readable in light + dark)
 const rotatingWords = [
-  { key: 'invoice', rgb: '27 115 159', to: '/products/ess' }, // Blue #1B739F
-  { key: 'receipt', rgb: '22 163 74', to: '/products/ers' }, // Green #16A34A
-  { key: 'signature', rgb: '224 184 77', to: '/products/esa' } // Gold #E0B84D
+  { key: 'invoice', rgb: '27 115 159', to: '/products/ess/' },
+  { key: 'receipt', rgb: '22 163 74', to: '/products/ers/' },
+  { key: 'signature', rgb: '224 184 77', to: '/products/esa/' }
 ]
 
 const activeIndex = ref(0)
@@ -185,7 +198,7 @@ onBeforeUnmount(() => {
 
       <!-- العنوان الرئيسي مع الكلمة المتغيّرة (نفس فكرة هيرو) -->
       <h1
-        class="reveal mt-9 flex flex-wrap items-center justify-center gap-x-3 gap-y-5 font-sans text-4xl font-extrabold leading-[1.25] tracking-tight text-text-base sm:mt-11 sm:gap-y-6 sm:text-5xl lg:text-6xl xl:text-7xl"
+        class="reveal mt-9 flex flex-wrap items-center justify-center gap-x-3 gap-y-4 font-sans text-[1.7rem] font-extrabold leading-[1.3] tracking-tight text-text-base sm:mt-11 sm:gap-y-6 sm:text-5xl lg:text-6xl xl:text-7xl"
         style="transition-delay: .08s"
       >
         <span>{{ t('home.hero.titlePrefix') }}</span>
@@ -198,7 +211,7 @@ onBeforeUnmount(() => {
             v-for="(word, i) in rotatingWords"
             :key="word.key"
             :to="word.to"
-            class="relative col-start-1 row-start-1 inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 leading-none text-text-base transition-opacity duration-500 ease-out hover:brightness-110 sm:px-5 sm:py-2.5"
+            class="relative col-start-1 row-start-1 inline-flex max-w-[min(100%,18rem)] items-center gap-2 whitespace-normal rounded-full px-3 py-2 text-center leading-none text-text-base transition-opacity duration-500 ease-out hover:brightness-110 sm:max-w-none sm:whitespace-nowrap sm:px-5 sm:py-2.5"
             :class="i === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0'"
           >
             <!-- طبقة الخلفية بس — هي اللي بتنزل شوية لتحت -->
@@ -217,35 +230,124 @@ onBeforeUnmount(() => {
       </h1>
 
       <p
-        class="reveal mx-auto mt-12 max-w-2xl text-lg leading-relaxed text-text-muted sm:mt-14"
+        class="reveal mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-text-muted sm:mt-10"
         style="transition-delay: .16s"
       >
         {{ t('home.hero.subtitle') }}
       </p>
 
-      <div class="reveal mt-9 grid w-full max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3" style="transition-delay: .24s">
+      <div
+        class="reveal mx-auto mt-8 flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
+        style="transition-delay: .24s"
+      >
         <RouterLink
-          to="/services/signature"
-          class="flex flex-col rounded-2xl bg-primary px-5 py-4 text-start text-text-onprimary shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
+          to="/contact/"
+          class="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-text-onprimary shadow-[0_0_10px_rgba(35,184,193,0.32)] transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_0_14px_rgba(35,184,193,0.45)]"
         >
-          <span class="text-sm font-bold">{{ t('home.hero.doors.signature.title') }}</span>
-          <span class="mt-1 text-xs leading-relaxed text-text-onprimary/80">{{ t('home.hero.doors.signature.text') }}</span>
+          {{ t('common.buttons.contactUs') }}
         </RouterLink>
-        <RouterLink
-          to="/knowledge"
-          class="flex flex-col rounded-2xl border border-border bg-surface-alt px-5 py-4 text-start transition-all hover:-translate-y-0.5 hover:border-primary"
+        <div
+          class="split-cta"
+          :class="{ 'is-open': splitOpen }"
+          @mouseenter="splitOpen = true"
+          @mouseleave="splitOpen = false"
+          @focusin="splitOpen = true"
+          @focusout="onSplitFocusOut"
         >
-          <span class="text-sm font-bold text-text-base">{{ t('home.hero.doors.procedures.title') }}</span>
-          <span class="mt-1 text-xs leading-relaxed text-text-muted">{{ t('home.hero.doors.procedures.text') }}</span>
-        </RouterLink>
-        <RouterLink
-          to="/products/ess"
-          class="flex flex-col rounded-2xl px-5 py-4 text-start transition-colors hover:bg-surface-alt"
-        >
-          <span class="text-sm font-semibold text-text-muted">{{ t('home.hero.doors.ess.title') }}</span>
-          <span class="mt-1 text-xs leading-relaxed text-text-subtle">{{ t('home.hero.doors.ess.text') }}</span>
-        </RouterLink>
+          <div class="split-cta__shell">
+            <RouterLink
+              to="/knowledge/"
+              class="split-cta__half"
+              @click="onSplitHalfClick"
+            >
+              {{ t('common.buttons.latestArticles') }}
+            </RouterLink>
+            <RouterLink
+              to="/products/"
+              class="split-cta__half split-cta__half--extra"
+              :tabindex="splitOpen ? 0 : -1"
+              @click="onSplitHalfClick"
+            >
+              {{ t('common.buttons.discoverProducts') }}
+            </RouterLink>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.split-cta__shell {
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  box-shadow: 0 0 10px rgba(35, 184, 193, 0.32);
+  transition: transform 0.35s ease, gap 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.split-cta__half {
+  display: inline-flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: color 0.25s ease, background-color 0.35s ease, box-shadow 0.35s ease, max-width 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+}
+
+.split-cta__half--extra {
+  flex: 0 0 auto;
+  max-width: 0;
+  overflow: hidden;
+  padding-inline: 0;
+  opacity: 0;
+  color: var(--color-text-on-primary);
+  background: transparent;
+  pointer-events: none;
+}
+
+.split-cta.is-open .split-cta__shell,
+.split-cta:hover .split-cta__shell {
+  box-shadow: 0 0 14px rgba(35, 184, 193, 0.45);
+}
+
+.split-cta.is-open .split-cta__shell {
+  gap: 0.4rem;
+  padding: 0.25rem;
+  transform: scale(1.06);
+}
+
+.split-cta.is-open .split-cta__half--extra {
+  max-width: 22rem;
+  padding-inline: 1.35rem;
+  opacity: 1;
+  background: var(--color-primary);
+  pointer-events: auto;
+}
+
+.split-cta:hover .split-cta__half:first-child {
+  color: var(--color-primary);
+}
+
+.split-cta.is-open .split-cta__half--extra:hover {
+  background: var(--color-primary-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-cta__shell,
+  .split-cta__half {
+    transition: none;
+  }
+
+  .split-cta.is-open .split-cta__shell {
+    transform: none;
+  }
+}
+</style>

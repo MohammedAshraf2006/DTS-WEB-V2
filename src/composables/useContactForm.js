@@ -1,11 +1,14 @@
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { sendContactMessage } from '@/services/contact'
+import { trackEvent } from '@/analytics/track.js'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function useContactForm() {
   const { t } = useI18n()
+  const route = useRoute()
 
   const form = reactive({
     name: '',
@@ -79,14 +82,17 @@ export function useContactForm() {
     sendError.value = ''
 
     try {
+      const service = typeof route.query.service === 'string' ? route.query.service : ''
       const result = await sendContactMessage({
         name: form.name.trim(),
         phone: form.phone.trim(),
         email: form.email.trim(),
         message: form.message.trim(),
-        honeypot: form.honeypot
+        honeypot: form.honeypot,
+        _subject: service ? `DTS contact — ${service} — ${form.name.trim()}` : `DTS contact — ${form.name.trim()}`
       })
       if (result.ok) {
+        trackEvent('generate_lead', { service })
         resetForm()
         showSuccess.value = true
       } else {
@@ -104,6 +110,13 @@ export function useContactForm() {
     showSuccess.value = false
     clearErrors()
   }
+
+  onMounted(() => {
+    const service = typeof route.query.service === 'string' ? route.query.service : ''
+    if (service && !form.message.trim()) {
+      form.message = t('contact.servicePrefill', { service })
+    }
+  })
 
   return {
     form,

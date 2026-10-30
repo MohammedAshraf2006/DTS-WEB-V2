@@ -1,6 +1,23 @@
 {
-  "eyebrow": "Knowledge",
-  "title": "Procedures",
-  "subtitle": "How to request a signature or seal, what ESS is, and how to reach DTS.",
-  "back": "All procedures"
+  "eyebrow": "Knowledge center",
+  "title": "Knowledge center",
+  "section": "Articles",
+  "subtitle": "Practical guides on e-invoices and e-receipts, e-signature and e-seal, the token, and how DTS products connect to the tax system.",
+  "back": "All articles",
+  "read": "Read article",
+  "featured": "Featured",
+  "fresh": "New",
+  "downloadCta": "Download the fix",
+  "copyCode": "Copy code",
+  "copied": "Copied",
+  "downloadHint": "Fix-ITIDA-WebSign.bat — run it once as administrator.",
+  "more": "Related articles",
+  "byline": "DTS team · {date}",
+  "topics": {
+    "all": "All",
+    "signature": "Signature and seal",
+    "token": "Token",
+    "ess": "ESS",
+    "receipt": "Invoice and receipt"
+  }
 }

@@ -10,9 +10,9 @@
       "description": "A technology partner supporting digital solutions and enterprise systems across day-to-day operations."
     },
     "fedis": {
-      "name": "FEDIS Egypt",
+      "name": "Fixed Egypt (FEDIS)",
       "role": "Digital solutions & information security",
-      "description": "A certified partner for digital solutions and information security, including e-signature and e-seal pathways."
+      "description": "Fixed Egypt (FEDIS) is a certified partner for digital solutions and information security, and the operator behind Tawqe3y e-signature and e-seal."
     },
     "tawqe3y": {
       "name": "Tawqe3y",
@@ -21,28 +21,23 @@
     },
     "khalil": {
       "name": "Legal accountant office Mahmoud Khalil",
-      "role": "Accounting & tax services",
-      "description": "A certified accountant office for accounting, tax, and financial reporting for businesses and individuals in line with local requirements."
+      "role": "Corporate accounting and tax",
+      "description": "Mahmoud Khalil’s office focuses on company filings and financial reports under local rules, with a clear path for institutional clients."
     },
     "textWorld": {
-      "name": "Legal accountant office Text World",
-      "role": "Accounting & tax services",
-      "description": "A certified accountant office providing accounting, tax, and financial reporting for companies and individuals."
+      "name": "TAXES WORLD",
+      "role": "Technology solutions",
+      "description": "TAXES WORLD is a technology partner for digital solutions and systems that support day-to-day operations."
     },
     "essamAbdelgawad": {
       "name": "Legal accountant office Essam Abdelgawad",
-      "role": "Accounting & tax services",
-      "description": "A certified accountant office providing accounting, tax, and financial reporting for businesses and individuals."
-    },
-    "ramiMinyaElQamh": {
-      "name": "Legal accountant office Rami",
-      "role": "Accounting & tax services",
-      "description": "A certified accountant office providing bookkeeping, tax, and financial services for businesses and individuals in Minya Al-Qamh."
+      "role": "Periodic tax filings",
+      "description": "Essam Abdelgawad’s office follows periodic returns and financial reports for companies and individuals."
     },
     "gamalAbdelrazek": {
       "name": "Legal accountant office Gamal Abdelrazek GAT",
-      "role": "Accounting & tax services",
-      "description": "A certified accountant office specializing in accounting, tax, and related financial services for businesses and individuals."
+      "role": "Accounting under the GAT name",
+      "description": "Gamal Abdelrazek GAT combines accounting and tax work under the office name known to current clients."
     }
   }
 }
