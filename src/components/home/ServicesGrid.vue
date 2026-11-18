@@ -2,13 +2,16 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import ArticleLinkList from '@/components/knowledge/ArticleLinkList.vue'
 import { useCardTilt } from '@/composables/useCardTilt'
+import { RECEIPT_ARTICLE_SLUGS, SIGNATURE_ARTICLE_SLUGS } from '@/data/knowledgeLinks.js'
 
 const { t, tm, locale } = useI18n()
 
 // Home shows only the top 3 services
 const icons = ['invoice', 'layers', 'signature']
 const learnMoreLinks = ['/services', '/services', '/services/signature']
+const guideSlugs = [RECEIPT_ARTICLE_SLUGS, [], SIGNATURE_ARTICLE_SLUGS]
 
 const serviceItems = computed(() => {
   void locale.value
@@ -83,7 +86,7 @@ const {
         <article
           v-for="(service, i) in serviceItems"
           :key="i"
-          class="reveal group rounded-2xl border border-border bg-surface-alt p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg sm:p-10"
+          class="reveal group self-start rounded-2xl border border-border bg-surface-alt p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg sm:p-10"
           :style="{ transitionDelay: `${i * 0.08}s` }"
         >
           <div
@@ -99,6 +102,13 @@ const {
           <p class="mt-3 text-sm leading-relaxed text-text-subtle sm:text-base">
             {{ service.description }}
           </p>
+
+          <div v-if="guideSlugs[i].length" class="mt-5 text-start">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-text-subtle">
+              {{ t('knowledge.guides') }}
+            </p>
+            <ArticleLinkList :slugs="guideSlugs[i]" class="mt-2" />
+          </div>
 
           <RouterLink
             :to="learnMoreLinks[i] || '/services'"

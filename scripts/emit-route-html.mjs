@@ -2,7 +2,7 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadArticles } from './knowledge-lib.mjs'
-import { prerenderBody } from './prerender-bodies.mjs'
+import { articleCrawlFooter, prerenderBody } from './prerender-bodies.mjs'
 import { socialSameAs } from '../src/data/socialLinks.js'
 import { canonicalUrl, OG_IMAGE, SITE_ORIGIN, staticHtmlRoutes } from '../src/data/seo.js'
 
@@ -154,7 +154,7 @@ const routes = [
       type: 'article',
       image,
       jsonLd,
-      body: `<article><h1>${escapeHtml(article.ar.title)}</h1><p>${escapeHtml(article.ar.description)}</p>${article.ar.html}</article>`
+      body: `<article><h1>${escapeHtml(article.ar.title)}</h1><p>${escapeHtml(article.ar.description)}</p>${article.ar.html}${articleCrawlFooter(article, articles)}</article>`
     }
   })
 ]

@@ -5,6 +5,7 @@ import TrustBar from '@/components/home/TrustBar.vue'
 import ProductTabs from '@/components/home/ProductTabs.vue'
 import ServicesGrid from '@/components/home/ServicesGrid.vue'
 import ArticlesTeaser from '@/components/home/ArticlesTeaser.vue'
+import KnowledgeIndex from '@/components/knowledge/KnowledgeIndex.vue'
 
 useScrollReveal()
 </script>
@@ -32,5 +33,8 @@ useScrollReveal()
     <ProductTabs />
     <ServicesGrid />
     <ArticlesTeaser />
+    <div class="mx-auto max-w-[88rem] px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
+      <KnowledgeIndex />
+    </div>
   </div>
 </template>

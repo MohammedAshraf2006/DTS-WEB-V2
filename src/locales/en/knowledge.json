@@ -12,6 +12,10 @@
   "copied": "Copied",
   "downloadHint": "Fix-ITIDA-WebSign.bat — run it once as administrator.",
   "more": "Related articles",
+  "indexTitle": "Knowledge",
+  "indexSubtitle": "Guides on electronic signature, e-invoice, e-receipt, and ESS.",
+  "guides": "From Knowledge",
+  "serviceLabel": "Service",
   "byline": "DTS team · {date}",
   "topics": {
     "all": "All",

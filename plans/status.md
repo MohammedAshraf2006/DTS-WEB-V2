@@ -1,6 +1,6 @@
 # Execution status
 
-Last updated: 2026-10-28 (Footer and contact social strip: WhatsApp, Facebook, LinkedIn, Instagram. Home articles teaser is a latest-6 slider. Organization/LocalBusiness `sameAs` includes the three profile URLs.)
+Last updated: 2026-11-18 (Search Console: crawlable knowledge and contact links on `/` and `/services/`, related links plus a service link on each article, homepage title and description aligned to a digital-transformation company in Egypt. No URL changes.)
 
 Analytics: GA4 + Pixel IDs from Moataz (26 Oct). GTM unused. Conversion events: `click_whatsapp`, `click_call`, `generate_lead`, `signature_lead`.
 
@@ -25,6 +25,7 @@ Analytics: GA4 + Pixel IDs from Moataz (26 Oct). GTM unused. Conversion events: 
 - **Build:** `npm run build` emits per-route HTML shells (HTTP 200) after Vite
 - **Host:** GitHub Pages + Cloudflare (`dts-eg.com`). Deploy workflow: `.github/workflows/deploy.yml`
 - **Crawlers:** GitHub Pages origin allows AI fetch; live dts-eg.com still injects Cloudflare managed `Disallow` for GPTBot/ClaudeBot — Pages deploy alone does not remove it (see `docs/architecture/crawlers.md`)
+- **Internal links:** `/` and `/services/` link every knowledge article and `/contact/` in both the Vue UI and the prerendered HTML. Article pages link related articles and the matching service. Homepage title/description (and og/twitter, which share those strings) name DTS as a digital transformation company in Egypt and list electronic signature, e-invoice, e-receipt, and ESS.
 
 ## Dependency order
 
