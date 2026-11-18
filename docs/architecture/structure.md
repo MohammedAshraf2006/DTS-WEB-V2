@@ -31,7 +31,7 @@ src/
     services/             # services listing cards + signature panels + header menu cards
     clients/              # client logo cards
     partners/             # stacked partner feature cards
-    knowledge/            # knowledge article cards
+    knowledge/            # article cards, crawlable title lists, knowledge index
     contact/              # contact form + success Lottie
     icons/AppIcon.vue
   data/
@@ -40,6 +40,7 @@ src/
     clients.js            # featured clients catalog + logo paths
     partners.js           # FEDIS / Tawqe3y / MTS / TAXES WORLD + legal accountant offices
     seo.js               # per-route title, description, canonical path
+    knowledgeLinks.js    # article groups and trailing-slash service targets
     knowledge.generated.js # built from content/knowledge
   composables/
     useTheme.js
@@ -77,6 +78,7 @@ public/llms.txt           # short map for AI assistants
 3. `ProductTabs` — ESS featured, ESA as a complement row, ERS as a cashier-receipts link (`#products`)
 4. `ServicesGrid` — 3 services + e-signature highlight (`#services`)
 5. `ArticlesTeaser` — dense knowledge list with unique covers (`#articles`)
+6. `KnowledgeIndex` — every article title plus `/contact/`
 
 Ambient orbs on Home are **dark mode only**.
 

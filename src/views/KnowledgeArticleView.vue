@@ -3,6 +3,7 @@ import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { articlePath, getArticle, listArticles } from '@/data/knowledge.generated.js'
+import { relatedArticleSlugs, servicePathForSlug } from '@/data/knowledgeLinks.js'
 import { trackEvent } from '@/analytics/track.js'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
@@ -70,9 +71,19 @@ function mountCopyButtons() {
 
 const related = computed(() => {
   if (!article.value) return []
-  return listArticles(locale.value)
-    .filter((item) => item.slug !== article.value.slug && item.topic === article.value.topic)
-    .slice(0, 3)
+  const bySlug = new Map(listArticles(locale.value).map((item) => [item.slug, item]))
+  return relatedArticleSlugs(article.value.slug)
+    .map((slug) => bySlug.get(slug))
+    .filter(Boolean)
+})
+
+const serviceLink = computed(() => {
+  if (!article.value) return null
+  const to = servicePathForSlug(article.value.slug)
+  if (to === '/contact/') return { to, label: t('common.nav.contact') }
+  if (to.startsWith('/services/signature')) return { to, label: t('services.items.signature.title') }
+  if (to.startsWith('/services/')) return { to, label: t('services.items.einvoicing.title') }
+  return { to, label: t('services.title') }
 })
 
 const publishedLabel = computed(() => {
@@ -173,19 +184,27 @@ onMounted(() => mountCopyButtons())
         @click="onBodyClick"
       />
 
-      <div v-if="related.length" class="mt-12 border-t border-border pt-8">
-        <h2 class="font-heading text-xl font-bold text-text-base">{{ t('knowledge.more') }}</h2>
-        <ul class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div v-if="related.length || serviceLink" class="mt-12 border-t border-border pt-8">
+        <h2 v-if="related.length" class="font-heading text-xl font-bold text-text-base">{{ t('knowledge.more') }}</h2>
+        <ul v-if="related.length" class="mt-4 space-y-2">
           <li v-for="item in related" :key="item.slug">
             <RouterLink
               :to="articlePath(item)"
-              class="block rounded-xl border border-border bg-surface-alt p-4 hover:border-primary"
+              class="text-sm font-semibold text-primary transition-colors hover:text-primary-hover sm:text-base"
             >
-              <span class="font-heading text-base font-bold text-text-base">{{ item.title }}</span>
-              <span class="mt-1 line-clamp-2 block text-sm text-text-muted">{{ item.description }}</span>
+              {{ item.title }}
             </RouterLink>
           </li>
         </ul>
+        <p v-if="serviceLink" class="mt-6 text-sm text-text-muted sm:text-base">
+          <span class="font-semibold text-text-base">{{ t('knowledge.serviceLabel') }}</span>
+          <RouterLink
+            :to="serviceLink.to"
+            class="ms-2 font-semibold text-primary transition-colors hover:text-primary-hover"
+          >
+            {{ serviceLink.label }}
+          </RouterLink>
+        </p>
       </div>
     </div>
   </article>

@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import { getServicesList, isServiceKey } from '@/data/services'
 import ServiceListCard from '@/components/services/ServiceListCard.vue'
+import KnowledgeIndex from '@/components/knowledge/KnowledgeIndex.vue'
 import AppIcon from '@/components/icons/AppIcon.vue'
 
 const { t } = useI18n()
@@ -84,6 +85,8 @@ useScrollReveal()
           :delay="i * 0.05"
         />
       </div>
+
+      <KnowledgeIndex class="reveal mt-12" :class="{ 'is-visible': forceReveal }" />
 
       <div class="reveal mt-12 text-center" :class="{ 'is-visible': forceReveal }">
         <RouterLink

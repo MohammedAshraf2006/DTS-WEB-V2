@@ -18,6 +18,7 @@ Production readiness: RTL/LTR QA, performance, assets, basic SEO, deploy alignme
 2. Deploy alignment vs reference host/domain
 3. Confirm archive docs remain non-canonical
 4. Origin crawler files on GitHub Pages (`robots.txt` allow AI, `sitemap.xml`, `llms.txt`) — **Cloudflare proxy on dts-eg.com still injects managed robots.txt**; disable that overlay or grey-cloud DNS (see `docs/architecture/crawlers.md`)
+5. 2026-11-18: homepage title and description name a digital transformation company in Egypt; `/` and `/services/` (Vue and prerender) link every knowledge article and `/contact/`; each article links related articles and its service. URLs unchanged.
 
 ## Test criteria
 

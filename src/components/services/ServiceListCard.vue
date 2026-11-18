@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCardTilt } from '@/composables/useCardTilt'
 import AppIcon from '@/components/icons/AppIcon.vue'
+import ArticleLinkList from '@/components/knowledge/ArticleLinkList.vue'
+import { RECEIPT_ARTICLE_SLUGS, SIGNATURE_ARTICLE_SLUGS } from '@/data/knowledgeLinks.js'
 
 const props = defineProps({
   serviceKey: { type: String, required: true },
@@ -21,6 +23,12 @@ const bullets = computed(() => {
   void locale.value
   const raw = tm(`services.items.${props.serviceKey}.bullets`)
   return Array.isArray(raw) ? raw : []
+})
+
+const guideSlugs = computed(() => {
+  if (props.serviceKey === 'signature') return SIGNATURE_ARTICLE_SLUGS
+  if (props.serviceKey === 'einvoicing') return RECEIPT_ARTICLE_SLUGS
+  return []
 })
 </script>
 
@@ -107,6 +115,12 @@ const bullets = computed(() => {
               <span>{{ b }}</span>
             </li>
           </ul>
+          <div v-if="guideSlugs.length" class="mt-5 text-start">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-text-subtle">
+              {{ t('knowledge.guides') }}
+            </p>
+            <ArticleLinkList :slugs="guideSlugs" class="mt-2" />
+          </div>
           <RouterLink
             :to="href"
             class="sculpt-cta mt-6 inline-flex items-center gap-2 transition-all"

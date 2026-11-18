@@ -5,6 +5,13 @@ import { socialLinks } from '../src/data/socialLinks.js'
 import { getPartnersList } from '../src/data/partners.js'
 import { PRODUCT_KEYS } from '../src/data/products.js'
 import { SERVICE_KEYS } from '../src/data/services.js'
+import {
+  RECEIPT_ARTICLE_SLUGS,
+  SIGNATURE_ARTICLE_SLUGS,
+  articlePublicPath,
+  relatedArticleSlugs,
+  servicePathForSlug
+} from '../src/data/knowledgeLinks.js'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -26,6 +33,25 @@ function p(text) {
 
 function h(level, text) {
   return `<h${level}>${escapeHtml(text)}</h${level}>`
+}
+
+function articleAnchors(slugs, articles) {
+  const items = slugs
+    .map((slug) => articles.find((item) => item.slug === slug))
+    .filter(Boolean)
+  if (!items.length) return ''
+  return `<ul>${items
+    .map((item) => `<li><a href="${articlePublicPath(item)}">${escapeHtml(item.ar.title)}</a></li>`)
+    .join('')}</ul>`
+}
+
+function serviceLabelForSlug(slug) {
+  const href = servicePathForSlug(slug)
+  const services = load('services.json')
+  if (href === '/contact/') return load('contact.json').title
+  if (href.startsWith('/services/signature')) return services.items.signature.title
+  if (href.startsWith('/services/')) return services.items.einvoicing.title
+  return load('services.json').title
 }
 
 function homeBody(articles = []) {
@@ -58,10 +84,15 @@ function homeBody(articles = []) {
     h(2, services.title),
     p(services.subtitle),
     p(services.signatureHighlight.subtitle),
-    ...services.items.map((card) => `${h(3, card.title)}${p(card.description)}`),
+    ...services.items.map((card, index) => {
+      const slugs = index === 0 ? RECEIPT_ARTICLE_SLUGS : index === 2 ? SIGNATURE_ARTICLE_SLUGS : []
+      const guides = slugs.length ? `${p(knowledgeGuides())}${articleAnchors(slugs, articles)}` : ''
+      return `${h(3, card.title)}${p(card.description)}${guides}`
+    }),
     h(2, home.articles.title),
     p(home.articles.subtitle),
     `<ul>${latest}</ul>`,
+    knowledgeIndex(articles),
     p(common.footer.description),
     p(`${common.footer.hours}. ${common.footer.address}`)
   ].join('\n')
@@ -85,15 +116,43 @@ function productDetailBody(key) {
   return `${h(1, item.title)}${p(item.description)}${features ? `<ul>${features}</ul>` : ''}`
 }
 
-function servicesBody() {
+function knowledgeGuides() {
+  return load('knowledge.json').guides
+}
+
+function knowledgeIndex(articles) {
+  const knowledge = load('knowledge.json')
+  const common = load('common.json')
+  return [
+    h(2, knowledge.indexTitle),
+    p(knowledge.indexSubtitle),
+    articleAnchors(articles.map((item) => item.slug), articles),
+    `<p><a href="/contact/">${escapeHtml(common.nav.contact)}</a></p>`
+  ].join('')
+}
+
+function servicesBody(articles = []) {
   const services = load('services.json')
   const blocks = SERVICE_KEYS.map((key) => {
     const item = services.items[key]
     if (!item) return ''
     const bullets = (item.bullets || []).map((row) => `<li>${escapeHtml(row)}</li>`).join('')
-    return `${h(2, item.title)}${p(item.detail || item.shortDescription)}${bullets ? `<ul>${bullets}</ul>` : ''}`
+    const slugs = key === 'signature' ? SIGNATURE_ARTICLE_SLUGS : key === 'einvoicing' ? RECEIPT_ARTICLE_SLUGS : []
+    const guides = slugs.length ? `${p(knowledgeGuides())}${articleAnchors(slugs, articles)}` : ''
+    return `${h(2, item.title)}${p(item.detail || item.shortDescription)}${bullets ? `<ul>${bullets}</ul>` : ''}${guides}`
   })
-  return [h(1, services.title), p(services.subtitle), p(services.featuredSubtitle), ...blocks].join('\n')
+  return [h(1, services.title), p(services.subtitle), p(services.featuredSubtitle), ...blocks, knowledgeIndex(articles)].join('\n')
+}
+
+export function articleCrawlFooter(article, articles) {
+  const knowledge = load('knowledge.json')
+  const related = articleAnchors(relatedArticleSlugs(article.slug), articles)
+  const href = servicePathForSlug(article.slug)
+  return [
+    related ? `${h(2, knowledge.more)}${related}` : '',
+    h(2, knowledge.serviceLabel),
+    `<p><a href="${href}">${escapeHtml(serviceLabelForSlug(article.slug))}</a></p>`
+  ].join('')
 }
 
 function partnersBody() {
@@ -160,7 +219,7 @@ export function prerenderBody(path, articles = []) {
   if (path === '/products/ess') return productDetailBody('ess')
   if (path === '/products/esa') return productDetailBody('esa')
   if (path === '/products/ers') return productDetailBody('ers')
-  if (path === '/services') return servicesBody()
+  if (path === '/services') return servicesBody(articles)
   if (path === '/services/signature') return signatureBody()
   if (path === '/partners') return partnersBody()
   if (path === '/contact') return contactBody()

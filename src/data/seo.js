@@ -11,12 +11,12 @@ const pages = {
   home: {
     path: '/',
     ar: {
-      title: 'DTS | خدمات التحول الرقمى',
-      description: 'منظومة DTS لإصدار الفواتير والإيصالات الإلكترونية والتوقيع الرقمي، مرتبطة بمصلحة الضرائب المصرية.'
+      title: 'DTS | شركة التحول الرقمي في مصر',
+      description: 'شركة DTS (Digital Transformation Services) للتحول الرقمي في مصر: التوقيع الإلكتروني، الفاتورة الإلكترونية، الإيصال الإلكتروني، وESS.'
     },
     en: {
-      title: 'DTS | Digital Transformation Services',
-      description: 'DTS issues e-invoices and e-receipts and handles digital signatures for companies in Egypt, connected to the Egyptian Tax Authority.'
+      title: 'DTS | Digital Transformation Company in Egypt',
+      description: 'DTS (Digital Transformation Services), a digital transformation company in Egypt: electronic signature, e-invoice, e-receipt, and ESS.'
     }
   },
   products: {

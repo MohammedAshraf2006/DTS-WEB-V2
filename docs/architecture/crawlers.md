@@ -40,3 +40,7 @@ Redeploying this repo does not change that Cloudflare setting.
 ## Deep links
 
 Public routes are emitted as real files (`dist/products/index.html`, `dist/contact/index.html`, and the same for the other sitemap URLs) with a per-route title, description, canonical link, and Arabic body copy (home, products, services, partners, clients, contact, knowledge index, plus full article HTML). A crawler that does not run JavaScript still receives HTTP 200 and that text. Unknown paths keep using `public/404.html`, which is an HTTP 404.
+
+Vue mounts on `#app` and replaces that static body. Googlebot runs JavaScript, so the links it keeps are the ones in the Vue templates (`RouterLink` renders a real `<a href>`). Non-JS crawlers keep the links written by `scripts/prerender-bodies.mjs` and `scripts/emit-route-html.mjs`. Both layers list the same knowledge URLs.
+
+Homepage and `/services/` static HTML include a Knowledge link list (every article title to its trailing-slash URL, plus `/contact/`) and contextual lists: e-invoice/e-receipt articles on the invoicing block, e-signature articles on the signature block. Each article shell appends related-article links and one link to the matching service (`/services/signature/`, `/services/#service-einvoicing`, or `/contact/`). Article `<title>`, meta description, canonical, and `<h1>` stay unique and come from each article's Arabic frontmatter. Indexable copy remains Arabic; English title and description update only after the in-page language switch.

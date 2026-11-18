@@ -13,6 +13,10 @@
   "copied": "تم النسخ",
   "downloadHint": "ملف Fix-ITIDA-WebSign.bat — شغّله كمسؤول مرة واحدة.",
   "more": "مقالات ذات صلة",
+  "indexTitle": "مقالات",
+  "indexSubtitle": "شروحات التوقيع الإلكتروني، الفاتورة الإلكترونية، الإيصال الإلكتروني، وESS.",
+  "guides": "من المقالات",
+  "serviceLabel": "الخدمة",
   "byline": "فريق DTS · {date}",
   "topics": {
     "all": "الكل",
